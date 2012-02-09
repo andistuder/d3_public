@@ -17,7 +17,7 @@ describe ApplicationController do
     it "assigns @og_title" do
       get 'index'
       assigns(:og_title).should_not be_nil
-      assigns(:og_title).should eq(CenatusCms::Application::SITE_NAME)
+      assigns(:og_title).should eq(D3::Application::SITE_NAME)
     end
 
     it "assigns @og_type" do
@@ -29,25 +29,25 @@ describe ApplicationController do
     it "assigns @og_url" do
       get 'index'
       assigns(:og_url).should_not be_nil
-      assigns(:og_url).should eq(CenatusCms::Application::SITE_URL)
+      assigns(:og_url).should eq(D3::Application::SITE_URL)
     end
 
     it "assigns @og_image" do
       get 'index'
       assigns(:og_image).should_not be_nil
-      assigns(:og_image).should eq(CenatusCms::Application::SITE_LOGO)
+      assigns(:og_image).should eq(D3::Application::SITE_LOGO)
     end
 
     it "assigns @og_site_name" do
       get 'index'
       assigns(:og_site_name).should_not be_nil
-      assigns(:og_site_name).should eq(CenatusCms::Application::SITE_NAME)
+      assigns(:og_site_name).should eq(D3::Application::SITE_NAME)
     end
 
     it "assigns @og_admins" do
       get 'index'
       assigns(:og_admins).should_not be_nil
-      assigns(:og_admins).should eq(CenatusCms::Application::FB_ADMIN)
+      assigns(:og_admins).should eq(D3::Application::FB_ADMIN)
     end
 
     it "assigns @tweets" do
@@ -59,7 +59,7 @@ describe ApplicationController do
       Rails.cache.clear
       Rails.cache.stub(:read).with(anything()).and_return(nil)
       #TODO unable to stub the API??
-      #Twitter.stub(:user_timeline).with(CenatusCms::Application::TWITTER_NAME).and_return(nil)
+      #Twitter.stub(:user_timeline).with(D3::Application::TWITTER_NAME).and_return(nil)
       assigns(:tweets).should_not be_nil
     end
 

@@ -13,7 +13,7 @@ if defined?(Bundler)
   Bundler.require(:default, :assets, Rails.env)
 end
 
-module CenatusCms
+module D3
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -56,7 +56,7 @@ module CenatusCms
     config.generators.helper = false
 
     # CMS config
-    # CenatusCms::Application::SITE_NAME
+    # D3::Application::SITE_NAME
     SITE_NAME = "Cenatus CMS"
     SITE_URL = "http://cenatus.org/"
     SITE_LOGO = "#{SITE_URL}images/home-logo.jpg"

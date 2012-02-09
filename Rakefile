@@ -4,5 +4,5 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-CenatusCms::Application.load_tasks
+D3::Application.load_tasks
 

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       @tweets = Rails.cache.read(:tweets)
 
       if @tweets.blank?
-        @tweets = Twitter.user_timeline(CenatusCms::Application::TWITTER_NAME, {:count => 1})
+        @tweets = Twitter.user_timeline(D3::Application::TWITTER_NAME, {:count => 1})
         Rails.cache.write(:tweets, @tweets, :expires_in => 10.minutes)
       end
 
@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_facebook_headers
-    @og_title = CenatusCms::Application::SITE_NAME
+    @og_title = D3::Application::SITE_NAME
     @og_type = "website"
-    @og_url = CenatusCms::Application::SITE_URL
-    @og_image = CenatusCms::Application::SITE_LOGO
-    @og_site_name = CenatusCms::Application::SITE_NAME
-    @og_admins = CenatusCms::Application::FB_ADMIN
+    @og_url = D3::Application::SITE_URL
+    @og_image = D3::Application::SITE_LOGO
+    @og_site_name = D3::Application::SITE_NAME
+    @og_admins = D3::Application::FB_ADMIN
   end
 end

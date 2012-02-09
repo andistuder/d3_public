@@ -1,4 +1,4 @@
-CenatusCms::Application.routes.draw do                      
+D3::Application.routes.draw do
   
   
 

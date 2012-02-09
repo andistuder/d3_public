@@ -10,9 +10,9 @@ describe "sitemap/sitemap.builder" do
     render :template => "sitemap/sitemap.builder"
 
     rendered.should have_xpath('//urlset[@xmlns="http://www.google.com/schemas/sitemap/0.84"]')
-    rendered.should have_xpath("//urlset/url[loc=\"#{CenatusCms::Application::SITE_URL}\"]")
-    rendered.should have_xpath("//urlset/url[loc=\"#{CenatusCms::Application::SITE_URL}about\"]")
-    rendered.should have_xpath("//urlset/url[loc=\"#{CenatusCms::Application::SITE_URL}contact\"]")
+    rendered.should have_xpath("//urlset/url[loc=\"#{D3::Application::SITE_URL}\"]")
+    rendered.should have_xpath("//urlset/url[loc=\"#{D3::Application::SITE_URL}about\"]")
+    rendered.should have_xpath("//urlset/url[loc=\"#{D3::Application::SITE_URL}contact\"]")
   end
 
 end
