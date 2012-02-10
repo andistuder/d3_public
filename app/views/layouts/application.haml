@@ -18,18 +18,7 @@
     %meta{:property => "fb:admins", :content => @og_admins}
 
     = javascript_include_tag :application
-    
-    :javascript
-      jQuery(function($){
-        $('#show_grid').click(function(){
-          $('#container').css("background", "url('/images/grid.png')");
-        });
 
-        $('#hide_grid').click(function(){
-          $('#container').css("background", "white");
-        });
-      });
-      
     = csrf_meta_tag
 
   %body.two-col.bp
@@ -58,11 +47,11 @@
         
         &copy; Cenatus
         
-        #grid_debug{:style => "float:right"}
-          %a#show_grid
+        .grid_debug{:style => "float:right"}
+          %a.show_grid
             Show Grid
           |
-          %a#hide_grid
+          %a.hide_grid
             Hide Grid
   
         
