@@ -1,38 +1,39 @@
-@import "base"
-
-// our mixins
-=less-styled-link
-  :text-decoration none
-
-// our constants
-$dark_blue: #3d66ac
-$sky_blue:  #90b3df
-
-
 body.bp
-  color: $dark_blue
-  a
-    text-decoration: underline
-    +link-colors($dark_blue, $sky_blue, $dark_blue, $dark_blue, $dark_blue)
-
-  h1, h2, h3, h4, h5, h6
-    +header-text
-    text-transform: uppercase
-    color: blue
-  
-  
+  background-color: $site_bg
   #header
+    margin: 10px 0
+    #d3-logo
+      +float-left
+      +column(1)
+    #news-ticker
+      +column(2, true)
+      +float-right
+      margin: 5px 0
+    #search-form
+      +column(5)
+      +float-left
+      margin: 5px 0
     #topnav
+      +column(7, true)
+      +float-left
       ul
         +horizontal-list-container
-        float: right
         li
           +horizontal-list-item
-          +column(2)
-          height: 100px
-          margin: 0px 3px
-          padding: 0px
+          background-color: $dark_grey_bg
 
-
+  #main
+    #breadcrumb, #prev_next_bar
+      +column(8, true)
+      background-color: $light_grey_bg
+      padding: 5px
+    //TODO related items
+    //#related
+    //  ul
+    //    +horizontal-list-container
+    //    li
+    //      +horizontal-list-item
+    //      //+column(2)
+    //      //background-color: white
   .active
     font-weight: bold

@@ -1,0 +1,19 @@
+=less-styled-link
+  :text-decoration none
+
+body.bp
+  color: $text-color
+  a
+    text-decoration: underline
+    +link-colors($link_color, $link_hover_color, $link_hover_color, $link_color, $link_color)
+
+  h1, h2, h3, h4, h5, h6
+    +header-text
+    text-transform: uppercase
+    color: blue
+
+
+  #topnav
+    font-size: 15px
+    text-transform: uppercase
+

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         Rails.cache.write(:tweets, @tweets, :expires_in => 10.minutes)
       end
 
-    rescue Twitter::BadRequest  => erl
+    rescue Twitter::Error::BadRequest  => erl
       @tweets = Rails.cache.read(:tweets)
       logger.error("MSP rate limit exceeded: #{erl}")
     rescue Exception => e
