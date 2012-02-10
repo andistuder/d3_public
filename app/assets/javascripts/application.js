@@ -12,13 +12,13 @@ var grid_image = jQuery('#container').css("background-image");
 var grid_size = jQuery('#container').css("background-size");
 
 jQuery(document).ready(function(){
-    jQuery('.hide_grid').click(function(){
-        grid_image = jQuery('#container').css("background-image");
-        grid_size = jQuery('#container').css("background-size");
+    jQuery('#container').css("background", "transparent");
 
+    jQuery('.hide_grid').click(function(){
         jQuery('#container').css("background", "transparent");
     });
-        jQuery('.show_grid').click(function(){
+
+    jQuery('.show_grid').click(function(){
         jQuery('#container').css("background-image", grid_image);
         jQuery('#container').css("background-size", grid_size);
     });
