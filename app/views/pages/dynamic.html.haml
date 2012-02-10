@@ -1,6 +1,11 @@
-%h1= @page.name
-
-%p	
-  - for content_area in @page.content_areas do
-    %h3= content_area.name     
-    %p= content_area.content
+%section#breadcrumb
+  = render "breadcrumb"
+%section#sidebar
+  = render "sidebar"
+%section#content
+  %hr
+  %h1= @page.name
+  %p
+    - for content_area in @page.content_areas do
+      %h3= content_area.name
+      %p= content_area.content

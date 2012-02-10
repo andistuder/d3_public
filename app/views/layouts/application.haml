@@ -1,58 +1,30 @@
-!!!
+!!! 5
+-# TODO needs boilerplate?
+-# -#http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
+-# -#hacked version of html5-boilerplate
+-#-ie_html :class => 'no-js', :lang => 'en' do
 %html
   %head
-    %title= @page_title or "Cenatus CMS"
-
-    -#= auto_discovery_link_tag ""
-    
+    = render "layouts/head"
     = stylesheet_link_tag :application, :media => 'all'
-
     /[if lt IE 8]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
 
-    %meta{:property => "og:title",  :content => @og_title}
-    %meta{:property => "og:type", :content => @og_type}
-    %meta{:property => "og:url", :content => @og_url}
-    %meta{:property => "og:image", :content => @og_image}
-    %meta{:property => "og:site_name", :content => @og_site_name}
-    %meta{:property => "fb:admins", :content => @og_admins}
-
-    = javascript_include_tag :application
-
-    = csrf_meta_tag
-
-  %body.two-col.bp
-    
+  %body{ :class => "#{controller.controller_name} bp" }
     #container
-      #header
-        %ul#topnav
-          %li= nav_link "link1","http://cenatus.org"
-          %li= nav_link "link2","http://netaudiolondon.org"
-          %li= nav_link "link3","javascript:void(0);"
-      
-      #sidebar
-        %ul
-          %li= link_to "link1","javascript:void(0);"
-          %li= link_to "link2","javascript:void(0);"
-          - for page in Page.all do
-            %li= nav_link page.name, "/#{page.slug}"
-
-
-      #content
-        %hr
+      %header#header
+        = link_to "Logo", "/"
+        .container
+          = render "layouts/ticker"
+          = render "layouts/search"
+          %nav#topnav
+            %ul
+              %li= nav_link "link1","http://cenatus.org"
+              %li= nav_link "link2","http://netaudiolondon.org"
+              %li= nav_link "link3","javascript:void(0);"
+      #main{ :role => 'main' }
         = yield
   
-      #footer
-        %hr
-        
-        &copy; Cenatus
-        
-        .grid_debug{:style => "float:right"}
-          %a.show_grid
-            Show Grid
-          |
-          %a.hide_grid
-            Hide Grid
-  
-        
-
+      %footer#footer
+        = render "layouts/footer"
+    = javascript_include_tag :application

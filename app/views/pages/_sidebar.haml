@@ -1,0 +1,5 @@
+%ul
+  %li= link_to "link1","javascript:void(0);"
+  %li= link_to "link2","javascript:void(0);"
+  - for page in Page.all do
+    %li= nav_link page.name, "/#{page.slug}"
