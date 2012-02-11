@@ -1,13 +1,14 @@
 %section#breadcrumb
   = render "breadcrumb"
-%section#sidebar
-  = render "sidebar"
-%section#content
-  %h1= @page.name
-  %p
-    - for content_area in @page.content_areas do
-      %h3= content_area.name
-      %p= content_area.content
+.container
+  %section#sidebar
+    = render "sidebar"
+  %section#content
+    %h1= @page.name
+    %p
+      - for content_area in @page.content_areas do
+        %h3= content_area.name
+        %p= content_area.content
 %section#prev_next_bar
   = render "prev_next_bar"
 %section#related

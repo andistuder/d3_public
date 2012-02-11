@@ -1,60 +1,102 @@
+$default-border-radius: 10px
+
 body.bp
   background-color: $site_bg
   #header
-    margin: 10px 0
+    margin: 20px 0
+    overflow: hidden
     #d3-logo
-      +float-left
       +column(1)
     #news-ticker
       +column(5)
-      +float-left
-      margin: 5px 0
+      margin: 5px 0 20px 0
     #search-form
-      +column(2,true)
+      +span(2)
       +float-right
-      margin: 5px 0
+      border: 2px solid $dark_grey_bg
+      +border-radius
+      height: 28px
     #topnav
-      +column(7, true)
+      +span(7)
       +float-left
       ul
         +horizontal-list(false)
-        //+horizontal-list-container
         li
-          //+horizontal-list-item
           background-color: $dark_grey_bg
-
+          padding: 0 14px
+          margin-right: 2px
+        li:first-of-type
+          padding-left: 22px
+          +border-left-radius
+        li:last-of-type
+          padding-right: 23px
+          +border-right-radius
+          +last
   #main
-    +reset-float
-    #breadcrumb, #prev_next_bar
-      +column(8, true)
-      background-color: $light_grey_bg
-      padding: 5px
+    #breadcrumb,
+      background-color: $dark_grey_bg
+      padding: 0 14px
+      +border-top-radius
+    .container
+      border-style: none
+      border-width: 2px
+      border-color: $dark_grey_bg
+      border-left-style: solid
+      border-right-style: solid
+      overflow: hidden
+      background-color: white
+      #sidebar
+        //+span(2)  //does not work due to border
+        width: 218px
+        +float-left
+      #content
+        //+span(6) // does not work due to border
+        width: 697px
+        padding-left: 20px
+        +float-left
+        border-width: 1px
+        border-color: $dark_grey_bg
+        border-left-style: solid
+    #prev_next_bar
+      background-color: $dark_grey_bg
+      padding: 0 14px
+      +border-bottom-radius
     #related
-      +column(8, true)
-      margin-top: 10px
+      margin-top: 20px
       ul
         +horizontal-list(false)
         li
           +column(2)
           height: 150px
-          background-color: white
+          background-color: $light_grey_bg
+          +border-radius
+          //border: 2px solid white
+          h4
+            padding: 20px
         li:last-of-type
-          +column(2, true)
+          +last
   #footer
-    +column(8, true)
-    margin-top: 10px
+    border-top: 2px solid $dark_grey_bg
+    margin-top: 20px
+    padding-top: 20px
     ul
       +horizontal-list(false)
       li
         +column(1)
       li:last-of-type
-        +column(1, true)
+        +last
     #mailing-list-form
-      +column(8, true)
+      margin-top: 20px
       background-color: white
-    #impressum
-      +float-left
-    #social-bookmarks
-      +float-right
-  .active
-    font-weight: bold
+      border: 2px solid $dark_grey_bg
+      height: 37px
+      +border-radius
+    .container
+      margin-top: 20px
+      overflow: hidden
+      #impressum
+        +float-left
+        p
+          margin-bottom: 0
+      #social-bookmarks
+        +float-right

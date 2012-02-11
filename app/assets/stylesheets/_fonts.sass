@@ -1,20 +1,37 @@
-=less-styled-link
-  :text-decoration none
+@import url(http://fonts.googleapis.com/css?family=Lato)
+
+$blueprint-font-family: 'Lato', sans-serif
+// TODO:does this work?
+//=less-styled-link
+//  :text-decoration none
 
 body.bp
+  +blueprint-typography(true)
+  p
+    +normal-text
+
   color: $text-color
+  //font-family: 'Lato', sans-serif
   a
-    text-decoration: underline
+    text-decoration: none
     +link-colors($link_color, $link_hover_color, $link_hover_color, $link_color, $link_color)
 
   h1, h2, h3, h4, h5, h6
     +header-text
     text-transform: uppercase
-    color: blue
-
   .all-caps
     text-transform: uppercase
   #topnav
     font-size: 15px
+    line-height: 37px
     text-transform: uppercase
+  #breadcrumb, #prev_next_bar
+    font-size: 15px
+    line-height: 37px
 
+  #footer
+    h5
+      font-size: 12px
+      line-height: 22px
+      text-transform: uppercase
+      margin: 0
