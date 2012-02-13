@@ -18,7 +18,7 @@ else
     # config.audit_with :paper_trail, User
     
     #TODO removed for dev process for ease of use. consider updating later?
-    #config.included_models = ["Asset", "Category", "ContentArea", "Page", "User"]
+    config.included_models = ["Asset", "FeatureCategory", "Feature", "Category", "ContentArea", "Page", "User"]
 
     config.models do
       list do
