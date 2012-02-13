@@ -2,7 +2,7 @@ D3::Application.routes.draw do
   
   
 
-  resources :feature_categories
+  resources :feature_categories, :only => [:index, :show]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

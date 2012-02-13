@@ -1,0 +1,31 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @feature_category.name
+%p
+  %b Content:
+  = @feature_category.content
+
+
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    = render "sidebar"
+  %section#content
+    %h1= @feature_category.name
+    %p.introduction= @feature_category.content
+    %hr
+
+    - for feature in @feature_category.features do
+      -if feature.asset.present?
+        - image_tag(feature.asset)
+      %h2= feature.name
+      %p= feature.content
+
+
+%section#prev_next_bar
+  = render "pages/prev_next_bar"
+%section#related
+  = render "pages/related"
