@@ -1,27 +1,29 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :twitter, :set_facebook_headers
-  
-  def twitter
-    require "twitter"
+  #twitter disabled
+  #before_filter :twitter, :set_facebook_headers
+  before_filter :set_facebook_headers
 
-    begin
-
-      @tweets = Rails.cache.read(:tweets)
-
-      if @tweets.blank?
-        @tweets = Twitter.user_timeline(D3::Application::TWITTER_NAME, {:count => 1})
-        Rails.cache.write(:tweets, @tweets, :expires_in => 10.minutes)
-      end
-
-    rescue Twitter::Error::BadRequest  => erl
-      @tweets = Rails.cache.read(:tweets)
-      logger.error("MSP rate limit exceeded: #{erl}")
-    rescue Exception => e
-      logger.error("MSP error fetch tweets: #{e}")
-    end
-  end
+  #def twitter
+  #  require "twitter"
+  #
+  #  begin
+  #
+  #    @tweets = Rails.cache.read(:tweets)
+  #
+  #    if @tweets.blank?
+  #      @tweets = Twitter.user_timeline(D3::Application::TWITTER_NAME, {:count => 1})
+  #      Rails.cache.write(:tweets, @tweets, :expires_in => 10.minutes)
+  #    end
+  #
+  #  rescue Twitter::Error::BadRequest  => erl
+  #    @tweets = Rails.cache.read(:tweets)
+  #    logger.error("MSP rate limit exceeded: #{erl}")
+  #  rescue Exception => e
+  #    logger.error("MSP error fetch tweets: #{e}")
+  #  end
+  #end
 
   def set_facebook_headers
     @og_title = D3::Application::SITE_NAME

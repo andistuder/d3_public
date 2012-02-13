@@ -41,7 +41,7 @@ gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
 gem 'aws-s3'    
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem "friendly_id", "~> 3.2.1"
-gem 'twitter'
+#gem 'twitter'
 gem 'acts_as_indexed'
 gem 'RedCloth'
 gem 'acts-as-taggable-on'

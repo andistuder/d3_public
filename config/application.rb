@@ -57,10 +57,10 @@ module D3
 
     # CMS config
     # D3::Application::SITE_NAME
-    SITE_NAME = "Cenatus CMS"
-    SITE_URL = "http://cenatus.org/"
-    SITE_LOGO = "#{SITE_URL}images/home-logo.jpg"
+    SITE_NAME = "UVA d3"
+    SITE_URL = "http://uvad3.herokuapp.com/"
+    SITE_LOGO = "#{SITE_URL}assets/d3-logo.png"
     FB_ADMIN = "541838134"
-    TWITTER_NAME = "mattspendlove"
+    #TWITTER_NAME = "mattspendlove"
   end
 end
