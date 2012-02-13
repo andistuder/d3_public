@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209181839) do
+ActiveRecord::Schema.define(:version => 20120213112111) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20120209181839) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+  end
+
+  create_table "assets_feature_categories", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "feature_category_id"
   end
 
   create_table "assets_pages", :id => false, :force => true do |t|
@@ -58,6 +63,27 @@ ActiveRecord::Schema.define(:version => 20120209181839) do
     t.integer  "content_area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "feature_categories", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "slug"
+    t.integer  "sort_order"
+    t.integer  "vimeo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "features", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "slug"
+    t.integer  "sort_order"
+    t.integer  "feature_category_id"
+    t.integer  "asset_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "pages", :force => true do |t|

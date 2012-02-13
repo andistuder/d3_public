@@ -83,8 +83,7 @@ group :test do
   gem "faker"
   gem 'factory_girl'
   gem 'factory_girl_rails'
-
-
+  gem 'shoulda-matchers'
 end
 
 group :production do

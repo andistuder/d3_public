@@ -2,6 +2,8 @@ D3::Application.routes.draw do
   
   
 
+  resources :feature_categories
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
