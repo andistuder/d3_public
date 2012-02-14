@@ -1,5 +1,7 @@
 %ul
-- @feature_categories.each do |feature_category|
-  %li= link_to feature_category.name, feature_category
-  - for feature in feature_category.features do
-    %li= link_to feature.name, "#{feature_category_path(feature_category)}##{feature.slug}"
+  - @feature_categories.each do |feature_category|
+    %li
+      = link_to feature_category.name, feature_category
+      %ul
+        - for feature in feature_category.features do
+          %li= link_to feature.name, "#{feature_category_path(feature_category)}##{feature.slug}"
