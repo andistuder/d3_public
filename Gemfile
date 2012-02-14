@@ -8,7 +8,7 @@ gem 'rails', '~> 3.2.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.10'
+#gem 'mysql2', '~> 0.3.10' #changed to postgresql
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -49,6 +49,7 @@ gem 'rails_admin_tag_list_field', :git => 'https://github.com/kryzhovnik/rails_a
 gem 'acts_as_tree'
 gem 'dalli'
 gem 'thin'
+gem 'pg'
 
 group :assets do
   gem 'compass-rails','~> 1.0.0.rc.2'
@@ -78,7 +79,7 @@ group :test do
   gem "capybara"
   gem "execjs" #for CI on Heroku
   gem "therubyracer" #for CI on Heroku
-  gem 'pg' #for CI on Heroku
+  #gem 'pg' #for CI on Heroku
   gem "fastercsv"
   gem "faker"
   gem 'factory_girl'
@@ -87,7 +88,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
 end
 
 
