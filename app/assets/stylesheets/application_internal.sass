@@ -57,7 +57,7 @@ body.bp
             margin-top: 0
       #content
         //+span(6) // does not work due to border
-        width: 697px
+        width: 717px
         //padding-left: 20px
         +float-left
         border-width: 1px
@@ -65,8 +65,41 @@ body.bp
         border-left-style: solid
         h1, h2, p
           margin-left: 40px
+          margin-right: 40px
         h1
           margin-top: 30px
+        p
+          padding-bottom: 20px
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-bottom-style: solid
+        section
+          clear: both
+          overflow: hidden
+          margin-top: 40px
+          img, .wrapper
+            +float-left
+          h2, p
+            clear: both
+            overflow: hidden
+            width: 390px
+          p
+            padding-bottom: 0
+            margin-bottom: 0
+            border-bottom-style: none
+          .read_more
+            margin-top: 5px
+            margin-bottom: 5px
+            a
+              background-color: $link_color
+              +link-colors(white)
+              line-height: 16px
+              padding: 0 10px
+              +border-radius(4px)
+
+        section.alternating:nth-of-type(2)
+          img, h2, p
+            +float-right
     #prev_next_bar
       background-color: $dark_grey_bg
       padding: 0 14px

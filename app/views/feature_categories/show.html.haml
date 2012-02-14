@@ -4,15 +4,17 @@
   %section#sidebar
     = render "sidebar"
   %section#content
+    - if @feature_category.assets.present?
+      %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
     %h1= @feature_category.name
     %p.introduction= @feature_category.content
-    %hr
-
     - for feature in @feature_category.features do
-      -if feature.asset.present?
-        - image_tag(feature.asset)
-      %h2= feature.name
-      %p= feature.content.html_safe
+      %section{:id => feature.slug, :class => "alternating"}
+        -if feature.asset.present?
+          %img{:src => feature.asset.asset.url(:small), :alt => feature.asset.description}
+        .wrapper
+          %h2= feature.name
+          %p= feature.content.html_safe
 
 
 %section#prev_next_bar

@@ -6,14 +6,15 @@
   %section#content
     %h1 Features
     %p.introduction Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
-    %hr
 
     - @feature_categories.each do |feature_category|
-      -if feature_category.assets.present?
-        - image_tag(feature_category.assets.first)
-      %h2= feature_category.name
-      %p= feature_category.content
-      .read_more= link_to "More", feature_category
+      %section
+        -if feature_category.assets.present?
+          %img{:src => feature_category.assets.first.asset.url(:small), :alt => feature_category.assets.first.description}
+        .wrapper
+          %h2= feature_category.name
+          %p= feature_category.content
+          %p.read_more= link_to "More", feature_category
 
 %section#prev_next_bar
   = render "pages/prev_next_bar"
