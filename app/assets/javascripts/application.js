@@ -22,4 +22,11 @@ jQuery(document).ready(function(){
         jQuery('#container').css("background-image", grid_image);
         jQuery('#container').css("background-size", grid_size);
     });
+
+    jQuery("#slider").easySlider({
+		auto: true,
+		continuous: true,
+        numeric: true,
+        numericId: "silder_nav"
+	});
 });

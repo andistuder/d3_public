@@ -73,6 +73,28 @@ body.bp
           border-width: 1px
           border-color: $dark_grey_bg
           border-bottom-style: solid
+        #slider
+          width: 717px
+          height: 448px
+          overflow: hidden
+          ul
+            margin: 0
+            padding: 0
+            list-style-type: none
+        #silder_nav
+          +horizontal-list
+          margin-left: 40px
+          li
+            margin: 0 5px
+            padding: 0
+            a
+              background-color: $link_color
+              +border-radius(7px)
+              +link-colors($link_color)
+              padding: 0 4px
+          li.current a
+            +link-colors(black)
+            background-color: black
         section
           clear: both
           overflow: hidden
@@ -96,6 +118,7 @@ body.bp
               line-height: 16px
               padding: 0 10px
               +border-radius(4px)
+              text-transform: uppercase
 
         section.alternating:nth-of-type(2)
           img, h2, p

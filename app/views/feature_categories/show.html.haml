@@ -4,8 +4,11 @@
   %section#sidebar
     = render "sidebar"
   %section#content
-    - if @feature_category.assets.present?
-      %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
+    #slider
+      %ul
+        - for asset in @feature_category.assets do
+          %li
+            %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
     %h1= @feature_category.name
     %p.introduction= @feature_category.content
     - for feature in @feature_category.features do
@@ -15,8 +18,6 @@
         .wrapper
           %h2= feature.name
           %p= feature.content.html_safe
-
-
 %section#prev_next_bar
   = render "pages/prev_next_bar"
 %section#related
