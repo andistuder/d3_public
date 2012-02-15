@@ -3,6 +3,7 @@ D3::Application.routes.draw do
   
 
   resources :feature_categories, :only => [:index, :show]
+  resources :news_items, :only => [:index, :show]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

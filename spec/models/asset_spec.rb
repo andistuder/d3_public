@@ -15,11 +15,8 @@ describe Asset do
     Asset.new.asset.should_not be_nil
   end
   
-  it "has many pages" do
-    Asset.reflect_on_association(:pages).should_not be_nil
-    @asset_assoc = Asset.new
-    @asset_assoc.pages.length == 0
-  end
+  it { should have_and_belong_to_many(:pages) }
+  it { should have_and_belong_to_many(:news_items) }
   
   it "has a name that is required" do
     @asset = Asset.new

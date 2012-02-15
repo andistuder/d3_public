@@ -1,0 +1,24 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    %ul
+      %li Sidebar
+  %section#content
+    %h1 News
+    - require 'faker'
+    %p.introduction= Faker::Lorem.paragraph
+
+    - @news_items.each do |news_item|
+      %article
+        -if news_item.assets.present?
+          %img{:src => news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description}
+        .wrapper
+          %h2= news_item.headline
+          %p= news_item.summary
+          %p.read_more= link_to "More", news_item
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213112111) do
+ActiveRecord::Schema.define(:version => 20120215174239) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20120213112111) do
   create_table "assets_feature_categories", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "feature_category_id"
+  end
+
+  create_table "assets_news_items", :id => false, :force => true do |t|
+    t.integer  "asset_id"
+    t.integer  "news_item_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "assets_pages", :id => false, :force => true do |t|
@@ -86,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20120213112111) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "news_items", :force => true do |t|
+    t.string   "headline"
+    t.text     "summary"
+    t.text     "content"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.string   "slug"
@@ -107,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20120213112111) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month"
+    t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"

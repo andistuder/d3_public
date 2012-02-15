@@ -16,6 +16,9 @@ module NavigationHelpers
     when /the login page/
       '/users/sign_in'
 
+    when /the news page/
+      news_items_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
