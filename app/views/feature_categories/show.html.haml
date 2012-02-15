@@ -4,17 +4,16 @@
   %section#sidebar
     = render "sidebar"
   %section#content
-    #vimeo_player
-      %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/12610423", :width => "717"}
 
     #slider
       %ul
         - for asset in @feature_category.assets do
           %li
             %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
-    .vimeo_link
-      |
-      =link_to "Video", "javascript:void();", :class => "view"
+    - if @feature_category.vimeo_id.present?
+      .vimeo_link
+        |
+        =link_to "Video", "#vimeo_player"
     #social_bookmarks
       TODO: social bookmarks here
     %h1= @feature_category.name
@@ -26,6 +25,11 @@
         .wrapper
           %h2= feature.name
           %p= feature.content.html_safe
+    - if @feature_category.vimeo_id.present?
+
+      .display-none
+        %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
+
 %section#prev_next_bar
   = render "pages/prev_next_bar"
 %section#related

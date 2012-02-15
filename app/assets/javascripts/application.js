@@ -29,13 +29,15 @@ jQuery(document).ready(function(){
         numericId: "silder_nav"
 	});
 
-    jQuery(".vimeo_link a").click(function(){
-        $('#vimeo_player').toggle();
-        document.getElementById('vimeoplayer').api_play();
-    })
+    jQuery(".vimeo_link a").colorbox({inline:true});
 
-    jQuery("#silder_nav a").click(function(){
-        $('#vimeo_player').hide();
-
-    })
+//    jQuery(".vimeo_link a").click(function(){
+//        $('#vimeo_player').toggle();
+//        document.getElementById('vimeoplayer').api_play();
+//    })
+//
+//    jQuery("#silder_nav a").click(function(){
+//        $('#vimeo_player').hide();
+//
+//    })
 });
