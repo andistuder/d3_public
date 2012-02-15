@@ -9,7 +9,7 @@ D3::Application.routes.draw do
   devise_for :users
 
   match "sitemap.xml" => "sitemap#sitemap"
-  root :to => "pages#dynamic"
+  root :to => "feature_categories#index"
 
 
   match "page_content_areas/:page_id/:name" => "content_areas#page_content_areas", :as => :page_content_areas
