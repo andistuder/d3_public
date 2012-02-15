@@ -3,5 +3,5 @@
     %li
       = link_to feature_category.name, feature_category
       %ul
-        - for feature in feature_category.features do
+        - for feature in feature_category.features.ordered do
           %li= link_to feature.name, "#{feature_category_path(feature_category)}##{feature.slug}"

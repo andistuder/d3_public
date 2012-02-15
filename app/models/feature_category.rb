@@ -5,4 +5,6 @@ class FeatureCategory < ActiveRecord::Base
 
   validates_presence_of :name, :slug
 
+  scope :latest, order("created_at DESC")
+
 end
