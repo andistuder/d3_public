@@ -7,8 +7,9 @@ $blueprint-font-family: 'Lato', sans-serif
 
 body.bp
   +blueprint-typography(true)
-  p
+  p, input
     +normal-text
+    font-size: 14px
 
   color: $text-color
   //font-family: 'Lato', sans-serif
@@ -29,6 +30,10 @@ body.bp
     font-size: 15px
     line-height: 37px
     text-transform: uppercase
+    span
+      text-transform: none
+    a
+      +link-colors ($nav_link_color, $nav_link_hover_color, $nav_link_hover_color, $nav_link_color, $nav_link_color)
   #breadcrumb, #prev_next_bar
     font-size: 16px
     line-height: 37px

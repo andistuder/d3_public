@@ -9,35 +9,48 @@ body.bp
     margin: 20px 0
     overflow: hidden
     #d3-logo
-      +column(1)
+      +float-left
     #news-ticker
-      +column(5)
+      width: 590px
       margin: 3px 0 16px 0
+      +float-right
     #search-form
-      +span(2)
       +float-right
       border: 2px solid $dark_grey_bg
       +border-radius
-      height: 28px
+      background: white url('search_grey.png') no-repeat 5px center
+      //background-color: white
+      input
+        margin-left: 30px
+        border-style: none
+        width: 160px
+      button
+        +border-right-radius(8px)
+        border-style: none
+        line-height: 28px
+        background-color: $light_grey_bg
+        +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
     #topnav
-      +span(7)
-      +float-left
+      //+span(7)
+      +float-right
       ul
         +horizontal-list(false)
         li
           background-color: $dark_grey_bg
-          padding: 0 14px
+          padding: 0 15px
           margin-right: 2px
+          +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
         li:first-of-type
-          padding-left: 22px
+          padding-left: 20px
           +border-left-radius
         li:last-of-type
-          padding-right: 21px
+          padding-right: 20px
           +border-right-radius
           +last
   #main
     #breadcrumb,
       background-color: $dark_grey_bg
+      +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
       padding: 0 14px
       +border-top-radius
     .container

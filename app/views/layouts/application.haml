@@ -13,17 +13,18 @@
   %body{ :class => "#{controller.controller_name} bp" }
     #container
       %header#header
-        = link_to image_tag("d3-logo.png"), "/", :id => "d3-logo"
-        #news-ticker
-          = render "layouts/ticker"
+        = link_to image_tag("logo_80.png"), "/", :id => "d3-logo"
         #search-form
           = render "layouts/search"
+        #news-ticker
+          = render "layouts/ticker"
+
         %nav#topnav
           %ul
-            %li= nav_link "What's d3?'","javascript:void(0);"
+            %li= nav_link "What's <span>d</span>3?".html_safe,"javascript:void(0);"
             %li= nav_link "Products","javascript:void(0);"
-            %li= nav_link "Get d3","javascript:void(0);"
-            %li= nav_link "d3 Studios","javascript:void(0);"
+            %li= nav_link "Get <span>d</span>3".html_safe,"javascript:void(0);"
+            %li= nav_link "<span>d</span>3 Studios".html_safe,"javascript:void(0);"
             %li= nav_link "Projects","javascript:void(0);"
             %li= nav_link "Support","javascript:void(0);"
             %li= nav_link "News","javascript:void(0);"
