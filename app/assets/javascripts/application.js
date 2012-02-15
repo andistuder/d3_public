@@ -24,9 +24,18 @@ jQuery(document).ready(function(){
     });
 
     jQuery("#slider").easySlider({
-		auto: true,
 		continuous: true,
         numeric: true,
         numericId: "silder_nav"
 	});
+
+    jQuery(".vimeo_link a").click(function(){
+        $('#vimeo_player').toggle();
+        document.getElementById('vimeoplayer').api_play();
+    })
+
+    jQuery("#silder_nav a").click(function(){
+        $('#vimeo_player').hide();
+
+    })
 });

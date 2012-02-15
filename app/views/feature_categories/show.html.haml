@@ -4,11 +4,19 @@
   %section#sidebar
     = render "sidebar"
   %section#content
+    #vimeo_player
+      %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/12610423", :width => "717"}
+
     #slider
       %ul
         - for asset in @feature_category.assets do
           %li
             %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
+    .vimeo_link
+      |
+      =link_to "Video", "javascript:void();", :class => "view"
+    #social_bookmarks
+      TODO: social bookmarks here
     %h1= @feature_category.name
     %p.introduction= @feature_category.content
     - for feature in @feature_category.features do
