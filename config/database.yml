@@ -13,12 +13,15 @@ test:
   username: d3_admin
   pool: 5
 
+cucumber:
+  adapter: postgresql
+  database: d3_test
+  username: d3_admin
+  pool: 5
+
 production:
   adapter: postgresql
   database: d3_development
   username: d3_admin
   pool: 5
 
-# ANDI: Cukes not set up yet
-#cucumber:
-#  <<: *test
