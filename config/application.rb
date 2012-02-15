@@ -55,6 +55,11 @@ module D3
     # turn off helper generation in scaffold
     config.generators.helper = false
 
+    # http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets
+    # http://stackoverflow.com/questions/7542994/rails-3-1-asset-pipeline-have-heroku-implications
+    config.assets.initialize_on_precompile = false
+
+
     # CMS config
     # D3::Application::SITE_NAME
     SITE_NAME = "UVA d3"

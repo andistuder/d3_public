@@ -36,13 +36,11 @@ D3::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
-  # MSP TODO don't Heroku alteady run "rake assets:precompile" ??
-  # see :http://stackoverflow.com/questions/7275636/rails-3-1-0-actionviewtemplateerrror-application-css-isnt-precompiled
-  
+  config.assets.compile = true #MSP this is injected as a plugin on Heroku anyway..
+
+
   # Generate digests for assets URLs
   config.assets.digest = true
-  
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
