@@ -31,6 +31,15 @@
         %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
 
 %section#prev_next_bar
-  = render "pages/prev_next_bar"
+  - if @feature_category.previous_feature_cat.present?
+    .previous
+      %p
+        %span Previous
+      %p= link_to @feature_category.previous_feature_cat.name, @feature_category.previous_feature_cat
+  - if @feature_category.next_feature_cat.present?
+    .next
+      %p
+        %span Next
+      %p= link_to @feature_category.next_feature_cat.name, @feature_category.next_feature_cat
 %section#related
   = render "pages/related"

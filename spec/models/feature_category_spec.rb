@@ -12,4 +12,12 @@ describe FeatureCategory do
   it { should have_and_belong_to_many(:assets) }
   it { should have_many(:features) }
 
+  describe "FeatureCategory#previous_feature_cat" do
+    pending "Factory test to be added?"
+  end
+
+  describe "FeatureCategory#next_feature_cat" do
+    pending "Factory test to be added?"
+  end
+
 end

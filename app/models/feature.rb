@@ -5,4 +5,6 @@ class Feature < ActiveRecord::Base
 
   validates_presence_of :slug, :name
 
+  scope :ordered, order("sort_order ASC")
+
 end
