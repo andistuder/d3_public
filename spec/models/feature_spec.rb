@@ -12,4 +12,8 @@ describe Feature do
   it { should belong_to(:asset) }
   it { should belong_to(:feature_category) }
 
+  describe "Feature#ordered" do
+    pending "need to test ordered scope"
+  end
+
 end
