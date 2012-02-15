@@ -36,7 +36,7 @@ else
 
         field :asset do
           label "File"
-          thumb_method :thumb # for images. Will default to full size image, which might break the layout
+          #thumb_method :thumb # for images. Will default to full size image, which might break the layout
                               # delete_method :delete_asset # actually not needed in this case: default is "delete_#{field_name}" if the object responds to it
         end
       end
@@ -49,7 +49,7 @@ else
           formatted_value do # used in form views
             bindings[:view].tag(:img, {:src => bindings[:object].asset.url(:thumb)})
           end
-          thumb_method :thumb # for images. Will default to full size image, which might break the layout
+          #thumb_method :thumb # for images. Will default to full size image, which might break the layout
         end
         field :created_at
         field :updated_at
