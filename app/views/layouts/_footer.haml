@@ -2,57 +2,77 @@
   %li
     %h5= "Overview"
     %ul
-      %li= link_to "savds", "#"
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "Software", "#"
+      %li= link_to "Hardware", "#"
+      %li= link_to "Workflow", "#"
+      %li= link_to "Case Studies", "#"
+      %li= link_to "Get d3", "#"
   %li
     %h5= "Projects"
     %ul
-      %li= link_to "sdffsd", "#"
-      %li= link_to "savds", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "Architectural", "#"
+      %li= link_to "TV", "#"
+      %li= link_to "Art", "#"
+      %li= link_to "Concerts", "#"
+      %li= link_to "Theatre", "#"
+      %li= link_to "Mapping", "#"
+      %li= link_to "Film", "#"
   %li
     %h5= "Products"
     %ul
-      %li= link_to "savds", "#"
-      %li= link_to "savds", "#"
-      %li= link_to "savds", "#"
+      %li= link_to "4U", "#"
+      %li= link_to "2U", "#"
+      %li= link_to "d3 Designer", "#"
+      %li= link_to "d3 Education", "#"
+      %li= link_to "d3 Trial", "#"
   %li
     %h5= "d3 Lab"
     %ul
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "Feasibility", "#"
+      %li= link_to "Customisation", "#"
+      %li= link_to "Project Setup", "#"
+      %li= link_to "Delivery", "#"
+      %li= link_to "Technical", "#"
+      %li= link_to "On-site", "#"
+      %li= link_to "Consultancy", "#"
   %li
     %h5= "Get d3"
     %ul
-      %li= link_to "sdgsdv", "#"
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "Distributors", "#"
+      %li= link_to "Rental Partners", "#"
+      %li= link_to "Users", "#"
+      %li= link_to "Previs Studios", "#"
   %li
     %h5= "Support"
     %ul
-      %li slkdj
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "Knowledge Base", "#"
+      %li= link_to "Training", "#"
+      %li= link_to "Downloads", "#"
+      %li= link_to "FAQs", "#"
+      %li= link_to "Contact", "#"
   %li
     %h5= "Company"
     %ul
-      %li adgsdg
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "About Us", "#"
+      %li= link_to "Contact Us", "#"
+      %li= link_to "Jobs", "#"
+      %li= link_to "News", "#"
   %li
     %h5= "Legal"
     %ul
-      %li sdvadv
-      %li= link_to "Item xx", "#"
-      %li= link_to "Item xx", "#"
+      %li= link_to "T&C", "#"
+      %li= link_to "Privacy Policy", "#"
 
 #mailing-list-form
-  TODO: mailing list form here
+  %form.search{:action => "/search", :name => "searchform"}
+    %input{:name => "query", :type => "text", :value =>"TODO Enter your email address to join the d3 mailing list"}
+    %button.button{:type => "submit"}
+      = "Add me to the list"
+      = image_tag("arrow_grey.png")
 .container
   #impressum
     %p.all-caps &copy; 2011 United Visual Artists
-    %p UVA address here
+    %p.address Units B & D, 127-129 Great Suffolk Street, London SE1 1PP, United Kingdom
   #social-bookmarks
     %p TODO: social bookmark icons
 
