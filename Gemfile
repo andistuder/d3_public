@@ -19,6 +19,7 @@ gem 'acts_as_tree'
 gem 'dalli'
 gem 'thin'
 gem 'pg'
+gem "faker" #until go live
 
 group :assets do
   gem 'compass-rails','~> 1.0.0.rc.2'
@@ -51,7 +52,6 @@ group :test, cucumber do
   gem "therubyracer" #for CI on Heroku
   #gem 'pg' #for CI on Heroku
   gem "fastercsv"
-  gem "faker"
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
