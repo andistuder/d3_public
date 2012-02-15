@@ -5,7 +5,7 @@ class Asset < ActiveRecord::Base
   validates :name, :presence => true
   validates :description, :presence => true
 
-  has_attached_file :asset, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :bucket => 'd3-site-assets.s3.amazonaws.com', :path => ":attachment/:id/:style.:extension", :styles => { :large => "717x448>", :small => "246x154>", :thumb => "40x40>" }
+  has_attached_file :asset, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :bucket => 'd3-site-assets', :path => ":attachment/:id/:style.:extension", :styles => { :large => "717x448>", :small => "246x154>", :thumb => "40x40>" }
   #has_attached_file :asset, :styles => { :medium => "120x120>", :thumb => "40x40>" }
   
   attr_accessor :delete_image
