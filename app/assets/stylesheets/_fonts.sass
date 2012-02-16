@@ -1,39 +1,39 @@
-@import url(http://fonts.googleapis.com/css?family=Lato)
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400)
 
 $blueprint-font-family: 'Lato', sans-serif
-// TODO:does this work?
-//=less-styled-link
-//  :text-decoration none
 
 body.bp
   +blueprint-typography(true)
-  p, input
+  color: $text-color
+
+  p, input, li
     +normal-text
     font-size: 14px
+    font-weight: 300
 
-  color: $text-color
-  //font-family: 'Lato', sans-serif
   a
     text-decoration: none
     +link-colors($link_color, $link_hover_color, $link_hover_color, $link_color, $link_color)
 
   h1, h2, h3, h4, h5, h6
     +header-text
+    font-weight: 400
 
   .all-caps
     text-transform: uppercase
-  #news-ticker
-    font-size: 16px
   #search-form
-    font-size: 14px
+    input
+      font-size: 12px
+      color: #666666
   #topnav
     font-size: 15px
     line-height: 37px
-    text-transform: uppercase
-    span
-      text-transform: none
+    //text-transform: uppercase
+    //span
+    //  text-transform: none
     a
       +link-colors ($nav_link_color, $nav_link_hover_color, $nav_link_hover_color, $nav_link_color, $nav_link_color)
+      font-weight: 400
   #breadcrumb, #prev_next_bar
     font-size: 16px
     line-height: 37px
@@ -42,19 +42,20 @@ body.bp
       font-size: 14px
       line-height: 30px
       text-transform: uppercase
+      font-weight: 400
       a
         +link-colors(#000000)
       li
         text-transform: none
+        font-weight: 300
+        line-height: 26px
         a
           +link-colors ($nav_link_color, $nav_link_hover_color, $nav_link_hover_color, $nav_link_color, $nav_link_color)
   #content
-    h1
-      font-weight: bold
-    h2
     p.introduction
       font-size: 26px
       line-height: 30px
+      font-weight: 300
     p
       font-size: 16px
       line-height: 23px
