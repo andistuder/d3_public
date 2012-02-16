@@ -154,8 +154,9 @@ body.bp
       background-color: $dark_grey_bg
       padding: 0 14px
       +border-bottom-radius
-      height: 40px
+      overflow: hidden
       .previous, .next
+        padding: 8px 0 10px 0
         p
           line-height: 16px
           margin-bottom: 0
@@ -167,6 +168,8 @@ body.bp
           background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
       .next
         +float-right
+        p
+          text-align: right
         a
           background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
     #related
