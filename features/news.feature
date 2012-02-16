@@ -7,7 +7,7 @@ Feature: News
   Background:
     Given allow local http request
 
-  Scenario: Clicking the Log In button
+  Scenario: Creating and viewing a News Item
     Given I am logged in as "admin@d3.com"
     When I go to the admin page
     And I click link "News items"
@@ -19,3 +19,10 @@ Feature: News
     When I go to the news page
     Then I should see "Stop press, new D3 model"
     And I should see "Well, you wouldn't believe it the new version is even better and on and on"
+
+  @wip
+  Scenario: Revealing more News Items
+    Given the seeded news items
+    When I go to the news page
+    And I click link "SHOW 20 MORE"
+    And I should see all twenty more items

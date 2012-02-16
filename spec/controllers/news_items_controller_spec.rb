@@ -6,11 +6,14 @@ describe NewsItemsController do
     @news_item = FactoryGirl.build :news_item
     @news_item2 = FactoryGirl.build :news_item
 
-    NewsItem.stub(:order).and_return([@news_item, @news_item2])
-    NewsItem.stub(:find).and_return(@news_item2)
   end
 
   describe "GET index" do
+
+    before :each do
+      NewsItem.should_receive(:find_newest_two).and_return([@news_item, @news_item2])
+    end
+
     it "should be successful" do
       get 'index'
       response.should be_success
@@ -24,6 +27,11 @@ describe NewsItemsController do
 
 
   describe "GET show" do
+
+    before :each do
+      NewsItem.should_receive(:find).and_return(@news_item2)
+    end
+
     it "should be successful" do
       get 'show', :id => 1
       response.should be_success
