@@ -6,4 +6,9 @@ class NewsItemsController < ApplicationController
   def show
     @news_item = NewsItem.find(params[:id])
   end
+
+  def next
+    @news_items = NewsItem.find_next_twenty(params[:offset])
+    render :index
+  end
 end
