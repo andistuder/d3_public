@@ -13,7 +13,7 @@
           %img{:src => feature_category.assets.first.asset.url(:small), :alt => feature_category.assets.first.description}
         .wrapper
           %h2= feature_category.name
-          %p= feature_category.content
+          %p.summary= feature_category.content
           %p.read_more= link_to "More", feature_category
 
 %section#prev_next_bar

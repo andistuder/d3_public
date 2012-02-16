@@ -11,8 +11,8 @@ body.bp
     #d3-logo
       +float-left
     #news-ticker
-      width: 590px
-      margin: 3px 0 16px 0
+      width: 610px
+      //margin: 3px 0 16px 0
       +float-right
     #search-form
       +float-right
@@ -26,7 +26,7 @@ body.bp
       button
         +border-right-radius(8px)
         border-style: none
-        line-height: 28px
+        line-height: 22px
         background-color: $light_grey_bg
         +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
         margin: 0
@@ -37,14 +37,14 @@ body.bp
         +horizontal-list(false)
         li
           background-color: $dark_grey_bg
-          padding: 0 15px
+          padding: 0 25px
           margin-right: 2px
           +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
         li:first-of-type
-          padding-left: 20px
+          //padding-left: 24px
           +border-left-radius
         li:last-of-type
-          padding-right: 20px
+          //padding-right: 24px
           +border-right-radius
           +last
   #main
@@ -95,6 +95,8 @@ body.bp
           border-width: 1px
           border-color: $dark_grey_bg
           border-bottom-style: solid
+        p.summary
+          min-height: 84px
         #slider
           width: 717px
           height: 448px
@@ -111,18 +113,22 @@ body.bp
             margin: 0 5px
             padding: 0
             a
-              background-color: $link_color
-              +border-radius(7px)
+              //background-color: $link_color
+              background: white url('gallery_pagination_image.png') no-repeat center center
+              //+border-radius(6px)
               +link-colors($link_color)
-              padding: 0 4px
+              padding: 2px 4px
           li.current a
             +link-colors(black)
-            background-color: black
+            background: white url('gallery_pagination_image_selected.png') no-repeat center center
+            //background-color: black
         .vimeo_link
           +float-left
           padding-left: 5px
+          padding-top: 1px
           a
-            padding-left: 5px
+            padding: 1px 0 1px 27px
+            background: white url('gallery_pagination_video.png') no-repeat 7px center
         #social_bookmarks
           +float-right
         #vimeo_player
@@ -134,6 +140,8 @@ body.bp
           margin-top: 40px
           img, .wrapper
             +float-left
+          img
+            +single-box-shadow(#AAAAAA, 4px, 0px, 8px, false, false)
           h2, p
             clear: both
             overflow: hidden
@@ -151,25 +159,31 @@ body.bp
         section.alternating:nth-of-type(2)
           img, h2, p
             +float-right
+          img
+            +single-box-shadow(#AAAAAA, -4px, 0px, 8px, false, false)
+
+
 
     #prev_next_bar
       background-color: $dark_grey_bg
       padding: 0 14px
       +border-bottom-radius
-      height: 37px
+      height: 40px
       .previous, .next
         p
           line-height: 16px
           margin-bottom: 0
-          padding: 0 20px
-          a
-            +link-colors(black)
+          //padding: 0 20px
+          span, a
+            padding: 0 20px
       .previous
         +float-left
-        background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
+        a
+          background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
       .next
         +float-right
-        background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
+        a
+          background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
     #related
       margin-top: 20px
       ul
