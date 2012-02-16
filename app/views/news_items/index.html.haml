@@ -1,22 +1,24 @@
 %section#breadcrumb
   = render "pages/breadcrumb"
 .container
-  %section#sidebar
-    %ul
-      %li Sidebar
   %section#content
-    %h1 News
-    - require 'faker'
-    %p.introduction= Faker::Lorem.paragraph
+    %header
+      %h1.underlined Latest News
 
     - @news_items.each do |news_item|
-      %article
-        -if news_item.assets.present?
-          %img{:src => news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description}
+      %article.news_item
         .wrapper
-          %h2= news_item.headline
-          %p= news_item.summary
-          %p.read_more= link_to "More", news_item
+          %header
+            %h2= news_item.headline
+            %p.date= news_item.created_at.strftime("%d %B %Y")
+
+          %section.copy
+            %p= news_item.content
+          -if news_item.assets.present?
+            %section.image
+              %img{:src => news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description}
+
+          -#%p.read_more= link_to "More", news_item
 
 %section#prev_next_bar
   &nbsp;

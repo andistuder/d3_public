@@ -33,6 +33,7 @@ else
       edit do
         field :name
         field :description
+        field :created_at
 
         field :asset do
           label "File"
