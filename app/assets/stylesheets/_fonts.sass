@@ -5,7 +5,6 @@ $blueprint-font-family: 'Lato', sans-serif
 body.bp
   +blueprint-typography(true)
   color: $text-color
-
   p, input, li
     +normal-text
     font-size: 14px
@@ -14,12 +13,9 @@ body.bp
   a
     text-decoration: none
     +link-colors($link_color, $link_hover_color, $link_hover_color, $link_color, $link_color)
-
   h1, h2, h3, h4, h5, h6
     +header-text
     font-weight: 400
-
-
   .all-caps
     text-transform: uppercase
   #search-form
@@ -29,9 +25,6 @@ body.bp
   #topnav
     font-size: 15px
     line-height: 37px
-    //text-transform: uppercase
-    //span
-    //  text-transform: none
     a
       +link-colors ($nav_link_color, $nav_link_hover_color, $nav_link_hover_color, $nav_link_color, $nav_link_color)
       font-weight: 400
@@ -46,12 +39,10 @@ body.bp
       font-size: 14px
       line-height: 30px
       text-transform: uppercase
-      //font-weight: 400
       a
         +link-colors(#000000)
       li
         text-transform: none
-        //font-weight: 300
         line-height: 26px
         a
           +link-colors ($nav_link_color, $nav_link_hover_color, $nav_link_hover_color, $nav_link_color, $nav_link_color)
@@ -77,11 +68,12 @@ body.bp
   #related
     h4
       font-size: 18px
+      a
+        +link-colors(black)
     p
       font-size: 14px
       line-height: 18px
       white-space: normal
-
   #footer
     h5
       font-size: 12px
