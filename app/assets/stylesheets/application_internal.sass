@@ -80,7 +80,7 @@ body.bp
           margin-top: 40px
           clear: both
         h1.after-slideshow
-          margin-top: 70px
+          margin-top: 54px
         h1.underlined
           padding-bottom: 25px
           border-bottom: 1px solid $dark_grey_bg
@@ -173,26 +173,27 @@ body.bp
             +single-box-shadow(#999999, -6px, 0px, 8px, false, false)
     #prev_next_bar
       background-color: $dark_grey_bg
+      +linear-gradient(color-stops($dark_grey_bg, #cccccc))
       padding: 0 14px
       +border-bottom-radius
       overflow: hidden
       .previous, .next
-        padding: 8px 0 10px 0
+        padding: 10px 0 12px 0
         p
-          line-height: 16px
+          line-height: 18px
           margin-bottom: 0
           span, a
             padding: 0 20px
       .previous
         +float-left
         a
-          background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
+          background: transparent url('arrow_grey_left.png') no-repeat left center
       .next
         +float-right
         p
           text-align: right
         a
-          background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
+          background: transparent url('arrow_grey_right.png') no-repeat right center
     #related
       margin-top: 20px
       ul

@@ -19,6 +19,9 @@ module NavigationHelpers
     when /the news page/
       news_items_path
 
+    when /features/
+      feature_categories_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
