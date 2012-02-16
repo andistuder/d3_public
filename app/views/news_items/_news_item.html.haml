@@ -1,0 +1,15 @@
+- title ||= false
+
+%h1= news_item.headline if title
+
+%article.news_item
+  .wrapper
+    %header
+      %h2= link_to(news_item.headline, news_item) if !title
+      %p.date= news_item.created_at.strftime("%d %B %Y")
+
+    %section.copy
+      %p= news_item.content
+    -if news_item.assets.present?
+      %section.image
+        = link_to(image_tag(news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description), news_item)
