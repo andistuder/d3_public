@@ -38,8 +38,7 @@ jQuery(document).ready(function(){
         $('#prevBtn').toggle();
         $('#nextBtn').toggle();
         $(".vimeo_link a").toggleClass('current');
-        $("#silder_nav li").removeClass('current');
-
+        //$("#silder_nav li").removeClass('current');
     });
 
     jQuery("#silder_nav a").click(function(){
