@@ -4,6 +4,7 @@ FactoryGirl.define do
     slug "some-slug"
     summary Faker::Lorem.sentence
     content Faker::Lorem.paragraph
+    created_at Time.now
   end
 end
 

@@ -1,3 +1,30 @@
 // Place all the styles related to the NewsItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$span8: +span(8) - 4px
+
+body.bp.news_items
+  #main
+    .container
+      #content
+        width: $span8
+        article.news_item
+          overflow: hidden
+          header
+            h2
+              color: $blue
+              margin-bottom: 5px
+            p
+              border-bottom: none
+          section
+            float: left
+            clear: none
+          section.copy
+            +column(5)
+            margin-right: 0px
+            p
+              width: 100%
+              //margin: 0px
+          section.image
+            +column(3, true)

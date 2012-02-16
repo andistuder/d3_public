@@ -12,12 +12,12 @@ describe "news_items/index.html.haml" do
     render
 
     rendered.should have_content(@news_item.headline)
-    rendered.should have_content(@news_item.summary)
-    rendered.should_not have_content(@news_item.content)
+    #rendered.should have_content(@news_item.summary)
+    rendered.should have_content(@news_item.content)
 
     rendered.should have_content(@news_item2.headline)
-    rendered.should have_content(@news_item2.summary)
-    rendered.should_not have_content(@news_item2.content)
+    #rendered.should have_content(@news_item2.summary)
+    rendered.should have_content(@news_item2.content)
   end
 
 end
