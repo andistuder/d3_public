@@ -4,6 +4,13 @@
   %section#sidebar
     = render "sidebar"
   %section#content
+    %span#prevBtn
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    %span#nextBtn
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    - if @feature_category.vimeo_id.present?
+      .display-none
+        %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
 
     #slider
       %ul
@@ -13,10 +20,11 @@
     - if @feature_category.vimeo_id.present?
       .vimeo_link
         |
-        =link_to "Video", "#vimeo_player"
+        =link_to "Video", "javascript:void(0);"
+
     #social_bookmarks
       TODO: social bookmarks here
-    %h1= @feature_category.name
+    %h1.after-slideshow= @feature_category.name
     %p.introduction= @feature_category.content
     - for feature in @feature_category.features do
       %section{:id => feature.slug, :class => "alternating"}
@@ -25,10 +33,10 @@
         .wrapper
           %h2= feature.name
           %p= feature.content.html_safe
-    - if @feature_category.vimeo_id.present?
+    -#- if @feature_category.vimeo_id.present?
 
-      .display-none
-        %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
+      -#.display-none
+      -#  %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
 
 %section#prev_next_bar
   - if @feature_category.previous_feature_cat.present?

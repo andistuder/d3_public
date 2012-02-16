@@ -103,21 +103,25 @@
 						.click(function(){							
 							animate($("a",$(this)).attr('rel'),true);
 						}); 												
-				};							
-			} else {
-				$("a","#"+options.nextId).click(function(){		
-					animate("next",true);
-				});
-				$("a","#"+options.prevId).click(function(){		
-					animate("prev",true);				
-				});	
-				$("a","#"+options.firstId).click(function(){		
-					animate("first",true);
-				});				
-				$("a","#"+options.lastId).click(function(){		
-					animate("last",true);				
-				});				
+				};
 			};
+
+            $("a","#"+options.nextId).click(function(){
+                animate("next",true);
+            });
+            $("a","#"+options.prevId).click(function(){
+                animate("prev",true);
+            });
+            $("a","#"+options.firstId).click(function(){
+                animate("first",true);
+            });
+            $("a","#"+options.lastId).click(function(){
+                animate("last",true);
+            });
+
+            $(".vimeo_link a").click(function(){
+                animate("first",true);
+            });
 			
 			function setCurrent(i){
 				i = parseInt(i)+1;

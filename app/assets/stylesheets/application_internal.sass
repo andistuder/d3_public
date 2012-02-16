@@ -12,11 +12,10 @@ body.bp
       +float-left
     #news-ticker
       width: 610px
-      //margin: 3px 0 16px 0
       +float-right
     #search-form
       +float-right
-      border: 2px solid $dark_grey_bg
+      border: 1px solid $dark_grey_bg
       +border-radius
       background: white url('search_grey.png') no-repeat 5px center
       input
@@ -41,10 +40,8 @@ body.bp
           margin-right: 2px
           +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
         li:first-of-type
-          //padding-left: 24px
           +border-left-radius
         li:last-of-type
-          //padding-right: 24px
           +border-right-radius
           +last
   #main
@@ -55,15 +52,14 @@ body.bp
       +border-top-radius
     .container
       border-style: none
-      border-width: 2px
+      border-width: 1px
       border-color: $dark_grey_bg
       border-left-style: solid
       border-right-style: solid
       overflow: hidden
       background-color: white
       #sidebar
-        //+span(2)  //does not work due to border
-        width: 218px
+        width: 220px
         +float-left
         ul
           list-style-type: none
@@ -72,9 +68,7 @@ body.bp
             list-style-type: disc
             margin-top: 0
       #content
-        //+span(6) // does not work due to border
         width: 717px
-        //padding-left: 20px
         +float-left
         border-width: 1px
         border-color: $dark_grey_bg
@@ -85,7 +79,8 @@ body.bp
         h1
           margin-top: 40px
           clear: both
-
+        h1.after-slideshow
+          margin-top: 70px
         h1.underlined
           padding-bottom: 25px
           border-bottom: 1px solid $dark_grey_bg
@@ -97,6 +92,20 @@ body.bp
           border-bottom-style: solid
         p.summary
           min-height: 84px
+        #prevBtn, #nextBtn
+          position: absolute
+          z-index: 1000
+          top: 400px
+          a
+            padding: 23px 30px
+        #prevBtn
+          left: 250px
+          a
+            background: transparent url('gallery_controls_arrow_left.png') no-repeat center center
+        #nextBtn
+          left: 850px
+          a
+            background: transparent url('gallery_controls_arrow_right.png') no-repeat center center
         #slider
           width: 717px
           height: 448px
@@ -109,28 +118,31 @@ body.bp
           +float-left
           +horizontal-list
           margin-left: 40px
+          margin-top: 10px
           li
             margin: 0 5px
             padding: 0
             a
-              //background-color: $link_color
               background: white url('gallery_pagination_image.png') no-repeat center center
-              //+border-radius(6px)
               +link-colors($link_color)
               padding: 2px 4px
           li.current a
             +link-colors(black)
             background: white url('gallery_pagination_image_selected.png') no-repeat center center
-            //background-color: black
         .vimeo_link
           +float-left
           padding-left: 5px
           padding-top: 1px
+          margin-top: 10px
           a
             padding: 1px 0 1px 27px
-            background: white url('gallery_pagination_video.png') no-repeat 7px center
+            background: white url('gallery_pagination_video.png') no-repeat 7px bottom
+          a.current
+            background: white url('gallery_pagination_video_selected.png') no-repeat 7px bottom
+
         #social_bookmarks
           +float-right
+          margin-top: 10px
         #vimeo_player
           display: none
           background-color: black
@@ -141,7 +153,7 @@ body.bp
           img, .wrapper
             +float-left
           img
-            +single-box-shadow(#AAAAAA, 4px, 0px, 8px, false, false)
+            +single-box-shadow(#999999, 6px, 0px, 8px, false, false)
           h2, p
             clear: both
             overflow: hidden
@@ -151,29 +163,24 @@ body.bp
             margin-bottom: 0
             border-bottom-style: none
           .read_more
-            +d3-button-link(12px, 2px, 'arrow_grey_right.png')
+            +d3-button-link(12px, 2px, 'arrow_white.png')
             margin-top: 5px
             margin-bottom: 5px
-
-
         section.alternating:nth-of-type(2)
           img, h2, p
             +float-right
           img
-            +single-box-shadow(#AAAAAA, -4px, 0px, 8px, false, false)
-
-
-
+            +single-box-shadow(#999999, -6px, 0px, 8px, false, false)
     #prev_next_bar
       background-color: $dark_grey_bg
       padding: 0 14px
       +border-bottom-radius
-      height: 40px
+      overflow: hidden
       .previous, .next
+        padding: 8px 0 10px 0
         p
           line-height: 16px
           margin-bottom: 0
-          //padding: 0 20px
           span, a
             padding: 0 20px
       .previous
@@ -182,6 +189,8 @@ body.bp
           background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
       .next
         +float-right
+        p
+          text-align: right
         a
           background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
     #related
@@ -190,22 +199,20 @@ body.bp
         +horizontal-list(false)
         li
           margin-right: 20px
-          width: 216px
+          width: 218px
           height: 200px
           background-color: $light_grey_bg
           +border-radius
           +linear-gradient(color-stops(white, $light_grey_bg))
-          border: 2px solid white
+          border: 1px solid white
           h4
             margin: 20px 20px 16px 20px
-            a
-              +link-colors(black)
           p
             margin: 0 20px
         li:last-of-type
           margin-right: 0
   #footer
-    border-top: 2px solid $dark_grey_bg
+    border-top: 1px solid $dark_grey_bg
     margin-top: 20px
     padding-top: 20px
     ul
@@ -216,17 +223,16 @@ body.bp
         +last
     #mailing-list-form
       margin-top: 20px
-      border: 2px solid $dark_grey_bg
+      border: 1px solid $dark_grey_bg
       +border-radius
       background: white url('email.png') no-repeat 5px center
       input
         maring: 0
         padding: 0
-        margin-left: 43px
+        margin-left: 45px
         border-style: none
         width: 750px
         border-style: none
-
       button
         +border-right-radius(8px)
         border-style: none
