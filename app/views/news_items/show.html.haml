@@ -1,17 +1,8 @@
 %section#breadcrumb
   = render "pages/breadcrumb"
 .container
-  %section#sidebar
-    %ul
-      %li Sidebar
   %section#content
-    %h1= @news_item.headline
-
-    %article
-      -if @news_item.assets.present?
-        %img{:src => news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description}
-      .wrapper
-        %p= @news_item.content
+    = render :partial => "news_item", :locals => {:title => true, :news_item => @news_item}
 
 %section#prev_next_bar
   &nbsp;

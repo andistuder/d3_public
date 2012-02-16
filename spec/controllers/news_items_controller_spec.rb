@@ -3,14 +3,20 @@ require 'spec_helper'
 describe NewsItemsController do
 
   before :each do
-    @news_item = FactoryGirl.build :news_item
-    @news_item2 = FactoryGirl.build :news_item
+    @test_news_items = []
 
-    NewsItem.stub(:order).and_return([@news_item, @news_item2])
-    NewsItem.stub(:find).and_return(@news_item2)
+    30.times do |i|
+      @test_news_items << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+    end
   end
 
   describe "GET index" do
+
+    before :each do
+      @expected_range = @test_news_items[0..1]
+      NewsItem.should_receive(:find_newest_two).and_return(@expected_range)
+    end
+
     it "should be successful" do
       get 'index'
       response.should be_success
@@ -18,12 +24,17 @@ describe NewsItemsController do
 
     it "assigns collection" do
       get :index
-      assigns(:news_items).should eq([@news_item, @news_item2])
+      assigns(:news_items).should eq(@expected_range)
     end
   end
 
 
   describe "GET show" do
+
+    before :each do
+      NewsItem.should_receive(:find).and_return(@test_news_items[1])
+    end
+
     it "should be successful" do
       get 'show', :id => 1
       response.should be_success
@@ -31,7 +42,25 @@ describe NewsItemsController do
 
     it "assigns @news_item" do
       get 'show', :id => 1
-      assigns(:news_item).should eq(@news_item2)
+      assigns(:news_item).should eq(@test_news_items[1])
     end
+  end
+
+  describe "GET more_news" do
+    before :each do
+      @expected_range = @test_news_items[2..21]
+      NewsItem.should_receive(:find_next_twenty).and_return(@expected_range)
+    end
+
+    it "should be successful" do
+      get 'next'
+      response.should be_success
+    end
+
+    it "assigns @news_items" do
+      get 'next', :offset => nil
+      assigns(:news_items).should eq(@expected_range)
+    end
+
   end
 end

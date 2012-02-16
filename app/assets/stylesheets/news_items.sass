@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$news_border: 40px
+$news_spacer: 30px
 $span8: +span(8) - 4px
+$span55: +span(5.5) - $news_border
+$span5: +span(5) - $news_border
+$span25: +span(2.5) - $news_border
 
 body.bp.news_items
   #main
@@ -10,21 +15,39 @@ body.bp.news_items
       #content
         width: $span8
         article.news_item
+          margin: 0px $news_border $news_spacer $news_border
+          padding-bottom: $news_spacer
+          border-bottom: 1px solid $dark_grey_bg
           overflow: hidden
           header
             h2
               color: $blue
               margin-bottom: 5px
-            p
+              margin: 0px 0px 5px 0px
+            p.date
+              color: #ccc
               border-bottom: none
+              margin-bottom: 0px
+              margin: 0px 0px 0px 0px
           section
             float: left
             clear: none
+            margin-top: 0px
           section.copy
-            +column(5)
+            float: left
+            width: $span55
             margin-right: 0px
             p
-              width: 100%
-              //margin: 0px
+              width: $span5
+              margin-left: 0px
+              margin-right: 0px
           section.image
-            +column(3, true)
+            width: $span25
+        p.read_more
+          text-transform: uppercase
+          +d3-button-link(18px, 5px, '')
+          margin-top: 5px
+          margin-bottom: 5px
+          text-align: center
+          border-bottom: none
+

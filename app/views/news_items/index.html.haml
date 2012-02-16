@@ -5,20 +5,9 @@
     %header
       %h1.underlined Latest News
 
-    - @news_items.each do |news_item|
-      %article.news_item
-        .wrapper
-          %header
-            %h2= news_item.headline
-            %p.date= news_item.created_at.strftime("%d %B %Y")
+    = render @news_items, :locals => {:title => false}
 
-          %section.copy
-            %p= news_item.content
-          -if news_item.assets.present?
-            %section.image
-              %img{:src => news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description}
-
-          -#%p.read_more= link_to "More", news_item
+    %p.read_more= link_to "SHOW 20 MORE", ""
 
 %section#prev_next_bar
   &nbsp;
