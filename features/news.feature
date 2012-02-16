@@ -18,4 +18,4 @@ Feature: News
     And I press "Save"
     When I go to the news page
     Then I should see "Stop press, new D3 model"
-    And I should see "Well, you wouldn't believe it the new version is even better.."
+    And I should see "Well, you wouldn't believe it the new version is even better and on and on"
