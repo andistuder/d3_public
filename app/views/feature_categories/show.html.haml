@@ -4,7 +4,10 @@
   %section#sidebar
     = render "sidebar"
   %section#content
-
+    %span#prevBtn
+      =link_to "&nbsp;".html_safe, "javascript:void();"
+    %span#nextBtn
+      =link_to "&nbsp;".html_safe, "javascript:void();"
     #slider
       %ul
         - for asset in @feature_category.assets do
@@ -14,6 +17,7 @@
       .vimeo_link
         |
         =link_to "Video", "#vimeo_player"
+
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= @feature_category.name

@@ -24,9 +24,11 @@ jQuery(document).ready(function(){
     });
 
     jQuery("#slider").easySlider({
+        auto: true,
 		continuous: true,
         numeric: true,
-        numericId: "silder_nav"
+        numericId: "silder_nav",
+        pause: 3000,
 	});
 
     jQuery(".vimeo_link a").colorbox({inline:true});

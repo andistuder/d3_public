@@ -92,6 +92,20 @@ body.bp
           border-bottom-style: solid
         p.summary
           min-height: 84px
+        #prevBtn, #nextBtn
+          position: absolute
+          z-index: 1000
+          top: 400px
+          a
+            padding: 23px 30px
+        #prevBtn
+          left: 250px
+          a
+            background: transparent url('gallery_controls_arrow_left.png') no-repeat center center
+        #nextBtn
+          left: 850px
+          a
+            background: transparent url('gallery_controls_arrow_right.png') no-repeat center center
         #slider
           width: 717px
           height: 448px
