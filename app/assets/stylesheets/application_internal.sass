@@ -108,20 +108,22 @@ body.bp
             margin: 0 5px
             padding: 0
             a
-              background-color: $link_color
-              +border-radius(6px)
+              //background-color: $link_color
+              background: white url('gallery_pagination_image.png') no-repeat center center
+              //+border-radius(6px)
               +link-colors($link_color)
-              padding: 0 3px
-              font-size: 6px
+              padding: 2px 4px
           li.current a
             +link-colors(black)
-            background-color: black
+            background: white url('gallery_pagination_image_selected.png') no-repeat center center
+            //background-color: black
         .vimeo_link
           +float-left
           padding-left: 5px
-          padding-top: 3px
+          padding-top: 1px
           a
-            padding-left: 5px
+            padding: 1px 0 1px 27px
+            background: white url('gallery_pagination_video.png') no-repeat 7px center
         #social_bookmarks
           +float-right
         #vimeo_player
