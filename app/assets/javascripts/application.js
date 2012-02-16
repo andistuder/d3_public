@@ -37,7 +37,9 @@ jQuery(document).ready(function(){
         $('#slider').toggle();
         $('#prevBtn').toggle();
         $('#nextBtn').toggle();
-//        return false
+        $(".vimeo_link a").toggleClass('current');
+        $("#silder_nav li").removeClass('current');
+
     });
 
     jQuery("#silder_nav a").click(function(){
@@ -45,6 +47,6 @@ jQuery(document).ready(function(){
         $('#slider').show();
         $('#prevBtn').show();
         $('#nextBtn').show();
-//        return false
+        $(".vimeo_link a").removeClass('current');
     });
 });
