@@ -107,15 +107,17 @@ body.bp
             padding: 0
             a
               background-color: $link_color
-              +border-radius(7px)
+              +border-radius(6px)
               +link-colors($link_color)
-              padding: 0 4px
+              padding: 0 3px
+              font-size: 6px
           li.current a
             +link-colors(black)
             background-color: black
         .vimeo_link
           +float-left
           padding-left: 5px
+          padding-top: 3px
           a
             padding-left: 5px
         #social_bookmarks
@@ -151,20 +153,22 @@ body.bp
       background-color: $dark_grey_bg
       padding: 0 14px
       +border-bottom-radius
-      height: 37px
+      height: 40px
       .previous, .next
         p
           line-height: 16px
           margin-bottom: 0
-          padding: 0 20px
-          a
-            +link-colors(black)
+          //padding: 0 20px
+          span, a
+            padding: 0 20px
       .previous
         +float-left
-        background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
+        a
+          background: $dark_grey_bg url('arrow_grey_left.png') no-repeat left center
       .next
         +float-right
-        background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
+        a
+          background: $dark_grey_bg url('arrow_grey_right.png') no-repeat right center
     #related
       margin-top: 20px
       ul
