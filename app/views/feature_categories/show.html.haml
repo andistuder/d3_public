@@ -5,9 +5,13 @@
     = render "sidebar"
   %section#content
     %span#prevBtn
-      =link_to "&nbsp;".html_safe, "javascript:void();"
+      =link_to "&nbsp;".html_safe, "javascript:void()"
     %span#nextBtn
-      =link_to "&nbsp;".html_safe, "javascript:void();"
+      =link_to "&nbsp;".html_safe, "javascript:void()"
+    - if @feature_category.vimeo_id.present?
+      .display-none
+        %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
+
     #slider
       %ul
         - for asset in @feature_category.assets do
@@ -16,7 +20,7 @@
     - if @feature_category.vimeo_id.present?
       .vimeo_link
         |
-        =link_to "Video", "#vimeo_player"
+        =link_to "Video", "javascript:void()"
 
     #social_bookmarks
       TODO: social bookmarks here
@@ -29,10 +33,10 @@
         .wrapper
           %h2= feature.name
           %p= feature.content.html_safe
-    - if @feature_category.vimeo_id.present?
+    -#- if @feature_category.vimeo_id.present?
 
-      .display-none
-        %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
+      -#.display-none
+      -#  %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
 
 %section#prev_next_bar
   - if @feature_category.previous_feature_cat.present?

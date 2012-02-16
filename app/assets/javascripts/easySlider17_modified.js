@@ -119,6 +119,9 @@
                 animate("last",true);
             });
 
+            $(".vimeo_link a").click(function(){
+                animate("first",true);
+            });
 			
 			function setCurrent(i){
 				i = parseInt(i)+1;

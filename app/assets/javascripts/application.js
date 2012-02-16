@@ -28,18 +28,23 @@ jQuery(document).ready(function(){
 		continuous: true,
         numeric: true,
         numericId: "silder_nav",
-        pause: 3000,
+        pause: 3000
 	});
 
-    jQuery(".vimeo_link a").colorbox({inline:true});
 
-//    jQuery(".vimeo_link a").click(function(){
-//        $('#vimeo_player').toggle();
-//        document.getElementById('vimeoplayer').api_play();
-//    })
-//
-//    jQuery("#silder_nav a").click(function(){
-//        $('#vimeo_player').hide();
-//
-//    })
+    jQuery(".vimeo_link a").click(function(){
+        $('#vimeo_player').toggle();
+        $('#slider').toggle();
+        $('#prevBtn').toggle();
+        $('#nextBtn').toggle();
+//        return false
+    });
+
+    jQuery("#silder_nav a").click(function(){
+        $('#vimeo_player').hide();
+        $('#slider').show();
+        $('#prevBtn').show();
+        $('#nextBtn').show();
+//        return false
+    });
 });
