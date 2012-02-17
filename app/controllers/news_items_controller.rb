@@ -1,6 +1,6 @@
 class NewsItemsController < ApplicationController
   def index
-    @news_items = NewsItem.find_newest_two
+    @news_items = NewsItem.find_latest
   end
 
   def show
@@ -8,7 +8,7 @@ class NewsItemsController < ApplicationController
   end
 
   def next
-    @news_items = NewsItem.find_next_twenty(params[:offset])
+    @news_items = NewsItem.find_next(params[:page])
     render :index
   end
 end

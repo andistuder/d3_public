@@ -6,11 +6,15 @@ class NewsItem < ActiveRecord::Base
   extend FriendlyId
   friendly_id :headline, :use => :slugged
 
-  def self.find_newest_two
-    NewsItem.order("created_at DESC").limit(2)
+  def self.find_latest
+    NewsItem.order("created_at DESC").limit(D3::Application::NEWS_INITIAL_LOAD)
   end
 
-  def self.find_next_twenty(offset = 2)
-    NewsItem.order("created_at DESC").offset(offset).limit(20)
+  def self.find_next(page = 1)
+
+    offset = page.to_i <= 1 ?  0 : D3::Application::NEWS_PAGE_SIZE * (page.to_i - 1)
+    offset += D3::Application::NEWS_INITIAL_LOAD
+
+    NewsItem.order("created_at DESC").offset(offset).limit(D3::Application::NEWS_PAGE_SIZE)
   end
 end
