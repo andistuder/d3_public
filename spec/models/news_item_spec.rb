@@ -6,7 +6,6 @@ describe NewsItem do
   end
 
   it { should validate_presence_of(:headline) }
-  it { should validate_presence_of(:summary) }
   it { should validate_presence_of(:content) }
   it { should validate_presence_of(:slug) }
 

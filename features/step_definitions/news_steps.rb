@@ -33,7 +33,7 @@ When /^I added those news items to the CMS$/ do
     click_link "News items"
     click_link "Add new"
     fill_in "news_item_headline", :with => @news[i][:headline]
-    fill_in "news_item_summary", :with => @news[i][:summary]
+    #fill_in "news_item_summary", :with => @news[i][:summary]
     fill_in "news_item_content", :with => @news[i][:content]
     within("#news_item_asset_ids_field") do
       click_link "Choose all"

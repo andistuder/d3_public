@@ -18,7 +18,7 @@ else
     # config.audit_with :paper_trail, User
     
     #config.included_models = ["Asset", "FeatureCategory", "Feature", "Category", "ContentArea", "Page", "User", "NewsItem"]
-    config.excluded_models = []
+    config.excluded_models = [Page, ContentArea, Category]
 
     config.models do
       list do
@@ -55,6 +55,16 @@ else
         field :created_at
         field :updated_at
       end
+    end
+
+    config.model NewsItem do
+      edit do
+        exclude_fields :summary
+      end
+      list do
+        exclude_fields :summary
+      end
+
     end
 
     #############

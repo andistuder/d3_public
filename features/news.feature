@@ -11,9 +11,9 @@ Feature: News
   Scenario: Creating and viewing a News Item
     Given I am logged in as "admin@d3.com"
     And the following news items:
-      | headline                 | summary                                                        | content                                           |
-      | Stop press, new D3 model | Well, you wouldn't believe it the new version is even better.. | We could talk to you about it in great depth here |
-      | New D3 feature           | The discombobulating widget                                    | You didn't eve know you needed it                 |
+      | headline                 | content                                           |
+      | Stop press, new D3 model | We could talk to you about it in great depth here |
+      | New D3 feature           | You didn't eve know you needed it                 |
     And I added those news items to the CMS
     When I go to the news page
     Then I should see "Stop press, new D3 model"
