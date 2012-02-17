@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216125420) do
+ActiveRecord::Schema.define(:version => 20120217180814) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(:version => 20120216125420) do
   create_table "assets_pages", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "page_id"
+  end
+
+  create_table "assets_projects", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "project_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -101,6 +106,35 @@ ActiveRecord::Schema.define(:version => 20120216125420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+  end
+
+  create_table "project_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "project_categories_projects", :id => false, :force => true do |t|
+    t.integer "project_category_id"
+    t.integer "project_id"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "concept"
+    t.text     "how_made"
+    t.text     "credits"
+    t.text     "equipment"
+    t.integer  "left_image_id"
+    t.integer  "right_image_id"
+    t.integer  "vimeo_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -2,6 +2,8 @@ class Asset < ActiveRecord::Base
   
   has_and_belongs_to_many :pages
   has_and_belongs_to_many :news_items
+  has_and_belongs_to_many :feature_categories
+  has_and_belongs_to_many :projects
 
   validates :name, :presence => true
   validates :description, :presence => true

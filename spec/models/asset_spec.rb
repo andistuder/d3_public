@@ -17,7 +17,9 @@ describe Asset do
   
   it { should have_and_belong_to_many(:pages) }
   it { should have_and_belong_to_many(:news_items) }
-  
+  it { should have_and_belong_to_many(:feature_categories) }
+  it { should have_and_belong_to_many(:projects) }
+
   it "has a name that is required" do
     @asset = Asset.new
     @asset.respond_to?(:name).should be_true
