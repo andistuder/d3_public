@@ -1,4 +1,4 @@
-Given /^the seeded news items$/ do
+Given /^the seeded 25 news items$/ do
   25.times do
     FactoryGirl.create :news_item
   end

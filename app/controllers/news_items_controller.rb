@@ -9,7 +9,6 @@ class NewsItemsController < ApplicationController
 
   def next
     @news_items = NewsItem.find_next(params[:page])
-    puts "MSP @news_items.length : #{@news_items.length}"
     status = @news_items.length > 0 ? 200 : 204
     render :next, :status => status, :layout => false
   end

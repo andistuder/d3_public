@@ -1,14 +1,13 @@
 Feature: News
 
-  In order to update site visitors
-  As an administrator
-  I want to be able to post news items
+  In order to get new information
+  I want to be able views news items
 
   Background:
     Given allow local http request
 
   @javascript
-  Scenario: Creating and viewing a News Item
+  Scenario: Creating and viewing a News Item as an admin
     Given I am logged in as "admin@d3.com"
     And the following news items:
       | headline                 | summary                                                        | content                                           |
@@ -23,9 +22,12 @@ Feature: News
 
   @javascript
   Scenario: Revealing more News Items
-    Given the seeded news items
+    Given the seeded 25 news items
     When I go to the news page
     And I click link "SHOW 20 MORE"
     And I should see twenty more items
     And I click link "SHOW 20 MORE"
     And I should see all twenty five items
+    And I click link "SHOW 20 MORE"
+    And I should see "NO MORE ITEMS"
+
