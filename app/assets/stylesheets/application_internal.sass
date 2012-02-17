@@ -151,11 +151,12 @@ body.bp
         section
           clear: both
           overflow: hidden
-          margin-top: 40px
+          margin-top: 36px
           img, .wrapper
             +float-left
           img
-            +single-box-shadow(#999999, 6px, 0px, 8px, false, false)
+            margin-top: 4px
+            +single-box-shadow(#999999, 6px, 4px, 8px, false, false)
           h2, p
             clear: both
             overflow: hidden
@@ -167,12 +168,11 @@ body.bp
           .read_more
             +d3-button-link(12px, 2px, 'arrow_white.png')
             margin-top: 5px
-            margin-bottom: 5px
         section.alternating:nth-of-type(2)
           img, h2, p
             +float-right
           img
-            +single-box-shadow(#999999, -6px, 0px, 8px, false, false)
+            +single-box-shadow(#999999, -6px, 4px, 8px, false, false)
     #prev_next_bar
       background-color: $dark_grey_bg
       +linear-gradient(color-stops($dark_grey_bg, #cccccc))
