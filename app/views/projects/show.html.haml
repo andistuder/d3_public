@@ -1,0 +1,60 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    - if @project.assets.present? 
+      %span#prevBtn
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+      %span#nextBtn
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    - if @project.vimeo_id.present?
+      .display-none
+        %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@project.vimeo_id}", :width => "717", :id => "vimeo_player"}
+    - if @project.assets.present? 
+      #slider
+        %ul
+          - for asset in @project.assets do
+            %li
+              %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
+    - if @project.vimeo_id.present?
+      .vimeo_link
+        |
+        =link_to "Video", "javascript:void(0);"
+    #social_bookmarks
+      TODO: social bookmarks here
+    %h1.after-slideshow= @project.name
+    %p.introduction= @project.summary
+    %section{:id => "concept", :class => "alternating"}
+      -if @project.left_image.present?
+        %img{:src => @project.left_image.asset.url(:small), :alt => @project.left_image.description}
+      .wrapper
+        %h2= "The Concept"
+        %p= @project.concept.html_safe
+    %section{:id => "concept", :class => "alternating"}
+      -if @project.right_image.present?
+        %img{:src => @project.right_image.asset.url(:small), :alt => @project.right_image.description}
+      .wrapper
+        %h2= "How d3 made it"
+        %p= @project.how_made.html_safe
+    - if @project.credits.present?
+      %section#credits
+        %h2= "Credits"
+        .wrapper=@project.credits.html_safe
+    - if @project.credits.present?
+      %section#equipment
+        %h2= "Equipment used"
+        .wrapper=@project.equipment.html_safe
+%section#prev_next_bar
+  &nbsp;
+-#  - if @project.previous_feature_cat.present?
+-#    .previous
+-#      %p
+-#        %span Previous
+-#      %p= link_to @project.previous_feature_cat.name, @project.previous_feature_cat
+-#  - if @project.next_feature_cat.present?
+-#    .next
+-#      %p
+-#        %span Next
+-#      %p= link_to @project.next_feature_cat.name, @project.next_feature_cat
+%section#related
+  = render "pages/related"    

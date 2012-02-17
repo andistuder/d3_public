@@ -6,6 +6,8 @@ D3::Application.routes.draw do
 
   resources :news_items, :only => [:index, :show], :path => :news
 
+  resources :projects, :only => [:show]
+
   #match "news/:id" => "news_items#show"
   #match "news" => "news_items#next"
   match "news/next/:page" => "news_items#next"
