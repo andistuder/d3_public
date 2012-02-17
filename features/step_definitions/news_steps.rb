@@ -4,7 +4,11 @@ Given /^the seeded news items$/ do
   end
 end
 
-When /^I should see all twenty more items$/ do
+When /^I should see twenty more items$/ do
+  page.has_css?('.news_item', :count => 22)
+end
+
+When /^I should see all twenty five items$/ do
   page.has_css?('.news_item', :count => 25)
 end
 

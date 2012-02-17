@@ -21,9 +21,11 @@ Feature: News
     And I should see "New D3 feature"
     And I should see "You didn't eve know you needed it"
 
-  @wip
+  @javascript
   Scenario: Revealing more News Items
     Given the seeded news items
     When I go to the news page
     And I click link "SHOW 20 MORE"
-    And I should see all twenty more items
+    And I should see twenty more items
+    And I click link "SHOW 20 MORE"
+    And I should see all twenty five items
