@@ -5,7 +5,6 @@ FactoryGirl.define do
     slug "fc-slug"
     content Faker::Lorem.paragraph
     created_at Time.now
-    #association :feature
   end
 
   factory :feature, :class => Feature do

@@ -1,20 +1,30 @@
 require 'spec_helper'
 
-describe "feature_categories/show" do
-  pending "integration tests in cucumber? #{__FILE__}"
+describe "feature_categories/show.html.haml" do
 
-  #before(:each) do
-  #  @feature_category = assign(:feature_category, stub_model(FeatureCategory,
-  #    :name => "Name",
-  #    :content => "MyText"
-  #  ))
-  #end
-  #
-  #it "renders attributes in <p>" do
-  #  render
-  #  # Run the generator again with the --webrat flag if you want to use webrat matchers
-  #  rendered.should match(/Name/)
-  #  # Run the generator again with the --webrat flag if you want to use webrat matchers
-  #  rendered.should match(/MyText/)
-  #end
+  it "renders" do
+
+  @feature_category = FactoryGirl.create :feature_category
+  @feature_category2 = FactoryGirl.create :feature_category
+  @feature = FactoryGirl.create(:feature, :name => "feature1", :content => "Lorem1", :feature_category => @feature_category)
+  @feature2 = FactoryGirl.create(:feature, :name => "feature2", :content => "Lorem2", :feature_category => @feature_category)
+  @feature3 = FactoryGirl.create(:feature, :name => "feature3", :content => "Lorem3", :feature_category => @feature_category2)
+  @feature4 = FactoryGirl.create(:feature, :name => "feature4", :content => "Lorem4", :feature_category => @feature_category2)
+
+  assign(:feature_categories, [@feature_category, @feature_category2])
+  assign(:feature_category, @feature_category)
+
+  render
+
+  rendered.should have_content(@feature_category.name)
+  rendered.should have_content(@feature_category.content)
+  rendered.should have_content(@feature.name)
+  rendered.should have_content(@feature.content)
+  rendered.should have_content(@feature2.name)
+  rendered.should have_content(@feature2.content)
+  rendered.should have_content(@feature3.name)
+  rendered.should have_content(@feature4.name)
+  rendered.should_not have_content(@feature3.content)
+  rendered.should_not have_content(@feature4.content)
+  end
 end
