@@ -16,7 +16,7 @@
       %ul
         - for asset in @feature_category.assets do
           %li
-            %img{:src => @feature_category.assets.first.asset.url(:large), :width => "717px", :height => "448px", :alt => @feature_category.assets.first.description}
+            %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
     - if @feature_category.vimeo_id.present?
       .vimeo_link
         |

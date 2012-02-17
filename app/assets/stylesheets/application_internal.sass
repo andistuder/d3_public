@@ -25,11 +25,11 @@ body.bp
       button
         +border-right-radius(8px)
         border-style: none
-        line-height: 22px
+        line-height: 24px
         background-color: $light_grey_bg
         +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
         margin: 0
-        padding: 0 6px 0 10px
+        padding: 0 8px 0 10px
     #topnav
       +float-right
       ul
@@ -73,6 +73,7 @@ body.bp
         border-width: 1px
         border-color: $dark_grey_bg
         border-left-style: solid
+        padding-bottom: 20px
         h1, h2, p
           margin-left: 40px
           margin-right: 40px
@@ -84,14 +85,15 @@ body.bp
         h1.underlined
           padding-bottom: 25px
           border-bottom: 1px solid $dark_grey_bg
-
+        h2
+          line-height: 28px
         p
           padding-bottom: 20px
           border-width: 1px
           border-color: $dark_grey_bg
           border-bottom-style: solid
         p.summary
-          min-height: 84px
+          min-height: 80px
         #prevBtn, #nextBtn
           position: absolute
           z-index: 1000
