@@ -14,7 +14,7 @@ describe NewsItemsController do
 
     before :each do
       @expected_range = @test_news_items[0..1]
-      NewsItem.should_receive(:find_newest_two).and_return(@expected_range)
+      NewsItem.should_receive(:find_latest).and_return(@expected_range)
     end
 
     it "should be successful" do
@@ -46,10 +46,10 @@ describe NewsItemsController do
     end
   end
 
-  describe "GET more_news" do
+  describe "GET news/next/page" do
     before :each do
       @expected_range = @test_news_items[2..21]
-      NewsItem.should_receive(:find_next_twenty).and_return(@expected_range)
+      NewsItem.should_receive(:find_next).and_return(@expected_range)
     end
 
     it "should be successful" do
@@ -57,8 +57,8 @@ describe NewsItemsController do
       response.should be_success
     end
 
-    it "assigns @news_items" do
-      get 'next', :offset => nil
+    it "assigns @news_items for the first page" do
+      get 'next', :page => 1
       assigns(:news_items).should eq(@expected_range)
     end
 

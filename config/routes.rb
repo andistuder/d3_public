@@ -3,9 +3,12 @@ D3::Application.routes.draw do
   
 
   resources :feature_categories, :only => [:index, :show], :path => :features
+
   resources :news_items, :only => [:index, :show], :path => :news
 
-  match "more_news" => "news_items#next"
+  #match "news/:id" => "news_items#show"
+  #match "news" => "news_items#next"
+  match "news/next/:page" => "news_items#next"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

@@ -15,7 +15,7 @@ describe NewsItem do
 
   describe "database finders" do
 
-    describe "find_newest_two" do
+    describe "find_latest" do
       before :each do
         @test_news_items = []
 
@@ -24,12 +24,12 @@ describe NewsItem do
         end
       end
       it "should load 2 records, newest first" do
-        NewsItem.find_newest_two.should eq(@test_news_items[0..1])
+        NewsItem.find_latest.should eq(@test_news_items[0..1])
       end
     end
   end
 
-  describe "find_next_twenty" do
+  describe "find_next" do
     before :each do
       @test_news_items = []
 
@@ -38,10 +38,14 @@ describe NewsItem do
       end
     end
     it "should load 20 records, newest first, excluding the first 2" do
-      NewsItem.find_next_twenty.should eq(@test_news_items[2..21])
+      NewsItem.find_next.should eq(@test_news_items[2..21])
+      NewsItem.find_next(page = 1).should eq(@test_news_items[2..21])
     end
-    it "should load 20 more records, newest first, excluding the offset" do
-      NewsItem.find_next_twenty(20 + NewsItem.find_newest_two.length).should eq(@test_news_items[22..29])
+    it "should load up to 20 more records, newest first, excluding the offset" do
+      NewsItem.find_next(page = 2).should eq(@test_news_items[22..29])
+    end
+    it "should load no more records, if there are no more to display" do
+      NewsItem.find_next(page = 3).should eq([])
     end
   end
 end

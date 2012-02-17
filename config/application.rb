@@ -67,5 +67,8 @@ module D3
     SITE_LOGO = "#{SITE_URL}assets/d3-logo.png"
     FB_ADMIN = "541838134"
     #TWITTER_NAME = "mattspendlove"
+
+    NEWS_INITIAL_LOAD = 2
+    NEWS_PAGE_SIZE = 20
   end
 end
