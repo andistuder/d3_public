@@ -7,18 +7,19 @@ Feature: News
   Background:
     Given allow local http request
 
+  @javascript
   Scenario: Creating and viewing a News Item
     Given I am logged in as "admin@d3.com"
-    When I go to the admin page
-    And I click link "News items"
-    And I click link "Add new"
-    And I fill in "news_item_headline" with "Stop press, new D3 model"
-    And I fill in "news_item_summary" with "Well, you wouldn't believe it the new version is even better.."
-    And I fill in "news_item_content" with "Well, you wouldn't believe it the new version is even better and on and on"
-    And I press "Save"
+    And the following news items:
+      | headline                 | summary                                                        | content                                           |
+      | Stop press, new D3 model | Well, you wouldn't believe it the new version is even better.. | We could talk to you about it in great depth here |
+      | New D3 feature           | The discombobulating widget                                    | You didn't eve know you needed it                 |
+    And I added those news items to the CMS
     When I go to the news page
     Then I should see "Stop press, new D3 model"
-    And I should see "Well, you wouldn't believe it the new version is even better and on and on"
+    And I should see "We could talk to you about it in great depth here"
+    And I should see "New D3 feature"
+    And I should see "You didn't eve know you needed it"
 
   @wip
   Scenario: Revealing more News Items

@@ -47,15 +47,16 @@ group :test, cucumber do
   gem "rspec-rails"
   gem "cucumber-rails"
   gem "capybara"
+  #gem 'capybara-webkit'
   gem 'database_cleaner'
   gem "execjs" #for CI on Heroku
   gem "therubyracer" #for CI on Heroku
-  #gem 'pg' #for CI on Heroku
+               #gem 'pg' #for CI on Heroku
   gem "fastercsv"
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'webmock' 
+  gem 'webmock'
 end
 
 group :production do
