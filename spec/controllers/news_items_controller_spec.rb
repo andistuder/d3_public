@@ -47,19 +47,36 @@ describe NewsItemsController do
   end
 
   describe "GET news/next/page" do
-    before :each do
-      @expected_range = @test_news_items[2..21]
-      NewsItem.should_receive(:find_next).and_return(@expected_range)
+
+    describe "with more records" do
+
+      before :each do
+        @expected_range = @test_news_items[2..21]
+        NewsItem.should_receive(:find_next).and_return(@expected_range)
+      end
+
+      it "should be successful" do
+        get 'next'
+        response.should be_success
+      end
+
+      it "assigns @news_items for the first page" do
+        get 'next', :page => 1
+        assigns(:news_items).should eq(@expected_range)
+      end
     end
 
-    it "should be successful" do
-      get 'next'
-      response.should be_success
-    end
 
-    it "assigns @news_items for the first page" do
-      get 'next', :page => 1
-      assigns(:news_items).should eq(@expected_range)
+    describe "no more records" do
+      before :each do
+        NewsItem.should_receive(:find_next).and_return([])
+      end
+
+      it "renders nothing with a 204" do
+        get 'next', :page => 1000
+        response.code.should eq("204")
+        response.body.should eq("")
+      end
     end
 
   end

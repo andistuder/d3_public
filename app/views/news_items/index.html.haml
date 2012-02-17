@@ -7,7 +7,10 @@
 
     = render @news_items, :locals => {:title => false}
 
-    %p.read_more= link_to "SHOW 20 MORE", ""
+    .more_news
+
+    %p.read_more= link_to "SHOW 20 MORE", "/news/next/1", :remote => true, :class => "show_more"
+    %p#no_data_found= link_to "NO MORE ITEMS", ""
 
 %section#prev_next_bar
   &nbsp;

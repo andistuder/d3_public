@@ -48,4 +48,24 @@ jQuery(document).ready(function(){
         $('#nextBtn').show();
         $(".vimeo_link a").removeClass('current');
     });
+
+    $('.show_more').bind('ajax:success', function(event, data, status, xhr) {
+        if (xhr.status == 200) {
+            $('.more_news').last().replaceWith(data);
+            $('.more_news_wrapper').last().slideDown();
+
+            $('html, body').animate({scrollTop: $('.more_news_wrapper').last().offset().top - 50}, 500);
+
+            var page = 0;
+            page = parseInt($('.show_more').attr("href").split("/").pop());
+            $('.show_more').attr("href", "/news/next/"+parseInt(page+1));
+        }
+
+        if (xhr.status == "204"){
+            $('.read_more').fadeOut();
+            $('#no_data_found').fadeIn();
+        }
+
+    });
+
 });
