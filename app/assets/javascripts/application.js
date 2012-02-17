@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
             $('.more_news').last().replaceWith(data);
             $('.more_news_wrapper').last().slideDown();
 
-            $('html, body').animate({scrollTop: $('.more_news_wrapper').last().offset().top - 50}, 500);
+            $('html, body').animate({scrollTop: $('.more_news_wrapper').last().offset().top - 0}, 500);
 
             var page = 0;
             page = parseInt($('.show_more').attr("href").split("/").pop());
@@ -65,6 +65,11 @@ jQuery(document).ready(function(){
             $('.read_more').fadeOut();
             $('#no_data_found').fadeIn();
         }
+
+    }).bind("ajax:error", function(evt, xhr, status, error){
+        $('#message_content').html("There was an error fetching more content");
+        $('#message').slideDown();
+        $('#message_content').fadeIn();
 
     });
 

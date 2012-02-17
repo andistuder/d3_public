@@ -1,4 +1,4 @@
-Given /^the seeded news items$/ do
+Given /^the seeded 25 news items$/ do
   25.times do
     FactoryGirl.create :news_item
   end
@@ -20,13 +20,7 @@ end
 
 When /^I added those news items to the CMS$/ do
 
-  visit('/admin')
-  click_link "Assets"
-  click_link "Add new"
-  fill_in "asset_name", :with => "Placeholder asset"
-  fill_in "asset_description", :with => "Place holder asset desc"
-  #attach_file "asset_asset", "#{Rails.root}/features/assets/placeholder246x154.png"
-  click_button "Save"
+  create_placeholder_image
 
   @news.each_with_index do |n, i|
     visit('/admin')
@@ -40,5 +34,18 @@ When /^I added those news items to the CMS$/ do
     end
     click_button "Save"
   end
+
+end
+
+
+
+def create_placeholder_image
+  visit('/admin')
+  click_link "Assets"
+  click_link "Add new"
+  fill_in "asset_name", :with => "Placeholder asset"
+  fill_in "asset_description", :with => "Place holder asset desc"
+  #attach_file "asset_asset", "#{Rails.root}/features/assets/placeholder246x154.png"
+  click_button "Save"
 
 end
