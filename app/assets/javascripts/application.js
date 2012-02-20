@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
     });
 
     jQuery("#slider").easySlider({
-        auto: true,
+//        auto: true,
 		continuous: true,
         numeric: true,
         numericId: "silder_nav",
