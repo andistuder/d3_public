@@ -5,9 +5,9 @@
     %h1 Projects
     %p.introduction Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
     - for project_category in @project_categories do
-      %section
+      %section.project_cat
         - if project_category.projects.first.assets.present?
-          %img{:src => project_category.projects.first.assets.first.asset.url(:medium), :alt => project_category.projects.first.assets.first.description}
+          %img{:src => project_category.projects.first.assets.first.asset.url(:small), :alt => project_category.projects.first.assets.first.description}
         .wrapper
           %h2= project_category.name
           %p= project_category.summary
