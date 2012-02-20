@@ -6,11 +6,13 @@
     %p.introduction= @project_category.content
     %ul#listed_projects
       -for project in @project_category.projects do
-        - if project.assets.present?
-          %li
-            %a{:href => project_path(project)}
+        %li
+          %a{:href => project_path(project)}
+            - if project.assets.present?
               %img{:src => project.assets.first.asset.url(:small), :alt => project.name}
-              %h3= project.name
+            - else
+              = image_tag("placeholder_small.png")
+            %h3= project.name
 %section#prev_next_bar
   &nbsp;
 %section#related

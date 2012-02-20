@@ -1,5 +1,8 @@
 class ProjectCategory < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
   validates_presence_of :name, :summary, :content, :slug
 
   has_and_belongs_to_many :projects
