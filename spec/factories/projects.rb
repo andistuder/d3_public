@@ -8,4 +8,13 @@ FactoryGirl.define do
     how_made Faker::Lorem.paragraph
     created_at Time.now
   end
+
+  factory :project_category, :class => ProjectCategory do
+    name Faker::Lorem.words
+    slug "pc-slug"
+    summary Faker::Lorem.paragraph
+    content Faker::Lorem.paragraph
+    created_at Time.now
+  end
+
 end

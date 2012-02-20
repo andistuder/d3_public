@@ -1,0 +1,17 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    %h1= @project_category.name
+    %p.introduction= @project_category.content
+    %ul#listed_projects
+      -for project in @project_category.projects do
+        - if project.assets.present?
+          %li
+            %a{:href => project_path(project)}
+              %img{:src => project.assets.first.asset.url(:small), :alt => project.name}
+              %h3= project.name
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

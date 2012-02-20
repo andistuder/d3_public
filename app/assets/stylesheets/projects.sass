@@ -1,4 +1,4 @@
-body.bp.projects
+body.bp.projects, body.bp.project_categories
   #main
     .container
       #content
@@ -22,6 +22,22 @@ body.bp.projects
             width: 380px
             margin-left: 40px
             margin-right: 40px
+        #listed_projects
+          +horizontal-list
+          li
+            margin-left: 40px
+            margin-bottom: 40px
+            h3
+              background-color: $blue
+              color: white
+              font-size: 12px
+              text-transform: uppercase
+              position: relative
+              top: -159px
+              z-index: 1000
+              padding: 0 6px
+              line-height: 2.5em
+              width: auto
         section#credits
           +float-left
         section#equipment
