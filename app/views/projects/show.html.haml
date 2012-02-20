@@ -9,7 +9,7 @@
         =link_to "&nbsp;".html_safe, "javascript:void(0);"
     - if @project.vimeo_id.present?
       .display-none
-        %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@project.vimeo_id}", :width => "717", :id => "vimeo_player"}
+        %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@project.vimeo_id}", :width => "938", :id => "vimeo_player"}
     - if @project.assets.present? 
       #slider
         %ul
@@ -26,13 +26,13 @@
     %p.introduction= @project.summary
     %section{:id => "concept", :class => "alternating"}
       -if @project.left_image.present?
-        %img{:src => @project.left_image.asset.url(:small), :alt => @project.left_image.description}
+        %img{:src => @project.left_image.asset.url(:medium), :alt => @project.left_image.description}
       .wrapper
         %h2= "The Concept"
         %p= @project.concept.html_safe
     %section{:id => "concept", :class => "alternating"}
       -if @project.right_image.present?
-        %img{:src => @project.right_image.asset.url(:small), :alt => @project.right_image.description}
+        %img{:src => @project.right_image.asset.url(:medium), :alt => @project.right_image.description}
       .wrapper
         %h2= "How d3 made it"
         %p= @project.how_made.html_safe

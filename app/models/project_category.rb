@@ -4,4 +4,12 @@ class ProjectCategory < ActiveRecord::Base
 
   has_and_belongs_to_many :projects
 
+  #def previous_feature_cat
+  #  self.class.first(:conditions => ["sort_order < ?", sort_order], :order => "sort_order desc")
+  #end
+  #
+  #def next_feature_cat
+  #  self.class.first(:conditions => ["sort_order > ?", sort_order], :order => "sort_order asc")
+  #end
+
 end

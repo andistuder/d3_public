@@ -1,0 +1,28 @@
+body.bp.projects
+  #main
+    .container
+      #content
+        width: 938px
+        #prevBtn, #nextBtn
+          top: 450px
+        #prevBtn
+          left: 22px
+        #nextBtn
+          left: 850px
+        #slider
+          width: 938px
+          height: 587px
+        section
+          p, h2
+            width: 495px
+        section#credits, section#equipment
+          +span(4)
+          clear: none
+          .wrapper, h2
+            width: 380px
+            margin-left: 40px
+            margin-right: 40px
+        section#credits
+          +float-left
+        section#equipment
+          +float-right
