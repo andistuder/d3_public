@@ -1,0 +1,11 @@
+%section#chapters
+  %ul
+    - @chapters.each do |chapter|
+      %li
+        = chapter.name
+        - if chapter.children.length > 0
+          %ul
+            - chapter.children.each do |child|
+              %li= child.name
+
+

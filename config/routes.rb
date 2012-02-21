@@ -10,9 +10,10 @@ D3::Application.routes.draw do
 
   resources :project_categories, :only => [:show]
 
+  scope "support" do
+    match "knowledge_base/user_guide" => "knowledge_base#user_guide"
+  end
 
-  #match "news/:id" => "news_items#show"
-  #match "news" => "news_items#next"
   match "news/next/:page" => "news_items#next"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
