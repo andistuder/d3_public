@@ -152,6 +152,32 @@ else
 
       end
     end
+
+    #############
+    # Project
+    #############
+    config.model Project do
+      edit do
+        field :name
+        field :slug
+        field :sort_order
+        field :summary
+        field :concept
+        field :left_image
+        field :how_made
+        field :features, :has_and_belongs_to_many_association
+        field :how_made_bottom
+        field :right_image
+        field :credits_left
+        field :credits_right
+        field :equipment_left
+        field :equipment_right
+        field :vimeo_id
+        field :assets, :has_and_belongs_to_many_association
+        field :project_categories, :has_and_belongs_to_many_association
+
+      end
+    end
   end
 
 end
