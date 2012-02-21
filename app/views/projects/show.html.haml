@@ -39,7 +39,7 @@
         .list-container
           %ul
             - for feature in @project.features do
-              %li= feature.name
+              %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
         - if @project.how_made_bottom.present?
           %p= @project.how_made_bottom.html_safe
     - if @project.credits_left.present?
