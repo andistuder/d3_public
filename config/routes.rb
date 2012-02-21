@@ -4,6 +4,10 @@ D3::Application.routes.draw do
 
   resources :feature_categories, :only => [:index, :show], :path => :features
 
+  resources :partner_categories, :only => [:index, :show], :path => :get_d3  do
+      resources :partners, :only => [:show]
+  end
+
   resources :news_items, :only => [:index, :show], :path => :news
 
   resources :projects, :only => [:show, :index]
