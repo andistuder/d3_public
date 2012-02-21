@@ -18,6 +18,28 @@ body.bp.projects, body.bp.project_categories
         section.project_cat
           p, h2
             width: 605px
+        section#how_made
+
+          .wrapper
+            +float-right
+            .p, .h2
+              +reset-float
+            .list-container
+              width: 495px
+              margin-left: 40px
+              overflow: hidden
+              ul
+                +horizontal-list
+                margin: 10px 0
+                li
+                  width: 140px
+                  list-style-type: disc
+                  margin-left: 15px
+                  display: list-item
+              //clear:both
+              //+horizontal-list
+
+            //+horizontal-list
         section#credits, section#equipment
           +span(4)
           clear: none
@@ -25,6 +47,22 @@ body.bp.projects, body.bp.project_categories
             width: 380px
             margin-left: 40px
             margin-right: 40px
+            .left, .right
+              width: 180px
+              +float-left
+              ul
+                +no-bullets
+                padding-left: 0
+                p
+                  width: auto
+                  margin: 0
+                  font-size: 14px
+            .left
+              margin-right: 20px
+        section#credits
+          li
+            margin-bottom: 10px
+
         #listed_projects
           +horizontal-list
           li
