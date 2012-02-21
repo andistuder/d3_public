@@ -12,13 +12,13 @@ Feature: News
     And the following news items:
       | headline                 | content                                           |
       | Stop press, new D3 model | We could talk to you about it in great depth here |
-      | New D3 feature           | You didn't eve know you needed it                 |
+      | New D3 feature           | You didn’t eve know you needed it                 |
     And I added those news items to the CMS
     When I go to the news page
     Then I should see "Stop press, new D3 model"
     And I should see "We could talk to you about it in great depth here"
     And I should see "New D3 feature"
-    And I should see "You didn't eve know you needed it"
+    And I should see "You didn’t eve know you needed it"
 
   @javascript
   Scenario: Revealing more News Items

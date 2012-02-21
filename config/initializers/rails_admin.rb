@@ -162,12 +162,12 @@ else
         field :slug
         field :sort_order
         field :summary
-        field :concept
-        field :left_image
+        field :project_content_areas, :has_many_association
+        field :how_made_title
         field :how_made
         field :features, :has_and_belongs_to_many_association
         field :how_made_bottom
-        field :right_image
+        field :how_made_image
         field :credits_left
         field :credits_right
         field :equipment_left

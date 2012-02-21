@@ -10,9 +10,7 @@ describe "projects/show.html.haml" do
 
     rendered.should have_content(@test_project.name)
     rendered.should have_content(@test_project.summary)
-    rendered.should have_content(@test_project.concept)
     rendered.should have_content(@test_project.how_made)
-    rendered.should have_content(@test_project.how_made)
-    rendered.should have_content(@test_project.how_made)
+    rendered.should have_content(@test_project.how_made_title)
   end
 end

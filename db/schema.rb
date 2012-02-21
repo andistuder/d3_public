@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221133945) do
+ActiveRecord::Schema.define(:version => 20120221190702) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -166,23 +166,32 @@ ActiveRecord::Schema.define(:version => 20120221133945) do
     t.integer "project_id"
   end
 
+  create_table "project_content_areas", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "project_id"
+    t.integer  "sort_order"
+    t.integer  "asset_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "slug"
     t.text     "summary"
-    t.text     "concept"
     t.text     "how_made"
     t.text     "credits_left"
     t.text     "equipment_left"
-    t.integer  "left_image_id"
-    t.integer  "right_image_id"
+    t.integer  "how_made_image_id"
     t.integer  "vimeo_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.text     "credits_right"
     t.text     "equipment_right"
     t.text     "how_made_bottom"
     t.integer  "sort_order"
+    t.text     "how_made_title"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

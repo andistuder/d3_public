@@ -14,9 +14,9 @@ Feature: Project
       | name        | slug         | content                         | summary             |
       | TV Projects | tv-projects  | With d3 you can do TV projects  | TV Projects Summary |
     And the following projects:
-      | name            | slug            | summary                                          | concept           | how_made            |
-      | Take That Tour  | take-that-tour  | Sed placerat arcu et magna accumsan porta.       | TakeThat Concept  | Made with Take That |
-      | Jay-Z           | jay-z           | Nec ante imperdiet rhoncus. Sed sed erat eros.   | Jay-Z Concept     | Made with Jay-Z     |
+      | name            | slug            | summary                                          | how_made_title           | how_made            |
+      | Take That Tour  | take-that-tour  | Sed placerat arcu et magna accumsan porta.       | TakeThat How Made        | Made with Take That |
+      | Jay-Z           | jay-z           | Nec ante imperdiet rhoncus. Sed sed erat eros.   | Jay-Z How Made           | Made with Jay-Z     |
     And I add those projects to the CMS
     When I go to the projects page
     Then I should see "Projects"
@@ -29,7 +29,7 @@ Feature: Project
     When I click link "Jay-Z"
     Then I should see "Nec ante imperdiet rhoncus. Sed sed erat eros."
     Then I should see "Jay-Z"
-    Then I should see "Jay-Z Concept"
+    Then I should see "Jay-Z How Made"
     Then I should see "Made with Jay-Z"
 
 

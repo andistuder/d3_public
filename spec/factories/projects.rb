@@ -4,8 +4,8 @@ FactoryGirl.define do
     name Faker::Lorem.words
     slug "p-slug"
     summary Faker::Lorem.paragraph
-    concept Faker::Lorem.paragraph
     how_made Faker::Lorem.paragraph
+    how_made_title Faker::Lorem.words
     created_at Time.now
   end
 

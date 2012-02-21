@@ -24,17 +24,17 @@
       TODO: social bookmarks here
     %h1.after-slideshow= @project.name
     %p.introduction= @project.summary
-    %section{:id => "concept", :class => "alternating"}
-      -if @project.left_image.present?
-        %img{:src => @project.left_image.asset.url(:medium), :alt => @project.left_image.description}
-      .wrapper
-        %h2= "The Concept"
-        = sanitize(textilize(@project.concept))
+    - for content_area in @project.project_content_areas.ordered do
+      %section{:class => "alternating"}
+        %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+        .wrapper
+          %h2= content_area.title
+          = sanitize(textilize(content_area.content))
     %section{:id => "how_made", :class => "alternating"}
-      -if @project.right_image.present?
-        %img{:src => @project.right_image.asset.url(:medium), :alt => @project.right_image.description}
+      -if @project.how_made_image.present?
+        %img{:src => @project.how_made_image.asset.url(:medium), :alt => @project.how_made_image.description}
       .wrapper
-        %h2= "How d3 made it"
+        %h2= @project.how_made_title
         = sanitize(textilize(@project.how_made))
         .list-container
           %ul

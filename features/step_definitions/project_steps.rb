@@ -19,7 +19,7 @@ When /^I add those projects to the CMS$/ do
     fill_in "project_name", :with => @projects[i][:name]
     fill_in "project_slug", :with => @projects[i][:slug]
     fill_in "project_summary", :with => @projects[i][:summary]
-    fill_in "project_concept", :with => @projects[i][:concept]
+    fill_in "project_how_made_title", :with => @projects[i][:how_made_title]
     fill_in "project_how_made", :with => @projects[i][:how_made]
     within("#project_asset_ids_field") do
       click_link "Choose all"
