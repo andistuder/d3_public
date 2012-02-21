@@ -178,6 +178,16 @@ else
 
       end
     end
+
+    #############
+    # Chapter
+    #############
+    config.model Chapter do
+       # Cross-section field configuration
+       #object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
+       label 'User Guide Chapter'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
+       label_plural 'User Guide Chapters'      # Same, plural
+    end
   end
 
 end
