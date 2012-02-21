@@ -29,34 +29,34 @@
         %img{:src => @project.left_image.asset.url(:medium), :alt => @project.left_image.description}
       .wrapper
         %h2= "The Concept"
-        %p= @project.concept.html_safe
+        = sanitize(textilize(@project.concept))
     %section{:id => "how_made", :class => "alternating"}
       -if @project.right_image.present?
         %img{:src => @project.right_image.asset.url(:medium), :alt => @project.right_image.description}
       .wrapper
         %h2= "How d3 made it"
-        %p= @project.how_made.html_safe
+        = sanitize(textilize(@project.how_made))
         .list-container
           %ul
             - for feature in @project.features do
               %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
         - if @project.how_made_bottom.present?
-          %p= @project.how_made_bottom.html_safe
+          = sanitize(textilize(@project.how_made_bottom))
     .project_credits
       - if @project.credits_left.present?
         %section#credits
           %h3= "Credits"
           .wrapper
-            .left=@project.credits_left.html_safe
+            .left= sanitize(textilize(@project.credits_left))
             - if @project.credits_right.present?
-              .right=@project.credits_right.html_safe
+              .right= sanitize(textilize(@project.credits_right))
       - if @project.equipment_left.present?
         %section#equipment
           %h3= "Equipment used"
           .wrapper
-            .left=@project.equipment_left.html_safe
+            .left= sanitize(textilize(@project.equipment_left))
             - if @project.equipment_right.present?
-              .right=@project.equipment_right.html_safe
+              .right= sanitize(textilize(@project.equipment_right))
 %section#prev_next_bar
   - if @project.previous.present?
     .previous

@@ -13,7 +13,7 @@ gem 'aws-sdk'
 gem "friendly_id", "~> 4.0.0"
 #gem 'twitter'
 gem 'acts_as_indexed'
-gem 'RedCloth'
+gem 'RedCloth', '~> 4.2.9'
 gem 'acts-as-taggable-on'
 gem 'acts_as_tree'
 gem 'dalli'
