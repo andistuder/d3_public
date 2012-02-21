@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221190702) do
+ActiveRecord::Schema.define(:version => 20120221204137) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(:version => 20120221190702) do
     t.text     "equipment_right"
     t.text     "how_made_bottom"
     t.integer  "sort_order"
-    t.text     "how_made_title"
+    t.string   "how_made_title"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
