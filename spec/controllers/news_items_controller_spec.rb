@@ -3,17 +3,17 @@ require 'spec_helper'
 describe NewsItemsController do
 
   before :each do
-    @test_news_items = []
+    @parents = []
 
     30.times do |i|
-      @test_news_items << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+      @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
     end
   end
 
   describe "GET index" do
 
     before :each do
-      @expected_range = @test_news_items[0..1]
+      @expected_range = @parents[0..1]
       NewsItem.should_receive(:find_latest).and_return(@expected_range)
     end
 
@@ -32,7 +32,7 @@ describe NewsItemsController do
   describe "GET show" do
 
     before :each do
-      NewsItem.should_receive(:find).and_return(@test_news_items[1])
+      NewsItem.should_receive(:find).and_return(@parents[1])
     end
 
     it "should be successful" do
@@ -42,7 +42,7 @@ describe NewsItemsController do
 
     it "assigns @news_item" do
       get 'show', :id => 1
-      assigns(:news_item).should eq(@test_news_items[1])
+      assigns(:news_item).should eq(@parents[1])
     end
   end
 
@@ -51,7 +51,7 @@ describe NewsItemsController do
     describe "with more records" do
 
       before :each do
-        @expected_range = @test_news_items[2..21]
+        @expected_range = @parents[2..21]
         NewsItem.should_receive(:find_next).and_return(@expected_range)
       end
 

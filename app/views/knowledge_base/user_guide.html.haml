@@ -1,0 +1,21 @@
+%section#intro
+  %h1 User Guide
+  - if @user_guide_intro
+    %article= sanitize(textilize(@user_guide_intro.content))
+
+%section#body
+  - if @user_guide_body
+    %article= sanitize(textilize(@user_guide_body.content))
+
+%section#chapters
+  %ul
+    - @chapters.each do |chapter|
+      %li
+        = chapter.name
+        - if chapter.children.length > 0
+          %ul
+            - chapter.children.each do |child|
+              %li= child.name
+
+
+

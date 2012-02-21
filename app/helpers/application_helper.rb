@@ -8,16 +8,16 @@ module ApplicationHelper
     link_to(name, options, html_options, &block)
   end
 
-  #def textilize_without_paragraph(text, *options)
-  #  textiled = textilize(text, *options)
-  #  if textiled[0..2] == "<p>" then
-  #    textiled = textiled[3..-1]
-  #  end
-  #  if textiled[-4..-1] == "</p>" then
-  #    textiled = textiled[0..-5]
-  #  end
-  #  return textiled
-  #end
+  def textilize_without_paragraph(text, *options)
+    textiled = textilize(text, *options)
+    if textiled[0..2] == "<p>" then
+      textiled = textiled[3..-1]
+    end
+    if textiled[-4..-1] == "</p>" then
+      textiled = textiled[0..-5]
+    end
+    return textiled
+  end
 
 
   #def article_image(klass, options={:hover_flag => false, :link_flag =>true})

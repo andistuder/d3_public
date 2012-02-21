@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(:version => 20120221190702) do
     t.integer "page_id"
   end
 
+  create_table "chapters", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "content"
+    t.integer  "sort_order"
+    t.integer  "parent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "content_areas", :force => true do |t|
     t.string   "name"
     t.text     "content"
