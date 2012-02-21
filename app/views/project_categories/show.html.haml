@@ -9,7 +9,7 @@
         %li
           %a{:href => project_path(project)}
             - if project.assets.present?
-              %img{:src => project.assets.first.asset.url(:small), :alt => project.name}
+              %img{:src => project.assets.first.asset.url(:medium), :width => "272px", :height => "170px", :alt => project.name}
             - else
               = image_tag("placeholder_small.png")
             %h3= project.name
