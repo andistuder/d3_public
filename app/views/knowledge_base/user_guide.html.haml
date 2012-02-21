@@ -1,11 +1,11 @@
 %section#intro
   %h1 User Guide
   - if @user_guide_intro
-    %article= @user_guide_intro.content
+    %article= sanitize(textilize(@user_guide_intro.content))
 
 %section#body
   - if @user_guide_body
-    %article= @user_guide_body.content
+    %article= sanitize(textilize(@user_guide_body.content))
 
 %section#chapters
   %ul

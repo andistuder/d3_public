@@ -7,12 +7,14 @@ Feature: News
     Given allow local http request
 
   @javascript
+  @pause
+
   Scenario: Creating and viewing a News Item as an admin
     Given I am logged in as "admin@d3.com"
     And the following news items:
       | headline                 | content                                           |
       | Stop press, new D3 model | We could talk to you about it in great depth here |
-      | New D3 feature           | You didn't eve know you needed it                 |
+      | New D3 feature           | You didn't eve know you needed it                  |
     And I added those news items to the CMS
     When I go to the news page
     Then I should see "Stop press, new D3 model"

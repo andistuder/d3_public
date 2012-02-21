@@ -3,6 +3,7 @@ body.bp.projects, body.bp.project_categories
     .container
       #content
         width: 938px
+        border-left-style: none
         #prevBtn, #nextBtn
           top: 450px
         #prevBtn
@@ -18,6 +19,8 @@ body.bp.projects, body.bp.project_categories
         section.project_cat
           p, h2
             width: 605px
+          p
+            min-height: 80px
         section#how_made
           .wrapper
             .list-container
@@ -26,55 +29,62 @@ body.bp.projects, body.bp.project_categories
               overflow: hidden
               ul
                 +horizontal-list
-                margin: 10px 0
+                margin: 14px 0
                 li
                   width: 140px
                   list-style-type: disc
                   margin-left: 15px
                   display: list-item
-              //clear:both
-              //+horizontal-list
+        .project_credits
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-top-style: solid
+          background-color: $off-white_bg
+          overflow: hidden
+          section#credits, section#equipment
+            +span(4)
+            clear: none
+            h3
+              font-weight: 550
+            .wrapper, h3
+              width: 380px
+              margin-left: 40px
+              margin-right: 40px
 
-            //+horizontal-list
-        section#credits, section#equipment
-          +span(4)
-          clear: none
-          .wrapper, h2
-            width: 380px
-            margin-left: 40px
-            margin-right: 40px
-            .left, .right
-              width: 180px
-              +float-left
-              ul
-                +no-bullets
-                padding-left: 0
-                p
-                  width: auto
-                  margin: 0
-                  font-size: 14px
-            .left
-              margin-right: 20px
+              .left, .right
+                width: 180px
+                +float-left
+                ul
+                  +no-bullets
+                  padding-left: 0
+                  p
+                    width: auto
+                    margin: 0
+                    font-size: 14px
+              .left
+                margin-right: 20px
         section#credits
           li
             margin-bottom: 10px
-
         #listed_projects
           +horizontal-list
+          margin-left: 20px
           li
-            margin-left: 40px
-            margin-bottom: 40px
+            margin-left: 20px
+            margin-bottom: 0
+            padding: 0
             h3
               background-color: $blue
               color: white
               font-size: 12px
               text-transform: uppercase
               position: relative
-              top: -159px
+              top: -175px
               z-index: 1000
               padding: 0 6px
               line-height: 2.5em
               width: auto
+              margin: 0
         section#credits
           +float-left
         section#equipment

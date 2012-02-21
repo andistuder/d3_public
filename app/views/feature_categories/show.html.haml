@@ -32,12 +32,7 @@
           %img{:src => feature.asset.asset.url(:small), :alt => feature.asset.description}
         .wrapper
           %h2= feature.name
-          %p= feature.content.html_safe
-    -#- if @feature_category.vimeo_id.present?
-
-      -#.display-none
-      -#  %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
-
+          = sanitize(textilize(feature.content))
 %section#prev_next_bar
   - if @feature_category.previous_feature_cat.present?
     .previous

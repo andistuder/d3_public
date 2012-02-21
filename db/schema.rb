@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20120221145416) do
     t.integer "page_id"
   end
 
+  create_table "assets_partner_categories", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "partner_category_id"
+  end
+
+  create_table "assets_partners", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "partner_id"
+  end
+
   create_table "assets_projects", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "project_id"
@@ -124,6 +134,35 @@ ActiveRecord::Schema.define(:version => 20120221145416) do
     t.integer  "parent_id"
   end
 
+  create_table "partner_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "address_line_one"
+    t.string   "address_line_two"
+    t.string   "town"
+    t.string   "country"
+    t.string   "postcode"
+    t.string   "company"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "website"
+    t.text     "skills"
+    t.text     "experience_level"
+    t.text     "projects_worked_on"
+    t.text     "content"
+    t.integer  "partner_category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "project_categories", :force => true do |t|
     t.string   "name"
     t.string   "slug"
@@ -162,7 +201,7 @@ ActiveRecord::Schema.define(:version => 20120221145416) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month"
+    t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -10,6 +10,8 @@ end
 
 When /^I add those projects to the CMS$/ do
 
+  create_placeholder_image
+
   @projects.each_with_index do |n, i|
     visit('/admin')
     click_link "Projects"
@@ -19,6 +21,9 @@ When /^I add those projects to the CMS$/ do
     fill_in "project_summary", :with => @projects[i][:summary]
     fill_in "project_concept", :with => @projects[i][:concept]
     fill_in "project_how_made", :with => @projects[i][:how_made]
+    within("#project_asset_ids_field") do
+      click_link "Choose all"
+    end
     #fill_in "project_sort_order", :with => i
     #within("#project_category_asset_ids_field") do
     #  click_link "Choose all"
