@@ -2,36 +2,59 @@ require 'spec_helper'
 
 describe "knowledge_base/user_guide.html.haml" do
 
-  before :each do
-    @parents = []
-    @children = []
 
-    2.times do |i|
-      parent = FactoryGirl.build(:chapter, :name => "parent_chapter#{i}", :created_at => Time.now - (1000 * i))
+  describe "populated render" do
+    before :each do
+      @parents = []
+      @children = []
 
-      2.times do |j|
-        @children << FactoryGirl.build(:chapter, :name => "child_chapter#{i}-#{j}", :created_at => Time.now - (1000 * i))
+      2.times do |i|
+        parent = FactoryGirl.build(:chapter, :name => "parent_chapter#{i}", :created_at => Time.now - (1000 * i))
+
+        2.times do |j|
+          @children << FactoryGirl.build(:chapter, :name => "child_chapter#{i}-#{j}", :created_at => Time.now - (1000 * i))
+        end
+
+        parent.should_receive(:children).at_least(1).times.and_return(@children)
+        @parents << parent
       end
 
-      parent.should_receive(:children).at_least(1).times.and_return(@children)
-      @parents << parent
+      @user_guide_intro = FactoryGirl.build(:user_guide)
+      @user_guide_body = FactoryGirl.build(:user_guide)
+
+      assign(:chapters, @parents)
+      assign(:user_guide_intro, @user_guide_intro)
+      assign(:user_guide_body, @user_guide_body)
     end
 
-    assign(:chapters, @parents)
+    it "renders" do
+      render
 
+      rendered.should have_content(@user_guide_intro.content)
+      rendered.should have_content(@user_guide_body.content)
+
+      #chapters
+      @parents.each do |parent|
+        rendered.should have_content(parent.name)
+      end
+
+      @children.each do |child|
+        rendered.should have_content(child.name)
+      end
+
+    end
   end
 
-  it "renders" do
-    render
 
-    @parents.each do |parent|
-      #pp parent.children
-      rendered.should have_content(parent.name)
+  describe "unpopulated render" do
+    before :each do
+      assign(:chapters, []) #AR always returns something for collection
     end
-
-    @children.each do |child|
-      rendered.should have_content(child.name)
+    it "renders" do
+      render
+      rendered.should have_content("User Guide") #page title
     end
-
   end
+
+
 end
