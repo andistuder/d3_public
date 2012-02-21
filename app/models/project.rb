@@ -9,7 +9,6 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :project_categories
   belongs_to :left_image, :class_name => "Asset"
   belongs_to :right_image, :class_name => "Asset"
-
-  #has_many :owned_hives, :as => :owner, :class_name => "Hive"
+  has_and_belongs_to_many :features
 
 end

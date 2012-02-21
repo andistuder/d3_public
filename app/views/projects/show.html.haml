@@ -36,14 +36,27 @@
       .wrapper
         %h2= "How d3 made it"
         %p= @project.how_made.html_safe
-    - if @project.credits.present?
+        %ul
+          - for feature in @project.features do
+            %li= feature.name
+        - if @project.how_made_bottom.present?
+          %p= @project.how_made_bottom.html_safe
+    - if @project.credits_left.present?
       %section#credits
         %h2= "Credits"
-        .wrapper=@project.credits.html_safe
-    - if @project.credits.present?
+        .wrapper
+          %ul.left-right
+          %li=@project.credits_left.html_safe
+          - if @project.credits_right.present?
+            %li=@project.credits_right.html_safe
+    - if @project.equipment_left.present?
       %section#equipment
         %h2= "Equipment used"
-        .wrapper=@project.equipment.html_safe
+        .wrapper
+          %ul.left-right
+            %li=@project.equipment_left.html_safe
+            - if @project.equipment_right.present?
+              %li=@project.equipment_right.html_safe
 %section#prev_next_bar
   &nbsp;
 -#  - if @project.previous_feature_cat.present?

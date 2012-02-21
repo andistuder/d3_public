@@ -11,6 +11,7 @@ describe Feature do
 
   it { should belong_to(:asset) }
   it { should belong_to(:feature_category) }
+  it { should have_and_belong_to_many(:projects) }
 
   describe "Feature#ordered" do
     pending "need to test ordered scope"
