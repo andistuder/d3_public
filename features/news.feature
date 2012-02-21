@@ -7,8 +7,6 @@ Feature: News
     Given allow local http request
 
   @javascript
-  @pause
-
   Scenario: Creating and viewing a News Item as an admin
     Given I am logged in as "admin@d3.com"
     And the following news items:
