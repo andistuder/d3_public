@@ -42,20 +42,21 @@
               %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
         - if @project.how_made_bottom.present?
           %p= @project.how_made_bottom.html_safe
-    - if @project.credits_left.present?
-      %section#credits
-        %h2= "Credits"
-        .wrapper
-          .left=@project.credits_left.html_safe
-          - if @project.credits_right.present?
-            .right=@project.credits_right.html_safe
-    - if @project.equipment_left.present?
-      %section#equipment
-        %h2= "Equipment used"
-        .wrapper
-          .left=@project.equipment_left.html_safe
-          - if @project.equipment_right.present?
-            .right=@project.equipment_right.html_safe
+    .project_credits
+      - if @project.credits_left.present?
+        %section#credits
+          %h3= "Credits"
+          .wrapper
+            .left=@project.credits_left.html_safe
+            - if @project.credits_right.present?
+              .right=@project.credits_right.html_safe
+      - if @project.equipment_left.present?
+        %section#equipment
+          %h3= "Equipment used"
+          .wrapper
+            .left=@project.equipment_left.html_safe
+            - if @project.equipment_right.present?
+              .right=@project.equipment_right.html_safe
 %section#prev_next_bar
   - if @project.previous.present?
     .previous

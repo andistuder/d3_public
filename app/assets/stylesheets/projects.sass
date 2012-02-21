@@ -26,35 +26,38 @@ body.bp.projects, body.bp.project_categories
               overflow: hidden
               ul
                 +horizontal-list
-                margin: 10px 0
+                margin: 14px 0
                 li
                   width: 140px
                   list-style-type: disc
                   margin-left: 15px
                   display: list-item
-              //clear:both
-              //+horizontal-list
-
-            //+horizontal-list
-        section#credits, section#equipment
-          +span(4)
-          clear: none
-          .wrapper, h2
-            width: 380px
-            margin-left: 40px
-            margin-right: 40px
-            .left, .right
-              width: 180px
-              +float-left
-              ul
-                +no-bullets
-                padding-left: 0
-                p
-                  width: auto
-                  margin: 0
-                  font-size: 14px
-            .left
-              margin-right: 20px
+        .project_credits
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-top-style: solid
+          background-color: $off-white_bg
+          overflow: hidden
+          section#credits, section#equipment
+            //background-color: $off-white_bg
+            +span(4)
+            clear: none
+            .wrapper, h2
+              width: 380px
+              margin-left: 40px
+              margin-right: 40px
+              .left, .right
+                width: 180px
+                +float-left
+                ul
+                  +no-bullets
+                  padding-left: 0
+                  p
+                    width: auto
+                    margin: 0
+                    font-size: 14px
+              .left
+                margin-right: 20px
         section#credits
           li
             margin-bottom: 10px
