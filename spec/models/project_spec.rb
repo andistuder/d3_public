@@ -16,4 +16,12 @@ describe Project do
     Project.new.should be_an_instance_of(Project)
   end
 
+  describe "Project#previous" do
+    pending "Factory test to be added?"
+  end
+
+  describe "Project#next" do
+    pending "Factory test to be added?"
+  end
+
 end

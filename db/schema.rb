@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221083528) do
+ActiveRecord::Schema.define(:version => 20120221133945) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20120221083528) do
   create_table "assets_pages", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "page_id"
+  end
+
+  create_table "assets_partner_categories", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "partner_category_id"
+  end
+
+  create_table "assets_partners", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "partner_id"
   end
 
   create_table "assets_projects", :id => false, :force => true do |t|
@@ -111,6 +121,35 @@ ActiveRecord::Schema.define(:version => 20120221083528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+  end
+
+  create_table "partner_categories", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "address_line_one"
+    t.string   "address_line_two"
+    t.string   "town"
+    t.string   "country"
+    t.string   "postcode"
+    t.string   "company"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "website"
+    t.text     "skills"
+    t.text     "experience_level"
+    t.text     "projects_worked_on"
+    t.text     "content"
+    t.integer  "partner_category_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "project_categories", :force => true do |t|

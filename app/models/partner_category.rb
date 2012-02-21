@@ -1,0 +1,11 @@
+class PartnerCategory < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
+  validates_presence_of :name, :slug
+
+  has_and_belongs_to_many :assets
+  has_many :partners
+
+end
