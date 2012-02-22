@@ -1,1 +1,58 @@
-show p
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    -#- if @partner.assets.present?
+    -#  #no-slider
+    -#    %img{:src => @partner.assets.first.asset.url(:xl), :width => "938px", :height => "587px", :alt => @partner.assets.first.description}
+    #social_bookmarks
+      TODO: social bookmarks here
+    %h1= @partner.name
+
+    %h2= "Details"
+    #google_map= "TODO Map Here"
+    %table
+
+      %tr
+        %td.left= "Location"
+        %td.right= @partner.address_line_one
+      %tr
+        %td
+        %td= @partner.address_line_two
+      %tr
+        %td
+        %td= "#{@partner.town} #{@partner.postcode}"
+      %tr
+        %td
+        %td= @partner.country
+      %tr
+        %td= "Company"
+        %td= @partner.company
+      %tr
+        %td= "Email"
+        %td= @partner.email
+      %tr
+        %td= "Website"
+        %td= @partner.website
+    %h2= "d3 related skills"
+    = sanitize(textilize(@partner.skills))
+    %h2= "d3 experience level"
+    = sanitize(textilize(@partner.experience_level))
+    %h2= "d3 projects worked on"
+    = sanitize(textilize(@partner.projects_worked_on))
+    %h2= "About #{@partner.name}"
+    = sanitize(textilize(@partner.content))
+%section#prev_next_bar
+  &nbsp;
+-#  - if @partner.previous.present?
+-#    .previous
+-#      %p
+-#        %span Previous
+-#      %p= link_to @partner.previous.name, @partner.previous
+-#  - if @partner.next.present?
+-#    .next
+-#      %p
+-#        %span Next
+-#      %p= link_to @partner.next.name, @partner.next
+%section#related
+  = render "pages/related"    
