@@ -22,4 +22,10 @@ FactoryGirl.define do
     #association :partners
   end
 
+  factory :partner_content_area, :class => PartnerContentArea do
+    title Faker::Lorem.words
+    content Faker::Lorem.paragraph
+    created_at Time.now
+  end
+
 end

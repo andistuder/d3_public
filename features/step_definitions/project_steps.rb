@@ -8,9 +8,23 @@ Given /^the following projects:$/ do |table|
   @projects = table.hashes
 end
 
+Given /^the following project content areas:$/ do |table|
+  @project_cas = []
+  @project_cas = table.hashes
+end
+
 When /^I add those projects to the CMS$/ do
 
   create_placeholder_image
+
+  @project_cas.each_with_index do |n, i|
+    visit('/admin')
+    click_link "Project content areas"
+    click_link "Add new"
+    fill_in "project_content_area_title", :with => @project_cas[i][:title]
+    fill_in "project_content_area_content", :with => @project_cas[i][:content]
+    click_button "Save"
+  end
 
   @projects.each_with_index do |n, i|
     visit('/admin')
@@ -21,6 +35,9 @@ When /^I add those projects to the CMS$/ do
     fill_in "project_summary", :with => @projects[i][:summary]
     fill_in "project_how_made_title", :with => @projects[i][:how_made_title]
     fill_in "project_how_made", :with => @projects[i][:how_made]
+    within("#project_project_content_area_ids_field") do
+      click_link "Choose all"
+    end
     within("#project_asset_ids_field") do
       click_link "Choose all"
     end

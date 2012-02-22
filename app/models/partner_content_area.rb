@@ -1,9 +1,8 @@
-class ProjectContentArea < ActiveRecord::Base
+class PartnerContentArea < ActiveRecord::Base
 
   validates_presence_of :title, :content
 
-  belongs_to :project
-  belongs_to :asset
+  belongs_to :partner
 
   scope :ordered, order("sort_order ASC")
 

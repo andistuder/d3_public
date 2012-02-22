@@ -26,7 +26,8 @@
     %p.introduction= @project.summary
     - for content_area in @project.project_content_areas.ordered do
       %section{:class => "alternating"}
-        %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+        - if content_area.asset.present?
+          %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
         .wrapper
           %h2= content_area.title
           = sanitize(textilize(content_area.content))

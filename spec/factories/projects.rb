@@ -17,4 +17,10 @@ FactoryGirl.define do
     created_at Time.now
   end
 
+  factory :project_content_area, :class => ProjectContentArea do
+    title Faker::Lorem.words
+    content Faker::Lorem.paragraph
+    created_at Time.now
+  end
+
 end
