@@ -1,7 +1,7 @@
 class PartnerCategoriesController < ApplicationController
 
   def index
-    @partner_categories = PartnerCategory.all
+    @partner_categories = PartnerCategory.find_in_order
   end
 
   def show

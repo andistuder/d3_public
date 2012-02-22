@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221204137) do
+ActiveRecord::Schema.define(:version => 20120222095647) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20120221204137) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "sort_order"
   end
 
   create_table "partners", :force => true do |t|
@@ -210,7 +211,7 @@ ActiveRecord::Schema.define(:version => 20120221204137) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"

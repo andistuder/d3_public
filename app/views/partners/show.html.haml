@@ -8,11 +8,9 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1= @partner.name
-
     %h2= "Details"
     #google_map= "TODO Map Here"
     %table
-
       %tr
         %td.left= "Location"
         %td.right= @partner.address_line_one
@@ -34,14 +32,18 @@
       %tr
         %td= "Website"
         %td= @partner.website
-    %h2= "d3 related skills"
-    = sanitize(textilize(@partner.skills))
-    %h2= "d3 experience level"
-    = sanitize(textilize(@partner.experience_level))
-    %h2= "d3 projects worked on"
-    = sanitize(textilize(@partner.projects_worked_on))
-    %h2= "About #{@partner.name}"
-    = sanitize(textilize(@partner.content))
+    %section
+      %h2= "d3 related skills"
+      = sanitize(textilize(@partner.skills))
+    %section
+      %h2= "d3 experience level"
+      = sanitize(textilize(@partner.experience_level))
+    %section
+      %h2= "d3 projects worked on"
+      = sanitize(textilize(@partner.projects_worked_on))
+    %section
+      %h2= "About #{@partner.name}"
+      = sanitize(textilize(@partner.content))
 %section#prev_next_bar
   &nbsp;
 -#  - if @partner.previous.present?

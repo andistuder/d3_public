@@ -12,7 +12,29 @@ body.bp.partners, body.bp.partner_categories
           width: 370px
           td.left
             width: 30%
+        ul
+          margin-left: 40px
         h2
           clear: both
-        p
-          border-bottom-style: none
+        section
+          p, h2
+            width: 495px
+          p
+            border-bottom-style: none
+          .read_more
+            +d3-button-link(14px, 6px, 'arrow_white_long.png')
+            margin-top: 5px
+            line-height: 40px
+      #content.background_image
+        .bg_wrapper
+          background: white url('getd3_home_hero.png') no-repeat right top
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-bottom-style: solid
+          min-height: 340px
+          h1
+            width: 370px
+          p
+            width: 370px
+            border-bottom-style: none
+            margin-bottom: 0
