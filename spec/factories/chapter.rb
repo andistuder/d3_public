@@ -2,8 +2,8 @@ FactoryGirl.define do
   factory :chapter, :class => Chapter do
     name Faker::Lorem.words
     slug "some-slug"
-    summary Faker::Lorem.sentence
-    content Faker::Lorem.paragraph
+    summary Faker::Lorem.paragraph
+    content Faker::Lorem.paragraphs
     created_at Time.now
     parent_id nil
   end

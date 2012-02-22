@@ -54,6 +54,13 @@ Then /^I should see those chapters$/ do
   end
 end
 
+Then /^I should see a summary of it's chapters$/ do
+  visit("/support/knowledge_base/user_guide")
+  @child_chapters.each_with_index do |n, i|
+    page.has_content? @child_chapters[i][:summary]
+  end
+end
+
 def fill_in_chapter(i, chapters)
   click_link "User Guide Chapters"
   click_link "Add new"
@@ -61,4 +68,8 @@ def fill_in_chapter(i, chapters)
   fill_in "chapter_summary", :with => chapters[i][:summary]
   fill_in "chapter_content", :with => chapters[i][:content]
   fill_in "chapter_sort_order", :with => chapters[i][:sort_order]
+end
+
+When /^I click span "([^"]*)"$/ do |arg|
+  find("##{arg}").click
 end
