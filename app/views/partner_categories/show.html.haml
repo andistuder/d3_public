@@ -13,7 +13,7 @@
         - if partner.assets.present?
           %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
         .wrapper
-          %h2= link_to partner.name, partner_category_partner_path(partner)
+          %h2= link_to partner.name, "#{partner_category_path(@partner_category)}/#{partner.slug}"
           %p= partner.content
           -#%p.read_more= link_to "Find #{partner.name}", partner_category_partner_path(partner)
         %ul.contact_details
