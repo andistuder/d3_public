@@ -10,7 +10,13 @@
     %h1= @partner.name
     %p.introduction= @partner.summary
     %h2= "Details"
-    #google_map= "TODO Map Here"
+    -if @partner.partner_category.present?
+      -if @partner.partner_category.name == "Users"
+        -if @partner.assets.present?
+          #user_image
+            %img{:src => @partner.assets.first.asset.url(:medium), :alt => @partner.assets.first.description}
+      -else
+        #google_map= "TODO Map Here"
     %table
       %tr
         %td.left= "Location"

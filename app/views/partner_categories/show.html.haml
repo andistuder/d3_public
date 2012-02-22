@@ -9,7 +9,7 @@
     %section
       map here
     - for partner in @partner_category.partners do
-      %section{:id => partner.slug, :class => "partner_index"}
+      %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
         - if partner.assets.present?
           %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
         .wrapper
