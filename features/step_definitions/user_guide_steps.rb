@@ -54,6 +54,13 @@ Then /^I should see those chapters$/ do
   end
 end
 
+Then /^I should see a summary of it's chapters$/ do
+  visit("/support/knowledge_base/user_guide")
+  @child_chapters.each_with_index do |n, i|
+    page.has_content? @child_chapters[i][:summary]
+  end
+end
+
 def fill_in_chapter(i, chapters)
   click_link "User Guide Chapters"
   click_link "Add new"

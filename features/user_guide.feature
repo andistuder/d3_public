@@ -1,13 +1,10 @@
 Feature: User Guide
 
-  In order to enable users to learn about D3
-  I want to be able view a user guide
+  In order for users to learn about D3
+  We want to provide a user guide
 
   Background:
     Given allow local http request
-
-  @javascript
-  Scenario: Creating and viewing a chapter as an admin
     Given I am logged in as "admin@d3.com"
     And the following content_areas
       | name             | content                        |
@@ -22,5 +19,17 @@ Feature: User Guide
       | Add video child | 2          | Summary about add video child | more detail about add video child | 1         |
     And I added those chapters to the CMS
     And I added those content areas to the CMS
+
+  @javascript
+  Scenario: Viewing chapter navigation
     When I go to the user guide page
     Then I should see those chapters
+
+
+  Scenario: Viewing chapter summary
+    When I go to the user guide page
+    And I click link "ADD VIDEO"
+    Then I should see a summary of it's chapters
+
+
+

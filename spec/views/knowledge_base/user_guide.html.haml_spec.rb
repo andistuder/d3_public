@@ -40,6 +40,7 @@ describe "knowledge_base/user_guide.html.haml" do
 
       @children.each do |child|
         rendered.should have_content(child.name)
+        rendered.should have_content(child.summary)
       end
 
     end

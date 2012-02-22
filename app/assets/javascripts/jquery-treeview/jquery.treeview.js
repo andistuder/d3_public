@@ -85,7 +85,7 @@
 	            // create hitarea if not present
 				var hitarea = this.find("div." + CLASSES.hitarea);
 				if (!hitarea.length)
-					hitarea = this.prepend("<div class=\"" + CLASSES.hitarea + "\"/>").find("div." + CLASSES.hitarea);
+					hitarea = this.prepend("<div class=\"" + CLASSES.hitarea + "\">+</div>  ").find("div." + CLASSES.hitarea);
 				hitarea.removeClass().addClass(CLASSES.hitarea).each(function() {
 					var classes = "";
 					$.each($(this).parent().attr("class").split(" "), function() {

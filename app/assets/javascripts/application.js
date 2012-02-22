@@ -6,24 +6,37 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-treeview/jquery.cookie.js
+//= require jquery-treeview/jquery.treeview.js
 //= require_tree .
 
-var grid_image = jQuery('#container').css("background-image");
-var grid_size = jQuery('#container').css("background-size");
+var grid_image = $('#container').css("background-image");
+var grid_size = $('#container').css("background-size");
 
-jQuery(document).ready(function(){
-    jQuery('#container').css("background", "transparent");
 
-    jQuery('.hide_grid').click(function(){
-        jQuery('#container').css("background", "transparent");
+//borrowed from jQuery easing plugin
+//http://gsgd.co.uk/sandbox/jquery.easing.php
+$.easing.elasout = function(x, t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+    if (a < Math.abs(c)) { a=c; var s=p/4; }
+    else var s = p/(2*Math.PI) * Math.asin (c/a);
+    return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+};
+
+$(document).ready(function(){
+    $('#container').css("background", "transparent");
+
+    $('.hide_grid').click(function(){
+        $('#container').css("background", "transparent");
     });
 
-    jQuery('.show_grid').click(function(){
-        jQuery('#container').css("background-image", grid_image);
-        jQuery('#container').css("background-size", grid_size);
+    $('.show_grid').click(function(){
+        $('#container').css("background-image", grid_image);
+        $('#container').css("background-size", grid_size);
     });
 
-    jQuery("#slider").easySlider({
+    $("#slider").easySlider({
 //        auto: true,
 		continuous: true,
         numeric: true,
@@ -32,7 +45,7 @@ jQuery(document).ready(function(){
 	});
 
 
-    jQuery(".vimeo_link a").click(function(){
+    $(".vimeo_link a").click(function(){
         $('#vimeo_player').toggle();
         $('#slider').toggle();
         $('#prevBtn').toggle();
@@ -41,7 +54,7 @@ jQuery(document).ready(function(){
         //$("#silder_nav li").removeClass('current');
     });
 
-    jQuery("#silder_nav a").click(function(){
+    $("#silder_nav a").click(function(){
         $('#vimeo_player').hide();
         $('#slider').show();
         $('#prevBtn').show();
@@ -71,6 +84,26 @@ jQuery(document).ready(function(){
         $('#message').slideDown();
         $('#message_content').fadeIn();
 
+    });
+
+    $("#chapters").treeview({
+        collapsed: true,
+        unique: true,
+        persist: "cookie"
+    });
+
+    $("#user_guide_home").click(function(){
+        $('#user_guide').scrollTo(0, 500, {easing:'elasout'});
+    });
+
+    $(".chapter").click(function(){
+
+        var action = $(this).children(".hitarea").text();
+        $('.hitarea').text("+");
+
+        $(this).children(".hitarea").text(action == "+" ? "-" : "+");
+        var target = "." + $(this).attr("id");
+        $('#user_guide').scrollTo(target, 500, {easing:'elasout'});
     });
 
 });
