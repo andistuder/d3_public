@@ -25,10 +25,10 @@ Feature: User Guide
     When I go to the user guide page
     Then I should see those chapters
 
-
+  @javascript
   Scenario: Viewing chapter summary
     When I go to the user guide page
-    And I click link "ADD VIDEO"
+    And I click span "add-video"
     Then I should see a summary of it's chapters
 
 

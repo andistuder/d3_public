@@ -69,3 +69,7 @@ def fill_in_chapter(i, chapters)
   fill_in "chapter_content", :with => chapters[i][:content]
   fill_in "chapter_sort_order", :with => chapters[i][:sort_order]
 end
+
+When /^I click span "([^"]*)"$/ do |arg|
+  find("##{arg}").click
+end
