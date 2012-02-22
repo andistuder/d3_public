@@ -1,1 +1,22 @@
-index pc
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content.background_image
+    .bg_wrapper
+      #social_bookmarks
+        TODO: social bookmarks here?
+      %h1= "Find d3 partners, studios and users near you."
+      %p.introduction= "Suspendisse potenti. Etiam ut eros augue. Nunc laoreet blandit risus, id vulputate metus facilisis at."
+    - for partner_category in @partner_categories do
+      %section{:id => partner_category.slug, :class => "alternating"}
+        - if partner_category.assets.present?
+          %img{:src => partner_category.assets.first.asset.url(:medium), :alt => partner_category.assets.first.description}
+        .wrapper
+          %h2= partner_category.name
+          %p= partner_category.content
+          %p.read_more= link_to "Find #{partner_category.name}", partner_category
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

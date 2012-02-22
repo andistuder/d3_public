@@ -22,6 +22,9 @@ module NavigationHelpers
     when /features/
       feature_categories_path
 
+    when /get d3 page/
+      partner_categories_path
+
     when /projects/
       projects_path
 

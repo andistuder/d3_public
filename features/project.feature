@@ -1,6 +1,4 @@
 Feature: Project
-   pending "todo once view finalised"
-
   In order to learn about the d3 software
   I want to be able to view project made with d3
 
@@ -17,6 +15,10 @@ Feature: Project
       | name            | slug            | summary                                          | how_made_title           | how_made            |
       | Take That Tour  | take-that-tour  | Sed placerat arcu et magna accumsan porta.       | TakeThat How Made        | Made with Take That |
       | Jay-Z           | jay-z           | Nec ante imperdiet rhoncus. Sed sed erat eros.   | Jay-Z How Made           | Made with Jay-Z     |
+    And the following project content areas:
+      |title           |content                      |
+      |Concept         |concept of it                |
+      |Addition Info   |additional information here  |
     And I add those projects to the CMS
     When I go to the projects page
     Then I should see "Projects"
@@ -31,5 +33,9 @@ Feature: Project
     Then I should see "Jay-Z"
     Then I should see "Jay-Z How Made"
     Then I should see "Made with Jay-Z"
+    Then I should see "Concept"
+    Then I should see "concept of it"
+    Then I should see "Addition Info"
+    Then I should see "additional information here"
 
 

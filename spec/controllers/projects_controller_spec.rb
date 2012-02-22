@@ -24,7 +24,7 @@ describe ProjectsController do
     before :each do
       @test_project_category = FactoryGirl.build :project_category
       @test_project_category1 = FactoryGirl.build :project_category
-      ProjectCategory.should_receive(:all).and_return([@test_project_category, @test_project_category1])
+      ProjectCategory.should_receive(:find_in_order).and_return([@test_project_category, @test_project_category1])
     end
 
     it "should be successful" do

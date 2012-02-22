@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221204137) do
+ActiveRecord::Schema.define(:version => 20120222155524) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -140,6 +140,16 @@ ActiveRecord::Schema.define(:version => 20120221204137) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "sort_order"
+  end
+
+  create_table "partner_content_areas", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "partner_id"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "partners", :force => true do |t|
@@ -154,10 +164,7 @@ ActiveRecord::Schema.define(:version => 20120221204137) do
     t.string   "email"
     t.string   "phone"
     t.string   "website"
-    t.text     "skills"
-    t.text     "experience_level"
-    t.text     "projects_worked_on"
-    t.text     "content"
+    t.text     "summary"
     t.integer  "partner_category_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -170,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20120221204137) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "sort_order"
   end
 
   create_table "project_categories_projects", :id => false, :force => true do |t|

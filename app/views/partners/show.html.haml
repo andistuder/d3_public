@@ -8,11 +8,16 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1= @partner.name
-
+    %p.introduction= @partner.summary
     %h2= "Details"
-    #google_map= "TODO Map Here"
+    -if @partner.partner_category.present?
+      -if @partner.partner_category.name == "Users"
+        -if @partner.assets.present?
+          #user_image
+            %img{:src => @partner.assets.first.asset.url(:medium), :alt => @partner.assets.first.description}
+      -else
+        #google_map= "TODO Map Here"
     %table
-
       %tr
         %td.left= "Location"
         %td.right= @partner.address_line_one
@@ -29,19 +34,18 @@
         %td= "Company"
         %td= @partner.company
       %tr
+        %td= "Phone"
+        %td= @partner.phone
+      %tr
         %td= "Email"
-        %td= @partner.email
+        %td= link_to @partner.email, "mailto:#{@partner.email}"
       %tr
         %td= "Website"
-        %td= @partner.website
-    %h2= "d3 related skills"
-    = sanitize(textilize(@partner.skills))
-    %h2= "d3 experience level"
-    = sanitize(textilize(@partner.experience_level))
-    %h2= "d3 projects worked on"
-    = sanitize(textilize(@partner.projects_worked_on))
-    %h2= "About #{@partner.name}"
-    = sanitize(textilize(@partner.content))
+        %td= link_to @partner.website, @partner.website
+    - for content_area in @partner.partner_content_areas.ordered do
+      %section.partner_show
+        %h2= content_area.title
+        = sanitize(textilize(content_area.content))
 %section#prev_next_bar
   &nbsp;
 -#  - if @partner.previous.present?

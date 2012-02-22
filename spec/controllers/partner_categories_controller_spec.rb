@@ -24,7 +24,7 @@ describe PartnerCategoriesController do
     before :each do
       @test_pac = FactoryGirl.build :partner_category
       @test_pac1 = FactoryGirl.build :partner_category
-      PartnerCategory.should_receive(:all).and_return([@test_pac, @test_pac1])
+      PartnerCategory.should_receive(:find_in_order).and_return([@test_pac, @test_pac1])
     end
 
     it "should be successful" do

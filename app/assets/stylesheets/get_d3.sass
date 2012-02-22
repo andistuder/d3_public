@@ -4,15 +4,54 @@ body.bp.partners, body.bp.partner_categories
       #content
         width: 938px
         border-left-style: none
-        #google_map
+        #google_map, #user_image
           +float-right
+          margin-right: 40px
         table
           +float-left
           margin: 0 40px 40px 40px
           width: 370px
           td.left
             width: 30%
+        ul
+          margin-left: 40px
         h2
           clear: both
-        p
-          border-bottom-style: none
+        section
+          p, h2
+            width: 495px
+        section.partner_show
+          p, h2
+            width: 855px
+          p
+            border-bottom-style: none
+        .read_more
+          +d3-button-link(14px, 6px, 'arrow_white_long.png')
+          margin-top: 5px
+          line-height: 40px
+        section.partner_index
+          p, h2
+            width: 370px
+          ul.contact_details
+            +float-left
+            margin: 40px 0 0 0
+            +no-bullets
+            width: 200px
+            padding: 0
+        section.users.partner_index
+          img
+            margin-left: 40px
+
+      #content.background_image
+        .bg_wrapper
+          background: white url('getd3_home_hero.png') no-repeat right top
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-bottom-style: solid
+          min-height: 340px
+          h1
+            width: 370px
+          p
+            width: 370px
+            border-bottom-style: none
+            margin-bottom: 0
