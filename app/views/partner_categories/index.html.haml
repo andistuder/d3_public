@@ -13,7 +13,7 @@
           %img{:src => partner_category.assets.first.asset.url(:medium), :alt => partner_category.assets.first.description}
         .wrapper
           %h2= partner_category.name
-          = sanitize(textilize(partner_category.content))
+          %p= partner_category.content
           %p.read_more= link_to "Find #{partner_category.name}", partner_category
 
 %section#prev_next_bar
