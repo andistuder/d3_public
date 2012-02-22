@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @project_categories = ProjectCategory.all
+    @project_categories = ProjectCategory.find_in_order
   end
 
 end

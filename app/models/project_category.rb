@@ -7,6 +7,11 @@ class ProjectCategory < ActiveRecord::Base
 
   has_and_belongs_to_many :projects
 
+  def self.find_in_order
+    ProjectCategory.order("sort_order ASC")
+  end
+
+
   #def previous_feature_cat
   #  self.class.first(:conditions => ["sort_order < ?", sort_order], :order => "sort_order desc")
   #end
