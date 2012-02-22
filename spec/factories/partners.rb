@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :partner, :class => Partner do
     name Faker::Lorem.words
     slug "pa-slug"
-    content Faker::Lorem.paragraph
+    summary Faker::Lorem.paragraph
     created_at Time.now
     #association :partner_category
     town "London"

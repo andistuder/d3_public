@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222095647) do
+ActiveRecord::Schema.define(:version => 20120222140340) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(:version => 20120222095647) do
     t.text     "skills"
     t.text     "experience_level"
     t.text     "projects_worked_on"
-    t.text     "content"
+    t.text     "summary"
     t.integer  "partner_category_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

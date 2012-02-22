@@ -46,7 +46,7 @@
       = sanitize(textilize(@partner.projects_worked_on))
     %section
       %h2= "About #{@partner.name}"
-      = sanitize(textilize(@partner.content))
+      %p= @partner.summary
 %section#prev_next_bar
   &nbsp;
 -#  - if @partner.previous.present?
