@@ -1,1 +1,47 @@
-coming soon
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    - if @case_study.assets.present?
+      %span#prevBtn.one-col
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+      %span#nextBtn.one-col
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    - if @case_study.vimeo_id.present?
+      .display-none
+        %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@case_study.vimeo_id}", :width => "938", :id => "vimeo_player"}
+    - if @case_study.assets.present?
+      #slider.one-col
+        %ul
+          - for asset in @case_study.assets do
+            %li
+              %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+    - if @case_study.vimeo_id.present?
+      .vimeo_link.one-col
+        |
+        =link_to "Video", "javascript:void(0);"
+    #social_bookmarks
+      TODO: social bookmarks here
+    %h1.after-slideshow= "#{@case_study.name}, Case Study"
+    %p.introduction= @case_study.introduction
+    #case_study_wrapper= sanitize(textilize(@case_study.content))
+    #case_study_sidebar
+      %h3= @case_study.sidebar_title
+      .sidebar_wrapper= sanitize(textilize(@case_study.sidebar))
+      %h3= "Features Used"
+      %ul.sidebar_wrapper.features
+        -for feature in @case_study.features do
+          %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
+%section#prev_next_bar
+  - if @case_study.find_previous.present?
+    .previous
+      %p
+        %span Previous
+      %p= link_to @case_study.find_previous.name, @case_study.find_previous
+  - if @case_study.find_next.present?
+    .next
+      %p
+        %span Next
+      %p= link_to @case_study.find_next.name, @case_study.find_next
+%section#related
+  = render "pages/related"    
