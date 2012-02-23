@@ -8,4 +8,13 @@ class Page < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_tree :order => "name"
+
+  def self.find_page(slug)
+    slug = "home" if !slug.present?
+    Page.where(:slug => slug).limit(1).first
+  end
+
+  def layout
+    self.name.gsub(" ", "_").gsub("-", "_")
+  end
 end

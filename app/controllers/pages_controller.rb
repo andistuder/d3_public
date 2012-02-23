@@ -2,14 +2,12 @@ class PagesController < ApplicationController
 
   
   def dynamic
-    slug= params[:slug].blank? ? "home" : params[:slug]
-    
-    @page = Page.where(:slug => slug).limit(1).first
+    @page = Page.find_page(params[:slug])
     
     if @page.blank?
       raise ActiveRecord::RecordNotFound
     end
     
-    layout_name = @page.blank? ? "home" : @page.name.downcase
+    @layout_name = @page.layout
   end    
 end
