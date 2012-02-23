@@ -17,7 +17,7 @@
       TODO: social bookmarks here?
     -if @partner_category.name == "Distributors" && @partner_category.partners.present?
       -if @partner_category.partners.present?
-        %h1= @partner_category.partners.first.name
+        %h1.after-slideshow= @partner_category.partners.first.name
         %p.introduction= @partner_category.partners.first.summary
         %h2= "Details"
         #google_map= "TODO Map Here"

@@ -15,10 +15,14 @@
                 %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     #social_bookmarks
       TODO: social bookmarks here
-    %h1= @partner.name
     - if @partner.partner_category.present?
       - if  @partner.partner_category.name == "Distributors" || @partner.partner_category.name == "d3 Studios Global"
+        %h1.after-slideshow= @partner.name
         %p.introduction= @partner.summary
+      - else
+        %h1= @partner.name
+    -else
+      %h1= @partner.name
     %h2= "Details"
     -if @partner.partner_category.present?
       -if @partner.partner_category.name == "Users" && @partner.assets.present?
