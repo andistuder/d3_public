@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222155524) do
+ActiveRecord::Schema.define(:version => 20120223132219) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20120222155524) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+  end
+
+  create_table "assets_case_studies", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "case_study_id"
   end
 
   create_table "assets_feature_categories", :id => false, :force => true do |t|
@@ -52,6 +57,26 @@ ActiveRecord::Schema.define(:version => 20120222155524) do
   create_table "assets_projects", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "project_id"
+  end
+
+  create_table "case_studies", :force => true do |t|
+    t.string   "name"
+    t.string   "case_study_category_name"
+    t.integer  "sort_order"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "introduction"
+    t.text     "content"
+    t.string   "sidebar_title"
+    t.text     "sidebar"
+    t.integer  "vimeo_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "case_studies_features", :id => false, :force => true do |t|
+    t.integer "case_study_id"
+    t.integer "feature_id"
   end
 
   create_table "categories", :force => true do |t|

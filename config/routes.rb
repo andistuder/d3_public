@@ -1,6 +1,6 @@
 D3::Application.routes.draw do
   
-  
+  resources :case_studies, :only => [:show, :index]
 
   resources :feature_categories, :only => [:index, :show], :path => :features
 
