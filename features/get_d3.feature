@@ -9,8 +9,8 @@ Feature: Get d3
   Scenario: Creating and viewing features as an admin
     Given I am logged in as "admin@d3.com"
     And the following partner categories:
-      | name    | slug         | content                            |
-      | Users   | users        | Users can run d3 projects for you  |
+      | name              | slug                   | content                            |
+      | Rental Partners   | rental-partners        | Rental Partners can rent d3 to you |
     And the following partners:
       | name            | slug        | summary                | town     | email          | website           |
       | Dummy User      | dummy-user  | About the Dummy User   | London   | dummy@user.com | http://user.com   |
@@ -21,10 +21,10 @@ Feature: Get d3
     And I add those partners to the CMS
     When I go to get d3 page
     Then I should see "Get d3"
-    And I should see "Users"
-    And I click link "Find Users"
-    And I should see "Users"
-    And I should see "Users can run d3 projects for you"
+    And I should see "Rental Partners"
+    And I click link "Find Rental Partners"
+    And I should see "Rental Partners"
+    And I should see "Rental Partners can rent d3 to you"
     And I should see "Dummy User"
     Then I should see "London"
     Then I should see "About the Dummy User"

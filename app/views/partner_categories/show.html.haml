@@ -2,31 +2,86 @@
   = render "pages/breadcrumb"
 .container
   %section#content
+    -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
+      -if @partner_category.partners.first.assets.present?
+        %span#prevBtn.one-col
+          =link_to "&nbsp;".html_safe, "javascript:void(0);"
+        %span#nextBtn.one-col
+          =link_to "&nbsp;".html_safe, "javascript:void(0);"
+        #slider.one-col
+          %ul
+            - for asset in @partner_category.partners.first.assets do
+              %li
+                %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     #social_bookmarks
       TODO: social bookmarks here?
-    %h1= @partner_category.name
-    %p.introduction= @partner_category.content
-    %section
-      map here
-    - for partner in @partner_category.partners do
-      %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
-        - if partner.assets.present?
-          %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
-        .wrapper
-          %h2= link_to partner.name, "#{partner_category_path(@partner_category)}/#{partner.slug}"
-          %p= partner.summary
-          -#%p.read_more= link_to "Find #{partner.name}", partner_category_partner_path(partner)
-        %ul.contact_details
-          - if partner.town.present? || partner.postcode.present?
-            %li= "#{partner.town} #{partner.postcode}"
-          - if partner.country.present?
-            %li= partner.country
-          -if partner.phone.present?
-            %li= partner.phone
-          -if partner.email.present?
-            %li= link_to partner.email, "mailto:#{partner.email}"
-          -if partner.website.present?
-            %li= link_to partner.website, partner.website
+    -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
+      -if @partner_category.partners.present?
+        %h1= @partner_category.partners.first.name
+        %p.introduction= @partner_category.partners.first.summary
+        %h2= "Details"
+        #google_map= "TODO Map Here"
+        %table
+          - if @partner_category.partners.first.address_line_one.present?
+            %tr
+              %td.left= "Location"
+              %td.right= @partner_category.partners.first.address_line_one
+          - if @partner_category.partners.first.address_line_two.present?
+            %tr
+              %td
+              %td= @partner_category.partners.first.address_line_two
+          - if @partner_category.partners.first.address_line_one.present? || @partner_category.partners.first.postcode.present?
+            %tr
+              %td
+              %td= "#{@partner_category.partners.first.town} #{@partner_category.partners.first.postcode}"
+          - if @partner_category.partners.first.country.present?
+            %tr
+              %td
+              %td= @partner_category.partners.first.country
+          - if @partner_category.partners.first.company.present?
+            %tr
+              %td= "Company"
+              %td= @partner_category.partners.first.company
+          - if @partner_category.partners.first.phone.present?
+            %tr
+              %td= "Phone"
+              %td= @partner_category.partners.first.phone
+          - if @partner_category.partners.first.email.present?
+            %tr
+              %td= "Email"
+              %td= link_to @partner_category.partners.first.email, "mailto:#{@partner_category.partners.first.email}"
+          - if @partner_category.partners.first.website.present?
+            %tr
+              %td= "Website"
+              %td= link_to @partner_category.partners.first.website, @partner_category.partners.first.website
+        - for content_area in @partner_category.partners.first.partner_content_areas.ordered do
+          %section.partner_show
+            %h2= content_area.title
+            = sanitize(textilize(content_area.content))
+    - else
+      %h1= @partner_category.name
+      %p.introduction= @partner_category.content
+      %section
+        map here
+      - for partner in @partner_category.partners do
+        %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
+          - if partner.assets.present?
+            %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
+          .wrapper
+            %h2= link_to partner.name, "#{partner_category_path(@partner_category)}/#{partner.slug}"
+            %p= partner.summary
+            -#%p.read_more= link_to "Find #{partner.name}", partner_category_partner_path(partner)
+          %ul.contact_details
+            - if partner.town.present? || partner.postcode.present?
+              %li= "#{partner.town} #{partner.postcode}"
+            - if partner.country.present?
+              %li= partner.country
+            -if partner.phone.present?
+              %li= partner.phone
+            -if partner.email.present?
+              %li= link_to partner.email, "mailto:#{partner.email}"
+            -if partner.website.present?
+              %li= link_to partner.website, partner.website
 %section#prev_next_bar
   &nbsp;
 %section#related

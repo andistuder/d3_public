@@ -1,0 +1,61 @@
+body.bp
+  #main
+    .container
+      #content
+        #prevBtn, #nextBtn
+          position: absolute
+          z-index: 1000
+          top: 400px
+          a
+            padding: 23px 30px
+        #prevBtn.one-col, #nextBtn.one-col
+          top: 450px
+        #prevBtn
+          left: 250px
+          a
+            background: transparent url('gallery_controls_arrow_left.png') no-repeat center center
+        #nextBtn
+          left: 850px
+          a
+            background: transparent url('gallery_controls_arrow_right.png') no-repeat center center
+        #prevBtn.one-col
+          left: 22px
+        #nextBtn.one-col
+          left: 850px
+        #slider
+          width: 717px
+          height: 448px
+          overflow: hidden
+          ul
+            margin: 0
+            padding: 0
+            list-style-type: none
+        #slider.one-col
+          width: 938px
+          height: 587px
+        #silder_nav
+          +float-left
+          +horizontal-list
+          margin-left: 40px
+          margin-top: 10px
+          li
+            margin: 0 5px
+            padding: 0
+            a
+              background: white url('gallery_pagination_image.png') no-repeat center center
+              +link-colors($link_color)
+              padding: 2px 4px
+          li.current a
+            +link-colors(black)
+            background: white url('gallery_pagination_image_selected.png') no-repeat center center
+        .vimeo_link
+          +float-left
+          padding-left: 5px
+          padding-top: 1px
+          margin-top: 10px
+          a
+            padding: 1px 0 1px 27px
+            background: white url('gallery_pagination_video.png') no-repeat 7px bottom
+          a.current
+            background: white url('gallery_pagination_video_selected.png') no-repeat 7px bottom
+

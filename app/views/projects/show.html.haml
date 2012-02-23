@@ -3,21 +3,21 @@
 .container
   %section#content
     - if @project.assets.present? 
-      %span#prevBtn
+      %span#prevBtn.one-col
         =link_to "&nbsp;".html_safe, "javascript:void(0);"
-      %span#nextBtn
+      %span#nextBtn.one-col
         =link_to "&nbsp;".html_safe, "javascript:void(0);"
     - if @project.vimeo_id.present?
       .display-none
         %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@project.vimeo_id}", :width => "938", :id => "vimeo_player"}
     - if @project.assets.present? 
-      #slider
+      #slider.one-col
         %ul
           - for asset in @project.assets do
             %li
               %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     - if @project.vimeo_id.present?
-      .vimeo_link
+      .vimeo_link.one-col
         |
         =link_to "Video", "javascript:void(0);"
     #social_bookmarks
