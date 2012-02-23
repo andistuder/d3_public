@@ -1,1 +1,22 @@
-coming soon
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    %h1 Case Studies
+    %p.introduction Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
+    - for case_study in @case_studies do
+      %section{:id => case_study.slug, :class => "case_studies"}
+        - if case_study.assets.present?
+          %img{:src => case_study.assets.first.asset.url(:small), :alt => case_study.assets.first.description}
+        .wrapper
+          %h2
+            = case_study.case_study_category_name
+            %span= "- #{link_to case_study.name, case_study}".html_safe
+
+          %p= case_study.summary
+          %p.read_more= link_to "More", case_study
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

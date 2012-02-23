@@ -1,0 +1,58 @@
+body.bp.case_studies
+  #main
+    .container
+      #content
+        width: 938px
+        border-left-style: none
+        p
+          margin-bottom: 0
+        p.introduction
+          margin-bottom: 40px
+        section.case_studies
+          p, h2
+            width: 605px
+          h2
+            span
+              font-size: 16px
+          p
+            min-height: 80px
+
+          p.read_more
+            min-height: 0
+        #case_study_wrapper
+          +float-left
+          width: 678px
+          p
+            clear: both
+          blockquote
+            background: $light_grey_bg url('quote_bg.png') no-repeat left bottom
+            margin: 20px 40px 0 40px
+            padding: 20px 20px 0px 110px
+            p
+              margin: 0
+          h6
+            +float-right
+            background: white url('quote_arrow.png') no-repeat 95% top
+            font-size: 14px
+            padding-top: 20px
+            margin: 0 40px 40px 0
+
+
+        #case_study_sidebar
+          +float-right
+          width: 258px
+          border-width: 1px
+          border-color: $dark_grey_bg
+          border-left-style: solid
+          .sidebar_wrapper
+            margin: 0 40px 20px 40px
+            p
+              font-size: 14px
+              margin: 0
+              padding-bottom: 1em
+            ul
+              +no-bullets
+              padding-left: 0
+              margin: 0
+            li
+              padding-bottom: 6px
