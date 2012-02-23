@@ -31,6 +31,9 @@ module NavigationHelpers
     when /the user guide/
       knowledge_base_user_guide_path
 
+    when /the case studies page/
+      case_studies_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
