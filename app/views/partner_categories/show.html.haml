@@ -2,6 +2,17 @@
   = render "pages/breadcrumb"
 .container
   %section#content
+    -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
+      -if @partner_category.partners.first.assets.present?
+        %span#prevBtn.one-col
+          =link_to "&nbsp;".html_safe, "javascript:void(0);"
+        %span#nextBtn.one-col
+          =link_to "&nbsp;".html_safe, "javascript:void(0);"
+        #slider.one-col
+          %ul
+            - for asset in @partner_category.partners.first.assets do
+              %li
+                %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     #social_bookmarks
       TODO: social bookmarks here?
     -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
@@ -11,30 +22,38 @@
         %h2= "Details"
         #google_map= "TODO Map Here"
         %table
-          %tr
-            %td.left= "Location"
-            %td.right= @partner_category.partners.first.address_line_one
-          %tr
-            %td
-            %td= @partner_category.partners.first.address_line_two
-          %tr
-            %td
-            %td= "#{@partner_category.partners.first.town} #{@partner_category.partners.first.postcode}"
-          %tr
-            %td
-            %td= @partner_category.partners.first.country
-          %tr
-            %td= "Company"
-            %td= @partner_category.partners.first.company
-          %tr
-            %td= "Phone"
-            %td= @partner_category.partners.first.phone
-          %tr
-            %td= "Email"
-            %td= link_to @partner_category.partners.first.email, "mailto:#{@partner_category.partners.first.email}"
-          %tr
-            %td= "Website"
-            %td= link_to @partner_category.partners.first.website, @partner_category.partners.first.website
+          - if @partner_category.partners.first.address_line_one.present?
+            %tr
+              %td.left= "Location"
+              %td.right= @partner_category.partners.first.address_line_one
+          - if @partner_category.partners.first.address_line_two.present?
+            %tr
+              %td
+              %td= @partner_category.partners.first.address_line_two
+          - if @partner_category.partners.first.address_line_one.present? || @partner_category.partners.first.postcode.present?
+            %tr
+              %td
+              %td= "#{@partner_category.partners.first.town} #{@partner_category.partners.first.postcode}"
+          - if @partner_category.partners.first.country.present?
+            %tr
+              %td
+              %td= @partner_category.partners.first.country
+          - if @partner_category.partners.first.company.present?
+            %tr
+              %td= "Company"
+              %td= @partner_category.partners.first.company
+          - if @partner_category.partners.first.phone.present?
+            %tr
+              %td= "Phone"
+              %td= @partner_category.partners.first.phone
+          - if @partner_category.partners.first.email.present?
+            %tr
+              %td= "Email"
+              %td= link_to @partner_category.partners.first.email, "mailto:#{@partner_category.partners.first.email}"
+          - if @partner_category.partners.first.website.present?
+            %tr
+              %td= "Website"
+              %td= link_to @partner_category.partners.first.website, @partner_category.partners.first.website
         - for content_area in @partner_category.partners.first.partner_content_areas.ordered do
           %section.partner_show
             %h2= content_area.title

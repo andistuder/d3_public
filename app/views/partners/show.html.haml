@@ -8,7 +8,8 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1= @partner.name
-    %p.introduction= @partner.summary
+    -if @partner.partner_category.present? && @partner.partner_category.name != "Users"
+      %p.introduction= @partner.summary
     %h2= "Details"
     -if @partner.partner_category.present? && @partner.partner_category.name == "Users"
       -if @partner.assets.present?
@@ -17,30 +18,38 @@
     -else
       #google_map= "TODO Map Here"
     %table
-      %tr
-        %td.left= "Location"
-        %td.right= @partner.address_line_one
-      %tr
-        %td
-        %td= @partner.address_line_two
-      %tr
-        %td
-        %td= "#{@partner.town} #{@partner.postcode}"
-      %tr
-        %td
-        %td= @partner.country
-      %tr
-        %td= "Company"
-        %td= @partner.company
-      %tr
-        %td= "Phone"
-        %td= @partner.phone
-      %tr
-        %td= "Email"
-        %td= link_to @partner.email, "mailto:#{@partner.email}"
-      %tr
-        %td= "Website"
-        %td= link_to @partner.website, @partner.website
+      - if @partner.address_line_one.present?
+        %tr
+          %td.left= "Location"
+          %td.right= @partner.address_line_one
+      - if @partner.address_line_two.present?
+        %tr
+          %td
+          %td= @partner.address_line_two
+      - if @partner.address_line_one.present? || @partner.postcode.present?
+        %tr
+          %td
+          %td= "#{@partner.town} #{@partner.postcode}"
+      - if @partner.country.present?
+        %tr
+          %td
+          %td= @partner.country
+      - if @partner.company.present?
+        %tr
+          %td= "Company"
+          %td= @partner.company
+      - if @partner.phone.present?
+        %tr
+          %td= "Phone"
+          %td= @partner.phone
+      - if @partner.email.present?
+        %tr
+          %td= "Email"
+          %td= link_to @partner.email, "mailto:#{@partner.email}"
+      - if @partner.website.present?
+        %tr
+          %td= "Website"
+          %td= link_to @partner.website, @partner.website
     - for content_area in @partner.partner_content_areas.ordered do
       %section.partner_show
         %h2= content_area.title

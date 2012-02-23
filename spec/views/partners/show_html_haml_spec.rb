@@ -15,7 +15,7 @@ describe "partners/show.html.haml" do
     render
 
     rendered.should have_content(@test_partner.name)
-    rendered.should have_content(@test_partner.summary)
+    #rendered.should have_content(@test_partner.summary)
     rendered.should have_content(@test_partner.phone)
     rendered.should have_content(@test_partner.town)
     rendered.should have_content(@test_partner.postcode)
