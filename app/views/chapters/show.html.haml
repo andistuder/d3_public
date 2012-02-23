@@ -1,0 +1,34 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    %ul#chapters.treeview
+      %li#user_guide_home= link_to "USER GUIDE HOME", "javascript:void();"
+
+      -#TODO refactor into partial & think about routes here.
+      - @chapters.each do |parent|
+        %li.chapter{:id => parent.slug}
+          %span
+            = parent.name
+          - if parent.children.length > 0
+            %ul
+              - parent.children.each do |child|
+                %li= link_to child.name, chapter_path(child)
+
+  %section#content
+
+    %article#user_guide
+      %h1= @chapter.name
+
+      %p= @chapter.content
+
+      - @chapter.content_areas.each do |ca|
+        %p= ca.title
+        %p= ca.content
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"
+
+

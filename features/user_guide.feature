@@ -32,6 +32,7 @@ Feature: User Guide
     Then I should see a summary of it's chapters
 
   @javascript
+  @wip
   Scenario: Viewing chapter detail
     When I go to the user guide page
     And I click span "add-video"

@@ -9,6 +9,14 @@ FactoryGirl.define do
   end
 end
 
+FactoryGirl.define do
+  factory :chapter_content_area, :class => ChapterContentArea do
+    title Faker::Lorem.words
+    content Faker::Lorem.paragraphs
+    created_at Time.now
+  end
+end
+
 #Column   |            Type             |                       Modifiers
 #------------+-----------------------------+-------------------------------------------------------
 #id         | integer                     | not null default nextval('chapters_id_seq'::regclass)

@@ -1,5 +1,11 @@
 D3::Application.routes.draw do
   
+  #get "chapters/index"
+  #
+  #get "chapters/show"
+
+
+
   resources :case_studies, :only => [:show, :index]
 
   resources :feature_categories, :only => [:index, :show], :path => :features
@@ -15,7 +21,14 @@ D3::Application.routes.draw do
   resources :project_categories, :only => [:show]
 
   scope "support" do
-    match "knowledge_base/user_guide" => "knowledge_base#user_guide"
+    scope "knowledge_base" do
+      scope "user_guide" do
+        match "" => "knowledge_base#user_guide"
+        resources :chapters, :only => [:index, :show]
+      end
+
+    end
+
   end
 
   match "news/next/:page" => "news_items#next"
