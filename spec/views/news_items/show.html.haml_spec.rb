@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "news_items/show.html.haml" do
 
-  it "renders " do
+  it "renders without layout" do
 
     @news_item = FactoryGirl.build :news_item
 

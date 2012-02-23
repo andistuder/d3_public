@@ -8,4 +8,17 @@ class Page < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_tree :order => "name"
+
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
+
+  def self.find_page(slug)
+    slug = "home" if !slug.present?
+    Page.where(:slug => slug).limit(1).first
+  end
+
+  def layout
+    self.slug.gsub(" ", "_").gsub("-", "_")
+  end
 end
