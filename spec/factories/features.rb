@@ -7,12 +7,11 @@ FactoryGirl.define do
     created_at Time.now
   end
 
-  factory :feature, :class => Feature do
+  factory :feature_item, :class => Feature do
     name Faker::Lorem.words
     slug "f-slug"
     content Faker::Lorem.paragraph
     created_at Time.now
-    association :feature_category
   end
 
 

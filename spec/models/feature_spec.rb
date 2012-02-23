@@ -7,7 +7,6 @@ describe Feature do
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:slug) }
-  #it { should validate_uniqueness_of(:slug) }
 
   it { should belong_to(:asset) }
   it { should belong_to(:feature_category) }

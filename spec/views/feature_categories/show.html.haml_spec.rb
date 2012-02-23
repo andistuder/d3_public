@@ -6,10 +6,10 @@ describe "feature_categories/show.html.haml" do
 
     @feature_category = FactoryGirl.create :feature_category
     @feature_category2 = FactoryGirl.create :feature_category
-    @feature = FactoryGirl.create(:feature, :name => "feature1", :content => "Lorem1", :feature_category => @feature_category)
-    @feature2 = FactoryGirl.create(:feature, :name => "feature2", :content => "Lorem2", :feature_category => @feature_category)
-    @feature3 = FactoryGirl.create(:feature, :name => "feature3", :content => "Lorem3", :feature_category => @feature_category2)
-    @feature4 = FactoryGirl.create(:feature, :name => "feature4", :content => "Lorem4", :feature_category => @feature_category2)
+    @feature = FactoryGirl.create(:feature_item, :name => "feature1", :content => "Lorem1", :feature_category => @feature_category)
+    @feature2 = FactoryGirl.create(:feature_item, :name => "feature2", :content => "Lorem2", :feature_category => @feature_category)
+    @feature3 = FactoryGirl.create(:feature_item, :name => "feature3", :content => "Lorem3", :feature_category => @feature_category2)
+    @feature4 = FactoryGirl.create(:feature_item, :name => "feature4", :content => "Lorem4", :feature_category => @feature_category2)
 
     assign(:feature_categories, [@feature_category, @feature_category2])
     assign(:feature_category, @feature_category)
