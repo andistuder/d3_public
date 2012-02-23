@@ -5,14 +5,10 @@
     = render "sidebar"
   %section#content
     %h1= @page.name
-    %p.introduction Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
-    %hr
-    %h2 In 3d and in real time
-    %p Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
+    %h1= @layout_name
 
-    - for content_area in @page.content_areas do
-      %h2= content_area.name
-      %p= content_area.content
+    = render :partial => "/pages/#{@page.layout}", :locals => {:page => @page}
+
 %section#prev_next_bar
   = render "prev_next_bar"
 %section#related

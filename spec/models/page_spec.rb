@@ -45,6 +45,11 @@ describe Page do
     @page.respond_to?(:parent).should be_true
   end
 
+  it "has friendly_id" do
+    @page = Page.new
+    @page.respond_to?(:friendly_id).should be_true
+  end
+
   describe "database finders" do
 
     describe "find_page" do
@@ -52,7 +57,7 @@ describe Page do
 
         @pages = []
         3.times do |i|
-          @pages << FactoryGirl.create(:tutorial_page, :name => "some-page name", :slug => "some-page", :created_at => Time.now - (1000 * i))
+          @pages << FactoryGirl.create(:tutorial_page, :name => "some-page", :slug => "some-page", :created_at => Time.now - (1000 * i))
         end
 
         @pages << FactoryGirl.create(:tutorial_page, :name => "home", :slug => "home", :created_at => Time.now - (100000))
@@ -62,7 +67,7 @@ describe Page do
 
         page = Page.find_page("some-page")
         page.should eq(@pages[0])
-        page.layout.should eq("some_page_name")
+        page.layout.should eq("some_page")
 
       end
 

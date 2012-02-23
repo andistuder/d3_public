@@ -9,10 +9,9 @@ describe PagesController do
   describe "GET 'dynamic'" do
 
 
-    describe "with page & layout found" do
+    describe "with page found" do
       before :each do
         Page.should_receive(:find_page).and_return(@page)
-        @page.should_receive(:layout).and_return("test-page")
       end
 
 

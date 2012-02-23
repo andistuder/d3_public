@@ -7,7 +7,5 @@ class PagesController < ApplicationController
     if @page.blank?
       raise ActiveRecord::RecordNotFound
     end
-    
-    @layout_name = @page.layout
-  end    
+  end
 end
