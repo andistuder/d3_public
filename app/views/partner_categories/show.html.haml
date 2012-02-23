@@ -2,7 +2,7 @@
   = render "pages/breadcrumb"
 .container
   %section#content
-    -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
+    -if @partner_category.name == "Distributors" && @partner_category.partners.present?
       -if @partner_category.partners.first.assets.present?
         %span#prevBtn.one-col
           =link_to "&nbsp;".html_safe, "javascript:void(0);"
@@ -15,7 +15,7 @@
                 %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     #social_bookmarks
       TODO: social bookmarks here?
-    -if (@partner_category.name == "Distributors" || @partner_category.name == "Previs Studios") && @partner_category.partners.present?
+    -if @partner_category.name == "Distributors" && @partner_category.partners.present?
       -if @partner_category.partners.present?
         %h1= @partner_category.partners.first.name
         %p.introduction= @partner_category.partners.first.summary
@@ -65,7 +65,9 @@
         map here
       - for partner in @partner_category.partners do
         %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
-          - if partner.assets.present?
+          - if (@partner_category.name == "Rental Partners" || @partner_category.name == "d3 Studios Global") && partner.logo.present?
+            %img{:src => partner.logo.asset.url(:small), :alt => partner.logo.description, :class => "no-shadow"}
+          - elsif partner.assets.present?
             %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
           .wrapper
             %h2= link_to partner.name, "#{partner_category_path(@partner_category)}/#{partner.slug}"

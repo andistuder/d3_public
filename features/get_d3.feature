@@ -31,7 +31,6 @@ Feature: Get d3
     Then I should see "dummy@user.com"
     Then I should see "http://user.com"
     When I click link "Dummy User"
-    Then I should see "About the Dummy User"
     Then I should see "London"
     Then I should see "dummy@user.com"
     Then I should see "http://user.com"

@@ -8,6 +8,7 @@ describe Partner do
 
   it { should have_and_belong_to_many(:assets) }
   it { should belong_to(:partner_category) }
+  it { should belong_to(:logo) }
   it { should have_many(:partner_content_areas) }
 
   it "can be instantiated" do
