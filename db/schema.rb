@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(:version => 20120223183955) do
     t.integer "case_study_id"
   end
 
+  create_table "assets_chapter_content_areas", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "chapter_content_area_id"
+  end
+
   create_table "assets_feature_categories", :id => false, :force => true do |t|
     t.integer "asset_id"
     t.integer "feature_category_id"
@@ -88,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20120223183955) do
   create_table "categories_pages", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "page_id"
+  end
+
+  create_table "chapter_content_areas", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "sort_order"
+    t.integer  "chapter_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "chapters", :force => true do |t|

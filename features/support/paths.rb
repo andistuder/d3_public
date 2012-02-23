@@ -29,7 +29,7 @@ module NavigationHelpers
       projects_path
 
     when /the user guide/
-      knowledge_base_user_guide_path
+      "/support/knowledge_base/user_guide/" #TODO sort paths here
 
     when /the case studies page/
       case_studies_path

@@ -57,8 +57,17 @@ end
 Then /^I should see a summary of it's chapters$/ do
   visit("/support/knowledge_base/user_guide")
   @child_chapters.each_with_index do |n, i|
-    page.has_content? @child_chapters[i][:summary]
+    page.has_content? @child_chapters[i][:content]
   end
+end
+
+Then /^I should see a the chapter detail$/ do
+  page.has_content? @child_chapters[0][:summary]
+  @child_chapters[0].sections.each_with_index do |n, i|
+    page.has_content? @child_chapters[0].sections[:title]
+    page.has_content? @child_chapters[0].sections[:content]
+  end
+
 end
 
 def fill_in_chapter(i, chapters)

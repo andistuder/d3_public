@@ -10,6 +10,8 @@ describe Chapter do
   it { should validate_presence_of(:summary) }
   it { should validate_presence_of(:content) }
 
+  it { should have_many(:content_areas) }
+
   it "acts as tree" do
     @chapter = Chapter.new
     @chapter.respond_to?(:parent).should be_true
