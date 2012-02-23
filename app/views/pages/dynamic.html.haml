@@ -7,7 +7,13 @@
     %h1= @page.name
     %h1= @layout_name
 
-    = render :partial => "/pages/#{@page.layout}", :locals => {:page => @page}
+    - if File.exists?("#{Rails.root}/app/views/page/_#{@page.layout}")
+      = render :partial => "/pages/#{@page.layout}", :locals => {:page => @page}
+    - else
+      - for content_area in @page.content_areas do
+        %h2= content_area.name
+        %p= content_area.content
+
 
 %section#prev_next_bar
   = render "prev_next_bar"
