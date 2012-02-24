@@ -1,7 +1,7 @@
 class FeatureCategory < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :slug, use: :slugged
+  friendly_id :name, use: :slugged
 
   has_many :features
   has_and_belongs_to_many :assets

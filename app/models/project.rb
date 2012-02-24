@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :slug, use: :slugged
+  friendly_id :name, use: :slugged
 
   validates_presence_of :name, :summary, :how_made, :how_made_title, :slug, :assets
 

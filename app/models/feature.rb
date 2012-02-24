@@ -6,6 +6,9 @@ class Feature < ActiveRecord::Base
 
   validates_presence_of :slug, :name
 
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
   scope :ordered, order("sort_order ASC")
 
 end
