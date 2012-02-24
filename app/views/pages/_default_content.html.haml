@@ -1,5 +1,5 @@
-%section#sidebar
-  = render "sidebar"
+-#%section#sidebar
+-#  = render "sidebar"
 %section#content
   - if @page.vimeo_id.present?
     %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
