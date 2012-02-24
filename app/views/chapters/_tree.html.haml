@@ -1,0 +1,11 @@
+%ul#chapters.treeview
+  %li#user_guide_home= link_to "USER GUIDE HOME", "javascript: void(0)"
+
+  - @chapters.each do |parent|
+    %li.chapter{:id => parent.slug}
+      %span
+        = parent.name
+      - if parent.children.length > 0
+        %ul
+          - parent.children.each do |child|
+            %li= link_to child.name, chapter_path(child)

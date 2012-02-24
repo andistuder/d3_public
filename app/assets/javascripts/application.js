@@ -93,22 +93,25 @@ $(document).ready(function(){
     });
 
     $("#user_guide_home").click(function(){
-        $('#viewport').scrollTo(0, 500, {easing:'elasout'});
-        $('#viewport').animate({height: $(".page").first().css('height')}, 500)
+//        $('#chapter_detail').hide();
+        $('#viewport').scrollTo(".page.intro", 500, {easing:'elasout',onAfter:function(){
+            $('#viewport').animate({height: $(".page.intro").css('height')}, 500);
+        }});
     });
 
 
-    var max_height = "700px";
+    var max_height = 0;
     $(".chapter").click(function(){
-
         var action = $(this).children(".hitarea").text();
         $('.hitarea').text("+");
 
         $(this).children(".hitarea").text(action == "+" ? "-" : "+");
         var target = "." + $(this).attr("id");
 
+//        $('#chapter_detail').hide();
+
         $('#viewport').scrollTo(target, 500, {easing:'elasout',onAfter:function(){
-            $('#viewport').animate({height: $(target).css('height')}, 500)
+            $('#viewport').animate({height: $(target).css('height')}, 500);
         }});
     });
 
@@ -117,6 +120,8 @@ $(document).ready(function(){
         max_height = calculateWindowHeight();
         $('#viewport').height(max_height);
         $('#user_guide').height(max_height);
+        $(".page").first().height(max_height);
+        $(".page").last().height(max_height);
     }
 
 });
@@ -127,7 +132,7 @@ function calculateWindowHeight(){
     $('.page').each(function(index) {
         page_height = $(this).height();
         console.log(index + ': ' + page_height);
-        max_page_height = page_height > max_page_height ? page_height : max_page_height
+        max_page_height = page_height > max_page_height ? page_height : max_page_height;
     });
 
     return max_page_height;
