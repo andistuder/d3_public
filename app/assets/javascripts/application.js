@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery-treeview/jquery.cookie.js
 //= require jquery-treeview/jquery.treeview.js
+//= require jquery.url.js
 //= require_tree .
 
 var grid_image = $('#container').css("background-image");
@@ -88,35 +89,41 @@ $(document).ready(function(){
 
     $("#chapters").treeview({
         collapsed: true,
-        unique: true,
-        persist: "cookie"
+        unique: true
     });
 
     $("#user_guide_home").click(function(){
-        $('#viewport').scrollTo(0, 500, {easing:'elasout'});
-        $('#viewport').animate({height: $(".page").first().css('height')}, 500)
+        $('#viewport').scrollTo(".page.intro", 500, {easing:'elasout',onAfter:function(){
+            $('#viewport').animate({height: $(".page.intro").css('height')}, 500);
+        }});
     });
 
 
-    var max_height = "700px";
+    var max_height = 0;
     $(".chapter").click(function(){
-
         var action = $(this).children(".hitarea").text();
         $('.hitarea').text("+");
 
         $(this).children(".hitarea").text(action == "+" ? "-" : "+");
         var target = "." + $(this).attr("id");
 
-        $('#viewport').scrollTo(target, 500, {easing:'elasout',onAfter:function(){
-            $('#viewport').animate({height: $(target).css('height')}, 500)
+        $('#viewport').scrollTo(target, 1000, {easing:'elasout',onAfter:function(){
+            $('#viewport').animate({height: $(target).css('height')}, 500);
         }});
     });
 
 
+    // user guide specific
     if ($('#user_guide').length > 0) {
         max_height = calculateWindowHeight();
         $('#viewport').height(max_height);
         $('#user_guide').height(max_height);
+        $(".page").first().height(max_height);
+        $(".page").last().height(max_height);
+
+        var url = $.url().segment();
+        var parent_category = url[url.length - 2]
+        $("#"+parent_category+" .hitarea").click();
     }
 
 });
@@ -126,8 +133,7 @@ function calculateWindowHeight(){
     var page_height = 0;
     $('.page').each(function(index) {
         page_height = $(this).height();
-        console.log(index + ': ' + page_height);
-        max_page_height = page_height > max_page_height ? page_height : max_page_height
+        max_page_height = page_height > max_page_height ? page_height : max_page_height;
     });
 
     return max_page_height;

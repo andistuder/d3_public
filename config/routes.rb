@@ -24,7 +24,8 @@ D3::Application.routes.draw do
     scope "knowledge-base" do
       scope "user-guide" do
         match "" => "knowledge_base#user_guide"
-        resources :chapters, :only => [:index, :show]
+        match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
+        #resources :chapters, :only => [:show]
       end
 
     end
