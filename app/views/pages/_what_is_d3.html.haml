@@ -1,4 +1,18 @@
-%p What is D3 partial. Edit me in app/views/pages
-- for content_area in page.content_areas do
-  %h2= content_area.name
-  %p= content_area.content
+%section#content
+  - if @page.vimeo_id.present?
+    %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
+  #social_bookmarks
+    TODO: social bookmarks here
+  %h1= @page.name
+  - if @page.introduction.present?
+    %p.introduction= @page.introduction
+  - for content_area in @page.content_areas do
+    %section{:class => "alternating"}
+      - if content_area.asset.present?
+        %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+      .wrapper
+        %h2= content_area.name
+        = sanitize(textilize(content_area.content))
+        - if content_area.see_more_label.present? && content_area.see_more_url.present?
+          %p.read_more
+            =link_to content_area.see_more_label, content_area.see_more_url

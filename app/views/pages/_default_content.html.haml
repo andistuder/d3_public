@@ -1,0 +1,13 @@
+%section#sidebar
+  = render "sidebar"
+%section#content
+  - if @page.vimeo_id.present?
+    %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
+  #social_bookmarks
+    TODO: social bookmarks here
+  %h1= @page.name
+  - if @page.introduction.present?
+    %p.introduction= @page.introduction
+  - for content_area in @page.content_areas do
+    %h2= content_area.name
+    %p= content_area.content

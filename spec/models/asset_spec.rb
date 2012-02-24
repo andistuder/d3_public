@@ -19,6 +19,8 @@ describe Asset do
   it { should have_and_belong_to_many(:news_items) }
   it { should have_and_belong_to_many(:feature_categories) }
   it { should have_and_belong_to_many(:projects) }
+  it { should have_and_belong_to_many(:case_studies) }
+  it { should have_and_belong_to_many(:partners) }
 
   it "has a name that is required" do
     @asset = Asset.new

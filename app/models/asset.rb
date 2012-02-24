@@ -4,6 +4,8 @@ class Asset < ActiveRecord::Base
   has_and_belongs_to_many :news_items
   has_and_belongs_to_many :feature_categories
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :case_studies
+  has_and_belongs_to_many :partners
 
   validates :name, :presence => true
   validates :description, :presence => true

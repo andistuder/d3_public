@@ -81,41 +81,36 @@ else
       list do
         field :id
         field :name
-
         field :slug do
           formatted_value do
             bindings[:view].link_to value, "/#{value}"
           end
         end
-
+        field :introduction
         #field :tag_list do
         #  label "Tags"
         #end
-
-
         field :content_areas
         field :assets
+        field :vimeo_id
         field :categories do
           #formatted_value do
           #  page = bindings[:object]
           #  page.categories.collect { |r| "MSP"+r.name }.join(', ')
           #end
         end
-
         field :created_at
         field :updated_at
-
       end
 
       show do
         field :id
         field :name
         field :slug
-
+        field :introduction
         #field :tag_list do
         #  label "Tags"
         #end
-
         # field :website_url do
         #   formatted_value do
         #     if value.blank?
@@ -125,20 +120,17 @@ else
         #     end
         #   end
         # end
-
         field :content_areas
         field :assets, :has_and_belongs_to_many_association
+        field :vimeo_id
         field :categories, :has_and_belongs_to_many_association
-
         field :created_at
         field :updated_at
-
       end
 
       edit do
         field :name
         field :slug
-
         #field :tag_list do
         #  label "Tags"
         #end
@@ -146,17 +138,16 @@ else
         #fields_of_type :tag_list do
         #  partial 'cenatus_tag_list'
         #end
-
+        field :introduction
         field :parent_id, :enum do
           enum do
             Page.all.map{|p| [p.name, p.id]}
           end
         end
-
         field :content_areas
         field :assets, :has_and_belongs_to_many_association
+        field :vimeo_id
         field :categories, :has_and_belongs_to_many_association
-
       end
     end
 

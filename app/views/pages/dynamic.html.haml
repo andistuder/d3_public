@@ -1,21 +1,22 @@
 %section#breadcrumb
   = render "breadcrumb"
 .container
-  %section#sidebar
-    = render "sidebar"
-  %section#content
-    %h1= @page.name
-    %h1= @layout_name
-
-    - if File.exists?("#{Rails.root}/app/views/page/_#{@page.layout}")
-      = render :partial => "/pages/#{@page.layout}", :locals => {:page => @page}
-    - else
-      - for content_area in @page.content_areas do
-        %h2= content_area.name
-        %p= content_area.content
-
+  -#= render :partial => @page.layout
+  -#TODO enable rescue once dev over..
+  = render :partial => @page.layout rescue render :partial => "default_content"
 
 %section#prev_next_bar
-  = render "prev_next_bar"
+  &nbsp;
+  -#  TODO if prev-next needed?
+  -#  - if @partner.previous.present?
+  -#    .previous
+  -#      %p
+  -#        %span Previous
+  -#      %p= link_to @partner.previous.name, @partner.previous
+  -#  - if @partner.next.present?
+  -#    .next
+  -#      %p
+  -#        %span Next
+  -#      %p= link_to @partner.next.name, @partner.next
 %section#related
   = render "related"

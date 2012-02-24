@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223183955) do
+ActiveRecord::Schema.define(:version => 20120224103516) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -122,6 +122,9 @@ ActiveRecord::Schema.define(:version => 20120223183955) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "page_id"
+    t.integer  "asset_id"
+    t.string   "see_more_label"
+    t.string   "see_more_url"
   end
 
   create_table "content_areas_pages", :id => false, :force => true do |t|
@@ -171,6 +174,8 @@ ActiveRecord::Schema.define(:version => 20120223183955) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.text     "introduction"
+    t.integer  "vimeo_id"
   end
 
   create_table "partner_categories", :force => true do |t|
