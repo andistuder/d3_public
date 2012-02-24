@@ -21,8 +21,8 @@ D3::Application.routes.draw do
   resources :project_categories, :only => [:show], :path => "project-categories"
 
   scope "support" do
-    scope "knowledge_base" do
-      scope "user_guide" do
+    scope "knowledge-base" do
+      scope "user-guide" do
         match "" => "knowledge_base#user_guide"
         match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
         #resources :chapters, :only => [:show]
