@@ -60,8 +60,8 @@ else
     #############
     # Feature
     #############
-    config.model FeatureCategory do
-      parent Feature
+    config.model Feature do
+      parent FeatureCategory
     end
 
     #############

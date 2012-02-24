@@ -1,7 +1,7 @@
 class CaseStudy < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :slug, use: :slugged
+  friendly_id :name, use: :slugged
 
   validates_presence_of :name, :case_study_category_name, :summary, :slug, :assets
 
