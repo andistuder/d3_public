@@ -17,23 +17,25 @@
   %section#content
 
     %article#user_guide
-      %h1 User Guide
-      - if @user_guide_intro
-        .introduction= sanitize(textilize(@user_guide_intro.content))
+      #viewport
+        .page
+          %h1 User Guide
+          - if @user_guide_intro
+            .introduction= sanitize(textilize(@user_guide_intro.content))
 
-      - if @user_guide_body
-        = sanitize(textilize(@user_guide_body.content))
+          - if @user_guide_body
+            = sanitize(textilize(@user_guide_body.content))
 
 
-      %section#chapter_summaries
-        - @chapters.each do |parent|
-          %div{:class => parent.slug}
-            - if parent.children.length > 0
-              %h1= parent.name
-              - parent.children.each do |child|
-                .chapter_summary
-                  %h2= child.name
-                  %p= child.summary
+        %section#chapter_summaries
+          - @chapters.each do |parent|
+            %div{:class => "#{parent.slug} page"}
+              - if parent.children.length > 0
+                %h1= parent.name
+                - parent.children.each do |child|
+                  .chapter_summary
+                    %h2= child.name
+                    %p= child.summary
 
 %section#prev_next_bar
   &nbsp;
