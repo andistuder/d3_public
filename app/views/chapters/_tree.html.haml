@@ -8,4 +8,4 @@
       - if parent.children.length > 0
         %ul
           - parent.children.each do |child|
-            %li= link_to child.name, chapter_path(child)
+            %li= link_to child.name, chapter_path(child, :parent => parent.slug)
