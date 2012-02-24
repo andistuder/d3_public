@@ -34,7 +34,7 @@ else
         field :name
         field :description
         field :created_at
-
+        field :sort_order
         field :asset do
           label "File"
           #thumb_method :thumb # for images. Will default to full size image, which might break the layout
@@ -45,7 +45,7 @@ else
       list do
         field :name
         field :description
-
+        field :sort_order
         field :asset do
           formatted_value do # used in form views
             bindings[:view].tag(:img, {:src => bindings[:object].asset.url(:thumb)})
@@ -55,16 +55,6 @@ else
         field :created_at
         field :updated_at
       end
-    end
-
-    config.model NewsItem do
-      edit do
-        exclude_fields :summary
-      end
-      list do
-        exclude_fields :summary
-      end
-
     end
 
     #############

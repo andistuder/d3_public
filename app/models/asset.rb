@@ -15,7 +15,9 @@ class Asset < ActiveRecord::Base
   
   attr_accessor :delete_image
   before_save { self.asset   = nil if self.delete_image == '1' }
-  
+
+  default_scope :order => 'sort_order ASC'
+
   def asset_s3_url
     self.asset.url
   end
