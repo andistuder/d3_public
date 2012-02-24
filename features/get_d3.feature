@@ -9,8 +9,8 @@ Feature: Get d3
   Scenario: Creating and viewing features as an admin
     Given I am logged in as "admin@d3.com"
     And the following partner categories:
-      | name              | slug                   | content                            |
-      | Rental Partners   | rental-partners        | Rental Partners can rent d3 to you |
+      | name              | slug                   | content                            | see_more_label       |
+      | Rental Partners   | rental-partners        | Rental Partners can rent d3 to you | Find Rental Partners |
     And the following partners:
       | name            | slug        | summary                | town     | email          | website           |
       | Dummy User      | dummy-user  | About the Dummy User   | London   | dummy@user.com | http://user.com   |

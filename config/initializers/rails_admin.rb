@@ -68,6 +68,13 @@ else
     end
 
     #############
+    # Feature
+    #############
+    config.model FeatureCategory do
+      parent Feature
+    end
+
+    #############
     # Page
     #############
     config.model Page do
@@ -154,6 +161,26 @@ else
     end
 
     #############
+    # Partner
+    #############
+    config.model Partner do
+      label "Get d3 item"
+      label_plural "Get d3 items"
+    end
+
+    config.model PartnerContentArea do
+      parent Partner
+      label "Get d3 content area"
+      label_plural "Get d3 content areas"
+    end
+
+    config.model PartnerCategory do
+      parent Partner
+      label "Get d3 category"
+      label_plural "Get d3 categories"
+    end
+
+    #############
     # Project
     #############
     config.model Project do
@@ -175,8 +202,15 @@ else
         field :vimeo_id
         field :assets, :has_and_belongs_to_many_association
         field :project_categories, :has_and_belongs_to_many_association
-
       end
+    end
+
+    config.model ProjectCategory do
+      parent Project
+    end
+
+    config.model ProjectContentArea do
+      parent Project
     end
 
     #############
@@ -188,6 +222,18 @@ else
        label 'User Guide Chapter'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
        label_plural 'User Guide Chapters'      # Same, plural
     end
+
+    #############
+    # User
+    #############
+    config.model User do
+       # Cross-section field configuration
+       #object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
+       label 'Administrator'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
+       label_plural 'Administrators'      # Same, plural
+    end
+
+
   end
 
 end

@@ -19,7 +19,7 @@ When /^I add those partners to the CMS$/ do
 
   @partner_cas.each_with_index do |n, i|
     visit('/admin')
-    click_link "Partner content areas"
+    click_link "Get d3 content areas"
     click_link "Add new"
     fill_in "partner_content_area_title", :with => @partner_cas[i][:title]
     fill_in "partner_content_area_content", :with => @partner_cas[i][:content]
@@ -28,7 +28,7 @@ When /^I add those partners to the CMS$/ do
 
   @partners.each_with_index do |n, i|
     visit('/admin')
-    click_link "Partners"
+    click_link "Get d3 items"
     click_link "Add new"
     fill_in "partner_name", :with => @partners[i][:name]
     fill_in "partner_slug", :with => @partners[i][:slug]
@@ -47,11 +47,12 @@ When /^I add those partners to the CMS$/ do
 
   @partner_cats.each_with_index do |n, i|
     visit('/admin')
-    click_link "Partner categories"
+    click_link "Get d3 categories"
     click_link "Add new"
     fill_in "partner_category_name", :with => @partner_cats[i][:name]
     fill_in "partner_category_slug", :with => @partner_cats[i][:slug]
     fill_in "partner_category_content", :with => @partner_cats[i][:content]
+    fill_in "partner_category_see_more_label", :with => @partner_cats[i][:see_more_label]
     within("#partner_category_partner_ids_field") do
       click_link "Choose all"
     end

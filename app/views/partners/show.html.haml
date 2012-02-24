@@ -25,11 +25,11 @@
       %h1= @partner.name
     %h2= "Details"
     -if @partner.partner_category.present?
-      -if @partner.partner_category.name == "Users" && @partner.assets.present?
+      - if @partner.partner_category.name == "Users" && @partner.assets.present?
         #user_image
           %img{:src => @partner.assets.first.asset.url(:medium), :alt => @partner.assets.first.description}
-    -else
-      #google_map= "TODO Map Here"
+      - else
+        #google_map= "TODO Map Here"
     %table
       - if @partner.address_line_one.present?
         %tr
