@@ -98,22 +98,8 @@ $(document).ready(function(){
         }});
     });
 
-
-    var max_height = 0;
-    $(".chapter").click(function(){
-        var action = $(this).children(".hitarea").text();
-        $('.hitarea').text("+");
-
-        $(this).children(".hitarea").text(action == "+" ? "-" : "+");
-        var target = "." + $(this).attr("id");
-
-        $('#viewport').scrollTo(target, 1000, {easing:'elasout',onAfter:function(){
-            $('#viewport').animate({height: $(target).css('height')}, 500);
-        }});
-    });
-
-
     // user guide specific
+    var max_height = 0;
     if ($('#user_guide').length > 0) {
         max_height = calculateWindowHeight();
         $('#viewport').height(max_height);
@@ -124,6 +110,22 @@ $(document).ready(function(){
         var url = $.url().segment();
         var parent_category = url[url.length - 2]
         $("#"+parent_category+" .hitarea").click();
+
+
+        $(".chapter").click(function(){
+            var action = $(this).parent().children(".hitarea").text();
+            $('.hitarea').text("+");
+
+            $(this).parent().children(".hitarea").text(action == "+" ? "-" : "+");
+            var target = "." + $(this).parent().attr("id");
+
+            $('#viewport').scrollTo(target, 1000, {easing:'elasout',onAfter:function(){
+                $('#viewport').animate({height: $(target).css('height')}, 500);
+            }});
+
+        });
+
+
     }
 
 });
