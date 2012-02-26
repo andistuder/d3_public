@@ -253,6 +253,13 @@ else
       label_plural 'Administrators'
     end
 
+    #############
+    # FAQ
+    #############
+    config.model FaqCategory do
+      parent Faq
+    end
+
 
   end
 

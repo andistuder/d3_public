@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224152131) do
+ActiveRecord::Schema.define(:version => 20120226193520) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -131,6 +131,27 @@ ActiveRecord::Schema.define(:version => 20120224152131) do
   create_table "content_areas_pages", :id => false, :force => true do |t|
     t.integer "page_id"
     t.integer "content_area_id"
+  end
+
+  create_table "faq_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "faq_categories_faqs", :id => false, :force => true do |t|
+    t.integer "faq_id"
+    t.integer "faq_category_id"
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.string   "slug"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "feature_categories", :force => true do |t|
@@ -265,7 +286,7 @@ ActiveRecord::Schema.define(:version => 20120224152131) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
