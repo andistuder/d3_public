@@ -71,7 +71,7 @@ Then /^I should see a the chapter detail$/ do
 end
 
 def fill_in_chapter(i, chapters)
-  click_link "User Guide Chapters"
+  click_link "User guide chapters"
   click_link "Add new"
   fill_in "chapter_name", :with => chapters[i][:name]
   fill_in "chapter_summary", :with => chapters[i][:summary]
