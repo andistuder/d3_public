@@ -124,9 +124,22 @@ $(document).ready(function(){
             }});
 
         });
-
-
     }
+
+
+    $('#chapter_detail .more a').click(function(){
+        var text = $(this).text();
+        $(this).text(text.trim() == "SHOW" ? "HIDE" : "SHOW");
+        $(this).parents(".section").find(".body").toggle("blind");
+
+        // TODO MSP Seems easier to let the browser calc the height and just leave whitespace than try and grow
+//        $('#viewport').animate({height: "1000px"}, 500);
+//        $('#user_guide').animate({height: "1000px"}, 500);
+    });
+
+    // do this AFTER we calc the page heights
+    $('#chapter_detail .body').hide()
+
 
 });
 

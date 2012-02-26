@@ -16,7 +16,7 @@ else
 
     # Or with a PaperTrail: (you need to install it first)
     # config.audit_with :paper_trail, User
-    
+
     #config.included_models = ["Asset", "FeatureCategory", "Feature", "Category", "ContentArea", "Page", "User", "NewsItem"]
     config.excluded_models = [Category]
 
@@ -38,7 +38,7 @@ else
         field :asset do
           label "File"
           #thumb_method :thumb # for images. Will default to full size image, which might break the layout
-                              # delete_method :delete_asset # actually not needed in this case: default is "delete_#{field_name}" if the object responds to it
+          # delete_method :delete_asset # actually not needed in this case: default is "delete_#{field_name}" if the object responds to it
         end
       end
 
@@ -68,6 +68,9 @@ else
     # Page
     #############
     config.model Page do
+      label 'Static page'
+      label_plural 'Static pages'
+
       list do
         field :id
         field :name
@@ -131,7 +134,7 @@ else
         field :introduction
         field :parent_id, :enum do
           enum do
-            Page.all.map{|p| [p.name, p.id]}
+            Page.all.map { |p| [p.name, p.id] }
           end
         end
         field :content_areas
@@ -139,6 +142,10 @@ else
         field :vimeo_id
         field :categories, :has_and_belongs_to_many_association
       end
+    end
+
+    config.model ContentArea do
+      parent Page
     end
 
     #############
@@ -198,20 +205,52 @@ else
     # Chapter
     #############
     config.model Chapter do
-       # Cross-section field configuration
-       #object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
-       label 'User Guide Chapter'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
-       label_plural 'User Guide Chapters'      # Same, plural
+      #object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
+      label 'User guide chapter' # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
+      label_plural 'User guide chapters' # Same, plural
+
+      list do
+        filters [:parent]
+        sort_by :parent_id # Sort column (default is primary key)
+        sort_reverse true # Sort direction (default is true for primary key, last created first)
+
+        field :name
+        field :sort_order
+        field :parent, :belongs_to_association
+        field :children, :has_many_association
+        field :content_areas, :has_many_association
+      end
+
+      edit do
+        field :name
+        field :sort_order
+        field :summary do
+          help 'Summary is only used on child chapters when a parent is clicked to show an overview'
+        end
+        field :content do
+          help 'Content is only used when viewing the chapter detail'
+        end
+
+        field :parent, :belongs_to_association
+        field :children, :has_many_association
+        field :content_areas, :has_many_association
+      end
+
+    end
+
+    config.model ChapterContentArea do
+      parent Chapter
+      label 'UG chapter content areas'
+      label_plural 'UG chapter content areas'
+
     end
 
     #############
     # User
     #############
     config.model User do
-       # Cross-section field configuration
-       #object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
-       label 'Administrator'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
-       label_plural 'Administrators'      # Same, plural
+      label 'Administrator'
+      label_plural 'Administrators'
     end
 
 

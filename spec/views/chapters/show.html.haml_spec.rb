@@ -15,7 +15,8 @@ describe "chapters/show.html.haml" do
 
     rendered.should have_content(@chapter.name)
     rendered.should_not have_content(@chapter.summary)
-    rendered.should have_content(@chapter.content)
+    #TODO MSP this encoding stuff still isn't right
+    rendered.should have_content(textilize(@chapter.content).html_safe)
 
     rendered.should have_content(@chapter_content_area.title)
     rendered.should have_content(@chapter_content_area.content)

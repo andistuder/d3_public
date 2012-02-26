@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on February 09, 2012 17:59
+# RailsAdmin config file. Generated on February 25, 2012 20:18
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -16,7 +16,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, User
   
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['Cenatus Cms', 'Admin']
+  config.main_app_name = ['D3', 'Admin']
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Asset, Category, ContentArea, Page, User]
+  # config.excluded_models = [Asset, CaseStudy, Chapter, ChapterContentArea, ContentArea, Feature, FeatureCategory, NewsItem, Page, Partner, PartnerCategory, PartnerContentArea, Project, ProjectCategory, ProjectContentArea, User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Asset, Category, ContentArea, Page, User]
+  # config.included_models = [Asset, CaseStudy, Chapter, ChapterContentArea, ContentArea, Feature, FeatureCategory, NewsItem, Page, Partner, PartnerCategory, PartnerContentArea, Project, ProjectCategory, ProjectContentArea, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -81,7 +81,12 @@ RailsAdmin.config do |config|
 
   # config.model Asset do
   #   # Found associations:
-  #     configure :pages, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :pages, :has_and_belongs_to_many_association 
+  #     configure :news_items, :has_and_belongs_to_many_association 
+  #     configure :feature_categories, :has_and_belongs_to_many_association 
+  #     configure :projects, :has_and_belongs_to_many_association 
+  #     configure :case_studies, :has_and_belongs_to_many_association 
+  #     configure :partners, :has_and_belongs_to_many_association   #   # Found columns:
   #     configure :id, :integer 
   #     configure :name, :string 
   #     configure :description, :string 
@@ -91,7 +96,8 @@ RailsAdmin.config do |config|
   #     configure :asset_content_type, :string         # Hidden 
   #     configure :asset_file_size, :integer         # Hidden 
   #     configure :asset_updated_at, :datetime         # Hidden 
-  #     configure :asset, :paperclip   #   # Sections:
+  #     configure :asset, :paperclip 
+  #     configure :sort_order, :integer   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
@@ -99,11 +105,60 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # config.model Category do
+  # config.model CaseStudy do
   #   # Found associations:
-  #     configure :pages, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :assets, :has_and_belongs_to_many_association 
+  #     configure :features, :has_and_belongs_to_many_association   #   # Found columns:
   #     configure :id, :integer 
   #     configure :name, :string 
+  #     configure :case_study_category_name, :string 
+  #     configure :sort_order, :integer 
+  #     configure :slug, :string 
+  #     configure :summary, :text 
+  #     configure :introduction, :text 
+  #     configure :content, :text 
+  #     configure :sidebar_title, :string 
+  #     configure :sidebar, :text 
+  #     configure :vimeo_id, :integer 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Chapter do
+  #   # Found associations:
+  #     configure :parent, :belongs_to_association
+  #     configure :children, :has_many_association 
+  #     configure :content_areas, :has_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :slug, :string 
+  #     configure :summary, :text 
+  #     configure :content, :text 
+  #     configure :sort_order, :integer 
+  #     configure :parent_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model ChapterContentArea do
+  #   # Found associations:
+  #     configure :chapter, :belongs_to_association 
+  #     configure :assets, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :title, :string 
+  #     configure :content, :text 
+  #     configure :sort_order, :integer 
+  #     configure :chapter_id, :integer         # Hidden 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
@@ -115,14 +170,75 @@ RailsAdmin.config do |config|
   # end
   # config.model ContentArea do
   #   # Found associations:
-  #     configure :page, :belongs_to_association   #   # Found columns:
+  #     configure :page, :belongs_to_association 
+  #     configure :asset, :belongs_to_association   #   # Found columns:
   #     configure :id, :integer 
   #     configure :name, :string 
   #     configure :content, :text 
   #     configure :sort_order, :integer 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
-  #     configure :page_id, :integer         # Hidden   #   # Sections:
+  #     configure :page_id, :integer         # Hidden 
+  #     configure :asset_id, :integer         # Hidden 
+  #     configure :see_more_label, :string 
+  #     configure :see_more_url, :string   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Feature do
+  #   # Found associations:
+  #     configure :feature_category, :belongs_to_association 
+  #     configure :asset, :belongs_to_association 
+  #     configure :projects, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :content, :text 
+  #     configure :slug, :string 
+  #     configure :sort_order, :integer 
+  #     configure :feature_category_id, :integer         # Hidden 
+  #     configure :asset_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model FeatureCategory do
+  #   # Found associations:
+  #     configure :features, :has_many_association 
+  #     configure :assets, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :content, :text 
+  #     configure :slug, :string 
+  #     configure :sort_order, :integer 
+  #     configure :vimeo_id, :integer 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model NewsItem do
+  #   # Found associations:
+  #     configure :assets, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :headline, :string 
+  #     configure :summary, :text 
+  #     configure :content, :text 
+  #     configure :slug, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
@@ -134,7 +250,7 @@ RailsAdmin.config do |config|
   #   # Found associations:
   #     configure :parent, :belongs_to_association 
   #     configure :content_areas, :has_many_association 
-  #     configure :categories, :has_and_belongs_to_many_association 
+  #     configure :categories, :has_and_belongs_to_many_association         # Hidden 
   #     configure :assets, :has_and_belongs_to_many_association 
   #     configure :taggings, :has_many_association         # Hidden 
   #     configure :base_tags, :has_many_association         # Hidden 
@@ -148,7 +264,142 @@ RailsAdmin.config do |config|
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
   #     configure :parent_id, :integer         # Hidden 
+  #     configure :introduction, :text 
+  #     configure :vimeo_id, :integer 
   #     configure :tag_list, :tag_list   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Partner do
+  #   # Found associations:
+  #     configure :partner_category, :belongs_to_association 
+  #     configure :logo, :belongs_to_association 
+  #     configure :assets, :has_and_belongs_to_many_association 
+  #     configure :partner_content_areas, :has_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :slug, :string 
+  #     configure :address_line_one, :string 
+  #     configure :address_line_two, :string 
+  #     configure :town, :string 
+  #     configure :country, :string 
+  #     configure :postcode, :string 
+  #     configure :company, :string 
+  #     configure :email, :string 
+  #     configure :phone, :string 
+  #     configure :website, :string 
+  #     configure :summary, :text 
+  #     configure :partner_category_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :logo_id, :integer         # Hidden   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model PartnerCategory do
+  #   # Found associations:
+  #     configure :assets, :has_and_belongs_to_many_association 
+  #     configure :partners, :has_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :slug, :string 
+  #     configure :content, :text 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :sort_order, :integer 
+  #     configure :see_more_label, :string   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model PartnerContentArea do
+  #   # Found associations:
+  #     configure :partner, :belongs_to_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :title, :string 
+  #     configure :content, :text 
+  #     configure :partner_id, :integer         # Hidden 
+  #     configure :sort_order, :integer 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Project do
+  #   # Found associations:
+  #     configure :how_made_image, :belongs_to_association 
+  #     configure :assets, :has_and_belongs_to_many_association 
+  #     configure :project_categories, :has_and_belongs_to_many_association 
+  #     configure :features, :has_and_belongs_to_many_association 
+  #     configure :project_content_areas, :has_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :slug, :string 
+  #     configure :summary, :text 
+  #     configure :how_made, :text 
+  #     configure :credits_left, :text 
+  #     configure :equipment_left, :text 
+  #     configure :how_made_image_id, :integer         # Hidden 
+  #     configure :vimeo_id, :integer 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :credits_right, :text 
+  #     configure :equipment_right, :text 
+  #     configure :how_made_bottom, :text 
+  #     configure :sort_order, :integer 
+  #     configure :how_made_title, :string   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model ProjectCategory do
+  #   # Found associations:
+  #     configure :projects, :has_and_belongs_to_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :slug, :string 
+  #     configure :summary, :text 
+  #     configure :content, :text 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :sort_order, :integer   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model ProjectContentArea do
+  #   # Found associations:
+  #     configure :project, :belongs_to_association 
+  #     configure :asset, :belongs_to_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :title, :string 
+  #     configure :content, :text 
+  #     configure :project_id, :integer         # Hidden 
+  #     configure :sort_order, :integer 
+  #     configure :asset_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end

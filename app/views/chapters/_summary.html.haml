@@ -1,13 +1,21 @@
 #viewport
   - if chapter_detail.present?
     #chapter_detail.page
-      %h1= @chapter.name
+      %h1= chapter_detail.name
 
-      %p= @chapter.content
+      =textilize(chapter_detail.content).html_safe
 
-      - @chapter.content_areas.each do |ca|
-        %p= ca.title
-        %p= ca.content
+      - chapter_detail.content_areas.each do |ca|
+        .section
+          %h3.title
+            %span.more
+              %a
+                SHOW
+            = ca.title
+          .body
+            =sanitize(textilize(ca.content))
+            - ca.assets.each do |asset|
+              =image_tag(asset.asset.url(:medium))
 
   .page.intro
     %h1 User Guide

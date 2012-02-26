@@ -1,5 +1,7 @@
 D3::Application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   #get "chapters/index"
   #
   #get "chapters/show"
@@ -34,7 +36,7 @@ D3::Application.routes.draw do
 
   match "news/next/:page" => "news_items#next"
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
 
   devise_for :users
 
