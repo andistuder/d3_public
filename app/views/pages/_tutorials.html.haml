@@ -9,6 +9,6 @@
     %section
       - if content_area.asset.present?
         %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
-      .wrapper
+      .wrapper.static_page
         %h2= content_area.name
         = sanitize(textilize(content_area.content))

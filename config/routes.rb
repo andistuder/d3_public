@@ -2,12 +2,6 @@ D3::Application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  #get "chapters/index"
-  #
-  #get "chapters/show"
-
-
-
   resources :case_studies, :only => [:show, :index], :path => "/what-is-d3/case-studies"
 
   resources :feature_categories, :only => [:index, :show], :path => "/what-is-d3/features"
@@ -23,6 +17,7 @@ D3::Application.routes.draw do
   resources :project_categories, :only => [:show], :path => "project-categories"
 
   scope "support" do
+    resources :faq, :only => [:index, :show]
     scope "knowledge-base" do
 
       match "" => "pages#dynamic", :slug => "knowledge-base"
@@ -30,7 +25,6 @@ D3::Application.routes.draw do
       scope "user-guide" do
         match "" => "knowledge_base#user_guide"
         match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
-        #resources :chapters, :only => [:show]
       end
 
       scope "glossary" do

@@ -1,0 +1,20 @@
+%section#content
+  #social_bookmarks
+    TODO: social bookmarks here
+  %h1= @page.name
+  - if @page.introduction.present?
+    %p.introduction= @page.introduction
+
+  %section
+    %article
+      .wrapper.static_page
+        -#- TODO MSP Helper!
+        - page = @page
+        - slugs = []
+        - until page == nil
+          - slugs.push page.friendly_id
+          - page = page.parent
+        - base_url = slugs.reverse!
+        - for child_page in @page.children do
+          %ul
+            %li= link_to child_page.name, "/#{base_url.join("/")}/#{child_page.friendly_id}"

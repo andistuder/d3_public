@@ -1,0 +1,19 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    %ul
+    - for faq_category in @faq_categories do
+      %li= faq_category.name
+
+  %section#content
+    %article#faqs
+      %ul
+        - for faq in @faqs do
+          %li= faq.question
+          %li= faq.answer
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"
