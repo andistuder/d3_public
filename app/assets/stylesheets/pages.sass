@@ -7,7 +7,44 @@ body.bp.pages
         section
           p, h2
             width: 495px
-          .read_more
-            +d3-button-link(14px, 6px, 'arrow_white_long.png')
-            margin-top: 5px
-            line-height: 40px
+        .read_more
+          +d3-button-link(14px, 6px, 'arrow_white_long.png')
+          margin-top: 5px
+          line-height: 40px
+      #content.products
+        .intro_wrapper
+          overflow: hidden
+          width: 100%
+          border-bottom: 1px solid $dark_grey_bg
+          padding-bottom: 40px
+          .introduction
+            width: 598px
+            +float-left
+            p
+              margin-bottom: 0
+          .product_side_box
+            +float-right
+            +border-radius
+            background-color: $off-white_bg
+            width: 258px
+            border: 1px solid $dark_grey_bg
+            margin-right: 40px
+            padding-bottom: 6px
+            h3, p
+              margin: 0 18px
+              font-size: 14px
+            p
+              padding-bottom: 12px
+              line-height: 20px
+            h3
+              margin-top: 10px
+              line-height: 30px
+        section#compare_products_list
+          ul
+            clear: both
+            +horizontal-list
+            li
+              width: 260px
+              margin-right: 39px
+
+

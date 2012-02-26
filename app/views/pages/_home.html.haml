@@ -1,4 +1,5 @@
 %p Home stub. Edit me in app/views/pages
-- for content_area in page.content_areas do
+%h1= @page.name
+- for content_area in @page.content_areas do
   %h2= content_area.name
   %p= content_area.content
