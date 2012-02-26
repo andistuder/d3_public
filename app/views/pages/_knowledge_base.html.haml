@@ -1,0 +1,14 @@
+%section#content
+  #social_bookmarks
+    TODO: social bookmarks here
+  %h1= @page.name
+  - if @page.introduction.present?
+    %p.introduction= @page.introduction
+
+  %section
+    %article
+      .wrapper
+        %ul
+          %li= link_to "Tutorials", "/support/knowledge-base/tutorials"
+          %li= link_to "User Guide", "/support/knowledge-base/user-guide"
+          %li= link_to "Glossary", "/support/knowledge-base/glossary"

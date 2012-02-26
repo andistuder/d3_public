@@ -1,0 +1,14 @@
+%section#content
+  #social_bookmarks
+    TODO: social bookmarks here
+  %h1= @page.name
+  - if @page.introduction.present?
+    %p.introduction= @page.introduction
+
+  - for content_area in @page.content_areas do
+    %section
+      - if content_area.asset.present?
+        %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+      .wrapper
+        %h2= content_area.name
+        = sanitize(textilize(content_area.content))

@@ -24,10 +24,21 @@ D3::Application.routes.draw do
 
   scope "support" do
     scope "knowledge-base" do
+
+      match "" => "pages#dynamic", :slug => "knowledge-base"
+
       scope "user-guide" do
         match "" => "knowledge_base#user_guide"
         match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
         #resources :chapters, :only => [:show]
+      end
+
+      scope "glossary" do
+        match "" => "pages#dynamic", :slug => "glossary"
+      end
+
+      scope "tutorials" do
+        match "" => "pages#dynamic", :slug => "tutorials"
       end
 
     end
