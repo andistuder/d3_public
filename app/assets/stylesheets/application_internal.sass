@@ -133,8 +133,11 @@ body.bp
         section.alternating:nth-of-type(2n)
           img, .wrapper
             +float-right
+          //img
+          //  +single-box-shadow(#999999, -6px, 4px, 8px, false, false)
+        section.alternating
           img
-            +single-box-shadow(#999999, -6px, 4px, 8px, false, false)
+            +single-box-shadow(white, 0, 0, 0, false, false)
     #prev_next_bar
       background-color: $dark_grey_bg
       +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))

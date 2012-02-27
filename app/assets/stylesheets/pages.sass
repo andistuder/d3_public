@@ -62,17 +62,19 @@ body.bp.pages
             margin-left: 0
         section#compare_products_table
           table
-            margin: 40px 40px 0 40px
+            margin: 40px 0px 0 40px
+            width: 858px
             tr
               border-bottom: 1px solid $dark_grey_bg
               td, th
                 font-size: 14px
-
+                width: 117px
+                text-align: center
                 a.read_more
                   background-color: $link_color
                   background: $link_color url('arrow_white_long.png') no-repeat right center
                   +link-colors(white)
-                  padding: 6px 20px 6px 10px
+                  padding: 3px 20px 3px 10px
                   +border-radius(4px)
                   text-transform: uppercase
                   font-size: 14px
@@ -82,15 +84,15 @@ body.bp.pages
                 img
                   margin-left: 42%
                   box-shadow: none
-
-              td:nth-of-type(2n), th:nth-of-type(2n)
+              td:nth-of-type(2n)
                 background-color: $light_grey_bg
-              td, th
-                text-align: center
               td:first-of-type, th:first-of-type
                 text-align: left
+                width: 437px
             tr:first-of-type
               line-height: 40px
+              th:nth-of-type(2n)
+                background-color: $light_grey_bg
             tr:last-of-type
               border-bottom: 0px none $dark_grey_bg
 
