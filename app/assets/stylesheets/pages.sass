@@ -7,10 +7,21 @@ body.bp.pages
         section
           p, h2
             width: 495px
-        .read_more
+        p.read_more
           +d3-button-link(14px, 6px, 'arrow_white_long.png')
           margin-top: 5px
           line-height: 40px
+        a.read_more
+          background-color: $link_color
+          background: $link_color url('arrow_white_long.png') no-repeat right center
+          +link-colors(white)
+          padding: 6px 20px 6px 10px
+          +border-radius(4px)
+          text-transform: uppercase
+          font-size: 14px
+          font-weight: 400
+          +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
+          +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
       #content.products
         .intro_wrapper
           overflow: hidden
@@ -71,16 +82,7 @@ body.bp.pages
                 width: 117px
                 text-align: center
                 a.read_more
-                  background-color: $link_color
-                  background: $link_color url('arrow_white_long.png') no-repeat right center
-                  +link-colors(white)
                   padding: 3px 20px 3px 10px
-                  +border-radius(4px)
-                  text-transform: uppercase
-                  font-size: 14px
-                  font-weight: 400
-                  +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
-                  +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
                 img
                   margin-left: 42%
                   box-shadow: none
@@ -95,8 +97,31 @@ body.bp.pages
                 background-color: $light_grey_bg
             tr:last-of-type
               border-bottom: 0px none $dark_grey_bg
-
-
+      #content.product_detail
+        .introduction
+          margin: 0 40px
+          border-bottom: 1px solid $dark_grey_bg
+          p
+            margin: 0
+        section#specification
+          border-top: 1px solid $dark_grey_bg
+          margin-top: 0
+          padding-top: 40px
+          background-color: $off-white_bg
+          .left, .right
+            width: 408px
+            h3
+              margin: 0 0 10px 0
+            table
+              td, th
+                font-size: 14px
+                line-height: 1.2em
+          .left
+            +float-left
+            margin-left: 40px
+          .right
+            +float-right
+            margin-right: 40px
 
 
 
