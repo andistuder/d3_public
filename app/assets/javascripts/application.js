@@ -127,7 +127,7 @@ $(document).ready(function(){
     }
 
 
-    $('#chapter_detail .more a').click(function(){
+    $('.expander .more a').click(function(){
         var text = $(this).text();
         $(this).text(text.trim() == "SHOW" ? "HIDE" : "SHOW");
         $(this).parents(".section").find(".body").toggle("blind");

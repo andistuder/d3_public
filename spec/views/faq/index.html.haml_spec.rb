@@ -7,7 +7,7 @@ describe "faq/index.html.haml" do
     @faq_cats = []
 
     2.times do |i|
-      @faqs <<  Factory.build(:faq, :sort_order => i)
+      @faqs <<  Factory.build(:faq, :sort_order => i, :answer => "Something very insightful #{i}")
     end
 
     2.times do |j|

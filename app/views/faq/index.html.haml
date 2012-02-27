@@ -2,16 +2,22 @@
   = render "pages/breadcrumb"
 .container
   %section#sidebar
-    %ul
-    - for faq_category in @faq_categories do
-      %li= faq_category.name
+    = render :partial => "sidebar"
 
   %section#content
-    %article#faqs
-      %ul
-        - for faq in @faqs do
-          %li= faq.question
-          %li= faq.answer
+    %article#faqs.expander
+
+      %h1 FAQs
+
+      - for faq in @faqs do
+        .section
+          %h3.title
+            %span.more
+              %a
+                SHOW
+            = faq.question
+          .body.hidden
+            =sanitize(textilize(faq.answer))
 
 %section#prev_next_bar
   &nbsp;

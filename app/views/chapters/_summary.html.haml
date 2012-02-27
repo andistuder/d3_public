@@ -1,6 +1,6 @@
 #viewport
   - if chapter_detail.present?
-    #chapter_detail.page
+    #chapter_detail.page.expander
       %h1= chapter_detail.name
 
       =textilize(chapter_detail.content).html_safe

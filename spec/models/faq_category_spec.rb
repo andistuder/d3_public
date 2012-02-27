@@ -8,4 +8,9 @@ describe FaqCategory do
     FaqCategory.new.should be_an_instance_of(FaqCategory)
   end
 
+  it "have sa friendly id" do
+    @faq_cat = FaqCategory.new
+    @faq_cat.respond_to?(:friendly_id).should be_true
+  end
+
 end

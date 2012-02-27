@@ -1,2 +1,25 @@
-%h1 Faq#show
-%p Find me in app/views/faq/show.html.haml
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    = render :partial => "sidebar"
+
+  %section#content
+    %article#faqs.expander
+
+      %h1 FAQs
+
+      - for faq in @faq_category.faqs do
+        .section
+          %h3.title
+            %span.more
+              %a
+                SHOW
+            = faq.question
+          .body.hidden
+            =sanitize(textilize(faq.answer))
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

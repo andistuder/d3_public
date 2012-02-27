@@ -4,8 +4,8 @@ class FaqController < ApplicationController
     @faqs = Faq.order("sort_order ASC")
   end
 
-  #def show
-  #  @faq_categories = FaqCategory.order("sort_order ASC")
-  #  @faqs = Faq.find(params[:id])
-  #end
+  def show
+    @faq_category = FaqCategory.find(params[:id])
+    @faq_categories = FaqCategory.order("sort_order ASC")
+  end
 end

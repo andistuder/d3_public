@@ -1,3 +1,5 @@
+@import "constants"
+
 @mixin d3-button-link($font_size, $padding, $url)
   a
     background-color: $link_color
@@ -11,3 +13,19 @@
     //+single-box-shadow
     +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
     +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
+
+
+@mixin expander
+.section
+  .title
+    color: $blue
+    .more
+      margin-right: 15px
+      +d3-button-link(12px, 1px, 'arrow_white_long.png')
+      border: 0px solid red
+      a
+        border: 0px solid green
+.body
+  p, img
+    margin-left: 118px
+
