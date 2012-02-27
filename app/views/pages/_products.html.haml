@@ -15,42 +15,41 @@
         - if advice.see_more_label.present? && advice.see_more_url.present?
           %p.read_more= link_to advice.see_more_label, advice.see_more_url
   %section#compare_products_list
-    %ul
-      %li
-        - for four_u in @page.content_areas.where(:name => '4u') do
-          %h2= four_u.name
-          = sanitize(textilize(four_u.content))
-          - if four_u.asset.present?
-            %img{:src => four_u.asset.asset.url(:small), :alt => four_u.asset.description}
-          - if four_u.see_more_label.present? && four_u.see_more_url.present?
-            %p.read_more= link_to four_u.see_more_label, four_u.see_more_url
-        - for four_can in @page.content_areas.where(:name => '4u CAN ...') do
-          %h3= four_can.name
-          = sanitize(textilize(four_can.content))
+    .product_item.first
+      - for four_u in @page.content_areas.where(:name => '4u') do
+        %h2= four_u.name
+        = sanitize(textilize(four_u.content))
+        - if four_u.asset.present?
+          %img{:src => four_u.asset.asset.url(:small), :alt => four_u.asset.description}
+        - if four_u.see_more_label.present? && four_u.see_more_url.present?
+          %p.read_more= link_to four_u.see_more_label, four_u.see_more_url
+      - for four_can in @page.content_areas.where(:name => '4u CAN ...') do
+        %h3= four_can.name
+        = sanitize(textilize(four_can.content))
+    .product_item
       - for two_u in @page.content_areas.where(:name => '2u') do
-        %li
-          %h2= two_u.name
-          = sanitize(textilize(two_u.content))
-          - if two_u.asset.present?
-            %img{:src => two_u.asset.asset.url(:small), :alt => two_u.asset.description}
-          - if two_u.see_more_label.present? && two_u.see_more_url.present?
-            %p.read_more= link_to two_u.see_more_label, two_u.see_more_url
-        - for two_can in @page.content_areas.where(:name => '4u CAN ...') do
-          %h3= two_can.name
-          = sanitize(textilize(two_can.content))
+        %h2= two_u.name
+        = sanitize(textilize(two_u.content))
+        - if two_u.asset.present?
+          %img{:src => two_u.asset.asset.url(:small), :alt => two_u.asset.description}
+        - if two_u.see_more_label.present? && two_u.see_more_url.present?
+          %p.read_more= link_to two_u.see_more_label, two_u.see_more_url
+      - for two_can in @page.content_areas.where(:name => '4u CAN ...') do
+        %h3= two_can.name
+        = sanitize(textilize(two_can.content))
+    .product_item
       - for designer in @page.content_areas.where(:name => 'd3 Designer') do
-        %li
-          %h2= designer.name
-          = sanitize(textilize(designer.content))
-          - if designer.asset.present?
-            %img{:src => designer.asset.asset.url(:small), :alt => designer.asset.description}
-          - if designer.see_more_label.present? && designer.see_more_url.present?
-            %p.read_more= link_to designer.see_more_label, designer.see_more_url
-        - for designer_can in @page.content_areas.where(:name => '4u CAN ...') do
-          %h3= designer_can.name
-          = sanitize(textilize(designer_can.content))
-    #section#compare_products_table
-      - for comparison_table in @page.content_areas.where(:name => 'Compare d3 Products - Which is best for you?') do
-        %h2= comparison_table.name
-        = textilize(comparison_table.content).html_safe
+        %h2= designer.name
+        = sanitize(textilize(designer.content))
+        - if designer.asset.present?
+          %img{:src => designer.asset.asset.url(:small), :alt => designer.asset.description}
+        - if designer.see_more_label.present? && designer.see_more_url.present?
+          %p.read_more= link_to designer.see_more_label, designer.see_more_url
+      - for designer_can in @page.content_areas.where(:name => '4u CAN ...') do
+        %h3= designer_can.name
+        = sanitize(textilize(designer_can.content))
+  %section#compare_products_table
+    - for comparison_table in @page.content_areas.where(:name => 'Compare d3 Products - Which is best for you?') do
+      %h2= comparison_table.name
+      = textilize(comparison_table.content).html_safe
 
