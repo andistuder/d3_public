@@ -8,7 +8,7 @@
       %li= link_to "Case Studies", case_studies_path
       %li= link_to "Get d3", partner_categories_path
   %li
-    %h5= "Projects"
+    %h5= link_to "Projects", projects_path
     %ul
       %li= link_to "Architectural", "#"
       %li= link_to "TV", "#"
@@ -18,13 +18,12 @@
       %li= link_to "Mapping", "#"
       %li= link_to "Film", "#"
   %li
-    %h5= "Products"
+    %h5= link_to "Products", "/products"
     %ul
-      %li= link_to "4U", "#"
-      %li= link_to "2U", "#"
-      %li= link_to "d3 Designer", "#"
-      %li= link_to "d3 Education", "#"
-      %li= link_to "d3 Trial", "#"
+      %li= link_to "4U", "/products/4u"
+      %li= link_to "2U", "/products/2u"
+      %li= link_to "d3 Designer", "products/d3-designer"
+
   %li
     %h5= "d3 Lab"
     %ul
@@ -53,15 +52,15 @@
   %li
     %h5= "Company"
     %ul
-      %li= link_to "About Us", "#"
+      %li= link_to "About Us", "/company"
       %li= link_to "Contact Us", "#"
-      %li= link_to "Jobs", "#"
-      %li= link_to "News", "#"
+      %li= link_to "Jobs", "/company/jobs"
+      %li= link_to "News", "/news"
   %li
     %h5= "Legal"
     %ul
-      %li= link_to "T&C", "#"
-      %li= link_to "Privacy Policy", "#"
+      %li= link_to "T&C", "/terms-and-conditions"
+      %li= link_to "Privacy Policy", "/privacy-policy"
 
 #mailing-list-form
   %form.search{:action => "/search", :name => "searchform"}

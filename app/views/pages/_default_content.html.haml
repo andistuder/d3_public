@@ -10,4 +10,4 @@
     %p.introduction= @page.introduction
   - for content_area in @page.content_areas do
     %h2= content_area.name
-    %p= content_area.content
+    = sanitize(textilize(content_area.content))
