@@ -14,21 +14,21 @@ body.bp.pages
       #content.products
         .intro_wrapper
           overflow: hidden
-          width: 100%
           border-bottom: 1px solid $dark_grey_bg
           padding-bottom: 40px
+          margin: 0 40px
           .introduction
             width: 598px
             +float-left
             p
               margin-bottom: 0
+              margin-left: 0
           .product_side_box
             +float-right
             +border-radius
             background-color: $off-white_bg
             width: 258px
             border: 1px solid $dark_grey_bg
-            margin-right: 40px
             padding-bottom: 6px
             h3, p
               margin: 0 18px
@@ -40,11 +40,57 @@ body.bp.pages
               margin-top: 10px
               line-height: 30px
         section#compare_products_list
-          ul
-            clear: both
-            +horizontal-list
+          border-bottom: 1px solid $dark_grey_bg
+          clear: both
+          margin: 40px 40px 0 40px
+          .product_item
+            +float-left
+            width: 259px
+            margin-left: 40px
+            h2, h3, p
+              margin-left: 0
+              margin-right: 0
+              width: 259px
+              overflow: hidden
+            img
+              margin: 20px 0
+            h3
+              margin-top: 30px
             li
-              width: 260px
-              margin-right: 39px
+              font-size: 14px
+          .product_item.first
+            margin-left: 0
+        section#compare_products_table
+          table
+            margin: 40px 40px 0 40px
+            tr
+              border-bottom: 1px solid $dark_grey_bg
+              td, th
+                font-size: 14px
+
+                a.read_more
+                  background-color: $link_color
+                  background: $link_color url('arrow_white_long.png') no-repeat right center
+                  +link-colors(white)
+                  padding: 6px 20px 6px 10px
+                  +border-radius(4px)
+                  text-transform: uppercase
+                  font-size: 14px
+                  font-weight: 400
+                  +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
+                  +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
+              td:nth-of-type(2n), th:nth-of-type(2n)
+                background-color: $light_grey_bg
+              td, th
+                text-align: center
+              td:first-of-type, th:first-of-type
+                text-align: left
+            tr:first-of-type
+              line-height: 40px
+            tr:last-of-type
+              border-bottom: 0px none $dark_grey_bg
+
+
+
 
 
