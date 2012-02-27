@@ -1,4 +1,5 @@
 %ul
   %li Categories
-  - for faq_category in @faq_categories do
-    %li= link_to faq_category.name, faq_path(faq_category)
+  %ul
+    - for faq_category in @faq_categories do
+      %li= link_to faq_category.name, faq_path(faq_category)
