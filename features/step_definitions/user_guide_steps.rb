@@ -31,6 +31,11 @@ When /^I added those chapters to the CMS$/ do
   @child_chapters.each_with_index do |n, i|
     visit('/admin')
     fill_in_chapter(i, @child_chapters)
+
+    within("#chapter_content_area_ids_field") do
+      click_link "Choose all"
+    end
+
     click_button "Save"
   end
 
@@ -62,10 +67,12 @@ Then /^I should see a summary of it's chapters$/ do
 end
 
 Then /^I should see a the chapter detail$/ do
-  page.has_content? @child_chapters[0][:summary]
-  @child_chapters[0].sections.each_with_index do |n, i|
-    page.has_content? @child_chapters[0].sections[:title]
-    page.has_content? @child_chapters[0].sections[:content]
+
+  page.has_content? @child_chapters[0][:name]
+  page.has_content? @child_chapters[0][:content]
+
+  @content_areas.each_with_index do |n, i|
+    page.has_content? @content_areas[i][:name]
   end
 
 end
@@ -80,5 +87,9 @@ def fill_in_chapter(i, chapters)
 end
 
 When /^I click span "([^"]*)"$/ do |arg|
-  find("##{arg}").click
+  find("##{arg} span").click
+end
+
+When /^I wait for "([^"]*)" to appear$/ do |arg|
+  wait_until{ page.has_content?(arg)}
 end
