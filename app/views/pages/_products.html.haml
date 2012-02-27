@@ -21,8 +21,11 @@
         = sanitize(textilize(four_u.content))
         - if four_u.asset.present?
           %img{:src => four_u.asset.asset.url(:small), :alt => four_u.asset.description}
-        - if four_u.see_more_label.present? && four_u.see_more_url.present?
-          %p.read_more= link_to four_u.see_more_label, four_u.see_more_url
+        .link_wrapper
+          - if four_u.see_more_label.present? && four_u.see_more_url.present?
+            .read_more.left= link_to four_u.see_more_label, four_u.see_more_url
+          .read_more.right= link_to "Get d3", "/get-d3"
+
       - for four_can in @page.content_areas.where(:name => '4u CAN ...') do
         %h3= four_can.name
         = sanitize(textilize(four_can.content))
@@ -32,8 +35,10 @@
         = sanitize(textilize(two_u.content))
         - if two_u.asset.present?
           %img{:src => two_u.asset.asset.url(:small), :alt => two_u.asset.description}
-        - if two_u.see_more_label.present? && two_u.see_more_url.present?
-          %p.read_more= link_to two_u.see_more_label, two_u.see_more_url
+        .link_wrapper
+          - if two_u.see_more_label.present? && two_u.see_more_url.present?
+            .read_more.left= link_to two_u.see_more_label, two_u.see_more_url
+          .read_more.right= link_to "Get d3", "/get-d3"
       - for two_can in @page.content_areas.where(:name => '4u CAN ...') do
         %h3= two_can.name
         = sanitize(textilize(two_can.content))
@@ -43,8 +48,10 @@
         = sanitize(textilize(designer.content))
         - if designer.asset.present?
           %img{:src => designer.asset.asset.url(:small), :alt => designer.asset.description}
-        - if designer.see_more_label.present? && designer.see_more_url.present?
-          %p.read_more= link_to designer.see_more_label, designer.see_more_url
+        .link_wrapper
+          - if designer.see_more_label.present? && designer.see_more_url.present?
+            .read_more.left= link_to designer.see_more_label, designer.see_more_url
+          .read_more.right= link_to "Get d3", "/get-d3"
       - for designer_can in @page.content_areas.where(:name => '4u CAN ...') do
         %h3= designer_can.name
         = sanitize(textilize(designer_can.content))
