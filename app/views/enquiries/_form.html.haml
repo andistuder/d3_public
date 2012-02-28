@@ -1,105 +1,81 @@
 = form_tag("/send_enquiry", :method => "put") do
   %h2 Contact details
-  %p
-    = label_tag(:sender_name)
-    = text_field_tag :sender_name
-  %p
-    = label_tag(:position)
-    = text_field_tag :position
-  %p
-    = label_tag(:company)
-    = text_field_tag :company
-  %p
-    = label_tag(:website)
-    = text_field_tag :website
-  %p
-    = label_tag(:email, "Email:")
-    = text_field_tag :email
-  %p
-    = label_tag(:city)
-    = text_field_tag :city
-  %p
-    = label_tag(:country)
-    = text_field_tag :country
-  %p
-    = label_tag(:phone1)
-    = text_field_tag :phone1
-  %p
-    = label_tag(:phone2)
-    = text_field_tag :phone2
-  %h2 Sale
-  %p
-    = label_tag(:sales_4u, "Nr of 4u machines you would like to purchase?")
-    = select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
-  %p
-    = label_tag(:sales_2u, "Nr of 2u machines you would like to purchase?")
-    = select_tag "sales_2u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
-  %p
-    = label_tag(:sales_d3_designer, "Nr of d3 Designer Packages you would like to purchase?")
-    = select_tag "sales_d3_designer", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
-  %p
-    = label_tag(:sale_comments, "Other Comments")
-    = text_area_tag(:sale_comments)
-  %h2 Rental
-  %p
-    = label_tag(:rental_4u, "Nr of 4u machines you would like to purchase?")
-    = select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
-  %p
-    = label_tag(:rental_2u, "Nr of 2u machines you would like to purchase?")
-    = select_tag "rental_2u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
-  %p
-    = label_tag(:rental_arrival_date, "Required arrival date of machines")
-    = text_field_tag :rental_arrival_date
-  %p
-    = label_tag(:rental_install_date, "Dates for install")
-    = text_field_tag :rental_install_date
-  %p
-    = label_tag(:rental_show_date, "Dates for show")
-    = text_field_tag :rental_show_date
-  %p
-    = label_tag(:rental_de_rig_date, "Dates for de-rig")
-    = text_field_tag :rental_de_rig_date
-  %p
-    = label_tag(:rental_project_description, "Project description")
-    = text_area_tag(:rental_project_description)
-  %p instruction on how to submit files
-  %p
-    = label_tag(:rental_project_description, "Other comments")
-    = text_area_tag(:rental_project_description)
-  %h2 Consultancy
-  %p
-    = label_tag(:project_name)
-    = text_field_tag :project_name
-  %p
-    = label_tag(:consultancy_project_description, "Project description")
-    = text_area_tag(:consultancy_project_description)
-  %p
-    = label_tag(:rental_install_date, "Dates for install")
-    = text_field_tag :rental_install_date
-  %p
-    = label_tag(:rental_show_date, "Dates for show")
-    = text_field_tag :rental_show_date
-  %p
-    = check_box_tag 'feasibility'
-    = label_tag 'feasibility', 'feasibility study'
-  %p
-    = check_box_tag 'project_setup'
-    = label_tag 'project_setup', "d3 project setup (this includes building up the d3 project based on the drawings and information provided, providing content templates, initial support etc)"
-  %p
-    = check_box_tag 'pre_production'
-    = label_tag 'pre_production', "pre-production remote support (this includes helping you to start working with the d3 project after delivery and review and advice on your submitted d3 project)"
-  %p
-    = check_box_tag 'training'
-    = label_tag 'training', "training (this includes being trained by a certified d3 trainer in basic or advanced project development, sequencing or d3 operation, or training on project specific topics of concern)"
-  %p
-    = check_box_tag 'technical'
-    = label_tag 'technical', "technical and project management (this includes consultation on d3 hardware configuration, reviewing or creating equipment specification lists, video technology advice and best usage, creation of wiring and network diagrams, scheduling and process advice etc)"
-  %p
-    = check_box_tag 'operation'
-    = label_tag 'operation', "on-site operation (this includes on-site d3 hardware installation and configuration, d3 outputs line-up, on-site sequencing, show operation)"
-  %p
-    = check_box_tag 'system'
-    = label_tag 'system', "system provision – rental or sale"
-  %p instruction on how to submit files
 
-  %p= submit_tag "Submit"
+  %p= label_tag(:sender_name)
+  = text_field_tag :sender_name, nil, :class => 'text_field'
+  %p= label_tag(:position)
+  = text_field_tag :position, nil, :class => 'text_field'
+  %p= label_tag(:company)
+  = text_field_tag :company, nil, :class => 'text_field'
+  %p= label_tag(:website)
+  = text_field_tag :website, nil, :class => 'text_field'
+  %p= label_tag(:email, "Email:")
+  = text_field_tag :email, nil, :class => 'text_field'
+  %p= label_tag(:city)
+  = text_field_tag :city, nil, :class => 'text_field'
+  %p= label_tag(:country)
+  = text_field_tag :country, nil, :class => 'text_field'
+  %p= label_tag(:phone1, "Phone 1")
+  = text_field_tag :phone1, nil, :class => 'text_field'
+  %p= label_tag(:phone2, "Phone 2")
+  = text_field_tag :phone2, nil, :class => 'text_field'
+  %h2 Sale
+  %p= label_tag(:sales_4u, "Nr of 4u machines you would like to purchase?")
+  .dropdown_field= select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
+  %p= label_tag(:sales_2u, "Nr of 2u machines you would like to purchase?")
+  .dropdown_field= select_tag "sales_2u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
+  %p= label_tag(:sales_d3_designer, "Nr of d3 Designer Packages you would like to purchase?")
+  .dropdown_field= select_tag "sales_d3_designer", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
+  %p= label_tag(:sale_comments, "Other Comments")
+  .text_area= text_area_tag(:sale_comments)
+  %h2 Rental
+  %p= label_tag(:rental_4u, "Nr of 4u machines you would like to purchase?")
+  .dropdown_field= select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
+  %p= label_tag(:rental_2u, "Nr of 2u machines you would like to purchase?")
+  .dropdown_field= select_tag "rental_2u", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe
+  %p= label_tag(:rental_arrival_date, "Required arrival date of machines")
+  = text_field_tag :rental_arrival_date, nil, :class => 'text_field'
+  %p= label_tag(:rental_install_date, "Dates for install")
+  = text_field_tag :rental_install_date, nil, :class => 'text_field'
+  %p= label_tag(:rental_show_date, "Dates for show")
+  = text_field_tag :rental_show_date, nil, :class => 'text_field'
+  %p= label_tag(:rental_de_rig_date, "Dates for de-rig")
+  = text_field_tag :rental_de_rig_date, nil, :class => 'text_field'
+  %p= label_tag(:rental_project_description, "Project description")
+  .text_area= text_area_tag(:rental_project_description)
+  %p instruction on how to submit files
+  %p= label_tag(:rental_project_description, "Other comments")
+  .text_area= text_area_tag(:rental_project_description)
+  %h2 Consultancy
+  %p= label_tag(:project_name)
+  = text_field_tag :project_name, nil, :class => 'text_field'
+  %p= label_tag(:consultancy_project_description, "Project description")
+  .text_area= text_area_tag(:consultancy_project_description)
+  %p= label_tag(:rental_install_date, "Dates for install")
+  = text_field_tag :rental_install_date, nil, :class => 'text_field'
+  %p= label_tag(:rental_show_date, "Dates for show")
+  = text_field_tag :rental_show_date, nil, :class => 'text_field'
+  %table
+    %tr
+      %td= check_box_tag 'feasibility'
+      %td= label_tag 'feasibility', 'feasibility study'
+    %tr
+      %td= check_box_tag 'project_setup'
+      %td= label_tag 'project_setup', "d3 project setup (this includes building up the d3 project based on the drawings and information provided, providing content templates, initial support etc)"
+    %tr
+      %td= check_box_tag 'pre_production'
+      %td= label_tag 'pre_production', "pre-production remote support (this includes helping you to start working with the d3 project after delivery and review and advice on your submitted d3 project)"
+    %tr
+      %td= check_box_tag 'training'
+      %td= label_tag 'training', "training (this includes being trained by a certified d3 trainer in basic or advanced project development, sequencing or d3 operation, or training on project specific topics of concern)"
+    %tr
+      %td= check_box_tag 'technical'
+      %td= label_tag 'technical', "technical and project management (this includes consultation on d3 hardware configuration, reviewing or creating equipment specification lists, video technology advice and best usage, creation of wiring and network diagrams, scheduling and process advice etc)"
+    %tr
+      %td= check_box_tag 'operation'
+      %td= label_tag 'operation', "on-site operation (this includes on-site d3 hardware installation and configuration, d3 outputs line-up, on-site sequencing, show operation)"
+    %tr
+      %td= check_box_tag 'system'
+      %td= label_tag 'system', "system provision – rental or sale"
+  %p instruction on how to submit files
+  = submit_tag "Submit", :class => "submit_button"

@@ -1,7 +1,46 @@
 body.bp.pages
   #main
     .container
-      #content
+      #content.enquiry
+        width: 460px
+        margin-left: 240px
+        h1, h2, p
+          margin-left: 0
+          margin-right: 0
+        .introduction
+          border-bottom: 0 none $dark_grey_bg
+          padding-bottom: 20px
         #enquiry_form
-          p
-            margin-bottom: 0
+          form
+            font-size: 16px
+            p
+              padding-bottom: 6px
+              margin-bottom: 0
+            textarea, input.text_field, select, input.submit_button
+              font-size: 16px
+              +border-radius
+              border: 1px solid $dark_grey_bg
+              padding: 3px
+              margin-bottom: 20px
+
+            textarea, input.text_field
+              width: 100%
+            select
+              width: 15%
+              //background: $link_color url('arrow_white_long.png') no-repeat right center
+            table
+              td
+                vertical-align: top
+                padding-top: 0
+            input.submit_button
+              +float-right
+              background-color: $link_color
+              background: $link_color url('arrow_white_long.png') no-repeat right center
+              color: white
+              padding: 6px 20px 6px 10px
+              +border-radius(4px)
+              border: 0px none $dark_grey_bg
+              text-transform: uppercase
+              //font-weight: 400
+              +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
+              +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
