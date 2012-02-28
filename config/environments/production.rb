@@ -60,5 +60,5 @@ D3::Application.configure do
   
   # use the VCS files for prod
   #Sass::Plugin.options[:never_update] = true
-  
+
 end

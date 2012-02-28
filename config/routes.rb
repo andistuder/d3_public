@@ -1,5 +1,5 @@
 D3::Application.routes.draw do
-  
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :case_studies, :only => [:show, :index], :path => "/what-is-d3/case-studies"
@@ -7,7 +7,7 @@ D3::Application.routes.draw do
   resources :feature_categories, :only => [:index, :show], :path => "/what-is-d3/features"
 
   resources :partner_categories, :only => [:index, :show], :path => "get-d3"  do
-      resources :partners, :only => [:show], :path => ""
+    resources :partners, :only => [:show], :path => ""
   end
 
   resources :news_items, :only => [:index, :show], :path => :news
@@ -48,6 +48,7 @@ D3::Application.routes.draw do
   match "sitemap.xml" => "sitemap#sitemap"
   root :to => "feature_categories#index"
 
+  match "send_enquiry" => "enquiries#send_enquiry"
 
   match "page_content_areas/:page_id/:name" => "content_areas#page_content_areas", :as => :page_content_areas
   match "/rails3" => "pages#dynamic", :as => :pages, :slug => "rails3"
