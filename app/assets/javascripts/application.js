@@ -93,24 +93,34 @@ $(document).ready(function(){
     });
 
     $("#user_guide_home").click(function(){
-        $('#viewport').scrollTo(".page.intro", 500, {easing:'elasout',onAfter:function(){
-            $('#viewport').animate({height: $(".page.intro").css('height')}, 500);
-        }});
+
+        $(".hitarea").each(function(){
+            if ($(this).text() == "-") {
+                $(this).click();
+            }
+        });
+
+        $('#viewport').animate({height: $(".page.intro").css('height')}, 100, function(){
+            $('#viewport').scrollTo(".page.intro", 500);
+        });
+
     });
 
     // user guide specific
     var max_height = 0;
     if ($('#user_guide').length > 0) {
+
+        $("#chapters").fadeIn();
+
         max_height = calculateWindowHeight();
-        $('#viewport').height(max_height);
-        $('#user_guide').height(max_height);
+
         $(".page").first().height(max_height);
         $(".page").last().height(max_height);
+        $('#viewport').height(max_height);
+        $('#user_guide').height(max_height);
 
-        var url = $.url().segment();
-        var parent_category = url[url.length - 2]
-        $("#"+parent_category+" .hitarea").click();
-
+        $(".page").first().fadeIn();
+        $(".page").show();
 
         $(".chapter").click(function(){
             var action = $(this).parent().children(".hitarea").text();
@@ -119,11 +129,22 @@ $(document).ready(function(){
             $(this).parent().children(".hitarea").text(action == "+" ? "-" : "+");
             var target = "." + $(this).parent().attr("id");
 
-            $('#viewport').scrollTo(target, 1000, {easing:'elasout',onAfter:function(){
-                $('#viewport').animate({height: $(target).css('height')}, 500);
-            }});
+
+            $('#viewport').animate({height: $(target).css('height')}, 100, function(){
+                $('#viewport').scrollTo(target, 1000);
+            });
 
         });
+
+        $(".hitarea").click(function(){
+            var action = $(this).text();
+            $('.hitarea').text("+");
+            $(this).parent().children(".hitarea").text(action == "+" ? "-" : "+");
+        });
+
+        var url = $.url().segment();
+        var parent_category = url[url.length - 2]
+        $("#"+parent_category+" .hitarea").click();
     }
 
 

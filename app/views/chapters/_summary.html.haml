@@ -1,6 +1,6 @@
 #viewport
   - if chapter_detail.present?
-    #chapter_detail.page.expander
+    #chapter_detail.page.expander.hidden
       %h1= chapter_detail.name
 
       =textilize(chapter_detail.content).html_safe
@@ -15,9 +15,9 @@
           .body
             =sanitize(textilize(ca.content))
             - ca.assets.each do |asset|
-              =image_tag(asset.asset.url(:medium))
+              =image_tag(asset.asset.url())
 
-  .page.intro
+  .page.intro.hidden
     %h1 User Guide
     - if @user_guide_intro
       .introduction= sanitize(textilize(@user_guide_intro.content))
@@ -28,10 +28,10 @@
 
   %section#chapter_summaries
     - @chapters.each do |parent|
-      %div{:class => "#{parent.slug} page"}
+      %div{:class => "#{parent.slug} page hidden"}
         - if parent.children.length > 0
           %h1= parent.name
           - parent.children.each do |child|
             .chapter_summary
-              %h2= child.name
+              %h2= link_to child.name, chapter_path(child, :parent => parent.slug)
               =sanitize(textilize(child.summary))
