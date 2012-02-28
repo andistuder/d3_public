@@ -7,7 +7,7 @@
   %section#content
     %article#faqs.expander
 
-      %h1 FAQs
+      %h1= @faq_category.name
 
       - for faq in @faq_category.faqs do
         .section
@@ -15,7 +15,7 @@
             %span.more
               %a
                 SHOW
-            = faq.question
+            = link_to faq.question, "javascript:void(0)"
           .body.hidden
             =sanitize(textilize(faq.answer))
 
