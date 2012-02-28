@@ -56,7 +56,7 @@
         %h3= designer_can.name
         = sanitize(textilize(designer_can.content))
   %section#compare_products_table
-    - for comparison_table in @page.content_areas.where(:name => 'Compare d3 Products<span> - Which is best for you?<span>') do
+    - for comparison_table in @page.content_areas.where(:name => 'Compare d3 Products<span> - Which is best for you?</span>') do
       %h2= sanitize(comparison_table.name)
       = textilize(comparison_table.content).html_safe
 
