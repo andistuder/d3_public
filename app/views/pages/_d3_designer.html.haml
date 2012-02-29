@@ -34,6 +34,8 @@
             %p.read_more
               =link_to content_area.see_more_label, content_area.see_more_url
   %section#specification
-    .left= textilize(@page.content_areas.find_by_name('footer-area-left').content).html_safe
-    .right= textilize(@page.content_areas.find_by_name('footer-area-right').content).html_safe
+    - if @page.content_areas.find_by_name('footer-area-left').present?
+      .left= textilize(@page.content_areas.find_by_name('footer-area-left').content).html_safe
+    - if @page.content_areas.find_by_name('footer-area-right').present?
+      .right= textilize(@page.content_areas.find_by_name('footer-area-right').content).html_safe
 

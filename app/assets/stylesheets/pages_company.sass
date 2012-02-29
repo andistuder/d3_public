@@ -1,0 +1,36 @@
+body.bp.pages
+  #main
+    .container
+      #content.company
+        padding-bottom: 20px
+        .company_wrapper
+          border-bottom: 1px solid $dark_grey_bg
+          overflow: hidden
+          margin-top: 40px
+          margin-bottom: 20px
+          .about_company
+            +float-left
+            width: 578px
+          img
+            +float-right
+        #company_left
+          +float-left
+          width: 579px
+          border-right: 1px solid $dark_grey_bg
+          padding-top: 20px
+          #company_map
+            +float-right
+            padding: 20px
+          #company_address
+            +float-left
+            width: 270px
+          #company_contacts
+            clear: both
+        #company_right
+          width: 357px
+          padding-top: 20px
+          +float-right
+          ul
+            margin-left: 40px
+            li
+              line-height: 30px
