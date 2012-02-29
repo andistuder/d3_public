@@ -34,6 +34,9 @@ module NavigationHelpers
     when /the case studies page/
       case_studies_path
 
+    when /the enquiry page/
+      "/enquiry"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
