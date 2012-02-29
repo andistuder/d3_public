@@ -16,16 +16,23 @@
 
 
 @mixin expander
-.section
-  .title
-    color: $blue
-    .more
-      margin-right: 15px
-      +d3-button-link(12px, 1px, 'arrow_white_long.png')
-      border: 0px solid red
-      a
-        border: 0px solid green
-.body
-  p, img
-    margin-left: 118px
+  .section
+    .title
+      color: $blue
+      .more
+        margin-right: 15px
+        float: left
+        +d3-button-link(12px, 3px, 'arrow_white_long.png')
+        border: 0px solid red
+        a.driver
+          border: 0px solid green
+          width: 40px
+          float: left
+          text-align: center
+    .body
+      margin-left: 40px
+      border: 0px solid green
+      p, img
+        border: 0px solid red
+        margin-left: 0px
 

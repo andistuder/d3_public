@@ -7,15 +7,15 @@
   %section#content
     %article#faqs.expander
 
-      %h1 FAQs
+      %h1= @faq_category.name
 
       - for faq in @faq_category.faqs do
         .section
           %h3.title
             %span.more
-              %a
+              %a.driver.button
                 SHOW
-            = faq.question
+            = link_to faq.question, "javascript:void(0)", :class => "driver"
           .body.hidden
             =sanitize(textilize(faq.answer))
 

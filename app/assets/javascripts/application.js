@@ -148,10 +148,18 @@ $(document).ready(function(){
     }
 
 
-    $('.expander .more a').click(function(){
+    $('.expander a.driver').click(function(){
         var text = $(this).text();
-        $(this).text(text.trim() == "SHOW" ? "HIDE" : "SHOW");
-        $(this).parents(".section").find(".body").toggle("blind");
+
+        if ($(this).parent(".more").length > 0) {
+            console.log("button");
+            $(this).text($(this).parents(".section").find(".body").is(":visible") ? "SHOW" : "HIDE");
+        } else {
+            console.log("link");
+            $(this).parent().find(".more a").text($(this).parents(".section").find(".body").is(":visible") ? "SHOW" : "HIDE");
+        }
+
+        $(this).parents(".section").find(".body").slideToggle();
 
         // TODO MSP Seems easier to let the browser calc the height and just leave whitespace than try and grow
 //        $('#viewport').animate({height: "1000px"}, 500);
