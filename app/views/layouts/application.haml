@@ -31,11 +31,11 @@
             %li= nav_link "Company", "/company"
       #message
         #message_content
+      -if flash[:notice]
+        #flash_notice= flash[:notice]
+      -if flash[:alert]
+        #flash_alert= flash[:alert]
       #main{ :role => 'main' }
-        -if flash[:notice]
-          %p#flash_notice= flash[:notice]
-        -if flash[:alert]
-          %p#flash_alert= flash[:alert]
         = yield
   
       %footer#footer

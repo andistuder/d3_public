@@ -4,7 +4,7 @@
       Some title here?
       %ul
         - for content_area in @page.content_areas do
-          %li= link_to content_area.name, "##{content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+          %li= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
 %section#content.d3_studios
   - if @page.assets.present?
     %span#prevBtn
@@ -31,7 +31,7 @@
     .introduction
       = sanitize(textilize(@page.introduction))
   - for content_area in @page.content_areas do
-    %section{:id => "#{content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
+    %section{:id => "#{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
       - if content_area.asset.present?
         %img{:src => content_area.asset.asset.url(:small), :alt => content_area.asset.description}
       .wrapper
