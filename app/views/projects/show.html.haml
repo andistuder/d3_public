@@ -23,7 +23,8 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= @project.name
-    %p.introduction= @project.summary
+    .introduction
+      = sanitize(textilize(@project.summary))
     - for content_area in @project.project_content_areas.ordered do
       %section{:class => "alternating"}
         - if content_area.asset.present?

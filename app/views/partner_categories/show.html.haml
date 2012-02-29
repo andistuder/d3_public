@@ -18,7 +18,8 @@
     -if @partner_category.name == "Distributors" && @partner_category.partners.present?
       -if @partner_category.partners.present?
         %h1.after-slideshow= @partner_category.partners.first.name
-        %p.introduction= @partner_category.partners.first.summary
+        .introduction
+          %p= @partner_category.partners.first.summary
         %h2= "Details"
         #google_map= "TODO Map Here"
         %table
@@ -60,7 +61,8 @@
             = sanitize(textilize(content_area.content))
     - else
       %h1= @partner_category.name
-      %p.introduction= @partner_category.content
+      .introduction
+        %p= @partner_category.content
       %section
         map here
       - for partner in @partner_category.partners do

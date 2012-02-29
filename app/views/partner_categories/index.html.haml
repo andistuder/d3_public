@@ -6,7 +6,8 @@
       #social_bookmarks
         TODO: social bookmarks here?
       %h1= "Find d3 partners, studios and users near you."
-      %p.introduction= "Suspendisse potenti. Etiam ut eros augue. Nunc laoreet blandit risus, id vulputate metus facilisis at."
+      .introduction
+        %p= "Suspendisse potenti. Etiam ut eros augue. Nunc laoreet blandit risus, id vulputate metus facilisis at."
     - for partner_category in @partner_categories do
       %section{:id => partner_category.slug, :class => "alternating"}
         - if partner_category.assets.present?

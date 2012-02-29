@@ -23,7 +23,8 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= "#{@case_study.name}, Case Study"
-    %p.introduction= @case_study.introduction
+    .introduction
+      = sanitize(textilize(@case_study.introduction))
     #case_study_wrapper= sanitize(textilize(@case_study.content))
     #case_study_sidebar
       %h3= @case_study.sidebar_title

@@ -1,0 +1,4 @@
+%h1= @page.name
+- if @page.introduction.present?
+  .introduction
+    = sanitize(textilize(@page.introduction))

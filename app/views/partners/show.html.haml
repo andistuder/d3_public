@@ -18,7 +18,8 @@
     - if @partner.partner_category.present?
       - if  @partner.partner_category.name == "Distributors" || @partner.partner_category.name == "d3 Studios Global"
         %h1.after-slideshow= @partner.name
-        %p.introduction= @partner.summary
+        .introduction
+          %p= @partner.summary
       - else
         %h1= @partner.name
     -else

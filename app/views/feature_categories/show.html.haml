@@ -25,7 +25,8 @@
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= @feature_category.name
-    %p.introduction= @feature_category.content
+    .introduction
+      = sanitize(textilize(@feature_category.content))
     - for feature in @feature_category.features.ordered do
       %section{:id => feature.slug, :class => "alternating"}
         -if feature.asset.present?
