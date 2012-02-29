@@ -1,7 +1,7 @@
 = form_tag("/send_enquiry", :method => "put", :class => "expander", :id => "enquiryForm") do
   %h3 Contact details
 
-  %p= label_tag(:first_name, "Fist name *")
+  %p= label_tag(:first_name, "First name *")
   = text_field_tag :first_name, nil, :class => 'text_field required'
   %p= label_tag(:last_name, "Last name *")
   = text_field_tag :last_name, nil, :class => 'text_field required'
@@ -26,11 +26,11 @@
       =link_to "Sales enquiries", "javascript:void(0)"
     .body.hidden
       %p= label_tag(:sales_4u, "Nr of 4u machines you would like to purchase?")
-      .dropdown_field= select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_2u, "Nr of 2u machines you would like to purchase?")
-      .dropdown_field= select_tag "sales_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_d3_designer, "Nr of d3 Designer Packages you would like to purchase?")
-      .dropdown_field= select_tag "sales_d3_designer", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_d3_designer", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_comments, "Other Comments")
       .text_area= text_area_tag(:sales_comments)
   .section
@@ -38,9 +38,9 @@
       =link_to "Rental enquiries", "javascript:void(0)"
     .body.hidden
       %p= label_tag(:rental_4u, "Nr of 4u rental machines needed? ")
-      .dropdown_field= select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:rental_2u, "Nr of 2u rental machines needed? ")
-      .dropdown_field= select_tag "rental_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "rental_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:rental_location, "Location of Show")
       = text_field_tag :rental_location, nil, :class => 'text_field'
       %p= label_tag(:rental_start_date, "Rental start date")
