@@ -152,11 +152,15 @@ $(document).ready(function(){
         var text = $(this).text();
 
         if ($(this).parent(".more").length > 0) {
-            console.log("button");
             $(this).text($(this).parents(".section").find(".body").is(":visible") ? "SHOW" : "HIDE");
         } else {
-            console.log("link");
             $(this).parent().find(".more a").text($(this).parents(".section").find(".body").is(":visible") ? "SHOW" : "HIDE");
+        }
+
+        if ($(this).parents(".section").find(".body").is(":visible")) {
+            $(this).parents(".section").find(".more a").css("backgroundImage", "url(/assets/arrow_white_long.png)");
+        } else {
+            $(this).parents(".section").find(".more a").css("backgroundImage", "url(/assets/arrow_white_long_down.png)");
         }
 
         $(this).parents(".section").find(".body").slideToggle();
