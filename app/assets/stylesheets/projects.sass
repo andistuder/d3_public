@@ -8,13 +8,15 @@ body.bp.projects, body.bp.project_categories
           p, h2
             width: 495px
         section.project_cat
+          padding-left: 40px
           p, h2
-            width: 605px
+            width: 565px
           p
             min-height: 80px
           p.read_more
             min-height: 0
         section#how_made
+          margin-bottom: 20px
           .wrapper
             .list-container
               width: 495px
@@ -24,11 +26,14 @@ body.bp.projects, body.bp.project_categories
                 +horizontal-list
                 margin: 14px 0
                 li
-                  width: 205px
+                  width: 200px
                   list-style-type: disc
                   margin-left: 15px
                   margin-right: 20px
                   display: list-item
+                  padding-left: 4px
+                li:first-of-type
+                  padding-left: 4px
         .project_credits
           border-width: 1px
           border-color: $dark_grey_bg
