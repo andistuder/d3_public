@@ -1,30 +1,30 @@
-= form_tag("/send_enquiry", :method => "put", :class => "expander") do
+= form_tag("/send_enquiry", :method => "put", :class => "expander", :id => "enquiryForm") do
   %h3 Contact details
 
-  %p= label_tag(:sender_name, "Full name:")
-  = text_field_tag :sender_name, nil, :class => 'text_field'
+  %p= label_tag(:sender_name, "Full name *")
+  = text_field_tag :sender_name, nil, :class => 'text_field required'
   %p= label_tag(:position)
   = text_field_tag :position, nil, :class => 'text_field'
-  %p= label_tag(:company)
-  = text_field_tag :company, nil, :class => 'text_field'
+  %p= label_tag(:company, "Company *")
+  = text_field_tag :company, nil, :class => 'text_field required'
   %p= label_tag(:website)
   = text_field_tag :website, nil, :class => 'text_field'
-  %p= label_tag(:email, "Email:")
-  = text_field_tag :email, nil, :class => 'text_field'
-  %p= label_tag(:city)
-  = text_field_tag :city, nil, :class => 'text_field'
+  %p= label_tag(:email, "Email *")
+  = text_field_tag :email, nil, :class => 'text_field required'
+  %p= label_tag(:city, "City *")
+  = text_field_tag :city, nil, :class => 'text_field required'
   %p= label_tag(:country)
   = text_field_tag :country, nil, :class => 'text_field'
-  %p= label_tag(:phone1, "Phone 1")
-  = text_field_tag :phone1, nil, :class => 'text_field'
+  %p= label_tag(:phone1, "Phone 1 *")
+  = text_field_tag :phone1, nil, :class => 'text_field required'
   %p= label_tag(:phone2, "Phone 2")
   = text_field_tag :phone2, nil, :class => 'text_field'
   .section
     %h3.title
       %span.more
-        %a
+        %a.driver.button
           SHOW
-      Sale
+      %a.driver Sale
     .body.hidden
       %p= label_tag(:sales_4u, "Nr of 4u machines you would like to purchase?")
       .dropdown_field= select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
@@ -37,9 +37,9 @@
   .section
     %h3.title
       %span.more
-        %a
+        %a.driver.button
           SHOW
-      Rental
+      %a.driver Rental
     .body.hidden
       %p= label_tag(:rental_4u, "Nr of 4u rental machines needed? ")
       .dropdown_field= select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
@@ -60,9 +60,9 @@
   .section
     %h3.title
       %span.more
-        %a
+        %a.driver.button
           SHOW
-      Consultancy
+      %a.driver Consultancy
     .body.hidden
       %p= label_tag(:project_name)
       = text_field_tag :project_name, nil, :class => 'text_field'
@@ -94,4 +94,5 @@
         %tr
           %td= check_box_tag 'system'
           %td= label_tag 'system', "system provision – rental or sale"
+  %p= "* required fields"
   = submit_tag "Submit", :class => "submit_button"
