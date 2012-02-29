@@ -26,8 +26,9 @@ end
 When /^I add those features to the enquiry form$/ do
 
   @form_data.each_with_index do |n, i|
-    visit('/enquiry')
-    fill_in "sender_name", :with => @form_data[i][:name]
+    visit('/enquiry-form')
+    fill_in "first_name", :with => @form_data[i][:first_name]
+    fill_in "last_name", :with => @form_data[i][:last_name]
     fill_in "email", :with => @form_data[i][:email]
     fill_in "company", :with => @form_data[i][:company]
     fill_in "city", :with => @form_data[i][:city]

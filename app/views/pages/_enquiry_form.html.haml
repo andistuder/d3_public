@@ -1,6 +1,7 @@
 %section#content.enquiry
   %h1= @page.name
   - if @page.introduction.present?
-    %p.introduction= @page.introduction
+    .introduction
+      = sanitize(textilize(@page.introduction))
   #enquiry_form
     = render :partial => "enquiries/form"

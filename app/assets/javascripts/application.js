@@ -175,6 +175,10 @@ $(document).ready(function(){
 
     $("#enquiryForm").validate();
 
+    $('.expander .read_more a').click(function(){
+        $(this).parents(".section").find(".body").slideToggle();
+    });
+
 });
 
 function calculateWindowHeight(){
