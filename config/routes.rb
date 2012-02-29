@@ -20,7 +20,7 @@ D3::Application.routes.draw do
     resources :faq, :only => [:index, :show]
 
     scope "user-guide" do
-      match "" => "pages#dynamic", :slug => "user-guide"
+      match "" => "knowledge_base#user_guide"
       match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
     end
 
