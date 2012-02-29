@@ -161,6 +161,7 @@ $(document).ready(function(){
     // do this AFTER we calc the page heights
     $('#chapter_detail .body').hide()
 
+    $("#enquiryForm").validate();
 
 });
 

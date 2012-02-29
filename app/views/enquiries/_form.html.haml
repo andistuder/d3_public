@@ -1,22 +1,22 @@
-= form_tag("/send_enquiry", :method => "put", :class => "expander") do
+= form_tag("/send_enquiry", :method => "put", :class => "expander", :id => "enquiryForm") do
   %h3 Contact details
 
-  %p= label_tag(:sender_name, "Full name:")
-  = text_field_tag :sender_name, nil, :class => 'text_field'
+  %p= label_tag(:sender_name, "Full name *")
+  = text_field_tag :sender_name, nil, :class => 'text_field required'
   %p= label_tag(:position)
   = text_field_tag :position, nil, :class => 'text_field'
-  %p= label_tag(:company)
-  = text_field_tag :company, nil, :class => 'text_field'
+  %p= label_tag(:company, "Company *")
+  = text_field_tag :company, nil, :class => 'text_field required'
   %p= label_tag(:website)
   = text_field_tag :website, nil, :class => 'text_field'
-  %p= label_tag(:email, "Email:")
-  = text_field_tag :email, nil, :class => 'text_field'
-  %p= label_tag(:city)
-  = text_field_tag :city, nil, :class => 'text_field'
+  %p= label_tag(:email, "Email *")
+  = text_field_tag :email, nil, :class => 'text_field required'
+  %p= label_tag(:city, "City *")
+  = text_field_tag :city, nil, :class => 'text_field required'
   %p= label_tag(:country)
   = text_field_tag :country, nil, :class => 'text_field'
-  %p= label_tag(:phone1, "Phone 1")
-  = text_field_tag :phone1, nil, :class => 'text_field'
+  %p= label_tag(:phone1, "Phone 1 *")
+  = text_field_tag :phone1, nil, :class => 'text_field required'
   %p= label_tag(:phone2, "Phone 2")
   = text_field_tag :phone2, nil, :class => 'text_field'
   .section
@@ -94,4 +94,5 @@
         %tr
           %td= check_box_tag 'system'
           %td= label_tag 'system', "system provision – rental or sale"
+  %p= "* required fields"
   = submit_tag "Submit", :class => "submit_button"
