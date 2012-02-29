@@ -9,6 +9,6 @@
   - if @page.introduction.present?
     %p.introduction= @page.introduction
   - for content_area in @page.content_areas do
-    %section{:id => content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}
+    %section{:id => content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase, :class => "default_content"}
       %h2= content_area.name
       = sanitize(textilize(content_area.content))

@@ -5,7 +5,7 @@ $blueprint-font-family: 'Lato', sans-serif
 body.bp
   +blueprint-typography(true)
   color: $text-color
-  p, input, li, td
+  p, input, li, td, select, textarea
     +normal-text
     font-size: 14px
     font-weight: 400
@@ -24,6 +24,12 @@ body.bp
     font-size: 1.2em
   .all-caps
     text-transform: uppercase
+  #flash_notice
+    color: $link_color
+    font-size: 16px
+  #flash_alert
+    color: red
+    font-size: 16px
   #search-form
     input
       font-size: 12px
@@ -67,7 +73,7 @@ body.bp
     .project_credits, #case_study_sidebar
       li
         font-size: 14px
-    .alternating
+    .alternating, .company_wrapper, #company_left, .default_content
       h3
         line-height: 1.8em
         margin-top: 0.7em

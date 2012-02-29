@@ -1,10 +1,61 @@
-Product Enquiry
+d3 web enquiry
 \===============
 
-#{@form_content[:sender_name]} would like to benefit from your offer.
+*Contact details*
 
-Here what they say
-Coming Soon
+Sender name: #{@form_content[:sender_name]}
+Position: #{@form_content[:position]}
+Company: #{@form_content[:company]}
+Website: #{@form_content[:website]}
+Email: #{@form_content[:email]}
+City: #{@form_content[:city]}
+Country: #{@form_content[:country]}
+Phone 1: #{@form_content[:phone1]}
+Phone 2: #{@form_content[:phone2]}
 
-Please reply
-Andi
+
+*Sales*
+
+Nr of 4u machines requested for purchase: #{@form_content[:sales_4u]}
+Nr of 2u machines requested for purchase: #{@form_content[:sales_2u]}
+Nr of 2u rental machines needed: #{@form_content[:sales_2u]}
+Nr of d3 Designer packages requested for purchase: #{@form_content[:sales_d3_designer]}
+
+Other Comments:
+#{@form_content[:sales_comments]}
+
+
+*Rental*
+
+Nr of 4u rental machines needed: #{@form_content[:rental_4u]}
+Nr of 2u rental machines needed: #{@form_content[:rental_2u]}
+Required arrival date of machines: #{@form_content[:rental_arrival_date]}
+Dates for install: #{@form_content[:rental_install_date]}
+Dates for show: #{@form_content[:rental_show_date]}
+Dates for de-rig: #{@form_content[:rental_de_rig_date]}
+
+Project description:
+#{@form_content[:rental_project_description]}
+
+Other comments:
+#{@form_content[:rental_comments]}
+
+
+*Consultancy*
+
+Project name: #{@form_content[:project_name]}
+
+Project description:
+#{@form_content[:consultancy_project_description]}
+
+Dates for install: #{@form_content[:consultancy_install_date]}
+Dates for show: #{@form_content[:consultancy_show_date]}
+
+Requires:
+Feasibility study: #{@form_content[:feasibility]}
+d3 project setup: #{@form_content[:project_setup]}
+pre-production remote support: #{@form_content[:pre_production]}
+training: #{@form_content[:training]}
+on-site operation: #{@form_content[:operation]}
+system provision: #{@form_content[:system]}
+
