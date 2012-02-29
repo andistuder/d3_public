@@ -7,17 +7,18 @@
   %section#content
     %article#faqs.expander
 
-      %h1= @faq_category.name
+      - if @faq_category
+        %h1= @faq_category.name
 
-      - for faq in @faq_category.faqs do
-        .section
-          %h3.title
-            %span.more
-              %a.driver
-                SHOW
-            = link_to faq.question, "javascript:void(0)", :class => "driver"
-          .body.hidden
-            =sanitize(textilize(faq.answer))
+        - for faq in @faq_category.faqs do
+          .section
+            %h3.title
+              %span.more
+                %a.driver
+                  SHOW
+              = link_to faq.question, "javascript:void(0)", :class => "driver"
+            .body.hidden
+              =sanitize(textilize(faq.answer))
 
 %section#prev_next_bar
   &nbsp;

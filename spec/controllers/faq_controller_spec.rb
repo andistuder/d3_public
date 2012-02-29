@@ -3,15 +3,13 @@ require 'spec_helper'
 describe FaqController do
   before :each do
 
-    @faqs = []
+    @faq_cat = nil
     @faq_cats = []
 
-    2.times do |i|
-      @faqs <<  Factory.build(:faq, :sort_order => i)
-    end
+    @faq_cat = Factory.build(:faq_category)
 
-    2.times do |j|
-      @faq_cats << Factory.build(:faq_category, :sort_order => j)
+    4.times do |k|
+      @faq_cats << Factory.build(:faq_category, :sort_order => k)
     end
 
   end
@@ -19,50 +17,63 @@ describe FaqController do
 
   describe "GET 'index'" do
 
-    before :each do
-      Faq.should_receive(:order).with("sort_order ASC").and_return(@faqs)
-      FaqCategory.should_receive(:order).with("sort_order ASC").and_return(@faq_cats)
+    describe "defaulting category" do
+
+      before :each do
+        FaqCategory.should_receive(:find_by_slug).with("most-popular").and_return(@faq_cat)
+      end
+
+      it "redirects to show with the default category" do
+        get 'index'
+        response.should redirect_to(:action => "show")
+      end
+
     end
 
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+    describe "default category missing" do
 
-    it "assigns collection of faq cats" do
-      get 'index'
-      assigns(:faq_categories).should eq(@faq_cats)
-    end
+      before :each do
+        FaqCategory.should_receive(:find_by_slug).with("most-popular").and_return(nil)
+        FaqCategory.should_receive(:first).and_return(@faq_cats[0])
+      end
 
-    it "assigns collection of faqs" do
-      get 'index'
-      assigns(:faqs).should eq(@faqs)
+      it "redirects to show with the first category" do
+        get 'index'
+        response.should redirect_to(:action => "show")
+      end
     end
-
   end
 
   describe "GET 'show'" do
-
-    before :each do
-      FaqCategory.should_receive(:find).and_return(@faq_cats[0])
-      FaqCategory.should_receive(:order).with("sort_order ASC").and_return(@faq_cats)
-    end
 
     it "returns http success" do
       get 'show'
       response.should be_success
     end
 
-    it "assigns collection of faq cats" do
-      get 'show', :id => "category-1"
-      assigns(:faq_categories).should eq(@faq_cats)
-    end
+    describe "defaulting a category" do
+      before :each do
+        FaqCategory.should_receive(:order).with("sort_order ASC").and_return(@faq_cats)
+        FaqCategory.should_receive(:find).and_return(@faq_cats[0])
+      end
 
-    it "assigns an faq_cat" do
-      get 'show', :id => "category-1"
-      assigns(:faq_category).should eq(@faq_cats[0])
+      it "returns http success" do
+        get 'show', :id => "category-1"
+        response.should be_success
+      end
+
+      it "assigns collection of faq cats" do
+        get 'show', :id => "category-1"
+        assigns(:faq_categories).should eq(@faq_cats)
+
+      end
+
+      it "assigns an faq_cat" do
+        get 'show', :id => "category-1"
+        assigns(:faq_category).should eq(@faq_cats[0])
+      end
+
     end
 
   end
-
 end
