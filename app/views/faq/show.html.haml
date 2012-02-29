@@ -13,9 +13,9 @@
         .section
           %h3.title
             %span.more
-              %a
+              %a.driver.button
                 SHOW
-            = link_to faq.question, "javascript:void(0)"
+            = link_to faq.question, "javascript:void(0)", :class => "driver"
           .body.hidden
             =sanitize(textilize(faq.answer))
 

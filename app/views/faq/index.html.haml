@@ -14,11 +14,12 @@
         .section
           %h3.title
             %span.more
-              %a
+              %a.driver.button
                 SHOW
-            = faq.question
+            = link_to faq.question, "javascript:void(0)", :class => "driver"
           .body.hidden
             =sanitize(textilize(faq.answer))
+
 
 %section#prev_next_bar
   &nbsp;

@@ -9,9 +9,9 @@
         .section
           %h3.title
             %span.more
-              %a
+              %a.driver
                 SHOW
-            = ca.title
+            = link_to ca.title, "javascript:void(0)", :class => "driver"
           .body
             =sanitize(textilize(ca.content))
             - ca.assets.each do |asset|

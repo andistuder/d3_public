@@ -148,7 +148,7 @@ $(document).ready(function(){
     }
 
 
-    $('.expander a').click(function(){
+    $('.expander a.driver').click(function(){
         var text = $(this).text();
 
         if ($(this).parent(".more").length > 0) {
@@ -159,7 +159,7 @@ $(document).ready(function(){
             $(this).parent().find(".more a").text($(this).parents(".section").find(".body").is(":visible") ? "SHOW" : "HIDE");
         }
 
-        $(this).parents(".section").find(".body").toggle("slide");
+        $(this).parents(".section").find(".body").slideToggle();
 
         // TODO MSP Seems easier to let the browser calc the height and just leave whitespace than try and grow
 //        $('#viewport').animate({height: "1000px"}, 500);
