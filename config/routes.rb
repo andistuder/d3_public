@@ -18,25 +18,23 @@ D3::Application.routes.draw do
 
   scope "support" do
     resources :faq, :only => [:index, :show]
-    scope "knowledge-base" do
 
-      match "" => "pages#dynamic", :slug => "knowledge-base"
-
-      scope "user-guide" do
-        match "" => "knowledge_base#user_guide"
-        match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
-      end
-
-      scope "glossary" do
-        match "" => "pages#dynamic", :slug => "glossary"
-      end
-
-      scope "tutorials" do
-        match "" => "pages#dynamic", :slug => "tutorials"
-      end
-
+    scope "user-guide" do
+      match "" => "pages#dynamic", :slug => "user-guide"
+      match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
     end
 
+    scope "downloads" do
+      match "" => "pages#dynamic", :slug => "downloads"
+    end
+
+    scope "training" do
+      match "" => "pages#dynamic", :slug => "training"
+    end
+
+    scope "tutorials" do
+      match "" => "pages#dynamic", :slug => "tutorials"
+    end
   end
 
   match "news/next/:page" => "news_items#next"
