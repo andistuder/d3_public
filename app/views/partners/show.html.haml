@@ -29,7 +29,7 @@
       -if @partner.partner_category.present?
         - if @partner.partner_category.name == "Users" && @partner.assets.present?
           #user_image
-            %img{:src => @partner.assets.first.asset.url(:medium), :alt => @partner.assets.first.description}
+            %img{:src => @partner.assets.first.asset.url(:small), :alt => @partner.assets.first.description}
         - else
           #google_map= "TODO Map Here"
 
