@@ -176,6 +176,14 @@ $(document).ready(function(){
     $("#enquiryForm").validate();
 
     $('.expander .read_more a').click(function(){
+
+
+        if ($(this).parents(".section").find(".body").is(":visible")) {
+            $(this).css("backgroundImage", "url(/assets/arrow_white_long.png)");
+        } else {
+            $(this).css("backgroundImage", "url(/assets/arrow_white_long_down.png)");
+        }
+
         $(this).parents(".section").find(".body").slideToggle();
     });
 
