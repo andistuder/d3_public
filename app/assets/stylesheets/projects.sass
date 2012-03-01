@@ -9,11 +9,6 @@ body.bp.projects, body.bp.project_categories
             margin-left: 40px
           .wrapper
             width: 535px
-        section.alternating:nth-of-type(2n)
-          img
-            margin-left: 0
-            margin-right: 40px
-
         section.project_cat
           padding-left: 40px
           p, h2
@@ -24,8 +19,8 @@ body.bp.projects, body.bp.project_categories
             min-height: 0
         section#how_made
           margin-bottom: 20px
-          img
-            margin-right: 40px
+          //img
+          //  margin-right: 40px
           .wrapper
             .list-container
               width: 455px
@@ -43,12 +38,18 @@ body.bp.projects, body.bp.project_categories
                   padding-left: 4px
                 li:first-of-type
                   padding-left: 4px
+        section.alternating:nth-of-type(2n)
+          img
+            margin-left: 0
+            margin-right: 40px
         .project_credits
           border-width: 1px
           border-color: $dark_grey_bg
           border-top-style: solid
           background-color: $off-white_bg
           overflow: hidden
+          p
+            margin: 0
           section#credits, section#equipment
             +span(4)
             clear: none
