@@ -3,7 +3,8 @@ d3 web enquiry
 
 *Contact details*
 
-Sender name: #{@form_content[:sender_name]}
+First name: #{@form_content[:first_name]}
+Last name: #{@form_content[:last_name]}
 Position: #{@form_content[:position]}
 Company: #{@form_content[:company]}
 Website: #{@form_content[:website]}
@@ -29,10 +30,9 @@ Other Comments:
 
 Nr of 4u rental machines needed: #{@form_content[:rental_4u]}
 Nr of 2u rental machines needed: #{@form_content[:rental_2u]}
-Required arrival date of machines: #{@form_content[:rental_arrival_date]}
-Dates for install: #{@form_content[:rental_install_date]}
-Dates for show: #{@form_content[:rental_show_date]}
-Dates for de-rig: #{@form_content[:rental_de_rig_date]}
+Rental location: #{@form_content[:rental_location]}
+Rental start date: #{@form_content[:rental_install_date]}
+Rental return date: #{@form_content[:rental_return_date]}
 
 Project description:
 #{@form_content[:rental_project_description]}
@@ -57,5 +57,4 @@ d3 project setup: #{@form_content[:project_setup]}
 pre-production remote support: #{@form_content[:pre_production]}
 training: #{@form_content[:training]}
 on-site operation: #{@form_content[:operation]}
-system provision: #{@form_content[:system]}
 

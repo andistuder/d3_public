@@ -5,9 +5,7 @@
     %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
   #social_bookmarks
     TODO: social bookmarks here
-  %h1= @page.name
-  - if @page.introduction.present?
-    %p.introduction= @page.introduction
+  = render :partial => "page_content_header"
   - for content_area in @page.content_areas do
     %section{:id => content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase, :class => "default_content"}
       %h2= content_area.name

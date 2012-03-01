@@ -1,8 +1,10 @@
 = form_tag("/send_enquiry", :method => "put", :class => "expander", :id => "enquiryForm") do
   %h3 Contact details
 
-  %p= label_tag(:sender_name, "Full name *")
-  = text_field_tag :sender_name, nil, :class => 'text_field required'
+  %p= label_tag(:first_name, "First name *")
+  = text_field_tag :first_name, nil, :class => 'text_field required'
+  %p= label_tag(:last_name, "Last name *")
+  = text_field_tag :last_name, nil, :class => 'text_field required'
   %p= label_tag(:position)
   = text_field_tag :position, nil, :class => 'text_field'
   %p= label_tag(:company, "Company *")
@@ -20,49 +22,48 @@
   %p= label_tag(:phone2, "Phone 2")
   = text_field_tag :phone2, nil, :class => 'text_field'
   .section
-    %h3.title
-      %span.more
-        %a.driver.button
-          SHOW
-      %a.driver Sale
+    %h3.read_more
+      =link_to "Sales enquiries", "javascript:void(0)"
     .body.hidden
       %p= label_tag(:sales_4u, "Nr of 4u machines you would like to purchase?")
-      .dropdown_field= select_tag "sales_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_4u", "<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_2u, "Nr of 2u machines you would like to purchase?")
-      .dropdown_field= select_tag "sales_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_2u", "<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_d3_designer, "Nr of d3 Designer Packages you would like to purchase?")
-      .dropdown_field= select_tag "sales_d3_designer", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "sales_d3_designer", "<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:sales_comments, "Other Comments")
       .text_area= text_area_tag(:sales_comments)
   .section
-    %h3.title
-      %span.more
-        %a.driver.button
-          SHOW
-      %a.driver Rental
+    %h3.read_more
+      =link_to "Rental enquiries", "javascript:void(0)"
     .body.hidden
       %p= label_tag(:rental_4u, "Nr of 4u rental machines needed? ")
-      .dropdown_field= select_tag "rental_4u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      .dropdown_field= select_tag "rental_4u", "<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
       %p= label_tag(:rental_2u, "Nr of 2u rental machines needed? ")
-      .dropdown_field= select_tag "rental_2u", "<option>1</option><option>2</option><option>3</option><option>4</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
-      %p= label_tag(:rental_arrival_date, "Required arrival date of machines")
-      = text_field_tag :rental_arrival_date, nil, :class => 'text_field'
-      %p= label_tag(:rental_install_date, "Dates for install")
-      = text_field_tag :rental_install_date, nil, :class => 'text_field'
-      %p= label_tag(:rental_show_date, "Dates for show")
-      = text_field_tag :rental_show_date, nil, :class => 'text_field'
-      %p= label_tag(:rental_de_rig_date, "Dates for de-rig")
-      = text_field_tag :rental_de_rig_date, nil, :class => 'text_field'
+      .dropdown_field= select_tag "rental_2u", "<option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>5+</option><option>I'm not sure, I want to talk about my requirements</option>".html_safe
+      %p= label_tag(:rental_location, "Location of Show")
+      = text_field_tag :rental_location, nil, :class => 'text_field'
+      %p= label_tag(:rental_start_date, "Rental start date")
+      = text_field_tag :rental_start_date, nil, :class => 'text_field'
+      %p= label_tag(:rental_return_date, " Rental return date")
+      = text_field_tag :rental_return_date, nil, :class => 'text_field'
       %p= label_tag(:rental_project_description, "Project description")
       .text_area= text_area_tag(:rental_project_description)
       %p= label_tag(:rental_comments, "Other comments")
       .text_area= text_area_tag(:rental_comments)
+      -#- for faq in @faqs do
+      -#  .section
+      -#    %h3.title
+      -#      %span.more
+      -#        %a.driver
+      -#          SHOW
+      -#      = link_to faq.question, "javascript:void(0)", :class => "driver"
+      -#    .body.hidden
+
+
   .section
-    %h3.title
-      %span.more
-        %a.driver.button
-          SHOW
-      %a.driver Consultancy
+    %h3.read_more
+      =link_to "Consultancy services", "javascript:void(0)"
     .body.hidden
       %p= label_tag(:project_name)
       = text_field_tag :project_name, nil, :class => 'text_field'
@@ -72,6 +73,7 @@
       = text_field_tag :consultancy_install_date, nil, :class => 'text_field'
       %p= label_tag(:consultancy_show_date, "Dates for show")
       = text_field_tag :consultancy_show_date, nil, :class => 'text_field'
+      %h3= "Services required"
       %table
         %tr
           %td= check_box_tag 'feasibility'
@@ -91,8 +93,5 @@
         %tr
           %td= check_box_tag 'operation'
           %td= label_tag 'operation', "on-site operation (this includes on-site d3 hardware installation and configuration, d3 outputs line-up, on-site sequencing, show operation)"
-        %tr
-          %td= check_box_tag 'system'
-          %td= label_tag 'system', "system provision – rental or sale"
   %p= "* required fields"
   = submit_tag "Submit", :class => "submit_button"

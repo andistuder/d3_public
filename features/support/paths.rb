@@ -29,13 +29,13 @@ module NavigationHelpers
       projects_path
 
     when /the user guide/
-      "/support/knowledge-base/user-guide" #TODO sort paths here
+      "/support/user-guide" #TODO sort paths here
 
     when /the case studies page/
       case_studies_path
 
     when /the enquiry page/
-      "/enquiry"
+      "/enquiry-form"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -3,7 +3,8 @@
 .container
   %section#content
     %h1= @project_category.name
-    %p.introduction= @project_category.content
+    .introduction
+      %p= @project_category.content
     %ul#listed_projects
       -for project in @project_category.projects do
         %li

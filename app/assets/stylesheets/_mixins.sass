@@ -35,4 +35,20 @@
       p, img
         border: 0px solid red
         margin-left: 0px
+@mixin floating_box
+  +float-right
+  +border-radius
+  background-color: $light_grey_bg
+  width: 258px
+  border: 1px solid $dark_grey_bg
+  padding-bottom: 6px
+  h3, p
+    margin: 0 18px
+    font-size: 14px
+  p
+    padding-bottom: 12px
+    line-height: 20px
+  h3
+    margin-top: 10px
+    line-height: 30px
 

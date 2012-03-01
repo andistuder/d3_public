@@ -1,0 +1,31 @@
+body.bp.pages
+  #main
+    .container
+      #content.product_detail
+        padding-bottom: 0
+        .introduction
+          margin: 0 40px
+          border-bottom: 1px solid $dark_grey_bg
+          p
+            margin: 0
+        section#specification
+          border-top: 1px solid $dark_grey_bg
+          margin-top: 0
+          padding-top: 40px
+          background-color: $off-white_bg
+          .left, .right
+            width: 408px
+            h3
+              margin: 0 0 10px 0
+            table
+              td, th
+                font-size: 12px
+                line-height: 1.2em
+              td:first-of-type, th:first-of-type
+                padding-left: 0
+          .left
+            +float-left
+            margin-left: 40px
+          .right
+            +float-right
+            margin-right: 40px

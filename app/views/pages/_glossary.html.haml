@@ -3,7 +3,8 @@
     TODO: social bookmarks here
   %h1= @page.name
   - if @page.introduction.present?
-    %p.introduction= @page.introduction
+    .introduction
+      = sanitize(textilize(@page.introduction))
 
   - for content_area in @page.content_areas do
     %section
