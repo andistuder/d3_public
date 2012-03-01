@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227002919) do
+ActiveRecord::Schema.define(:version => 20120301154154) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -287,7 +287,7 @@ ActiveRecord::Schema.define(:version => 20120227002919) do
     t.string   "username"
     t.integer  "item"
     t.string   "table"
-    t.integer  "month",      :limit => 2
+    t.integer  "month"
     t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -340,5 +340,17 @@ ActiveRecord::Schema.define(:version => 20120227002919) do
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+
+  create_table "workflow_items", :force => true do |t|
+    t.string   "title"
+    t.string   "list_title"
+    t.text     "content_area"
+    t.text     "list_area"
+    t.text     "overlay"
+    t.integer  "sort_order"
+    t.integer  "asset_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
 end
