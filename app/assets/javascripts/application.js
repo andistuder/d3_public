@@ -190,10 +190,29 @@ $(document).ready(function(){
 });
 
 function calculateWindowHeight(){
+    var MAX_IMAGE_HEIGHT = 400;
+    var PADDING = 50;
     var max_page_height = 0;
     var page_height = 0;
     $('.page').each(function(index) {
         page_height = $(this).height();
+
+        if ($(this).attr("id") == "chapter_detail") {
+            console.log("MSP");
+            console.log($(this));
+
+            console.log($(this).find("img").length);
+
+            //$(this).find("img").each(function(){
+            //    console.log($(this).height());
+            //});
+
+            console.log(page_height);
+        }
+
+        page_height += $(this).find("img").length * (MAX_IMAGE_HEIGHT +PADDING)
+        console.log(page_height);
+
         max_page_height = page_height > max_page_height ? page_height : max_page_height;
     });
 

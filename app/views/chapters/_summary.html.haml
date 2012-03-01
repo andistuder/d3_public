@@ -15,7 +15,7 @@
           .body
             =sanitize(textilize(ca.content))
             - ca.assets.each do |asset|
-              =image_tag(asset.asset.url())
+              =image_tag(asset.asset.url(), :style => "height: 400px")
 
   .page.intro.hidden
     %h1 User Guide
