@@ -6,7 +6,6 @@ describe WorkflowItem do
   it { should validate_presence_of(:list_title) }
   it { should validate_presence_of(:content_area) }
   it { should validate_presence_of(:list_area) }
-  it { should validate_presence_of(:asset) }
   it { should validate_presence_of(:overlay) }
 
   it { should belong_to(:asset) }

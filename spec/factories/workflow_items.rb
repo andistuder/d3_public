@@ -7,7 +7,6 @@ FactoryGirl.define do
     wfi.list_area Faker::Lorem.paragraph
     wfi.overlay Faker::Lorem.paragraph
 
-    wfi.asset Factory(:asset)
     wfi.created_at Time.now
   end
 end

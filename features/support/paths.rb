@@ -37,6 +37,9 @@ module NavigationHelpers
     when /the enquiry page/
       "/enquiry-form"
 
+    when /the workflow page/
+      "/what-is-d3/workflow"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
