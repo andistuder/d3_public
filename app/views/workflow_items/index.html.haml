@@ -1,0 +1,21 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#content
+    %h1 Workflow
+    .introduction
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
+    - for workflow_item in @workflow_items do
+      %section
+        - if workflow_item.asset.present?
+          %img{:src => workflow_item.asset.asset.url(:small), :alt => workflow_item.asset.description}
+        .wrapper
+          %h2= workflow_item.title
+          %p= workflow_item.content_area
+          %p= workflow_item.list_title
+          %p= workflow_item.list_area
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

@@ -2,10 +2,6 @@ D3::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :case_studies, :only => [:show, :index], :path => "/what-is-d3/case-studies"
-
-  resources :feature_categories, :only => [:index, :show], :path => "/what-is-d3/features"
-
   resources :partner_categories, :only => [:index, :show], :path => "get-d3"  do
     resources :partners, :only => [:show], :path => ""
   end
@@ -39,7 +35,14 @@ D3::Application.routes.draw do
 
   match "news/next/:page" => "news_items#next"
 
-  
+  scope "what-is-d3" do
+    resources :case_studies, :only => [:index, :show], :path => "case-studies"
+    resources :feature_categories, :only => [:index, :show], :path => "features"
+    resources :workflow_items, :only => [:index], :path => "workflow"
+
+    match "" => "pages#dynamic", :slug => "what-is-d3"
+    match "concept" => "pages#dynamic", :slug => "concept"
+  end
 
   devise_for :users
 

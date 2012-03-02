@@ -12,7 +12,7 @@
         .wrapper
           %h2= project_category.name
           %p= project_category.summary
-          %p.read_more= link_to "More", project_category
+          %p.read_more= link_to "More", project_category_path(project_category)
 
 %section#prev_next_bar
   &nbsp;
