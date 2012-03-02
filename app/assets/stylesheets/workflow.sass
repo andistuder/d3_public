@@ -1,0 +1,79 @@
+body.bp.workflow_items
+  #main
+    .container
+      #content
+        width: 938px
+        border-left-style: none
+        .introduction
+          margin-bottom: 40px
+        section
+          margin-top: 0
+          height: 260px
+          h2, p, ul
+            margin-left: 0
+            margin-right: 0
+          h2
+            line-height: 36px
+          padding-left: 40px
+          .left_column
+            +float-left
+            width: 400px
+            text-align: right
+            background: white url('workflow_bg.png') repeat-y right top
+            .controls_open
+              +float-right
+              width: 38px
+              background: white url('gallery_pagination_image.png') no-repeat right bottom
+              line-height: 23px
+              font-size: 20px
+              margin-right: 2px
+              a
+                +link-colors(transparent)
+            h2
+              +float-right
+              clear: none
+              +border-radius
+              padding: 0 20px
+              background-color: $light_grey_bg
+              //background: $light_grey_bg url('workflow_title_arrow.png') no-repeat right bottom
+            ul
+              clear: both
+              +no-bullets
+              height: 148px
+              li
+                padding-right: 38px
+                margin-right: 2px
+                background: transparent url('workflow_dot_small.png') no-repeat right center
+            .bottom_arrow
+              width: 40px
+              height: 40px
+              +float-right
+              background: transparent url('workflow_arrow.png') no-repeat right bottom
+          .right_column
+            +float-left
+            width: 415px
+            margin-left: 40px
+            h2
+              padding-left: 44px
+              background: white url('logo_35.png') no-repeat left center
+          .overlay
+            +floating_box(600px)
+            z-index: 1000
+            position: relative
+            left: 100px
+            top: -215px
+            overflow: hidden
+            display: none
+            .controls_close
+              text-align: right
+              padding-right: 20px
+              font-size: 16px
+              line-height: 12px
+            img
+              +float-left
+              +single-box-shadow(white, 0, 0, 0, false, false)
+              margin-bottom: 12px
+              margin-top: 12px
+            .wrapper
+              width: 335px
+              +float-left

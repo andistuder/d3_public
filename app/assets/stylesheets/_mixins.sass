@@ -35,13 +35,14 @@
       p, img
         border: 0px solid red
         margin-left: 0px
-@mixin floating_box
-  +float-right
+@mixin floating_box($width)
   +border-radius
   background-color: $light_grey_bg
-  width: 258px
+  width: $width
   border: 1px solid $dark_grey_bg
   padding-bottom: 6px
+  overflow: hidden
+  padding-top: 10px
   h3, p
     margin: 0 18px
     font-size: 14px
@@ -49,7 +50,6 @@
     padding-bottom: 12px
     line-height: 20px
   h3
-    margin-top: 10px
     line-height: 30px
 
 @mixin alternator($img_margin, $text_width)

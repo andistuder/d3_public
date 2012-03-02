@@ -6,14 +6,23 @@
     .introduction
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
     - for workflow_item in @workflow_items do
-      %section
-        - if workflow_item.asset.present?
-          %img{:src => workflow_item.asset.asset.url(:small), :alt => workflow_item.asset.description}
-        .wrapper
+      %section.work_flow_item
+        .left_column
+          .controls_open= link_to "x", "javascript:void(0)"
+          %h2
+            = workflow_item.list_title
+          = sanitize(textilize(workflow_item.list_area))
+          .bottom_arrow
+        .right_column
           %h2= workflow_item.title
-          %p= workflow_item.content_area
-          %p= workflow_item.list_title
-          %p= workflow_item.list_area
+          = sanitize(textilize(workflow_item.content_area))
+        .overlay
+          .controls_close
+            = link_to "x", "javascript:void(0)"
+          .wrapper
+            = sanitize(textilize(workflow_item.overlay))
+          - if workflow_item.asset.present?
+            %img{:src => workflow_item.asset.asset.url(:small), :alt => workflow_item.asset.description}
 
 %section#prev_next_bar
   &nbsp;

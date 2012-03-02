@@ -187,6 +187,14 @@ $(document).ready(function(){
         $(this).parents(".section").find(".body").slideToggle();
     });
 
+    $('.controls_open a').click(function(){
+            $(this).parents('.work_flow_item').find(".overlay").slideToggle();
+    });
+
+    $('.controls_close a').click(function(){
+        $(this).parents('.overlay').slideUp();
+    });
+
 });
 
 function calculateWindowHeight(){
