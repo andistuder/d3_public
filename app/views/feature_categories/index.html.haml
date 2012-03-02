@@ -9,7 +9,7 @@
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
 
     - @feature_categories.each do |feature_category|
-      %section
+      %section.left_aligned
         -if feature_category.assets.present?
           %img{:src => feature_category.assets.first.asset.url(:small), :alt => feature_category.assets.first.description}
         .wrapper

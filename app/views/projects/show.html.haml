@@ -1,7 +1,7 @@
 %section#breadcrumb
   = render "pages/breadcrumb"
 .container
-  %section#content
+  %section#content.project_detail
     - if @project.assets.present? 
       %span#prevBtn.one-col
         =link_to "&nbsp;".html_safe, "javascript:void(0);"

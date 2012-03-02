@@ -4,16 +4,5 @@ body.bp.feature_categories
       .introduction
         p
           width: 636px
-      section
-        img
-          margin-left: 40px
-        .wrapper
-          width: 430px
-      section.alternating:nth-of-type(2n)
-        img
-          margin-left: 0px
-          margin-right: 40px
-      .alternating
-        ul
-          width: 372px
-          margin-bottom: 5px
+      +alternator(40px, 350px)
+

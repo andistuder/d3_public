@@ -7,24 +7,12 @@ body.bp.case_studies
         padding-bottom: 20px
         p
           margin-bottom: 0
-        p.introduction
-          margin-bottom: 40px
-        section.case_studies
-          padding-left: 40px
-          p, h2
-            width: 565px
-          h2
-            span
-              font-size: 16px
-          //p
-          //  min-height: 80px
-
-          p.read_more
-            min-height: 0
+        +alternator(40px, 565px)
         #case_study_wrapper
           +float-left
           width: 678px
           margin-top: 20px
+          padding-top: 20px
           p
             clear: both
           blockquote
@@ -39,8 +27,6 @@ body.bp.case_studies
             font-size: 14px
             padding-top: 20px
             margin: 0 40px 40px 0
-
-
         #case_study_sidebar
           +float-right
           width: 258px
@@ -48,6 +34,7 @@ body.bp.case_studies
           border-color: $dark_grey_bg
           border-left-style: solid
           margin-top: 20px
+          padding-top: 20px
           .sidebar_wrapper
             margin: 0 40px 20px 40px
             p

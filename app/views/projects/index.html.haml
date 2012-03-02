@@ -1,12 +1,12 @@
 %section#breadcrumb
   = render "pages/breadcrumb"
 .container
-  %section#content
+  %section#content.project_index
     %h1 Projects
     .introduction
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
     - for project_category in @project_categories do
-      %section.project_cat
+      %section.project_cat.left_aligned
         - if project_category.projects.first.assets.present?
           %img{:src => project_category.projects.first.assets.first.asset.url(:small), :alt => project_category.projects.first.assets.first.description}
         .wrapper

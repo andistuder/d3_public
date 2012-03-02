@@ -7,9 +7,6 @@ body.bp.pages
       #content
         width: 938px
         border-left-style: none
-        section.alternating
-          p, h2
-            width: 495px
         section.default_content
           ul
             margin-left: 40px
@@ -28,3 +25,5 @@ body.bp.pages
           font-weight: 400
           +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
           +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
+      #content.what_is_d3
+        +alternator(0px, 495px)
