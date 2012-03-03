@@ -6,6 +6,7 @@ Feature: User Authentication
     Given allow local http request
 
   Scenario: Clicking the Log In button
+    #TODO needed to change below from given I am on the home page... as breaks if home not present.
     Given I am on the home page
     And I am not logged in
     When I go to the admin page
