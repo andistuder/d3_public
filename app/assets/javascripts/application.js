@@ -45,6 +45,18 @@ $(document).ready(function(){
         pause: 3000
 	});
 
+    $("#slider_home").easySlider({
+        auto: true,
+		continuous: true,
+        numeric: false,
+        controlsShow: false,
+        pause: 3000
+	});
+
+    $('#content.home').parents('.container').addClass("home")
+    $('#content.home').parents('#main').find('#breadcrumb').hide()
+    $('#content.home').parents('#main').find('#prev_next_bar').hide()
+
 
     $(".vimeo_link a").click(function(){
         $('#vimeo_player').toggle();
@@ -194,7 +206,6 @@ $(document).ready(function(){
     $('.controls_close a').click(function(){
         $(this).parents('.overlay').slideUp();
     });
-
 });
 
 function calculateWindowHeight(){

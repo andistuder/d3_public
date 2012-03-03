@@ -1,5 +1,15 @@
-%p Home stub. Edit me in app/views/pages
-%h1= @page.name
-- for content_area in @page.content_areas do
-  %h2= content_area.name
-  %p= content_area.content
+%section#content.home
+  - if @page.assets.present?
+    #slider_home
+      %ul
+        - for asset in @page.assets do
+          %li
+            %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+  - if @page.introduction.present?
+    #home_overlay
+    #home_gradient
+    #home_content
+      = sanitize(textilize(@page.introduction))
+
+
+
