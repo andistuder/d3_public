@@ -4,7 +4,7 @@ describe "pages/dynamic.html.haml" do
 
   it "renders " do
 
-    @page = FactoryGirl.build(:tutorial_page, :name => "tutorial", :slug => "home")
+    @page = FactoryGirl.build(:tutorial_page, :name => "tutorial", :slug => "tutorial")
     assign(:page, @page)
 
     render
