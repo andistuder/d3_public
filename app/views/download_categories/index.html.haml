@@ -1,0 +1,22 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    = render "sidebar"
+  %section#content
+    %header
+      %h1.underlined Downloads
+
+    - for download in @downloads do
+      %h2= download.name
+      %p= download.content
+
+    .more_news
+
+    %p.read_more= link_to "SHOW 20 MORE", "/news/next/1", :remote => true, :class => "show_more"
+    %p#no_data_found= link_to "NO MORE ITEMS", ""
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

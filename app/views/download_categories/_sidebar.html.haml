@@ -1,0 +1,4 @@
+%h3= "Categories"
+%ul
+  - for category in @download_categories do
+    %li= link_to category.name, category

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301154154) do
+ActiveRecord::Schema.define(:version => 20120305102707) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -131,6 +131,29 @@ ActiveRecord::Schema.define(:version => 20120301154154) do
   create_table "content_areas_pages", :id => false, :force => true do |t|
     t.integer "page_id"
     t.integer "content_area_id"
+  end
+
+  create_table "download_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "sort_order"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "download_categories_downloads", :id => false, :force => true do |t|
+    t.integer "download_id"
+    t.integer "download_category_id"
+  end
+
+  create_table "downloads", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "meta_info"
+    t.string   "slug"
+    t.integer  "download_item_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "faq_categories", :force => true do |t|

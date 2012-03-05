@@ -14,14 +14,13 @@ D3::Application.routes.draw do
 
   scope "support" do
     resources :faq, :only => [:index, :show]
+    resources :download_categories, :only => [:index, :show]
+
+    resources :downloads, :only => [:show]
 
     scope "user-guide" do
       match "" => "knowledge_base#user_guide"
       match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
-    end
-
-    scope "downloads" do
-      match "" => "pages#dynamic", :slug => "downloads"
     end
 
     scope "training" do
