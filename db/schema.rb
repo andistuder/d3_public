@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305102707) do
+ActiveRecord::Schema.define(:version => 20120305160411) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -149,11 +149,13 @@ ActiveRecord::Schema.define(:version => 20120305102707) do
   create_table "downloads", :force => true do |t|
     t.string   "name"
     t.text     "content"
-    t.string   "meta_info"
     t.string   "slug"
-    t.integer  "download_item_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "item_file_name"
+    t.string   "item_content_type"
+    t.integer  "item_file_size"
+    t.datetime "item_updated_at"
   end
 
   create_table "faq_categories", :force => true do |t|

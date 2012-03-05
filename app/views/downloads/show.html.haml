@@ -7,8 +7,8 @@
     %h1= @download.name
     .left= sanitize(textilize(@download.content))
     .right
-      %p.read_more=link_to "Download", @download.download_item.asset.url(:original) if @download.download_item.present?
-      %h6= "#{@download.created_at.strftime("%d %B %Y")} #{ @download.meta_info}"
+      %p.read_more=link_to "Download", @download.item.url if @download.item.present?
+      -#%h6= "#{@download.created_at.strftime("%d %B %Y")} #{ @download.meta_info}"
 %section#prev_next_bar
   &nbsp;
 %section#related

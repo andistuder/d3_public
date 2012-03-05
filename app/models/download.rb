@@ -2,10 +2,12 @@ class Download < ActiveRecord::Base
   validates_presence_of :name, :content
 
   has_and_belongs_to_many :categories, :class_name => "DownloadCategory"
-  belongs_to :download_item, :class_name => "Asset"
 
   extend FriendlyId
   friendly_id :name, :use => :slugged
+
+  has_attached_file :item, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :bucket => 'd3-downloads', :path => ":attachment/:id/:filename"
+
 
   def self.find_latest
     Download.order("created_at DESC")
