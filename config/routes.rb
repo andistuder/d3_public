@@ -14,9 +14,9 @@ D3::Application.routes.draw do
 
   scope "support" do
     resources :faq, :only => [:index, :show]
-    resources :download_categories, :only => [:index, :show]
+    resources :download_categories, :only => [:index, :show], :path => "downloads"
 
-    resources :downloads, :only => [:show]
+    resources :downloads, :only => [:show], :path => "download-item"
 
     scope "user-guide" do
       match "" => "knowledge_base#user_guide"

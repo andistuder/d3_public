@@ -6,13 +6,14 @@
     .introduction
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
     - for project_category in @project_categories do
-      %section.project_cat.left_aligned
-        - if project_category.projects.first.assets.present?
-          %img{:src => project_category.projects.first.assets.first.asset.url(:small), :alt => project_category.projects.first.assets.first.description}
-        .wrapper
-          %h2= project_category.name
-          %p= project_category.summary
-          %p.read_more= link_to "More", project_category_path(project_category)
+      - if project_category.projects.present?
+        %section.project_cat.left_aligned
+          - if project_category.projects.first.assets.present?
+            %img{:src => project_category.projects.first.assets.first.asset.url(:small), :alt => project_category.projects.first.assets.first.description}
+          .wrapper
+            %h2= project_category.name
+            %p= project_category.summary
+            %p.read_more= link_to "More", project_category_path(project_category)
 
 %section#prev_next_bar
   &nbsp;

@@ -6,8 +6,7 @@
   %section#content
     %header
       %h1.underlined= "#{@download_category.name} Downloads"
-    - for download in @downloads do
-      = render "download_items"
+    = render "download_items"
 %section#prev_next_bar
   &nbsp;
 %section#related

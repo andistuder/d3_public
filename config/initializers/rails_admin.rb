@@ -58,6 +58,13 @@ else
     end
 
     #############
+    # Download
+    #############
+    config.model Download do
+      parent DownloadCategory
+    end
+
+    #############
     # Feature
     #############
     config.model Feature do
