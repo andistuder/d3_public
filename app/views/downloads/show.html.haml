@@ -1,0 +1,17 @@
+%section#breadcrumb
+  = render "pages/breadcrumb"
+.container
+  %section#sidebar
+    = render "download_categories/sidebar"
+  %section#content
+    %h1= @download.name
+    .left= sanitize(textilize(@download.content))
+    .right
+      %p.read_more=link_to "Download", @download.download_item.asset.url
+      %h6
+        -#= download.created_at.strftime("%d %B %Y")
+        = @download.meta_info
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

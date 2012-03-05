@@ -8,6 +8,7 @@ class DownloadCategoriesController < ApplicationController
   def show
     @download_category = DownloadCategory.find(params[:id])
     @download_categories = DownloadCategory.all(:order => "sort_order ASC")
+    @downloads = @download_category.downloads.find_latest
     #@downloads = DownloadCategory.find(params[:id]).downloads.find_latest
   end
 

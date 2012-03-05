@@ -1,0 +1,9 @@
+- for download in @downloads do
+  %section
+    %h2= link_to download.name, download
+    .left= sanitize(textilize(download.content))
+    .right
+      %p.read_more=link_to "Download", download.download_item.asset.url
+      %h6
+        -#= download.created_at.strftime("%d %B %Y")
+        = download.meta_info
