@@ -37,7 +37,7 @@ $(document).ready(function(){
         $('#container').css("background-size", grid_size);
     });
 
-    $("#slider").after('<div id="slider_nav">').cycle({
+    $("#slider").cycle({
         fx: 'fade',
 		speed: 2500,
         pause: 1,

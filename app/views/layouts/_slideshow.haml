@@ -10,6 +10,7 @@
     #slider.one-col
       - for asset in object.assets do
         %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+    #slider_nav
   - if object.vimeo_id.present?
     .vimeo_link.one-col
       |
