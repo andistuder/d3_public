@@ -51,7 +51,6 @@ D3::Application.routes.draw do
   match "send_enquiry" => "enquiries#send_enquiry"
 
   match "page_content_areas/:page_id/:name" => "content_areas#page_content_areas", :as => :page_content_areas
-  match "/rails3" => "pages#dynamic", :as => :pages, :slug => "rails3"
   match "/:slug" => "pages#dynamic", :as => :pages
   match "/what-is-d3/:slug" => "pages#dynamic", :as => :pages
   match "/products/:slug" => "pages#dynamic", :as => :pages
