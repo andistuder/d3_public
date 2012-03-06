@@ -19,10 +19,11 @@
   .section
     .title
       color: $blue
+      padding-bottom: 0px
       .more
         margin-right: 15px
         float: left
-        +d3-button-link(12px, 0px, 'arrow_white_long.png')
+        +d3-button-link(12px, 1px, 'arrow_white_long.png')
         border: 0px solid red
         a.driver
           border: 0px solid green
@@ -35,6 +36,8 @@
       p, img
         border: 0px solid red
         margin-left: 0px
+      p
+
 @mixin floating_box($width)
   +border-radius
   background-color: $light_grey_bg
@@ -70,3 +73,9 @@
       margin-left: 0
       margin-right: $img_margin
 
+@mixin d3_h3
+  line-height: 1.8em
+  margin-top: 0.7em
+  margin-bottom: 0
+  text-transform: none
+  font-weight: 600

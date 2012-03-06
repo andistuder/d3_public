@@ -122,7 +122,7 @@ $(document).ready(function(){
     var max_height = 0;
     if ($('#user_guide').length > 0) {
 
-        $("#chapters").fadeIn();
+        $("#chapters").show();
 
         max_height = calculateWindowHeight();
 
@@ -131,7 +131,7 @@ $(document).ready(function(){
         $('#viewport').height(max_height);
         $('#user_guide').height(max_height);
 
-        $(".page").first().fadeIn();
+        $(".page").first().show();
         $(".page").show();
 
         $(".chapter").click(function(){
@@ -192,8 +192,6 @@ $(document).ready(function(){
         } else {
             $(this).css("backgroundImage", "url(/assets/arrow_white_long_down.png)");
         }
-
-
 
         $(this).parents(".section").find(".body").slideToggle();
     });
