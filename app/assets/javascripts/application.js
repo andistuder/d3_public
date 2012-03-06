@@ -83,8 +83,10 @@ $(document).ready(function(){
             $('html, body').animate({scrollTop: $('.more_news_wrapper').last().offset().top - 0}, 500);
 
             var page = 0;
-            page = parseInt($('.show_more').attr("href").split("/").pop());
-            $('.show_more').attr("href", "/news/next/"+parseInt(page+1));
+            split_str = $('.show_more').attr("href").split("/")
+            page = parseInt(split_str.pop());
+            split_str.join('/')
+            $('.show_more').attr("href", split_str.join('/')+"/"+parseInt(page+1));
         }
 
         if (xhr.status == "204"){

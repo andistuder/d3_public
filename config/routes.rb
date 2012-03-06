@@ -33,6 +33,9 @@ D3::Application.routes.draw do
   end
 
   match "news/next/:page" => "news_items#next"
+  match "support/downloads/:cat/next/:page" => "download_categories#next"
+  match "support/downloads/next/:page" => "download_categories#next"
+
 
   scope "what-is-d3" do
     resources :case_studies, :only => [:index, :show], :path => "case-studies"

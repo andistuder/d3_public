@@ -12,9 +12,13 @@ class DownloadCategoriesController < ApplicationController
     #@downloads = DownloadCategory.find(params[:id]).downloads.find_latest
   end
 
-  #def next
-  #  @downloads = DownloadCategory.find(params[:cat]).downloads.find_next(params[:page])
-  #  status = @downloads.length > 0 ? 200 : 204
-  #  render :next, :status => status, :layout => false
-  #end
+  def next
+    if params[:cat].present?
+      @downloads = DownloadCategory.find(params[:cat]).downloads.find_next(params[:page])
+    else
+      @downloads = Download.find_next(params[:page])
+    end
+    status = @downloads.length > 0 ? 200 : 204
+    render :next, :status => status, :layout => false
+  end
 end

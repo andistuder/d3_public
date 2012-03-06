@@ -2,5 +2,6 @@
   %li.level_one
     = "Categories"
     %ul
+      %li= link_to "All", download_categories_path
       - for category in @download_categories do
         %li= link_to category.name, category

@@ -1,8 +1,9 @@
-%section
-  .left
-    %h2= link_to download.name, download_path(download)
-    - if download.summary.present?
-      = sanitize(textilize(download.summary))
-    - else
-      = sanitize(textilize(download.content))
-  = render "download_link", :download => download
+- for download in downloads do
+  %section.download_items
+    .left
+      %h2= link_to download.name, download_path(download)
+      - if download.summary.present?
+        = sanitize(textilize(download.summary))
+      - else
+        = sanitize(textilize(download.content))
+    = render "download_link", :download => download

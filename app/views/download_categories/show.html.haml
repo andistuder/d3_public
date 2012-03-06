@@ -6,8 +6,11 @@
   %section#content
     %header
       %h1.underlined= "#{@download_category.name} downloads"
-    - for download in @downloads do
-      = render "download_items", :download => download
+    = render "download_items", :downloads => @download_category.downloads.find_latest
+    .more_news
+    %p.read_more.downloads= link_to "SHOW 20 MORE", "/support/downloads/#{@download_category.slug}/next/1", :remote => true, :class => "show_more"
+    %p#no_data_found= link_to "NO MORE ITEMS", ""
+
 %section#prev_next_bar
   &nbsp;
 %section#related
