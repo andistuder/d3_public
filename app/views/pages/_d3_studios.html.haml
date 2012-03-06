@@ -6,24 +6,7 @@
         - for content_area in @page.content_areas do
           %li= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
 %section#content.d3_studios
-  - if @page.assets.present?
-    %span#prevBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    %span#nextBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-  - if @page.vimeo_id.present?
-    .display-none
-      %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "717", :id => "vimeo_player"}
-  - if @page.assets.present?
-    #slider.one-col
-      %ul
-        - for asset in @page.assets do
-          %li
-            %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
-  - if @page.vimeo_id.present?
-    .vimeo_link.one-col
-      |
-      =link_to "Video", "javascript:void(0);"
+  = render "layouts/slideshow", :object => @page, :full_width => false
   #social_bookmarks
     TODO: social bookmarks here
   %h1.after-slideshow= @page.name

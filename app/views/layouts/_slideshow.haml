@@ -1,0 +1,40 @@
+-if full_width == true
+  - if object.vimeo_id.present?
+    .display-none
+      %iframe{:frameborder => "0", :height => "587px", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938px", :id => "vimeo_player"}
+  - if object.assets.present?
+    %span#prevBtn.one-col
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    %span#nextBtn.one-col
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    #slider.one-col
+      %ul
+        - for asset in object.assets do
+          %li
+            - if full_width == true
+              %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+            - else
+              %img{:src => asset.asset.url(:large), :width => "938px", :height => "587px", :alt => asset.description}
+  - if object.vimeo_id.present?
+    .vimeo_link.one-col
+      |
+      =link_to "Video", "javascript:void(0);"
+- else
+  - if object.vimeo_id.present?
+    .display-none
+      %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "717", :id => "vimeo_player"}
+  - if object.assets.present?
+    %span#prevBtn
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    %span#nextBtn
+      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+
+    #slider
+      %ul
+        - for asset in object.assets do
+          %li
+            %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
+  - if object.vimeo_id.present?
+    .vimeo_link
+      |
+      =link_to "Video", "javascript:void(0);"

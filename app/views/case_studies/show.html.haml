@@ -2,24 +2,7 @@
   = render "pages/breadcrumb"
 .container
   %section#content
-    - if @case_study.assets.present?
-      %span#prevBtn.one-col
-        =link_to "&nbsp;".html_safe, "javascript:void(0);"
-      %span#nextBtn.one-col
-        =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    - if @case_study.vimeo_id.present?
-      .display-none
-        %iframe{:frameborder => "0", :height => "587", :src => "http://player.vimeo.com/video/#{@case_study.vimeo_id}", :width => "938", :id => "vimeo_player"}
-    - if @case_study.assets.present?
-      #slider.one-col
-        %ul
-          - for asset in @case_study.assets do
-            %li
-              %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
-    - if @case_study.vimeo_id.present?
-      .vimeo_link.one-col
-        |
-        =link_to "Video", "javascript:void(0);"
+    = render "layouts/slideshow", :object => @case_study, :full_width => true
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= "#{@case_study.name}, Case Study"

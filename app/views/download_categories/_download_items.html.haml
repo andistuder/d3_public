@@ -1,11 +1,10 @@
-- for download in @downloads do
-  %section
-    %h2= link_to download.name, download_path(download)
-    .left= sanitize(textilize(download.content))
-    .right
-      - if download.item.present?
-        %p.read_more=link_to "Download", download.item.url
-        - if download.item_file_size < 1000000
-          %h6= "#{download.created_at.strftime("%d/%b/%y")} - #{download.item_file_size/1000}kB"
-        -else
-          %h6= "#{download.created_at.strftime("%d/%b/%y")} - #{download.item_file_size/1000000}MB"
+%section
+  %h2= link_to download.name, download_path(download)
+  .left= sanitize(textilize(download.content))
+  .right
+    - if download.item.present?
+      %p.read_more=link_to "Download", download.item.url
+      - if download.item_file_size < 1000000
+        %h6= "#{download.created_at.strftime("%d/%b/%y")} - #{download.item_file_size/1000}kB"
+      -else
+        %h6= "#{download.created_at.strftime("%d/%b/%y")} - #{download.item_file_size/1000000}MB"

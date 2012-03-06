@@ -4,24 +4,7 @@
   %section#sidebar
     = render "sidebar"
   %section#content
-    %span#prevBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    %span#nextBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    - if @feature_category.vimeo_id.present?
-      .display-none
-        %iframe{:frameborder => "0", :height => "450", :src => "http://player.vimeo.com/video/#{@feature_category.vimeo_id}", :width => "717", :id => "vimeo_player"}
-
-    #slider
-      %ul
-        - for asset in @feature_category.assets do
-          %li
-            %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
-    - if @feature_category.vimeo_id.present?
-      .vimeo_link
-        |
-        =link_to "Video", "javascript:void(0);"
-
+    = render "layouts/slideshow", :object => @feature_category, :full_width => false
     #social_bookmarks
       TODO: social bookmarks here
     %h1.after-slideshow= @feature_category.name

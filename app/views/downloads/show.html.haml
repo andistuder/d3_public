@@ -4,15 +4,7 @@
   %section#sidebar
     = render "download_categories/sidebar"
   %section#content
-    %h1= @download.name
-    .left= sanitize(textilize(@download.content))
-    .right
-      - if @download.item.present?
-        %p.read_more=link_to "Download", @download.item.url
-        - if @download.item_file_size < 1000000
-          %h6= "#{@download.created_at.strftime("%d/%b/%y")} - #{@download.item_file_size/1000}kB"
-        -else
-          %h6= "#{@download.created_at.strftime("%d/%b/%y")} - #{@download.item_file_size/1000000}MB"
+    = render "download_categories/download_items", :download => @download
 %section#prev_next_bar
   &nbsp;
 %section#related
