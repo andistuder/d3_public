@@ -14,6 +14,15 @@ FactoryGirl.define do
   end
 end
 
+FactoryGirl.define do
+  factory :home_page, :class => Page do
+    name "Home"
+    slug "home"
+    introduction Faker::Lorem.paragraph
+    created_at Time.now
+  end
+end
+
 
 #Table "public.pages"
 #Column   |            Type             |                     Modifiers

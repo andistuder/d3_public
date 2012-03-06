@@ -89,3 +89,8 @@ end
 Given /^we allow local http request$/ do
   pending
 end
+
+
+Given /^the seeded home page$/ do
+  FactoryGirl.create :home_page
+end
