@@ -5,8 +5,9 @@
     = render "sidebar"
   %section#content
     %header
-      %h1.underlined= "#{@download_category.name} Downloads"
-    = render "download_items"
+      %h1.underlined= "#{@download_category.name} downloads"
+    - for download in @downloads do
+      = render "download_items", :download => download
 %section#prev_next_bar
   &nbsp;
 %section#related

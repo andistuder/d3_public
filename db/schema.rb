@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305160411) do
+ActiveRecord::Schema.define(:version => 20120306101423) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -156,6 +156,9 @@ ActiveRecord::Schema.define(:version => 20120305160411) do
     t.string   "item_content_type"
     t.integer  "item_file_size"
     t.datetime "item_updated_at"
+    t.string   "see_more_label"
+    t.string   "see_more_url"
+    t.text     "summary"
   end
 
   create_table "faq_categories", :force => true do |t|
@@ -262,6 +265,7 @@ ActiveRecord::Schema.define(:version => 20120305160411) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "logo_id"
+    t.integer  "vimeo_id"
   end
 
   create_table "project_categories", :force => true do |t|

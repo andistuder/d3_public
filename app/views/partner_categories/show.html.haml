@@ -3,16 +3,7 @@
 .container
   %section#content
     -if @partner_category.name == "Distributors" && @partner_category.partners.present?
-      -if @partner_category.partners.first.assets.present?
-        %span#prevBtn.one-col
-          =link_to "&nbsp;".html_safe, "javascript:void(0);"
-        %span#nextBtn.one-col
-          =link_to "&nbsp;".html_safe, "javascript:void(0);"
-        #slider.one-col
-          %ul
-            - for asset in @partner_category.partners.first.assets do
-              %li
-                %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+      = render "layouts/slideshow", :object => @partner_category.partners.first, :full_width => true
     #social_bookmarks
       TODO: social bookmarks here?
     -if @partner_category.name == "Distributors" && @partner_category.partners.present?

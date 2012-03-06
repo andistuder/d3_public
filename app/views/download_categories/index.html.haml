@@ -6,7 +6,8 @@
   %section#content
     %header
       %h1.underlined Downloads
-      = render "download_items"
+    - for download in @downloads do
+      = render "download_items", :download => download
 
 %section#prev_next_bar
   &nbsp;
