@@ -4,7 +4,9 @@
   %section#sidebar
     = render "download_categories/sidebar"
   %section#content
-    = render "download_categories/download_items", :download => @download
+    %h1= @download.name
+    .left= sanitize(textilize(@download.content))
+    = render "download_categories/download_link", :download => @download
 %section#prev_next_bar
   &nbsp;
 %section#related
