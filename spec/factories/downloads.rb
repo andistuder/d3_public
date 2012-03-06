@@ -12,5 +12,6 @@ FactoryGirl.define do
   factory :download_category, :class => DownloadCategory do
     name Faker::Lorem.words
     created_at Time.now
+    slug "dlc-slug"
   end
 end

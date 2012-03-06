@@ -24,29 +24,23 @@ body.bp
           left: 850px
         #slider, #slider_home
           width: 717px
-          height: 448px
+          height: 452px
           overflow: hidden
-          ul
-            margin: 0
-            padding: 0
-            list-style-type: none
         #slider.one-col, #slider_home
           width: 938px
-          height: 587px
-        #silder_nav
+          height: 591px
+
+        #slider_nav
           +float-left
-          +horizontal-list
           margin-left: 40px
-          margin-top: 10px
-          li
+          margin-top: 12px
+          a
             margin: 0 5px
-            padding: 0
-            width: 20px
-            a
-              background: white url('gallery_pagination_image.png') no-repeat left center
-              +link-colors(transparent)
-              padding: 2px 8px 2px 0
-          li.current a
+            background: white url('gallery_pagination_image.png') no-repeat left center
+            +link-colors(transparent)
+            padding: 12px 12px 6px 12px
+            font-size: 0
+          a.activeSlide
             +link-colors(transparent)
             background: white url('gallery_pagination_image_selected.png') no-repeat left center
         .vimeo_link

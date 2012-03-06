@@ -37,20 +37,19 @@ $(document).ready(function(){
         $('#container').css("background-size", grid_size);
     });
 
-    $("#slider").easySlider({
-//        auto: true,
-		continuous: true,
-        numeric: true,
-        numericId: "silder_nav",
-        pause: 3000
-	});
+    $("#slider").after('<div id="slider_nav">').cycle({
+        fx: 'fade',
+		speed: 2500,
+        pause: 1,
+        pager: '#slider_nav',
+        next:   '#nextBtn',
+        prev:   '#prevBtn'
+    });
 
-    $("#slider_home").easySlider({
-        auto: true,
-		continuous: true,
-        numeric: false,
-        controlsShow: false,
-        pause: 3000
+    $("#slider_home").cycle({
+        fx: 'fade',
+		speed: 2500,
+        pause: 1
 	});
 
     $('#content.home').parents('.container').addClass("home")
@@ -59,15 +58,17 @@ $(document).ready(function(){
 
 
     $(".vimeo_link a").click(function(){
-        $('#vimeo_player').toggle();
-        $('#slider').toggle();
-        $('#prevBtn').toggle();
-        $('#nextBtn').toggle();
-        $(".vimeo_link a").toggleClass('current');
-        //$("#silder_nav li").removeClass('current');
+        $('#vimeo_player').show();
+        $('#slider').hide();
+        $('#prevBtn').hide();
+        $('#nextBtn').hide();
+        $(".vimeo_link a").addClass('current');
+        $('#slider').cycle('pause');
+        $("#slider_nav a").removeClass('activeSlide');
     });
 
-    $("#silder_nav a").click(function(){
+    $("#slider_nav a").click(function(){
+        $('#slider').cycle('resume');
         $('#vimeo_player').hide();
         $('#slider').show();
         $('#prevBtn').show();

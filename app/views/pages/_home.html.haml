@@ -1,10 +1,8 @@
 %section#content.home
   - if @page.assets.present?
     #slider_home
-      %ul
-        - for asset in @page.assets do
-          %li
-            %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+      - for asset in @page.assets do
+        %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
   - if @page.introduction.present?
     #home_overlay
     #home_gradient
