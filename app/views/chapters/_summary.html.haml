@@ -7,7 +7,7 @@
 
       - chapter_detail.content_areas.each do |ca|
         .section
-          %h3.title
+          %p.title
             %span.more
               %a.driver
                 SHOW
@@ -23,7 +23,7 @@
       .introduction= sanitize(textilize(@user_guide_intro.content))
 
     - if @user_guide_body
-      = sanitize(textilize(@user_guide_body.content))
+      #body= sanitize(textilize(@user_guide_body.content))
 
 
   %section#chapter_summaries

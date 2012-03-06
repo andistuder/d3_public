@@ -125,7 +125,7 @@ $(document).ready(function(){
     var max_height = 0;
     if ($('#user_guide').length > 0) {
 
-        $("#chapters").fadeIn();
+        $("#chapters").show();
 
         max_height = calculateWindowHeight();
 
@@ -134,7 +134,7 @@ $(document).ready(function(){
         $('#viewport').height(max_height);
         $('#user_guide').height(max_height);
 
-        $(".page").first().fadeIn();
+        $(".page").first().show();
         $(".page").show();
 
         $(".chapter").click(function(){
@@ -178,20 +178,17 @@ $(document).ready(function(){
             $(this).parents(".section").find(".more a").css("backgroundImage", "url(/assets/arrow_white_long_down.png)");
         }
 
+
         $(this).parents(".section").find(".body").slideToggle();
 
-        // TODO MSP Seems easier to let the browser calc the height and just leave whitespace than try and grow
-//        $('#viewport').animate({height: "1000px"}, 500);
-//        $('#user_guide').animate({height: "1000px"}, 500);
     });
 
     // do this AFTER we calc the page heights
-    $('#chapter_detail .body').hide()
+    $('#chapter_detail .body').hide();
 
     $("#enquiryForm").validate();
 
     $('.expander .read_more a').click(function(){
-
 
         if ($(this).parents(".section").find(".body").is(":visible")) {
             $(this).css("backgroundImage", "url(/assets/arrow_white_long.png)");
@@ -218,23 +215,7 @@ function calculateWindowHeight(){
     var page_height = 0;
     $('.page').each(function(index) {
         page_height = $(this).height();
-
-        if ($(this).attr("id") == "chapter_detail") {
-            console.log("MSP");
-            console.log($(this));
-
-            console.log($(this).find("img").length);
-
-            //$(this).find("img").each(function(){
-            //    console.log($(this).height());
-            //});
-
-            console.log(page_height);
-        }
-
-        page_height += $(this).find("img").length * (MAX_IMAGE_HEIGHT +PADDING)
-        console.log(page_height);
-
+        page_height += $(this).find("img").length * (MAX_IMAGE_HEIGHT +PADDING);
         max_page_height = page_height > max_page_height ? page_height : max_page_height;
     });
 
