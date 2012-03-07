@@ -39,18 +39,13 @@ $(document).ready(function(){
 
     $("#slider").cycle({
         fx: 'fade',
-		speed: 2500,
+		speed: 500,
+        timeout:  3000,
         pause: 1,
         pager: '#slider_nav',
         next:   '#nextBtn',
         prev:   '#prevBtn'
     });
-
-    $("#slider_home").cycle({
-        fx: 'fade',
-		speed: 2500,
-        pause: 1
-	});
 
     $('#content.home').parents('.container').addClass("home")
     $('#content.home').parents('#main').find('#breadcrumb').hide()
