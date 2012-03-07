@@ -1,18 +1,17 @@
 @import "constants"
 
 @mixin d3-button-link($font_size, $padding, $url)
-  a
-    background-color: $link_color
-    background: $link_color url($url) no-repeat right center
-    +link-colors(white)
-    padding: $padding 20px $padding 10px
-    +border-radius(4px)
-    text-transform: uppercase
-    font-size: $font-size
-    font-weight: 400
-    //+single-box-shadow
-    +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
-    +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
+  background-color: $link_color
+  background: $link_color url($url) no-repeat right center
+  +link-colors(white)
+  padding: $padding 20px $padding 10px
+  +border-radius(4px)
+  text-transform: uppercase
+  font-size: $font-size
+  font-weight: 400
+  //+single-box-shadow
+  +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
+  +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
 
 
 @mixin expander

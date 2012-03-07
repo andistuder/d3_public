@@ -33,10 +33,11 @@ body.bp.pages
             line-height: 1.2em
             margin-right: 0
           p
-            color: $light_grey_bg
-            margin-bottom: 0
+            color: #999999
+            margin-bottom: 60px
             margin-right: 0
-            .read_more
+            a.read_more
+              +d3-button-link(24px, 6px, 'arrow_white_long.png')
               box-shadow: none
-
-
+          p:last-of-type
+            margin-bottom: 20px

@@ -14,19 +14,23 @@ body.bp.download_categories, body.bp.downloads
           p
             padding-bottom: 0
           p.read_more
-            +d3-button-link(14px, 6px, 'arrow_white_long.png')
             margin: 0
             line-height: 44px
+            a
+              +d3-button-link(14px, 6px, 'arrow_white_long.png')
+
           h6
             color: $text-color
             padding-left: 10px
         p.read_more.downloads
           text-transform: uppercase
-          +d3-button-link(18px, 5px, '')
           margin-top: 45px
           margin-bottom: 5px
           text-align: center
           border-bottom: none
+          a
+            +d3-button-link(18px, 5px, '')
+
 
         .more_news
           display: none

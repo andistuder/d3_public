@@ -7,20 +7,10 @@ body.bp.pages
         section.default_content
           ul
             margin-left: 40px
-        .read_more
-          +d3-button-link(14px, 6px, 'arrow_white_long.png')
+        p.read_more
           margin-top: 5px
           line-height: 40px
         a.read_more
-          background-color: $link_color
-          background: $link_color url('arrow_white_long.png') no-repeat right center
-          +link-colors(white)
-          padding: 6px 20px 6px 10px
-          +border-radius(4px)
-          text-transform: uppercase
-          font-size: 14px
-          font-weight: 400
-          +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
-          +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
+          +d3-button-link(14px, 6px, 'arrow_white_long.png')
       #content.what_is_d3
         +alternator(0px, 495px)

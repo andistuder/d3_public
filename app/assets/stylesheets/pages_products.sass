@@ -42,6 +42,10 @@ body.bp.pages
               overflow: hidden
               clear: both
               padding-right: 10px
+              .left, .right
+                line-height: 40px
+                a
+                  +d3-button-link(14px, 4px, 'arrow_white_long.png')
               .left
                 +float-left
               .right
@@ -49,7 +53,6 @@ body.bp.pages
                 a
                   background-color: $dark_grey_bg
                   +link-colors(black)
-
           .product_item.first
             margin-left: 0
         section#compare_products_table

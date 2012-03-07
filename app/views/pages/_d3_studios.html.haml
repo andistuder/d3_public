@@ -25,5 +25,5 @@
           = sanitize(textilize(content_area.content))
           - if content_area.see_more_label.present? && content_area.see_more_url.present?
             %p.read_more
-              =link_to content_area.see_more_label, content_area.see_more_url
+              =link_to content_area.see_more_label, content_area.see_more_url, :class => "read_more"
 

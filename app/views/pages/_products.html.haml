@@ -10,13 +10,13 @@
     .intro_wrapper
       .introduction
         = sanitize(textilize(@page.introduction))
-        %p.read_more= link_to "Compare Products", "#compare_products_table"
+        %p.read_more= link_to "Compare Products", "#compare_products_table", :class => "read_more"
       - for advice in @page.content_areas.where(:name => 'Need some advice?') do
         .product_side_box
           %h3= advice.name
           = sanitize(textilize(advice.content))
           - if advice.see_more_label.present? && advice.see_more_url.present?
-            %p.read_more= link_to advice.see_more_label, advice.see_more_url
+            %p.read_more= link_to advice.see_more_label, advice.see_more_url, :class => "read_more"
     %section#compare_products_list
       .product_item.first
         - for four_u in @page.content_areas.where(:name => '4u') do
