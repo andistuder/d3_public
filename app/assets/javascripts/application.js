@@ -40,8 +40,10 @@ $(document).ready(function(){
     $("#slider").cycle({
         fx: 'fade',
 		speed: 500,
-        timeout:  3000,
-        pause: 1,
+        timeout:  2000,
+        pause: true,
+        requeueTimeout: 500,
+        requeueOnImageNotLoaded: true,
         pager: '#slider_nav',
         next:   '#nextBtn',
         prev:   '#prevBtn'
