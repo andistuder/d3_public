@@ -206,6 +206,12 @@ $(document).ready(function(){
     $('.controls_close a').click(function(){
         $(this).parents('.overlay').slideUp();
     });
+
+    $('#breadcrumb ul a').each(function(){
+        if ($(this).attr("href") == window.location.pathname) {
+            $(this).addClass('current');
+        }
+    });
 });
 
 function calculateWindowHeight(){

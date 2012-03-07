@@ -1,13 +1,16 @@
-%section#content.home
-  - if @page.assets.present?
-    #slider_home
-      - for asset in @page.assets do
-        %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
-  - if @page.introduction.present?
-    #home_overlay
-    #home_gradient
-    #home_content
-      = sanitize(textilize(@page.introduction))
+%section#breadcrumb
+  = render "breadcrumb"
+.container
+  %section#content.home
+    - if @page.assets.present?
+      #slider_home
+        - for asset in @page.assets do
+          %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+    - if @page.introduction.present?
+      #home_overlay
+      #home_gradient
+      #home_content
+        = sanitize(textilize(@page.introduction))
 
 
 

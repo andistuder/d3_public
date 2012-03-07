@@ -1,12 +1,15 @@
-%section#content
-  #social_bookmarks
-    TODO: social bookmarks here
-  = render :partial => "page_content_header"
+%section#breadcrumb
+  = render "breadcrumb"
+.container
+  %section#content
+    #social_bookmarks
+      TODO: social bookmarks here
+    = render :partial => "page_content_header"
 
-  - for content_area in @page.content_areas do
-    %section
-      - if content_area.asset.present?
-        %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
-      .wrapper.static_page
-        %h2= content_area.name
-        = sanitize(textilize(content_area.content))
+    - for content_area in @page.content_areas do
+      %section
+        - if content_area.asset.present?
+          %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+        .wrapper.static_page
+          %h2= content_area.name
+          = sanitize(textilize(content_area.content))

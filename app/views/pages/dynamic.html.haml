@@ -1,12 +1,9 @@
-%section#breadcrumb
-  = render "breadcrumb"
-.container
-  -#= render :partial => "products_detail"
-  -#TODO enable rescue once dev over..
-  - if @page.layout == "4u" || @page.layout == "2u"
-    = render :partial => "d3_designer"
-  - else
-    = render :partial => @page.layout rescue render :partial => "default_content"
+-#= render :partial => "products_detail"
+-#TODO enable rescue once dev over..
+- if @page.layout == "4u" || @page.layout == "2u"
+  = render :partial => "d3_designer"
+- else
+  = render :partial => @page.layout rescue render :partial => "default_content"
 
 %section#prev_next_bar
   &nbsp;

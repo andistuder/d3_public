@@ -1,40 +1,43 @@
-%section#content.support
-  #social_bookmarks
-    TODO: social bookmarks here
-  = render :partial => "page_content_header"
-  #support_areas
-    %ul
-      %li.user_guide
-        %h3 User Guide
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/support/user-guide"
-      %li.training
-        %h3 Training
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/support/training"
-      %li.faqs
-        %h3 FAQs
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/support/faq"
-      %li.announcements
-        %h3 Announcements
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/news"
-      %li.tutorials
-        %h3 Tutorials
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/support/tutorials"
-      %li.downloads
-        %h3 Downloads
-        %p
-          = "Suspendisse vel magna id arcu mollis egestas - "
-          = link_to "more", "/support/downloads"
-  - for email_us in @page.content_areas.where(:name => 'Email Support') do
-    .support_contact
-      %h3= email_us.name
-      = sanitize(textilize(email_us.content))
+%section#breadcrumb
+  = render "breadcrumb"
+.container
+  %section#content.support
+    #social_bookmarks
+      TODO: social bookmarks here
+    = render :partial => "page_content_header"
+    #support_areas
+      %ul
+        %li.user_guide
+          %h3 User Guide
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/support/user-guide"
+        %li.training
+          %h3 Training
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/support/training"
+        %li.faqs
+          %h3 FAQs
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/support/faq"
+        %li.announcements
+          %h3 Announcements
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/news"
+        %li.tutorials
+          %h3 Tutorials
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/support/tutorials"
+        %li.downloads
+          %h3 Downloads
+          %p
+            = "Suspendisse vel magna id arcu mollis egestas - "
+            = link_to "more", "/support/downloads"
+    - for email_us in @page.content_areas.where(:name => 'Email Support') do
+      .support_contact
+        %h3= email_us.name
+        = sanitize(textilize(email_us.content))

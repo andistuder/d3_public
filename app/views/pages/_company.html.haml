@@ -1,23 +1,26 @@
-%section#content.company
-  #social_bookmarks
-    TODO: social bookmarks here
-  %h1= @page.name
-  .company_wrapper
-    .about_company= sanitize(textilize(@page.introduction))
-    - if @page.assets.present?
-      %img{:src => @page.assets.first.asset.url(:medium), :alt => @page.assets.first.description}
-  #company_left
-    #company_map
-      map here
-    #company_address
-      - if @page.content_areas.find_by_name('Address').present?
-        %h2= @page.content_areas.find_by_name('Address').name
-        = sanitize(textilize(@page.content_areas.find_by_name('Address').content))
-    #company_contacts= sanitize(textilize(@page.content_areas.find_by_name('Contacts').content)) if @page.content_areas.find_by_name('Contacts').present?
-  #company_right
-    %h2 Jobs at d3
-    %ul
-      - for child in @page.children do
-        -for job in child.content_areas do
-          %li
-            = link_to job.name, "/company/jobs##{job.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+%section#breadcrumb
+  = render "breadcrumb"
+.container
+  %section#content.company
+    #social_bookmarks
+      TODO: social bookmarks here
+    %h1= @page.name
+    .company_wrapper
+      .about_company= sanitize(textilize(@page.introduction))
+      - if @page.assets.present?
+        %img{:src => @page.assets.first.asset.url(:medium), :alt => @page.assets.first.description}
+    #company_left
+      #company_map
+        map here
+      #company_address
+        - if @page.content_areas.find_by_name('Address').present?
+          %h2= @page.content_areas.find_by_name('Address').name
+          = sanitize(textilize(@page.content_areas.find_by_name('Address').content))
+      #company_contacts= sanitize(textilize(@page.content_areas.find_by_name('Contacts').content)) if @page.content_areas.find_by_name('Contacts').present?
+    #company_right
+      %h2 Jobs at d3
+      %ul
+        - for child in @page.children do
+          -for job in child.content_areas do
+            %li
+              = link_to job.name, "/company/jobs##{job.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
