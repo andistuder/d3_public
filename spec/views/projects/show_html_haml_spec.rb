@@ -9,10 +9,9 @@ describe "projects/show.html.haml" do
     @test_cat = FactoryGirl.build :project_category
 
     ProjectContentArea.should_receive(:ordered).and_return([@test_pac, @test_pac2])
-    ProjectCategory.should_receive(:find_in_order).and_return([@test_cat])
 
     assign(:project, @test_project)
-    assign(:project_categories, @test_project)
+    assign(:project_categories, [@test_cat])
 
     render
 
