@@ -208,7 +208,10 @@ $(document).ready(function(){
     });
 
     $('#breadcrumb ul a').each(function(){
-        if ($(this).attr("href") == window.location.pathname) {
+        var ca = $(this).attr("href").split('/');
+        var la = window.location.pathname.split('/')
+
+        if (ca[1] == la[1] && ca[2] == la[2]) {
             $(this).addClass('current');
         }
     });
