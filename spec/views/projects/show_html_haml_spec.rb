@@ -6,10 +6,13 @@ describe "projects/show.html.haml" do
     @test_pac = FactoryGirl.build :project_content_area
     @test_pac2 = FactoryGirl.build :project_content_area
     @test_project = FactoryGirl.build :project, :project_content_areas => [@test_pac, @test_pac2]
+    @test_cat = FactoryGirl.build :project_category
 
     ProjectContentArea.should_receive(:ordered).and_return([@test_pac, @test_pac2])
+    ProjectCategory.should_receive(:find_in_order).and_return([@test_cat])
 
     assign(:project, @test_project)
+    assign(:project_categories, @test_project)
 
     render
 

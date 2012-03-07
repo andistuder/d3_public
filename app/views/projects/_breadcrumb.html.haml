@@ -1,0 +1,4 @@
+.parent= link_to "Projects", "/projects"
+%ul
+  - for category in @project_categories do
+    %li= link_to category.name, project_category_path(category)

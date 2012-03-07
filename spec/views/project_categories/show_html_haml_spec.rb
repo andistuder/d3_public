@@ -10,6 +10,7 @@ describe "project_categories/show.html.haml" do
     @test_project_cat = FactoryGirl.build(:project_category, :projects => [@test_project, @test_project2])
 
     assign(:project_category, @test_project_cat)
+    assign(:project_categories, [@test_project_cat])
 
     render
 

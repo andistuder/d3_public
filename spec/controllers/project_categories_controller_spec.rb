@@ -7,6 +7,7 @@ describe ProjectCategoriesController do
       @test_project_cat = FactoryGirl.build :project_category
 
       ProjectCategory.should_receive(:find).and_return(@test_project_cat)
+      ProjectCategory.should_receive(:find_in_order).and_return([@test_project_cat])
     end
 
     it "should be successful" do
@@ -17,6 +18,11 @@ describe ProjectCategoriesController do
     it "assigns @project_category" do
       get 'show', :id => 1
       assigns(:project_category).should eq(@test_project_cat)
+    end
+
+    it "assigns @project_categories" do
+      get 'show', :id => 1
+      assigns(:project_categories).should eq([@test_project_cat])
     end
   end
 
