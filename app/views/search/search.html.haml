@@ -1,0 +1,26 @@
+%section#breadcrumb
+  .parent= link_to "Search"
+  %ul
+    %li &nbsp;
+.container
+  %section#content
+    %h1= "Search results for: #{params[:query]}"
+    -if @news.present?
+      %h2 News items
+      %ul
+        - for news_item in @news do
+          %li= link_to news_item.headline, news_item
+    -if @projects.present?
+      %h2 Projects
+      %ul
+        - for project in @projects do
+          %li= link_to project.name, project
+    -if @features.present?
+      %h2 Features
+      %ul
+        - for feature in @features do
+          %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "pages/related"

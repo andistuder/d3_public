@@ -9,6 +9,8 @@ class Feature < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, :use => :slugged
 
+  acts_as_indexed :fields => [:name, :content]
+
   scope :ordered, order("sort_order ASC")
 
 end

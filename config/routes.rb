@@ -50,6 +50,8 @@ D3::Application.routes.draw do
 
   devise_for :users
 
+  match "search" => "search#search"
+
   match "sitemap.xml" => "sitemap#sitemap"
   root :to => "pages#dynamic", :slug => "home"
 

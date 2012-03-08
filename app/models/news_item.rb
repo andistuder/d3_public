@@ -1,10 +1,12 @@
 class NewsItem < ActiveRecord::Base
-  validates_presence_of :headline, :content, :slug
+  validates_presence_of :headline, :content
 
   has_and_belongs_to_many :assets
 
   extend FriendlyId
   friendly_id :headline, :use => :slugged
+
+  acts_as_indexed :fields => [:headline, :content]
 
   def self.find_latest
     NewsItem.order("created_at DESC").limit(D3::Application::NEWS_INITIAL_LOAD)

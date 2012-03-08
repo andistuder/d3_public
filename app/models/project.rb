@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
   has_and_belongs_to_many :features
   has_many :project_content_areas
 
+  acts_as_indexed :fields => [:name, :content]
+
   def previous
     self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at asc")
   end

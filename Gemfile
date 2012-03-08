@@ -20,6 +20,7 @@ gem 'dalli'
 gem 'thin'
 gem 'pg'
 gem "faker" #until go live
+#gem 'will_paginate'  use?
 
 group :assets do
   gem 'compass-rails','~> 1.0.0.rc.2'
