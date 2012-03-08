@@ -6,6 +6,7 @@ describe "pages/dynamic.html.haml" do
 
     @page = FactoryGirl.build(:tutorial_page, :name => "tutorial", :slug => "tutorial")
     assign(:page, @page)
+    assign(:related_boxes, [])
 
     render
     rendered.should have_content(@page.name)
@@ -18,6 +19,8 @@ describe "pages/dynamic.html.haml" do
     @page_content_area = FactoryGirl.build(:user_guide, :name => "user guide", :content => "user guide content area")
     @page.should_receive(:content_areas).and_return([@page_content_area])
     assign(:page, @page)
+    assign(:related_boxes, [])
+
 
     render
     rendered.should have_content(@page.name)

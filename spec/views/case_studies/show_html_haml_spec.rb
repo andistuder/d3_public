@@ -5,6 +5,7 @@ describe "case_studies/show.html.haml" do
     @test_case_study = FactoryGirl.build(:case_study, :features => [Factory(:feature_item)])
 
     assign(:case_study, @test_case_study)
+    assign(:related_boxes, [])
 
     render
 

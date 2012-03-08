@@ -6,6 +6,7 @@ describe "workflow_items/index.html.haml" do
     @wfi = FactoryGirl.build :workflow_item, :sort_order => 1
     @wfi1 = FactoryGirl.build :workflow_item, :sort_order => 2
     assign(:workflow_items, [@wfi, @wfi1])
+    assign(:related_boxes, [])
 
     render
 

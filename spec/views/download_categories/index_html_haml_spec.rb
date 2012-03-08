@@ -11,6 +11,7 @@ describe "download_categories/index.html.haml" do
 
     assign(:downloads, [@dl, @dl1])
     assign(:download_categories, [@dlc, @dlc1])
+    assign(:related_boxes, [])
 
     render
 

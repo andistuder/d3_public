@@ -10,6 +10,7 @@ describe "chapters/show.html.haml" do
 
     assign(:chapter, @chapter)
     assign(:chapters, [])
+    assign(:related_boxes, [])
 
     render
 

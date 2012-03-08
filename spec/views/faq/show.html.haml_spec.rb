@@ -18,6 +18,7 @@ describe "faq/show.html.haml" do
 
     assign(:faq_category, @faq_cats[0])
     assign(:faq_categories, @faq_cats)
+    assign(:related_boxes, [])
 
     render
 

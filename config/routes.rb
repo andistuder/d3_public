@@ -10,7 +10,9 @@ D3::Application.routes.draw do
 
   resources :projects, :only => [:show, :index]
 
-  resources :project_categories, :only => [:show], :path => "project-categories"
+  scope "projects" do
+    resources :project_categories, :only => [:show], :path => "categories"
+  end
 
   scope "support" do
     resources :faq, :only => [:index, :show]
@@ -58,6 +60,6 @@ D3::Application.routes.draw do
   match "/what-is-d3/:slug" => "pages#dynamic", :as => :pages
   match "/products/:slug" => "pages#dynamic", :as => :pages
   match "/company/:slug" => "pages#dynamic", :as => :pages
-  match "/legal/:slug" => "pages#dynamic", :as => :pages
+  #match "/legal/:slug" => "pages#dynamic", :as => :pages
 
 end

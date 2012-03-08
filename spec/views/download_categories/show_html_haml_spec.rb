@@ -11,7 +11,7 @@ describe "download_categories/show.html.haml" do
   #
   #  assign(:download_categories, [@dlc, @dlc1])
   #  assign(:download_category, @dlc)
-  #
+  #  assign(:related_boxes, [])
   #  render
   #
   #  rendered.should have_content(@dl.name)

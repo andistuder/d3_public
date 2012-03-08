@@ -11,6 +11,7 @@ describe "partners/show.html.haml" do
     PartnerContentArea.should_receive(:ordered).and_return([@test_pac, @test_pac2])
 
     assign(:partner, @test_partner)
+    assign(:related_boxes, [])
 
     render
 

@@ -12,6 +12,7 @@ describe "projects/show.html.haml" do
 
     assign(:project, @test_project)
     assign(:project_categories, [@test_cat])
+    assign(:related_boxes, [])
 
     render
 

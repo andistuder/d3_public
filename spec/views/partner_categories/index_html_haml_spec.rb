@@ -7,6 +7,7 @@ describe "partner_categories/index.html.haml" do
     @test_partner_cat2 = FactoryGirl.build(:partner_category, :slug => "users")
 
     assign(:partner_categories, [@test_partner_cat, @test_partner_cat2])
+    assign(:related_boxes, [])
 
     render
 

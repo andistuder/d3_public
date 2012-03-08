@@ -3,7 +3,7 @@
     %li
       - if related_box.asset.present?
         %img{:src => related_box.asset.asset.url(:small), :alt => related_box.asset.description, :width => "218px"}
-      %h4= link_to related_box.name
+      %h4= link_to related_box.name, related_box.link_url
       %p
         = related_box.content
         = "-"

@@ -8,6 +8,7 @@ describe "feature_categories/index.html.haml" do
   @feature_category2 = FactoryGirl.build :feature_category
 
   assign(:feature_categories, [@feature_category2, @feature_category])
+  assign(:related_boxes, [])
 
   render
 

@@ -207,9 +207,15 @@ $(document).ready(function(){
     $('#breadcrumb ul a').each(function(){
         var ca = $(this).attr("href").split('/');
         var la = window.location.pathname.split('/')
+        if (la[2] != "categories") {
 
-        if (ca[1] == la[1] && ca[2] == la[2]) {
-            $(this).addClass('current');
+            if (ca[1] == la[1] && ca[2] == la[2]) {
+                $(this).addClass('current');
+            }
+        } else {
+            if (ca[1] == la[1] && ca[3] == la[3]) {
+                $(this).addClass('current');
+            }
         }
     });
 });

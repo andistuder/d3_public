@@ -25,6 +25,8 @@ describe "knowledge_base/user_guide.html.haml" do
       assign(:chapters, @parents)
       assign(:user_guide_intro, @user_guide_intro)
       assign(:user_guide_body, @user_guide_body)
+      assign(:related_boxes, [])
+
     end
 
     it "renders" do
@@ -50,6 +52,8 @@ describe "knowledge_base/user_guide.html.haml" do
   describe "unpopulated render" do
     before :each do
       assign(:chapters, []) #AR always returns something for collection
+      assign(:related_boxes, [])
+
     end
     it "renders" do
       render

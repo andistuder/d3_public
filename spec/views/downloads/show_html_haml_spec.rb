@@ -8,6 +8,7 @@ describe "downloads/show.html.haml" do
     @dl = FactoryGirl.build :download, :categories => [@dlc]
     assign(:download, @dl)
     assign(:download_categories, [@dlc, @dlc1])
+    assign(:related_boxes, [])
 
     render
 

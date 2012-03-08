@@ -6,6 +6,7 @@ describe "sitemap/sitemap.builder" do
         stub_model(Page, :name => "about", :slug => "about", :updated_at => Time.now),
         stub_model(Page, :name => "contact", :slug => "contact", :updated_at => Time.now)
     ])
+    assign(:related_boxes, [])
 
     render :template => "sitemap/sitemap.builder"
 

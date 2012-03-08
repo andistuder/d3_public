@@ -13,6 +13,7 @@ describe "feature_categories/show.html.haml" do
 
     assign(:feature_categories, [@feature_category, @feature_category2])
     assign(:feature_category, @feature_category)
+    assign(:related_boxes, [])
 
     render
 
