@@ -15,8 +15,8 @@ Given /^the seeded 25 download items$/ do
   end
 end
 
-When /^I should see twenty more download items$/ do
-  page.has_css?('.download_items', :count => 22)
+When /^I should see ten more download items$/ do
+  page.has_css?('.download_items', :count => 20)
 end
 
 When /^I should see all twenty five download items$/ do

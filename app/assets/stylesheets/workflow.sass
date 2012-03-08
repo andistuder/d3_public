@@ -17,10 +17,10 @@ body.bp.workflow_items
           padding-left: 40px
           .left_column
             +float-left
-            width: 400px
+            width: 350px
             text-align: right
             background: white url('workflow_bg.png') repeat-y right top
-            .controls_open
+            .controls_open.blue_dot
               +float-right
               width: 38px
               background: white url('gallery_pagination_image.png') no-repeat right bottom
@@ -33,7 +33,7 @@ body.bp.workflow_items
               +float-right
               clear: none
               +border-radius
-              padding: 0 20px
+              padding: 0 15px 0 20px
               background-color: $light_grey_bg
               //background: $light_grey_bg url('workflow_title_arrow.png') no-repeat right bottom
             ul
@@ -41,7 +41,7 @@ body.bp.workflow_items
               +no-bullets
               height: 148px
               li
-                padding-right: 38px
+                padding-right: 54px
                 margin-right: 2px
                 background: transparent url('workflow_dot_small.png') no-repeat right center
             .bottom_arrow

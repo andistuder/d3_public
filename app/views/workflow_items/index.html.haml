@@ -8,9 +8,9 @@
     - for workflow_item in @workflow_items do
       %section.work_flow_item
         .left_column
-          .controls_open= link_to "x", "javascript:void(0)"
-          %h2
-            = workflow_item.list_title
+          .controls_open.blue_dot= link_to "x", "javascript:void(0)"
+          %h2.controls_open
+            =link_to workflow_item.list_title, "javascript:void(0)"
           = sanitize(textilize(workflow_item.list_area))
           .bottom_arrow
         .right_column

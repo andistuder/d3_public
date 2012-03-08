@@ -31,10 +31,10 @@ Feature: Download
   Scenario: Revealing more Download items
     Given the seeded 25 download items
     When I go to the downloads page
-    And I click link "SHOW 20 MORE"
-    And I should see twenty more download items
-    And I click link "SHOW 20 MORE"
+    And I click link "SHOW 10 MORE"
+    And I should see ten more download items
+    And I click link "SHOW 10 MORE"
     And I should see all twenty five download items
-    And I click link "SHOW 20 MORE"
+    And I click link "SHOW 10 MORE"
     And I should see "NO MORE ITEMS"
 

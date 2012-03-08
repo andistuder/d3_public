@@ -68,7 +68,7 @@ module D3
     FB_ADMIN = "541838134"
     #TWITTER_NAME = "mattspendlove"
 
-    NEWS_INITIAL_LOAD = 2
-    NEWS_PAGE_SIZE = 20
+    NEWS_INITIAL_LOAD = 10
+    NEWS_PAGE_SIZE = 10
   end
 end

@@ -24,10 +24,10 @@ Feature: News
   Scenario: Revealing more News Items
     Given the seeded 25 news items
     When I go to the news page
-    And I click link "SHOW 20 MORE"
-    And I should see twenty more items
-    And I click link "SHOW 20 MORE"
+    And I click link "SHOW 10 MORE"
+    And I should see ten more items
+    And I click link "SHOW 10 MORE"
     And I should see all twenty five items
-    And I click link "SHOW 20 MORE"
+    And I click link "SHOW 10 MORE"
     And I should see "NO MORE ITEMS"
 
