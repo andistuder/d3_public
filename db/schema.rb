@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306101423) do
+ActiveRecord::Schema.define(:version => 20120308115156) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -229,6 +229,11 @@ ActiveRecord::Schema.define(:version => 20120306101423) do
     t.integer  "vimeo_id"
   end
 
+  create_table "pages_related_boxes", :id => false, :force => true do |t|
+    t.integer "page_id"
+    t.integer "related_box_id"
+  end
+
   create_table "partner_categories", :force => true do |t|
     t.string   "name"
     t.string   "slug"
@@ -323,6 +328,17 @@ ActiveRecord::Schema.define(:version => 20120306101423) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "related_boxes", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "link_label"
+    t.string   "link_url"
+    t.integer  "sort_order"
+    t.integer  "asset_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

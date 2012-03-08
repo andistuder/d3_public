@@ -4,36 +4,13 @@ describe Page do
   it "can be instantiated" do
     Page.new.should be_an_instance_of(Page)
   end
-  
-  it "has many assets" do
-    Page.reflect_on_association(:assets).should_not be_nil
-    @page = Page.new
-    @page.assets.length == 0
-  end
-    
-  it "has many content_areas" do
-    Page.reflect_on_association(:content_areas).should_not be_nil
-    @page = Page.new
-    @page.content_areas.length == 0
-  end
-    
-  it "has many categories" do
-    Page.reflect_on_association(:categories).should_not be_nil
-    @page = Page.new
-    @page.categories.length == 0
-  end
 
-  it "has a name that is required" do
-    @page = Page.new
-    @page.respond_to?(:name).should be_true
-    @page.should_not be_valid
-  end
+  it { should validate_presence_of(:name) }
 
-  it "has a slug that is required" do
-    @page = Page.new
-    @page.respond_to?(:slug).should be_true
-    @page.should_not be_valid
-  end
+  it { should have_and_belong_to_many(:assets) }
+  it { should have_many(:content_areas) }
+  it { should have_and_belong_to_many(:categories) }
+  it { should have_and_belong_to_many(:related_boxes) }
 
   it "has tags" do
     @page = Page.new

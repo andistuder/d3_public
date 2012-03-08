@@ -3,8 +3,9 @@ class Page < ActiveRecord::Base
   has_many :content_areas
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :assets
+  has_and_belongs_to_many :related_boxes
 
-  validates_presence_of :name, :slug
+  validates_presence_of :name
 
   acts_as_taggable
   acts_as_tree :order => "name"
