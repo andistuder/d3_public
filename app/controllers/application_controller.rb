@@ -1,29 +1,22 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  #twitter disabled
-  #before_filter :twitter, :set_facebook_headers
   before_filter :set_facebook_headers
 
-  #def twitter
-  #  require "twitter"
-  #
-  #  begin
-  #
-  #    @tweets = Rails.cache.read(:tweets)
-  #
-  #    if @tweets.blank?
-  #      @tweets = Twitter.user_timeline(D3::Application::TWITTER_NAME, {:count => 1})
-  #      Rails.cache.write(:tweets, @tweets, :expires_in => 10.minutes)
-  #    end
-  #
-  #  rescue Twitter::Error::BadRequest  => erl
-  #    @tweets = Rails.cache.read(:tweets)
-  #    logger.error("MSP rate limit exceeded: #{erl}")
-  #  rescue Exception => e
-  #    logger.error("MSP error fetch tweets: #{e}")
-  #  end
-  #end
+  before_filter :get_related_boxes
+
+  private
+
+  def get_related_boxes
+    selector = request.fullpath.split('/')[1]
+    if Page.find_by_slug(selector).present?
+      @related_boxes = Page.find_by_slug(selector).related_boxes.limit(4)
+    elsif Page.find_by_slug('home').present?
+      @related_boxes = Page.find_by_slug('home').related_boxes.limit(4)
+    else
+      @related_boxes = RelatedBox.limit(4)
+    end
+  end
 
   def set_facebook_headers
     @og_title = D3::Application::SITE_NAME

@@ -1,25 +1,10 @@
 %ul
-  %li
-    %h4= link_to "Overview","#"
-    %p
-      Maecenas dignissim, tellus vel placerat rhoncus, velit justo volutpat quam, et posuere libero.
-      = "-"
-      = link_to "More", "#"
-  %li
-    %h4= link_to "Projects","#"
-    %p
-      Tellus vel placerat rhoncus, velit justo volutpat quam, et posuere libero nisi a leo. Suspendisse.
-      = "-"
-      = link_to "More", "#"
-  %li
-    %h4= link_to "Support","#"
-    %p
-      Tel placerat rhoncus, velit justo volutpat quam, et posuere.
-      = "-"
-      = link_to "More", "#"
-  %li
-    %h4= link_to "Software","#"
-    %p
-      Placerat rhoncus, velit justo. Suspendisse rhoncus viverra tur.
-      = "-"
-      = link_to "More", "#"
+  - for related_box in @related_boxes do
+    %li
+      - if related_box.asset.present?
+        %img{:src => related_box.asset.asset.url(:small), :alt => related_box.asset.description, :width => "218px"}
+      %h4= link_to related_box.name
+      %p
+        = related_box.content
+        = "-"
+        = link_to related_box.link_label, related_box.link_url

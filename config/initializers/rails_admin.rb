@@ -93,12 +93,7 @@ else
         field :content_areas
         field :assets
         field :vimeo_id
-        field :categories do
-          #formatted_value do
-          #  page = bindings[:object]
-          #  page.categories.collect { |r| "MSP"+r.name }.join(', ')
-          #end
-        end
+        field :related_boxes
         field :created_at
         field :updated_at
       end
@@ -123,7 +118,7 @@ else
         field :content_areas
         field :assets, :has_and_belongs_to_many_association
         field :vimeo_id
-        field :categories, :has_and_belongs_to_many_association
+        field :related_boxes, :has_and_belongs_to_many_association
         field :created_at
         field :updated_at
       end
@@ -147,7 +142,7 @@ else
         field :content_areas
         field :assets, :has_and_belongs_to_many_association
         field :vimeo_id
-        field :categories, :has_and_belongs_to_many_association
+        field :related_boxes, :has_and_belongs_to_many_association
       end
     end
 

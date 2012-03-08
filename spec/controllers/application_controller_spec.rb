@@ -50,6 +50,11 @@ describe ApplicationController do
       assigns(:og_admins).should eq(D3::Application::FB_ADMIN)
     end
 
+    it "assigns @releated_boxes" do
+      get 'index'
+      assigns(:related_boxes).should_not be_nil
+    end
+
     #it "assigns @tweets" do
     #
     #  #require "twitter"
