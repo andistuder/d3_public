@@ -7,8 +7,8 @@
         - for asset in @page.assets do
           %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     - if @page.introduction.present?
-      #home_overlay
-      #home_gradient
+      -##home_overlay
+      -##home_gradient
       #home_content
         = sanitize(textilize(@page.introduction))
 
