@@ -7,5 +7,7 @@ class ContentArea < ActiveRecord::Base
 
   default_scope :order => 'sort_order ASC'
 
+  acts_as_indexed :fields => [:name, :content]
+
 
 end

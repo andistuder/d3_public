@@ -20,6 +20,36 @@
       %ul
         - for feature in @features do
           %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
+    -if @case_studies.present?
+      %h2 Cast Studies
+      %ul
+        - for case_study in @caes_studies do
+          %li= link_to case_study.name, case_study
+    -if @partners.present?
+      %h2 Partners
+      %ul
+        - for partner in @partners do
+          %li= link_to partner.name, "get-d3/#{partner.name}"
+    -if @downloads.present?
+      %h2 Downloads
+      %ul
+        - for download in @downloads do
+          %li= link_to download.name, download
+    -if @faqs.present?
+      %h2 FAQs
+      %ul
+        - for faq in @faqs do
+          %li= link_to faq.question, faq
+    -if @chapters.present?
+      %h2 User Guide
+      %ul
+        - for chapter in @chapters do
+          %li= link_to chapter.title, chapter
+    -#-if @tutorials.present?
+    -#  %h2 Tutorials
+    -#  %ul
+    -#    - for tutorial in @tutorials do
+    -#      %li= link_to tutorial.name, "/support/tutorials"
 %section#prev_next_bar
   &nbsp;
 %section#related

@@ -8,9 +8,9 @@ class Download < ActiveRecord::Base
 
   has_attached_file :item, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :bucket => 'd3-downloads', :path => ":attachment/:id/:filename"
 
+  acts_as_indexed :fields => [:name, :summary, :content]
 
   def self.find_latest
-    #Download.order("created_at DESC")
     Download.order("created_at DESC").limit(D3::Application::NEWS_INITIAL_LOAD)
   end
 

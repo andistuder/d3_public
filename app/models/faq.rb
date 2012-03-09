@@ -3,6 +3,8 @@ class Faq < ActiveRecord::Base
 
   has_and_belongs_to_many :categories, :class_name => "FaqCategory"
 
+  acts_as_indexed :fields => [:question, :answer]
+
   extend FriendlyId
   friendly_id :question, :use => :slugged
 end
