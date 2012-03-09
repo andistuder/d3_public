@@ -5,23 +5,30 @@ body.bp.partners, body.bp.partner_categories
         width: 938px
         border-left-style: none
         +alternator(0px, 495px)
+        #partner_address
+          +float-left
+          width: 360px
+          h2
+            width: 300px
+          table
+            margin: 0 20px 40px 40px
+            td.left
+              width: 35%
         #google_map, #user_image
           +float-right
           margin-right: 40px
+          margin-top: 40px
+          padding-bottom: 40px
+          img
+            +single-box-shadow(white, 0, 0, 0, false, false)
         #user_image
           margin-right: 330px
           img
             +single-box-shadow(#999999, -6px, 4px, 8px, false, false)
-        table
-          +float-left
-          margin: 0 20px 40px 40px
-          width: 300px
-          td.left
-            width: 35%
         ul
           margin-left: 40px
-        h2
-          clear: both
+        //h2
+        //  clear: both
         section.partner_show
           p, h2
             width: 855px
