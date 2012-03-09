@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     @downloads = Download.with_query(params[:query]).order('created_at DESC').find(:all, :limit => 10)
     @faqs = Faq.find_with_index(params[:query],{:limit => 20})
     @chapters = ChapterContentArea.find_with_index(params[:query],{:limit => 20})
-    page_id = Page.find_all_name('Tutorials').id
+    page_id = Page.find_by_name('Tutorials').id
     @tutorials = ContentArea.with_query(params[:query]).where(:page_id => page_id).limit(10)
   end
 

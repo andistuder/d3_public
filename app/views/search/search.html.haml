@@ -21,15 +21,16 @@
         - for feature in @features do
           %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
     -if @case_studies.present?
-      %h2 Cast Studies
+      %h2 Case Studies
       %ul
-        - for case_study in @caes_studies do
+        - for case_study in @case_studies do
           %li= link_to case_study.name, case_study
     -if @partners.present?
       %h2 Partners
       %ul
         - for partner in @partners do
-          %li= link_to partner.name, "get-d3/#{partner.name}"
+          -if partner.partner_category.present?
+            %li= link_to partner.name, "#{partner_category_path(partner.partner_category)}/#{partner.slug}"
     -if @downloads.present?
       %h2 Downloads
       %ul
