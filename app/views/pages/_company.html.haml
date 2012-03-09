@@ -11,7 +11,10 @@
         %img{:src => @page.assets.first.asset.url(:medium), :alt => @page.assets.first.description}
     #company_left
       #company_map
-        map here
+        %a{:href => "http://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=127-129+Great+Suffolk+Street+London+SE1+1PP&sll=53.800651,-4.064941&sspn=12.709674,36.342773&ie=UTF8&hq=&hnear=Suffolk+House,+127-129+Great+Suffolk+St,+London+SE1+1PP,+United+Kingdom"}
+          %img{:alt => "map", :src => "http://maps.google.com/maps/api/staticmap?center=51.501249,-0.096824&zoom=15&size=286x179&sensor=false&markers=color:red|London+SE1+1PP&style=saturation:-100"}/
+
+
       #company_address
         - if @page.content_areas.find_by_name('Address').present?
           %h2= @page.content_areas.find_by_name('Address').name
