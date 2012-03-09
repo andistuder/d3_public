@@ -45,11 +45,11 @@
       %ul
         - for chapter in @chapters do
           %li= link_to chapter.title, chapter
-    -#-if @tutorials.present?
-    -#  %h2 Tutorials
-    -#  %ul
-    -#    - for tutorial in @tutorials do
-    -#      %li= link_to tutorial.name, "/support/tutorials"
+    -if @tutorials.present?
+      %h2 Tutorials
+      %ul
+        - for tutorial in @tutorials do
+          %li= link_to tutorial.name, "/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
 %section#prev_next_bar
   &nbsp;
 %section#related
