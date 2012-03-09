@@ -9,7 +9,7 @@
       .introduction
         %p= @partner_category.content
       %section
-        map here
+        -#TODO stage2: map here
       - for partner in @partner_category.partners do
         %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
           - if (@partner_category.name == "Rental Partners" || @partner_category.name == "d3 Studios Global") && partner.logo.present?
