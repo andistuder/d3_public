@@ -10,4 +10,6 @@ class Chapter < ActiveRecord::Base
 
   scope :find_parents, :order=>"sort_order ASC", :conditions => "parent_id IS NULL"
 
+  acts_as_indexed :fields => [:name, :summary, :content]
+
 end

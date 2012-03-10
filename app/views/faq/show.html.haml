@@ -11,7 +11,7 @@
         %h1= @faq_category.name
 
         - for faq in @faq_category.faqs do
-          .section
+          .section{:id => faq.question.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}
             %p.title
               %span.more
                 %a.driver

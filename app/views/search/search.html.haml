@@ -4,53 +4,18 @@
     %li &nbsp;
 .container
   %section#content
-    %h1= "Search results for: #{params[:query]}"
-    -if @news.present?
-      %h2 News items
-      %ul
-        - for news_item in @news do
-          %li= link_to news_item.headline, news_item
-    -if @projects.present?
-      %h2 Projects
-      %ul
-        - for project in @projects do
-          %li= link_to project.name, project
-    -if @features.present?
-      %h2 Features
-      %ul
-        - for feature in @features do
-          %li= link_to feature.name, "#{feature_category_path(feature.feature_category)}##{feature.slug}"
-    -if @case_studies.present?
-      %h2 Case Studies
-      %ul
-        - for case_study in @case_studies do
-          %li= link_to case_study.name, case_study
-    -if @partners.present?
-      %h2 Partners
-      %ul
-        - for partner in @partners do
-          -if partner.partner_category.present?
-            %li= link_to partner.name, "#{partner_category_path(partner.partner_category)}/#{partner.slug}"
-    -if @downloads.present?
-      %h2 Downloads
-      %ul
-        - for download in @downloads do
-          %li= link_to download.name, download
-    -if @faqs.present?
-      %h2 FAQs
-      %ul
-        - for faq in @faqs do
-          %li= link_to faq.question, faq
-    -if @chapters.present?
-      %h2 User Guide
-      %ul
-        - for chapter in @chapters do
-          %li= link_to chapter.title, chapter
-    -if @tutorials.present?
-      %h2 Tutorials
-      %ul
-        - for tutorial in @tutorials do
-          %li= link_to tutorial.name, "/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+
+    %h1 Search
+
+    - results = @projects.length + @news.length + @features.length + @case_studies.length + @partners.length + @downloads.length + @faqs.length + @chapters.length + @tutorials.length
+
+    %p= "#{pluralize(results, 'result')} for &quot;#{params[:query]}&quot;".html_safe
+
+    =render "news"
+    =render "support"
+    =render "what_is_d3"
+    =render "get_d3"
+    =render "projects"
 %section#prev_next_bar
   &nbsp;
 %section#related

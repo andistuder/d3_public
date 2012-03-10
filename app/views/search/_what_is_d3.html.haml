@@ -1,0 +1,16 @@
+-if @features.present?
+  %h2 Features
+  %ul
+    - for feature in @features do
+      %li
+        %h3= feature.name
+        = sanitize(textilize(truncate(feature.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+        %p= link_to "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}", "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}"
+-if @case_studies.present?
+  %h2 Case Studies
+  %ul
+    - for case_study in @case_studies do
+      %li
+        %h3= case_study.name
+        = sanitize(textilize(truncate(case_study.summary, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+        %p= link_to case_study_path(case_study,  :only_path => false), case_study_path(case_study,  :only_path => false)

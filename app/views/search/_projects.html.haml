@@ -1,0 +1,8 @@
+-if @projects.present?
+  %h2 Projects
+  %ul
+    - for project in @projects do
+      %li
+        %h3= project.name
+        = sanitize(textilize(truncate(project.summary, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+        %p= link_to project_path(project,  :only_path => false), project_path(project,  :only_path => false)
