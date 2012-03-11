@@ -4,6 +4,13 @@ FactoryGirl.define do
     slug "some-slug"
     created_at Time.now
   end
+
+  factory :tutorial_ca, :class => ContentArea do
+    name Faker::Lorem.words
+    content Faker::Lorem.paragraph
+    created_at Time.now
+  end
+
 end
 
 FactoryGirl.define do
