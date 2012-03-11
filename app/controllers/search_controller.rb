@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   def search
     @projects = Project.find_with_index(params[:query],{:limit => 20})
-    @news = NewsItem.with_query(:query => params[:query]).find_latest
+    @news = NewsItem.with_query(params[:query]).find_latest
     @features = Feature.find_with_index(params[:query],{:limit => 30})
     @case_studies = CaseStudy.find_with_index(params[:query],{:limit => 10})
     @partners = Partner.find_with_index(params[:query],{:limit => 10})
