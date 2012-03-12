@@ -1,3 +1,4 @@
 %ul
+  %li= link_to "Overview", "/projects"
   - for category in @project_categories do
-    %li= link_to category.name, "projects/categories/#{category.slug}"
+    %li= link_to category.name, "/projects/categories/#{category.slug}"
