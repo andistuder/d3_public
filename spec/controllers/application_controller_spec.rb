@@ -55,6 +55,20 @@ describe ApplicationController do
       assigns(:related_boxes).should_not be_nil
     end
 
+    it "assigns @news_items" do
+      @parents = []
+
+      30.times do |i|
+        @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+      end
+
+      @expected_range = @parents[0..1]
+      NewsItem.should_receive(:find_latest).and_return(@expected_range)
+
+      get :index
+      assigns(:news_items).should eq(@expected_range)
+    end
+
     #it "assigns @tweets" do
     #
     #  #require "twitter"

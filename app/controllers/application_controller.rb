@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_related_boxes
 
+  before_filter :get_latest_news
+
   private
 
   def get_related_boxes
@@ -26,4 +28,9 @@ class ApplicationController < ActionController::Base
     @og_site_name = D3::Application::SITE_NAME
     @og_admins = D3::Application::FB_ADMIN
   end
+
+  def get_latest_news
+    @news_items = NewsItem.find_latest
+  end
+
 end

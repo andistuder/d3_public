@@ -49,6 +49,14 @@ $(document).ready(function(){
         prev:   '#prevBtn'
     });
 
+    $("#news_scroll").cycle({
+        fx: 'scrollDown',
+        sync: true,
+		speed: 500,
+        timeout:  3000,
+        pause: true
+    });
+
     $('#content.home').parents('.container').addClass("home")
     $('#content.home').parents('#main').find('#breadcrumb').hide()
     $('#content.home').parents('#main').find('#prev_next_bar').hide()

@@ -1,6 +1,6 @@
 class NewsItemsController < ApplicationController
   def index
-    @news_items = NewsItem.find_latest
+    #@news_items = NewsItem.find_latest
   end
 
   def show

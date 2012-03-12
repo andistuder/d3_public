@@ -12,20 +12,21 @@ describe NewsItemsController do
 
   describe "GET index" do
 
-    before :each do
-      @expected_range = @parents[0..1]
-      NewsItem.should_receive(:find_latest).and_return(@expected_range)
-    end
+    #before :each do
+    #  @expected_range = @parents[0..1]
+    #  NewsItem.should_receive(:find_latest).and_return(@expected_range)
+    #end
 
     it "should be successful" do
       get 'index'
       response.should be_success
     end
 
-    it "assigns collection" do
-      get :index
-      assigns(:news_items).should eq(@expected_range)
-    end
+    #moved to application controller test
+    #it "assigns collection" do
+    #  get :index
+    #  assigns(:news_items).should eq(@expected_range)
+    #end
   end
 
 
