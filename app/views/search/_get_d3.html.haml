@@ -1,4 +1,4 @@
--if @partners.present?
+-if @partners.present? && @partners.first.partner_category.present?
   %h2 Partners
   %ul
     - for partner in @partners do

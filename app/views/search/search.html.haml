@@ -7,6 +7,12 @@
     %h1 Search
     - results = @projects.length + @news.length + @features.length + @case_studies.length + @partners.length + @downloads.length + @faqs.length + @chapters.length + @tutorials.length
     %p= "#{pluralize(results, 'result')} for &quot;#{params[:query]}&quot;".html_safe
+    .search_form
+      %form.search{:action => "/search", :name => "searchform"}
+        %input{:name => "query", :type => "text", :value => "Search", :title => "Search"}
+        = hidden_field_tag(:cat, request.fullpath.split(/[^0-9a-z-]/)[1])
+        %button.button{:type => "submit"}
+          =image_tag("arrow_grey_right.png")
     - if params[:cat] == "support"
       =render "support"
       =render "news"

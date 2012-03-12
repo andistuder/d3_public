@@ -70,6 +70,6 @@ module D3
 
     NEWS_INITIAL_LOAD = 10
     NEWS_PAGE_SIZE = 10
-    RESULT_TEXT_LENGHT = 200
+    RESULT_TEXT_LENGHT = 120
   end
 end

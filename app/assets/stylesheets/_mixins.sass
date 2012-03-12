@@ -78,3 +78,22 @@
   margin-bottom: 0
   text-transform: none
   font-weight: 600
+
+
+@mixin search_form
+  //+float-right
+  border: 1px solid $dark_grey_bg
+  +border-radius(10px)
+  background: white url('search_grey.png') no-repeat 5px center
+  input
+    margin-left: 30px
+    border-style: none
+    width: 160px
+  button
+    +border-right-radius(8px)
+    border-style: none
+    line-height: 24px
+    background-color: $light_grey_bg
+    +linear-gradient(color-stops($light_grey_bg, $dark_grey_bg))
+    margin: 0
+    padding: 0 8px 0 10px
