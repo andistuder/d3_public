@@ -1,5 +1,6 @@
-%ul#news_scroll
-  - for news_item in @news_items do
-    %li
-      News:
-      = link_to news_item.headline, news_item
+- if @news_items.length > 0
+  %ul#news_scroll
+    - for news_item in @news_items do
+      %li
+        News:
+        = link_to news_item.headline, news_item
