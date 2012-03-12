@@ -212,6 +212,12 @@ $(document).ready(function(){
         $(this).parents('.overlay').slideUp();
     });
 
+    $('#topnav ul a').each(function(){
+        if ($(this).attr("href").split('/')[1] == window.location.pathname.split('/')[1]) {
+            $(this).addClass('active');
+        }
+    });
+
     $('#breadcrumb ul a').each(function(){
         var ca = $(this).attr("href").split('/');
         var la = window.location.pathname.split('/')
