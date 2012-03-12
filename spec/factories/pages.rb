@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :tutorial_page, :class => Page do
+  factory :page, :class => Page do
     name Faker::Lorem.words
     slug "some-slug"
     created_at Time.now

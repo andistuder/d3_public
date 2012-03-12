@@ -12,7 +12,7 @@ describe SearchController do
       #@download = FactoryGirl.build :download
       #@faq = FactoryGirl.build :faq
       #@chapter = FactoryGirl.build :chapter
-      #@tutorial = FactoryGirl.build :tutorial_ca, :page => Factory(:tutorial_page)
+      #@tutorial = FactoryGirl.build :tutorial_ca, :page => Factory(:page)
 
       Project.should_receive(:find_with_index).and_return([])
       NewsItem.stub_chain(:with_query, :find_latest).and_return([])

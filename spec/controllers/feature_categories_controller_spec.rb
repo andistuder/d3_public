@@ -11,9 +11,19 @@ describe FeatureCategoriesController do
   end
 
   describe "GET index" do
+    before :each do
+      @page = FactoryGirl.build :page
+      Page.should_receive(:find_by_name).and_return(@page)
+    end
+
     it "assigns all feature_categories as @feature_categories" do
       get :index, {}
       assigns(:feature_categories).should eq([@feature_category, @feature_category2])
+    end
+
+    it "assigns @page" do
+      get 'index'
+      assigns(:page).should eq(@page)
     end
   end
 

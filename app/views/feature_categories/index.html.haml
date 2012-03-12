@@ -4,10 +4,8 @@
   %section#sidebar
     = render "sidebar"
   %section#content
-    %h1 Features
-    .introduction
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
-
+    -if @page.present?
+      = render :partial => "pages/page_content_header"
     - @feature_categories.each do |feature_category|
       %section.left_aligned
         -if feature_category.assets.present?

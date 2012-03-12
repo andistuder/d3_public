@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def index
     @project_categories = ProjectCategory.find_in_order
+    @page = Page.find_by_name('Projects')
   end
 
 end

@@ -24,7 +24,10 @@ describe PartnerCategoriesController do
     before :each do
       @test_pac = FactoryGirl.build :partner_category
       @test_pac1 = FactoryGirl.build :partner_category
+      @page = FactoryGirl.build :page
+
       PartnerCategory.should_receive(:find_in_order).and_return([@test_pac, @test_pac1])
+      Page.should_receive(:find_by_name).and_return(@page)
     end
 
     it "should be successful" do
@@ -35,6 +38,11 @@ describe PartnerCategoriesController do
     it "assigns @partner_categories" do
       get 'index'
       assigns(:partner_categories).should eq([@test_pac, @test_pac1])
+    end
+
+    it "assigns @page" do
+      get 'index'
+      assigns(:page).should eq(@page)
     end
   end
 

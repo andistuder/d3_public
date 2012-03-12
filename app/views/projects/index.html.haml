@@ -2,9 +2,8 @@
   = render "breadcrumb"
 .container
   %section#content.project_index
-    %h1 Projects
-    .introduction
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet felis at leo blandit volutpat eget vel lacus. Ut tempor varius elit, eget volutpat nibh pulvinar ac. Nullam rhoncus auctor dolor quis imperdiet.
+    -if @page.present?
+      = render :partial => "pages/page_content_header"
     - for project_category in @project_categories do
       - if project_category.projects.present?
         %section.project_cat.left_aligned

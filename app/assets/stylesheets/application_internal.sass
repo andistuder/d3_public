@@ -94,8 +94,8 @@ body.bp
           margin-right: 40px
           p
             margin: 0
-        p.summary
-          //min-height: 80px
+            a.read_more
+              +d3-button-link(14px, 6px, 'arrow_white_long.png')
         #social_bookmarks
           +float-right
           margin-top: 10px
@@ -111,23 +111,17 @@ body.bp
           img
             margin-top: 4px
             +single-box-shadow(#999999, 6px, 4px, 8px, false, false)
-          //h2, p
-          //  clear: both
-          //  overflow: hidden
-            //width: 390px #MSP this doesn't seem like a general style?
           p
             padding-bottom: 0
             margin-bottom: 0
             border-bottom-style: none
-          .read_more
+          p.read_more
             margin-top: 5px
             a
               +d3-button-link(12px, 2px, 'arrow_white_long.png')
         section.alternating:nth-of-type(2n)
           img, .wrapper
             +float-right
-          //img
-          //  +single-box-shadow(#999999, -6px, 4px, 8px, false, false)
         section.alternating
           ul
             margin-left: 40px
@@ -226,11 +220,4 @@ body.bp
       #social-bookmarks
         +float-right
 
-body.bp.pages
-  #main
-    .container
-      #content
-        .wrapper.static_page
-          margin-left: 40px
-          p, h2
-            margin-left: 0px
+

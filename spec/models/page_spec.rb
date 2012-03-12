@@ -34,10 +34,10 @@ describe Page do
 
         @pages = []
         3.times do |i|
-          @pages << FactoryGirl.create(:tutorial_page, :name => "some-page", :slug => "some-page", :created_at => Time.now - (1000 * i))
+          @pages << FactoryGirl.create(:page, :name => "some-page", :slug => "some-page", :created_at => Time.now - (1000 * i))
         end
 
-        @pages << FactoryGirl.create(:tutorial_page, :name => "home", :slug => "home", :created_at => Time.now - (100000))
+        @pages << FactoryGirl.create(:page, :name => "home", :slug => "home", :created_at => Time.now - (100000))
 
       end
       it "should find the first, newest page that matches" do
