@@ -4,18 +4,39 @@
     %li &nbsp;
 .container
   %section#content
-
     %h1 Search
-
     - results = @projects.length + @news.length + @features.length + @case_studies.length + @partners.length + @downloads.length + @faqs.length + @chapters.length + @tutorials.length
-
     %p= "#{pluralize(results, 'result')} for &quot;#{params[:query]}&quot;".html_safe
-
-    =render "news"
-    =render "support"
-    =render "what_is_d3"
-    =render "get_d3"
-    =render "projects"
+    - if params[:cat] == "support"
+      =render "support"
+      =render "news"
+      =render "what_is_d3"
+      =render "get_d3"
+      =render "projects"
+    - if params[:cat] == "what-is-d3"
+      =render "what_is_d3"
+      =render "projects"
+      =render "news"
+      =render "get_d3"
+      =render "support"
+    - if params[:cat] == "projects"
+      =render "projects"
+      =render "news"
+      =render "what_is_d3"
+      =render "get_d3"
+      =render "support"
+    - if params[:cat] == "get-d3"
+      =render "get_d3"
+      =render "news"
+      =render "what_is_d3"
+      =render "projects"
+      =render "support"
+    - else
+      =render "news"
+      =render "what_is_d3"
+      =render "support"
+      =render "get_d3"
+      =render "projects"
 %section#prev_next_bar
   &nbsp;
 %section#related
