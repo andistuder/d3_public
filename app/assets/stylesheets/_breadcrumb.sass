@@ -9,25 +9,14 @@ body.bp
       border-bottom-style: none
       overflow: hidden
       line-height: 40px
-      //font-weight: 200
-      a
-        +link-colors(black)
-      .parent
-        +float-left
-        padding: 0 6px 0 20px
-        background: #e8e8e8 url('breadcrumb_title_bg.png') repeat-x left top
       ul
         +horizontal-list
         +float-left
         li
           font-size: 16px
-          padding-left: 30px
           a
-            font-weight: 200
-          a.current
             font-weight: 400
-        li:first-of-type
-          padding-left: 40px
-          background-image: url('breadcrumb_title_arrow.png')
-          background-repeat: no-repeat
-          packground-position: left top
+            margin-left: 20px
+            +link-colors(#333333, $link_color, $link_color)
+          a.current
+            color: $link_color
