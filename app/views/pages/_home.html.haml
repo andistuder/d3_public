@@ -3,7 +3,7 @@
 .container
   %section#content.home
     - if @page.assets.present?
-      #slider.one-col
+      #slider.one-col.home
         - for asset in @page.assets do
           %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     - if @page.introduction.present?

@@ -46,7 +46,8 @@ $(document).ready(function(){
         requeueOnImageNotLoaded: true,
         pager: '#slider_nav',
         next:   '#nextBtn',
-        prev:   '#prevBtn'
+        prev:   '#prevBtn',
+        sync: true
     });
 
     $("#news_scroll").cycle({
