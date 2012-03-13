@@ -8,5 +8,11 @@ class PagesController < ApplicationController
 
       raise ActiveRecord::RecordNotFound
     end
+
+    @og_title = @page.name
+    @og_type = "Web page"
+    @og_url = request.url
+    @og_image = @page.assets.first.asset.url(:original) if @page.assets.present?
+    @og_description = textilize(Page.find_by_slug('company').introduction).strip_tags if @page.introduction.present?
   end
 end

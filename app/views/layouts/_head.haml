@@ -1,4 +1,4 @@
-%title= @page_title or "d3"
+%title= @og_title or D3::Application::SITE_NAME
 
 %meta{:property => "og:title",  :content => @og_title}
 %meta{:property => "og:type", :content => @og_type}
@@ -6,6 +6,8 @@
 %meta{:property => "og:image", :content => @og_image}
 %meta{:property => "og:site_name", :content => @og_site_name}
 %meta{:property => "fb:admins", :content => @og_admins}
+%meta{:property => "og:description", :content => @og_description}
+
 
 %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}
 %link{:href => "/assets/logo_80.png", :rel => "apple-touch-icon"}

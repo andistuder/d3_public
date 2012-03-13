@@ -62,9 +62,9 @@ module D3
 
     # CMS config
     # D3::Application::SITE_NAME
-    SITE_NAME = "UVA d3"
+    SITE_NAME = "d3 Technologies"
     SITE_URL = "http://uvad3.herokuapp.com/"
-    SITE_LOGO = "#{SITE_URL}assets/d3-logo.png"
+    SITE_LOGO = "#{SITE_URL}assets/logo_80.png"
     FB_ADMIN = "541838134"
     #TWITTER_NAME = "mattspendlove"
 

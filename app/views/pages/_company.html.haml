@@ -2,8 +2,7 @@
   = render "breadcrumb_company"
 .container
   %section#content.company
-    #social_bookmarks
-      TODO: social bookmarks here
+    = render "layouts/social_bookmarks"
     %h1= @page.name
     .company_wrapper
       .about_company= sanitize(textilize(@page.introduction))

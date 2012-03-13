@@ -27,6 +27,9 @@ class ApplicationController < ActionController::Base
     @og_image = D3::Application::SITE_LOGO
     @og_site_name = D3::Application::SITE_NAME
     @og_admins = D3::Application::FB_ADMIN
+    if Page.find_by_slug('company').present?
+      @og_description = textilize(Page.find_by_slug('company').introduction).strip_tags
+    end
   end
 
   def get_latest_news
