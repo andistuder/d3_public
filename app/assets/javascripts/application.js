@@ -257,6 +257,18 @@ $(document).ready(function(){
             $(this).find('ul').slideDown();
         }
     });
+    $.localScroll({
+        duration: 1000,
+        axis: 'y',
+        offset: {top:-40, left:0}
+    });
+//    $('.on_page').click(function(){
+//        var link = $(this).attr('href')
+//        $.scrollTo(link, {
+//                duration:3000
+//            });
+//    });
+
 });
 
 function calculateWindowHeight(){

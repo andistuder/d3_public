@@ -16,7 +16,7 @@
         = sanitize(textilize(content_area.content))
     %section{:id => "how_made", :class => "alternating"}
       -if @project.how_made_image.present?
-        %img{:src => @project.how_made_image.asset.url(:medium), :alt => @project.how_made_image.description}
+        %img{:src => @project.how_made_image.asset.url(:medium), :alt => @project.how_made_image.description, :class => "wrapped"}
       %h2= @project.how_made_title
       = sanitize(textilize(@project.how_made))
       .list-container
