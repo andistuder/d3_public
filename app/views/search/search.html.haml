@@ -1,16 +1,16 @@
 %section#breadcrumb
-  .parent= link_to "Search"
   %ul
-    %li &nbsp;
+    %li= link_to "Search", "/search"
 .container
   %section#content
     %h1 Search
     - results = @projects.length + @news.length + @features.length + @case_studies.length + @partners.length + @downloads.length + @faqs.length + @chapters.length + @tutorials.length
-    %p= "#{pluralize(results, 'result')} for &quot;#{params[:query]}&quot;".html_safe
+    - if params[:query].present?
+      %p.result_count= "#{pluralize(results, 'result')} for &quot;#{params[:query]}&quot;".html_safe
     .search_form
       %form.search{:action => "/search", :name => "searchform"}
-        %input{:name => "query", :type => "text", :value => "Search", :title => "Search"}
-        = hidden_field_tag(:cat, request.fullpath.split(/[^0-9a-z-]/)[1])
+        %input{:name => "query", :type => "text", :value => params[:query], :title => params[:query]}
+        = hidden_field_tag(:cat, params[:cat])
         %button.button{:type => "submit"}
           =image_tag("arrow_grey_right.png")
     - if params[:cat] == "support"

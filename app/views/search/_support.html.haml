@@ -31,4 +31,4 @@
     - for faq in @faqs do
       %li
         = sanitize(textilize(truncate(faq.question, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
-        %p= link_to "#{faq_path(faq.categories.first,  :only_path => false)}##{faq.question.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}""#{faq_path(faq.categories.first,  :only_path => false)}##{faq.question.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}"
+        %p= link_to "#{faq_path(faq.categories.first,  :only_path => false)} ##{faq.question.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}", "#{faq_path(faq.categories.first,  :only_path => false)}##{faq.question.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}"

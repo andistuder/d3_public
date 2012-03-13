@@ -233,7 +233,7 @@ $(document).ready(function(){
         }
     });
 
-     $('#search-form input[title]').each(function() {
+     $('form.search input[title]').each(function() {
       if($(this).val() === '') {
        $(this).val($(this).attr('title'));
       }
