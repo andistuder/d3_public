@@ -3,17 +3,4 @@ body.bp.pages
     .container
       #content.the_concept
         //+alternator(0px, 419px)
-        section.alternating
-
-          clear: both
-          img
-            //+float-left
-            margin-right: 40px
-            margin-left: 0
-            margin-bottom: 24px
-          p img
-            margin-top: 24px
-        section.alternating:nth-of-type(2n)
-          img
-            margin-left: 40px
-            margin-right: 0px
+        +alternator_wrapped(0px)

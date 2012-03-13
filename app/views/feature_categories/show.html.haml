@@ -3,7 +3,7 @@
 .container
   %section#sidebar.nav
     = render "sidebar"
-  %section#content
+  %section#content.detail
     = render "layouts/slideshow", :object => @feature_category, :full_width => false
     #social_bookmarks
       TODO: social bookmarks here
@@ -14,9 +14,8 @@
       %section{:id => feature.slug, :class => "alternating"}
         -if feature.asset.present?
           %img{:src => feature.asset.asset.url(:small), :alt => feature.asset.description}
-        .wrapper
-          %h2= feature.name
-          = sanitize(textilize(feature.content))
+        %h2= feature.name
+        = sanitize(textilize(feature.content))
 %section#prev_next_bar
   - if @feature_category.previous_feature_cat.present?
     .previous
