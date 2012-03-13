@@ -8,7 +8,7 @@
         %ul
           - for content_area in @page.content_areas do
             %li= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
-  %section#content.d3_studios
+  %section#content.d3_consulting
     = render "layouts/slideshow", :object => @page, :full_width => false
     #social_bookmarks
       TODO: social bookmarks here
@@ -16,7 +16,7 @@
     - for content_area in @page.content_areas do
       %section{:id => "#{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
         - if content_area.asset.present?
-          %img{:src => content_area.asset.asset.url(:small), :alt => content_area.asset.description}
+          %img{:src => content_area.asset.asset.url(:small), :alt => content_area.asset.description, :class => "wrapped"}
         %h2= content_area.name
         = sanitize(textilize(content_area.content))
         - if content_area.see_more_label.present? && content_area.see_more_url.present?

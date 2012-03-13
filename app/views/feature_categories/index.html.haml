@@ -3,7 +3,7 @@
 .container
   %section#sidebar.nav
     = render "sidebar"
-  %section#content.index
+  %section#content
     -if @page.present?
       = render :partial => "pages/page_content_header"
     - @feature_categories.each do |feature_category|

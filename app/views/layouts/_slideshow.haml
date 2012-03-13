@@ -3,31 +3,35 @@
     .display-none
       %iframe{:frameborder => "0", :height => "587px", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938px", :id => "vimeo_player"}
   - if object.assets.present?
-    %span#prevBtn.one-col
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    %span#nextBtn.one-col
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    - if object.assets.length > 1
+      %span#prevBtn.one-col
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+      %span#nextBtn.one-col
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
     #slider.one-col
       - for asset in object.assets do
         %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
     #slider_nav
   - if object.vimeo_id.present?
     .vimeo_link.one-col
-      |
+      - if object.assets.present?
+        = " | " if object.assets.length > 1
       =link_to "Video", "javascript:void(0);"
 - else
   - if object.vimeo_id.present?
     .display-none
       %iframe{:frameborder => "0", :height => "448", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "717", :id => "vimeo_player"}
   - if object.assets.present?
-    %span#prevBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
-    %span#nextBtn
-      =link_to "&nbsp;".html_safe, "javascript:void(0);"
+    - if object.assets.length > 1
+      %span#prevBtn
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
+      %span#nextBtn
+        =link_to "&nbsp;".html_safe, "javascript:void(0);"
     #slider
       - for asset in object.assets do
         %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
   - if object.vimeo_id.present?
     .vimeo_link
-      |
+      - if object.assets.present?
+        = " | " if object.assets.length > 1
       =link_to "Video", "javascript:void(0);"

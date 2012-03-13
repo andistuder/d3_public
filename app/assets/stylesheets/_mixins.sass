@@ -58,38 +58,46 @@
   section.alternating, section.left_aligned
     img
       margin-left: $img_margin
-    .wrapper
-      width: $text_width
-      padding: 0 40px
-      h2
-        margin: 0 0 18px 0
-      p, ul
-        margin: 0 0 14px 0
-      h3
-        margin: 0
-  section.alternating:nth-of-type(2n)
-    img
-      margin-left: 0
-      margin-right: $img_margin
-
-@mixin alternator_wrapped($img_margin)
-  section.alternating
-    img
+    img.wrapped
       margin-bottom: 22px
       margin-right: 40px
-      margin-left: $img_margin
-    p img
-      margin-top: 24px
     h2
       margin: 0 40px 18px 40px
     p, ul
       margin: 0 40px 14px 40px
     h3
       margin: 0 40px
+    .wrapper
+      width: $text_width
+      padding: 0 40px
+      h2, p, ul, h3
+        margin-left: 0
+        margin-right: 0
   section.alternating:nth-of-type(2n)
     img
-      margin-left: 40px
+      margin-left: 0
       margin-right: $img_margin
+    img.wrapped
+      margin-left: 40px
+
+//@mixin alternator_wrapped($img_margin)
+//  section.alternating
+//    img
+//      margin-bottom: 22px
+//      margin-right: 40px
+//      margin-left: $img_margin
+//    p img
+//      margin-top: 24px
+//    h2
+//      margin: 0 40px 18px 40px
+//    p, ul
+//      margin: 0 40px 14px 40px
+//    h3
+//      margin: 0 40px
+//  section.alternating:nth-of-type(2n)
+//    img
+//      margin-left: 40px
+//      margin-right: $img_margin
 @mixin d3_h3
   line-height: 1.8em
   margin-top: 0.7em

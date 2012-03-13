@@ -1,7 +1,7 @@
 %section#breadcrumb
   = render "breadcrumb"
 .container
-  %section#content.project_detail
+  %section#content
     = render "layouts/slideshow", :object => @project, :full_width => true
     #social_bookmarks
       TODO: social bookmarks here
@@ -11,7 +11,7 @@
     - for content_area in @project.project_content_areas.ordered do
       %section{:class => "alternating"}
         - if content_area.asset.present?
-          %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description}
+          %img{:src => content_area.asset.asset.url(:medium), :alt => content_area.asset.description, :class => "wrapped"}
         %h2= content_area.title
         = sanitize(textilize(content_area.content))
     %section{:id => "how_made", :class => "alternating"}

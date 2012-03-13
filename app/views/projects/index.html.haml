@@ -1,7 +1,7 @@
 %section#breadcrumb
   = render "breadcrumb"
 .container
-  %section#content.project_index
+  %section#content
     -if @page.present?
       = render :partial => "pages/page_content_header"
     - for project_category in @project_categories do
