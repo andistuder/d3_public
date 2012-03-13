@@ -30,29 +30,24 @@ body.bp.news_items
               margin-bottom: 0px
               margin: 0px 0px 0px 0px
           section
-            float: left
-            clear: none
             margin-top: 0px
-          section.copy
-            float: left
-            width: $span55
             margin-right: 0px
             p
-              width: $span5
               margin-left: 0px
               margin-right: 0px
-          section.image
-            width: $span25
+            a.wrapped
+              float: right
+              margin-left: 40px
+              margin-bottom: 24px
+              img
+                +single-box-shadow(white, 0, 0, 0, false, false)
         p.read_more
           text-transform: uppercase
           margin-top: 5px
           margin-bottom: 5px
-          //text-align: center
           border-bottom: none
           a
             +d3-button-link(18px, 5px, '')
-
-
         .more_news
           display: none
         .more_news_wrapper

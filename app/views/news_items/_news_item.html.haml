@@ -9,10 +9,12 @@
       %p.date= news_item.created_at.strftime("%d %B %Y")
 
     %section.copy
+      -if news_item.assets.present?
+        = link_to(image_tag(news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description), news_item, :class => "wrapped")
       - if(current_page?(:controller => 'news_items', :action => 'index') || current_page?(:controller => 'news_items', :action => 'next')) && news_item.summary.present?
         = sanitize(textilize(news_item.summary))
       -else
         = sanitize(textilize(news_item.content))
-    -if news_item.assets.present?
-      %section.image
-        = link_to(image_tag(news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description), news_item)
+    -#-if news_item.assets.present?
+    -#  %section.image
+    -#    = link_to(image_tag(news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description), news_item)
