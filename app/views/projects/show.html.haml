@@ -5,7 +5,7 @@
     = render "layouts/slideshow", :object => @project, :full_width => true
     #social_bookmarks
       TODO: social bookmarks here
-    %h1.after-slideshow= @project.name
+    %h1= @project.name
     .introduction
       = sanitize(textilize(@project.summary))
     - for content_area in @project.project_content_areas.ordered do

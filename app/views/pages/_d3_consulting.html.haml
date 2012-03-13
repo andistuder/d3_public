@@ -12,10 +12,7 @@
     = render "layouts/slideshow", :object => @page, :full_width => false
     #social_bookmarks
       TODO: social bookmarks here
-    %h1.after-slideshow= @page.name
-    - if @page.introduction.present?
-      .introduction
-        = sanitize(textilize(@page.introduction))
+    = render :partial => "page_content_header"
     - for content_area in @page.content_areas do
       %section{:id => "#{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
         - if content_area.asset.present?

@@ -5,7 +5,7 @@
     = render "layouts/slideshow", :object => @case_study, :full_width => true
     #social_bookmarks
       TODO: social bookmarks here
-    %h1.after-slideshow= "#{@case_study.name}, Case Study"
+    %h1= "#{@case_study.name}, Case Study"
     .introduction
       = sanitize(textilize(@case_study.introduction))
     #case_study_wrapper= sanitize(textilize(@case_study.content))

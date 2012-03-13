@@ -5,7 +5,7 @@
   TODO: social bookmarks here
 - if partner.partner_category.present?
   - if  partner.partner_category.name == "Distributors" || partner.partner_category.name == "d3 Studios Global"
-    %h1.after-slideshow= partner.name
+    %h1= partner.name
     .introduction
       %p= partner.summary
   - else
