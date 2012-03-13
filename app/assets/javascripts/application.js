@@ -233,27 +233,30 @@ $(document).ready(function(){
         }
     });
 
-     $('form.search input[title]').each(function() {
-      if($(this).val() === '') {
-       $(this).val($(this).attr('title'));
-      }
+    $('form.search input[title]').each(function() {
+        if($(this).val() === '') {
+            $(this).val($(this).attr('title'));
+        }
 
-      $(this).focus(function() {
-       if($(this).val() === $(this).attr('title')) {
-        $(this).val('').addClass('focused');
-       }
-      });
+        $(this).focus(function() {
+            if($(this).val() === $(this).attr('title')) {
+                $(this).val('').addClass('focused');
+            }
+        });
 
-      $(this).blur(function() {
-       if($(this).val() === '') {
-        $(this).val($(this).attr('title')).removeClass('focused');
-       }
-      });
-     });
+        $(this).blur(function() {
+            if($(this).val() === '') {
+                $(this).val($(this).attr('title')).removeClass('focused');
+            }
+        });
+    });
 
-
-
-
+    $('#sidebar.nav ul li').each(function(){
+        if ($(this).find('.category a').attr('id') == window.location.pathname.split('/')[3]) {
+            $(this).find('.category').addClass('active');
+            $(this).find('ul').slideDown();
+        }
+    });
 });
 
 function calculateWindowHeight(){

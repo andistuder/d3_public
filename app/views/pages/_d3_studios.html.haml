@@ -1,10 +1,10 @@
 %section#breadcrumb
   = render "breadcrumb"
 .container
-  %section#sidebar
+  %section#sidebar.nav
     %ul
       %li.level_one
-        Some title here?
+        .category.active= "What we do"
         %ul
           - for content_area in @page.content_areas do
             %li= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"

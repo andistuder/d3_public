@@ -1,6 +1,6 @@
 %ul
   %li.level_one
-    = "Categories"
+    .category.active= "Categories"
     %ul
       %li= link_to "All", download_categories_path
       - for category in @download_categories do
