@@ -1,7 +1,7 @@
 -if full_width == true
   - if object.vimeo_id.present?
     .display-none
-      %iframe{:frameborder => "0", :height => "587px", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938px", :id => "vimeo_player"}
+      %iframe{:frameborder => "0", :height => "586px", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938px", :id => "vimeo_player"}
   - if object.assets.present?
     - if object.assets.length > 1
       %span#prevBtn.one-col
@@ -10,7 +10,7 @@
         =link_to "&nbsp;".html_safe, "javascript:void(0);"
     #slider.one-col
       - for asset in object.assets do
-        %img{:src => asset.asset.url(:xl), :width => "938px", :height => "587px", :alt => asset.description}
+        %img{:src => asset.asset.url(:xl), :width => "938px", :height => "586px", :alt => asset.description}
     #slider_nav
   - if object.vimeo_id.present?
     .vimeo_link.one-col
