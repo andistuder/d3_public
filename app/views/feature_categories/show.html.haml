@@ -10,12 +10,13 @@
     %h1= @feature_category.name
     .introduction
       = sanitize(textilize(@feature_category.content))
-    - for feature in @feature_category.features.ordered do
-      %section{:id => feature.slug, :class => "alternating"}
-        -if feature.asset.present?
-          %img{:src => feature.asset.asset.url(:small), :alt => feature.asset.description, :class => "wrapped"}
-        %h2= feature.name
-        = sanitize(textilize(feature.content))
+    .alt_wrapper
+      - for feature in @feature_category.features.ordered do
+        %section{:id => feature.slug, :class => "alternating"}
+          -if feature.asset.present?
+            %img{:src => feature.asset.asset.url(:small), :alt => feature.asset.description, :class => "wrapped"}
+          %h2= feature.name
+          = sanitize(textilize(feature.content))
 %section#prev_next_bar
   - if @feature_category.previous_feature_cat.present?
     .previous

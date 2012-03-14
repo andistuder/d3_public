@@ -13,12 +13,14 @@
     #social_bookmarks
       TODO: social bookmarks here
     = render :partial => "page_content_header"
-    - for content_area in @page.content_areas do
-      %section{:id => "#{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
-        - if content_area.asset.present?
-          %img{:src => content_area.asset.asset.url(:small), :alt => content_area.asset.description, :class => "wrapped"}
-        %h2= content_area.name
-        = sanitize(textilize(content_area.content))
-        - if content_area.see_more_label.present? && content_area.see_more_url.present?
-          %p.read_more= link_to content_area.see_more_label, content_area.see_more_url, :class => "read_more"
+    = render "alternating_content_areas", :image_size => :small
+    -#.alt_wrapper
+    -#  - for content_area in @page.content_areas do
+    -#    %section{:id => "#{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}", :class => "alternating"}
+    -#      - if content_area.asset.present?
+    -#        %img{:src => content_area.asset.asset.url(:small), :alt => content_area.asset.description, :class => "wrapped"}
+    -#      %h2= content_area.name
+    -#      = sanitize(textilize(content_area.content))
+    -#      - if content_area.see_more_label.present? && content_area.see_more_url.present?
+    -#        %p.read_more= link_to content_area.see_more_label, content_area.see_more_url, :class => "read_more"
 

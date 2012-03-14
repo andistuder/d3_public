@@ -9,7 +9,11 @@
 //= require jquery-treeview/jquery.cookie.js
 //= require jquery-treeview/jquery.treeview.js
 //= require jquery.url.js
-//= require_tree .
+//= require rails_admin/ra.filter-box.js
+//= require jquery.cycle.all.js
+//= require jquery.localscroll-1.2.7-min.js
+//= require jquery.scrollTo-min.js
+//= require jquery.validate.js
 
 var grid_image = $('#container').css("background-image");
 var grid_size = $('#container').css("background-size");

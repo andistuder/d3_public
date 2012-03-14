@@ -7,9 +7,10 @@
   %head
     = render "layouts/head"
     = stylesheet_link_tag :application, :media => 'all'
-    /[if lt IE 8]
+    /[if (gte IE 6)&(lte IE 8)]
+      = javascript_include_tag :selectivizr
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
-
+    = javascript_include_tag :modernizr
   %body{ :class => "#{controller.controller_name} bp" }
     #container
       %header#header

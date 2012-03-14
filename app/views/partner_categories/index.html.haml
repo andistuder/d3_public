@@ -7,18 +7,19 @@
         TODO: social bookmarks here?
       -if @page.present?
         = render :partial => "pages/page_content_header"
-    - for partner_category in @partner_categories do
-      %section{:id => partner_category.slug, :class => "alternating"}
-        - if partner_category.assets.present?
-          %img{:src => partner_category.assets.first.asset.url(:medium), :alt => partner_category.assets.first.description}
-        .wrapper
-          %h2= partner_category.name
-          %p= partner_category.content
-          %p.read_more
-            - if partner_category.see_more_label.present?
-              =link_to partner_category.see_more_label, partner_category
-            -else
-              = link_to "See More", partner_category
+    .alt_wrapper
+      - for partner_category in @partner_categories do
+        %section{:id => partner_category.slug, :class => "alternating"}
+          - if partner_category.assets.present?
+            %img{:src => partner_category.assets.first.asset.url(:medium), :alt => partner_category.assets.first.description}
+          .wrapper
+            %h2= partner_category.name
+            %p= partner_category.content
+            %p.read_more
+              - if partner_category.see_more_label.present?
+                =link_to partner_category.see_more_label, partner_category
+              -else
+                = link_to "See More", partner_category
 
 %section#prev_next_bar
   &nbsp;
