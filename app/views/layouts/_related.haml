@@ -5,6 +5,6 @@
         %img{:src => related_box.asset.asset.url(:original), :alt => related_box.asset.description, :width => "218", :height => "200"}
       %h4= link_to related_box.name, related_box.link_url
       %p
-        = related_box.content
+        = sanitize(related_box.content)
         = "-"
         = link_to related_box.link_label, related_box.link_url

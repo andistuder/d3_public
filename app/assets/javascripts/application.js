@@ -256,12 +256,14 @@ $(document).ready(function(){
         });
     });
 
-    $('#sidebar.nav ul li').each(function(){
+    $('#sidebar.nav ul.activated li').each(function(){
         if ($(this).find('.category a').attr('id') == window.location.pathname.split('/')[3]) {
+            $(this).siblings().find('.category').removeClass('active');
             $(this).find('.category').addClass('active');
             $(this).find('ul').slideDown();
         }
     });
+
     $.localScroll({
         duration: 1000,
         axis: 'y',

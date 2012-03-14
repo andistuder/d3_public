@@ -3,11 +3,9 @@
 .container
   %section#sidebar.nav
     %ul
-      %li.level_one
-        .category.active= "What we do"
-        %ul
-          - for content_area in @page.content_areas do
-            %li= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+      - for content_area in @page.content_areas do
+        %li
+          .category= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
   %section#content.d3_consulting
     = render "layouts/slideshow", :object => @page, :full_width => false
     #social_bookmarks

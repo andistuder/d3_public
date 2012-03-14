@@ -1,4 +1,4 @@
-%ul
+%ul.activated
   - @feature_categories.each do |feature_category|
     %li
       .category= link_to feature_category.name, feature_category, :id => feature_category.slug
