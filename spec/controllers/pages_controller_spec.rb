@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PagesController do
 
   before :each do
-    @page = mock_model(Page, {:name => "test-page", :slug => "test-page"})
+    @page = FactoryGirl.build :page, :name => "test-page", :slug => "test-page"
   end
 
   describe "GET 'dynamic'" do
@@ -12,6 +12,7 @@ describe PagesController do
     describe "with page found" do
       before :each do
         Page.should_receive(:find_page).and_return(@page)
+        #Asset.stub(:asset).and_return(nil)
       end
 
 
@@ -23,17 +24,13 @@ describe PagesController do
     end
 
     describe "with page not found" do
-      #before :each do
-      #  Page.should_receive(:find_page).and_return(nil)
-      #end
-
-      it "should redirect successfully to the news page" do
-        pending "add once decided on action if page not present"
+      before :each do
+        Page.should_receive(:find_page).and_return(nil)
       end
 
-      #it "should be raise and error if page not found" do
-      #  lambda { get 'dynamic', :slug => "" }.should raise_error(ActiveRecord::RecordNotFound)
-      #end
+      it "should be raise and error if page not found" do
+        lambda { get 'dynamic', :slug => "" }.should raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end
