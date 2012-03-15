@@ -12,10 +12,8 @@ body.bp.pages
           margin-bottom: 0
         .introduction
           border-bottom: 0 none $dark_grey_bg
-          //padding-bottom: 20px
           margin-left: 0px
           margin-right: 0px
-
         #enquiry_form
           form.expander
             +expander
@@ -26,18 +24,16 @@ body.bp.pages
               margin-top: 20px
             h3
               margin-top: 30px
+            h3.read_more
+              a
+                +d3-button-link(14px, 6px, 'arrow_white_long.png')
             textarea, input.text_field, select, input.submit_button
               font-size: 16px
               +border-radius
               border: 1px solid $dark_grey_bg
               padding: 3px
-              //margin-bottom: 20px
-
             textarea, input.text_field, select
               width: 100%
-            //select
-              //width: 15%
-              //background: $link_color url('arrow_white_long.png') no-repeat right center
             table
               margin-top: 10px
               td
@@ -52,7 +48,6 @@ body.bp.pages
               border: 0px none $dark_grey_bg
               text-transform: uppercase
               font-size: 14px
-              //font-weight: 400
               +single-box-shadow(#999999, 1px, 1px, 1px, false, false)
               +single-text-shadow(#AAAAAA, 1px, 1px, 1px)
             .section
