@@ -6,7 +6,6 @@ FactoryGirl.define do
     summary Faker::Lorem.paragraph
     how_made Faker::Lorem.paragraph
     how_made_title Faker::Lorem.words
-    #assets [Factory(:asset)]
     created_at Time.now
   end
 
@@ -15,7 +14,6 @@ FactoryGirl.define do
     slug "pc-slug"
     summary Faker::Lorem.paragraph
     content Faker::Lorem.paragraph
-    #projects [Factory(:project)]
     created_at Time.now
   end
 
