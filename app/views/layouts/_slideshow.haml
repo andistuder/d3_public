@@ -15,7 +15,7 @@
   - if object.vimeo_id.present?
     .vimeo_link.one-col
       - if object.assets.present?
-        = " | " if object.assets.length > 1
+        = " | " if object.assets.length > 0
       =link_to "Video", "javascript:void(0);"
 - else
   - if object.vimeo_id.present?
@@ -30,8 +30,9 @@
     #slider
       - for asset in object.assets do
         %img{:src => asset.asset.url(:large), :width => "717px", :height => "448px", :alt => asset.description}
+    #slider_nav
   - if object.vimeo_id.present?
     .vimeo_link
       - if object.assets.present?
-        = " | " if object.assets.length > 1
+        = " | " if object.assets.length > 0
       =link_to "Video", "javascript:void(0);"
