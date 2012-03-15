@@ -32,18 +32,13 @@ $.easing.elasout = function(x, t, b, c, d) {
 $(document).ready(function(){
     $('#container').css("background", "transparent");
 
-    $('.hide_grid').click(function(){
-        $('#container').css("background", "transparent");
-    });
-
-    $('.show_grid').click(function(){
-        $('#container').css("background-image", grid_image);
-        $('#container').css("background-size", grid_size);
-    });
-
-//    $('.overlay_text').each(function(){
-//        var top_value = ($(this).height()+24)*-1+"px";
-//        $(this).css('top', top_value)
+//    $('.hide_grid').click(function(){
+//        $('#container').css("background", "transparent");
+//    });
+//
+//    $('.show_grid').click(function(){
+//        $('#container').css("background-image", grid_image);
+//        $('#container').css("background-size", grid_size);
 //    });
 
     $("#slider").cycle({

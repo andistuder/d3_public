@@ -5,7 +5,7 @@
   background: $link_color url($url) no-repeat right center
   +link-colors(white)
   padding: $padding 20px $padding 10px
-  +border-radius(4px)
+  +border-radius($radius)
   text-transform: uppercase
   font-size: $font-size
   font-weight: 400
@@ -38,7 +38,7 @@
       p
 
 @mixin floating_box($width)
-  +border-radius
+  +border-radius($radius)
   background-color: $light_grey_bg
   width: $width
   border: 1px solid $dark_grey_bg
@@ -109,16 +109,15 @@
 
 
 @mixin search_form
-  //+float-right
   border: 1px solid $dark_grey_bg
-  +border-radius(10px)
+  +border-radius($radius)
   background: white url('search_grey.png') no-repeat 5px center
   input
     margin-left: 30px
     border-style: none
     width: 160px
   button
-    +border-right-radius(8px)
+    +border-right-radius($radius)
     border-style: none
     line-height: 24px
     +background-image(linear-gradient($light_grey_bg, $dark_grey_bg))
