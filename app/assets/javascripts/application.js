@@ -49,7 +49,7 @@ $(document).ready(function(){
     $("#slider").cycle({
         fx: 'fade',
 		speed: 500,
-        timeout:  2000000,
+        timeout:  2000,
         pause: true,
         requeueOnImageNotLoaded: true,
         requeueTimeout: 100,
