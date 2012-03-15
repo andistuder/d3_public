@@ -11,15 +11,12 @@ body.bp.pages
             z-index: 1000
             position: relative
             width: 547px
-            //top: -224px
+            top: -570px
             left: 24px
-            +opacity(0.8)
-            background: black url('bg_home_slide.png') repeat top left
-
-            //background-color: black
+            background: transparent url('bg_home_slide.png') repeat top left
             +border-radius($radius)
+            overflow: hidden
             h1, p
-              +opacity(1)
               margin-left: 26px
               margin-right: 24px
               //overflow: hidden
@@ -33,10 +30,12 @@ body.bp.pages
               padding-top: 14px
             p
               color: #999999
-              margin-bottom: 20px
+              margin-bottom: 14px
               margin-right: 0
+              font-size: 20px
               a.read_more
                 +d3-button-link(16px, 6px, 'arrow_white_long.png')
                 box-shadow: none
+
             p:last-child
-              margin-bottom: 11px
+              margin-bottom: 6px
