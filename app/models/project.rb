@@ -13,6 +13,8 @@ class Project < ActiveRecord::Base
 
   acts_as_indexed :fields => [:name, :summary]
 
+  default_scope :order => 'sort_order ASC'
+
   def previous
     self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at asc")
   end

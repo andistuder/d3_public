@@ -17,7 +17,7 @@ describe EnquiriesController do
   describe "PUT 'send_subscription'" do
     it "should be successful" do
       put 'send_subscription'
-      response.should be_redirect
+      response.should be_success
     end
   end
 

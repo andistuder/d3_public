@@ -34,6 +34,7 @@ When /^I add those projects to the CMS$/ do
     fill_in "project_slug", :with => @projects[i][:slug]
     fill_in "project_summary", :with => @projects[i][:summary]
     fill_in "project_how_made_title", :with => @projects[i][:how_made_title]
+    fill_in "project_sort_order", :with => @projects[i][:sort_order]
     fill_in "project_how_made", :with => @projects[i][:how_made]
     within("#project_project_content_area_ids_field") do
       click_link "Choose all"
