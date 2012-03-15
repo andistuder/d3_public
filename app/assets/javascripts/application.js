@@ -41,13 +41,18 @@ $(document).ready(function(){
         $('#container').css("background-size", grid_size);
     });
 
+    $('.overlay_text').each(function(){
+        var top_value = $(this).height()*-1+"px";
+        $(this).css('top', top_value)
+    });
+
     $("#slider").cycle({
         fx: 'fade',
 		speed: 500,
         timeout:  2000,
         pause: true,
-        requeueTimeout: 500,
         requeueOnImageNotLoaded: true,
+        requeueTimeout: 100,
         pager: '#slider_nav',
         next:   '#nextBtn',
         prev:   '#prevBtn',

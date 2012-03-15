@@ -9,11 +9,6 @@
             %img{:src => asset.asset.url(:xl), :width => "938px", :height => "586px", :alt => asset.description}
             .overlay_text
               = sanitize(textilize(asset.overlay_text))
-    -#- if @page.introduction.present?
-      -##home_overlay
-      -##home_gradient
-      -##home_content
-      -#  = sanitize(textilize(@page.introduction))
 
 
 

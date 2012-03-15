@@ -5,33 +5,38 @@ body.bp.pages
       #content.home
         height: 586px
         padding-bottom: 0
-        .overlay_text
-          z-index: 1000
-          position: absolute
-          width: 547px
-          bottom: 24px
-          left: 24px
-          +opacity(0.8)
-          background-color: black
-          +border-radius($radius)
-          h1, p
-            +opacity(1)
-            margin-left: 26px
-            margin-right: 24px
-          h1
-            color: white
-            text-transform: uppercase
-            font-size: 36px
-            line-height: 1.2em
-            margin-right: 0
-            margin-bottom: 14px
-            padding-top: 14px
-          p
-            color: #999999
-            margin-bottom: 20px
-            margin-right: 0
-            a.read_more
-              +d3-button-link(16px, 6px, 'arrow_white_long.png')
-              box-shadow: none
-          p:last-child
-            margin-bottom: 11px
+        #slider
+          position: relative
+          .overlay_text
+            z-index: 1000
+            position: relative
+            width: 547px
+            //top: -224px
+            left: 24px
+            +opacity(0.8)
+            background: black url('bg_home_slide.png') repeat top left
+
+            //background-color: black
+            +border-radius($radius)
+            h1, p
+              +opacity(1)
+              margin-left: 26px
+              margin-right: 24px
+              //overflow: hidden
+            h1
+              color: white
+              text-transform: uppercase
+              font-size: 36px
+              line-height: 1.2em
+              margin-right: 0
+              margin-bottom: 14px
+              padding-top: 14px
+            p
+              color: #999999
+              margin-bottom: 20px
+              margin-right: 0
+              a.read_more
+                +d3-button-link(16px, 6px, 'arrow_white_long.png')
+                box-shadow: none
+            p:last-child
+              margin-bottom: 11px
