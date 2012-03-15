@@ -4,6 +4,9 @@
 // @include blueprint-ie
 
 //Recommended Blueprint configuration with scoping and semantic layout:
+//$blueprint-font-family: Arial, sans-serif
+//$blueprint-font-family: Arial, sans-serif
+
 body.bp
   //+blueprint-ie(true) TODO MSP
   // Note: Blueprint centers text to fix IE6 container centering.
@@ -14,3 +17,33 @@ body.bp
   // .my-container
   //   text-align: left
 
+  #header
+    #topnav
+      ul
+        li
+          a
+            background: #f8f8f8 url('nav_bg.png') top left repeat-x
+    #search-form
+      button
+        background: #f8f8f8 url('breadcrumb_nav_bg.png') top left repeat-x
+  #main
+    font-family: Arial, sans-serif
+    #breadcrumb
+      background: #f8f8f8 url('breadcrumb_nav_bg.png') top left repeat-x
+    .container
+      #sidebar.nav
+        ul.activated
+          li
+            .category.active
+              background: #f8f8f8 url('breadcrumb_nav_bg.png') top left repeat-x
+    #prev_next_bar
+      background: #f8f8f8 url('prv_nxt_bg.png') top left repeat-x
+    #related
+      ul
+        li
+          background: #f8f8f8 url('related_bg.png') top left repeat-x
+  #footer
+    font-family: Arial, sans-serif
+    #mailing-list-form
+      button
+        background: #f8f8f8 url('breadcrumb_nav_bg.png') top left repeat-x
