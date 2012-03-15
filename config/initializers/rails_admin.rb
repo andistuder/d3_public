@@ -33,6 +33,7 @@ else
       edit do
         field :name
         field :description
+        field :overlay_text
         field :created_at
         field :sort_order
         field :asset do
@@ -45,6 +46,7 @@ else
       list do
         field :name
         field :description
+        field :overlay_text
         field :sort_order
         field :asset do
           formatted_value do # used in form views
