@@ -250,7 +250,7 @@ $(document).ready(function(){
 
         $(this).focus(function() {
             if($(this).val() === $(this).attr('title')) {
-                $(this).val('').addClass('focused');
+                $(this).val('').addClass('focused').removeClass('submitted').removeClass('failed');
             }
         });
 
@@ -260,6 +260,22 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('#mailing-list-form form').bind('ajax:success', function(event, data, status, xhr) {
+        if (xhr.status == 200) {
+            var msg = 'Thanks for your interest in d3! We added you to the mailinglist.';
+            $('form.search input[title]').val(msg)
+            $('form.search input[title]').attr('title', msg)
+            $('form.search input[title]').addClass('submitted')
+        }
+
+    }).bind("ajax:error", function(evt, xhr, status, error){
+        var msg = "Something went wrong. Please try again or contact us on info@d3technologies.com";
+        $('form.search input[title]').val(msg)
+        $('form.search input[title]').attr('title', msg)
+        $('form.search input[title]').addClass('failed')
+    });
+
 
     $('#sidebar.nav ul.activated li').each(function(){
         if ($(this).find('.category a').attr('id') == window.location.pathname.split('/')[3]) {

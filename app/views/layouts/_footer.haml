@@ -15,10 +15,10 @@
   %li
     %h5= link_to "Get d3", partner_categories_path
     %ul
-      %li= link_to "Distributors", "/get_d3/distributors"
-      %li= link_to "Rental Partners", "/get_d3/rental-partner"
-      %li= link_to "Users", "get_d3/users/"
-      %li= link_to "d3 Studios Global", "get_d3/d3-studios-global"
+      %li= link_to "Distributors", "/get-d3/distributors"
+      %li= link_to "Rental Partners", "/get-d3/rental-partners"
+      -#%li= link_to "Users", "get-d3/users/"
+      %li= link_to "d3 Studios Global", "/get-d3/d3-studios-global"
   %li
     %h5= link_to "d3 Consulting", "/d3-consulting"
   %li
@@ -45,8 +45,8 @@
       %li= link_to "T&C", "/company/terms-and-conditions"
       %li= link_to "Privacy Policy", "/company/privacy-policy"
 #mailing-list-form
-  %form.search{:action => "/search", :name => "searchform"}
-    %input{:name => "query", :type => "text", :value =>"TODO Enter your email address to join the d3 mailing list"}
+  = form_tag("/send_subscription", :method => "put", :class => "search", :remote => true) do
+    %input{:name => "email", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
     %button.button{:type => "submit"}
       = "Add me to the list"
       = image_tag("arrow_grey_right.png")

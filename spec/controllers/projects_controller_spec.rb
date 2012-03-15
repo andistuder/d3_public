@@ -8,7 +8,7 @@ describe ProjectsController do
       @test_project = FactoryGirl.build :project
       @test_cat = FactoryGirl.build :project_category
       Project.should_receive(:find).and_return(@test_project)
-      ProjectCategory.should_receive(:find_in_order).and_return([@test_cat])
+      ProjectCategory.should_receive(:find_in_order).twice.and_return([@test_cat])
     end
 
     it "should be successful" do
@@ -33,7 +33,7 @@ describe ProjectsController do
       @test_project_category1 = FactoryGirl.build :project_category
       @page = FactoryGirl.build :page
 
-      ProjectCategory.should_receive(:find_in_order).and_return([@test_project_category, @test_project_category1])
+      ProjectCategory.should_receive(:find_in_order).twice.and_return([@test_project_category, @test_project_category1])
       Page.should_receive(:find_by_name).and_return(@page)
 
     end

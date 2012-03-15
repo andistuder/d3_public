@@ -7,7 +7,7 @@ describe ProjectCategoriesController do
       @test_project_cat = FactoryGirl.build :project_category
 
       ProjectCategory.should_receive(:find).and_return(@test_project_cat)
-      ProjectCategory.should_receive(:find_in_order).and_return([@test_project_cat])
+      ProjectCategory.should_receive(:find_in_order).twice.and_return([@test_project_cat])
     end
 
     it "should be successful" do

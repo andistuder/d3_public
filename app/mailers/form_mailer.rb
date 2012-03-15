@@ -9,4 +9,13 @@ class FormMailer < ActionMailer::Base
     mail(:to => "andi@cenatus.org", :subject => "d3 web enquiry")
   end
 
+  def mailer_email(form_content)
+    @form_content = form_content
+    #TODO enter right email
+    #mail(:to => "mailinglist@d3technologies.com", :subject => "mailing list subscription")
+    mail(:to => "andi@cenatus.org", :subject => "mailing list subscription")
+  end
+
+
+
 end

@@ -56,6 +56,7 @@ D3::Application.routes.draw do
   root :to => "pages#dynamic", :slug => "home"
 
   match "send_enquiry" => "enquiries#send_enquiry"
+  match "send_subscription" => "enquiries#send_subscription"
 
   match "page_content_areas/:page_id/:name" => "content_areas#page_content_areas", :as => :page_content_areas
   match "/:slug" => "pages#dynamic", :as => :pages

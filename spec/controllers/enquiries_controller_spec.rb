@@ -14,4 +14,11 @@ describe EnquiriesController do
     end
   end
 
+  describe "PUT 'send_subscription'" do
+    it "should be successful" do
+      put 'send_subscription'
+      response.should be_redirect
+    end
+  end
+
 end
