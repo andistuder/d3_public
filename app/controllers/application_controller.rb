@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_latest_news
 
+  before_filter :get_project_categories
+
   private
 
   def get_related_boxes
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
     else
       @related_boxes = RelatedBox.limit(4)
     end
+  end
+
+  def get_project_categories
+    @project_categories = ProjectCategory.find_in_order
   end
 
   def set_facebook_headers

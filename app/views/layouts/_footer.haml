@@ -7,32 +7,11 @@
       %li= link_to "Workflow", "/what-is-d3/workflow"
       %li= link_to "Case Studies", case_studies_path
   %li
-    %h5= link_to "Projects", projects_path
-    %ul
-      %li= link_to "Architectural", "#"
-      %li= link_to "TV", "#"
-      %li= link_to "Art", "#"
-      %li= link_to "Concerts", "#"
-      %li= link_to "Theatre", "#"
-      %li= link_to "Mapping", "#"
-      %li= link_to "Film", "#"
-  %li
     %h5= link_to "Products", "/products"
     %ul
-      %li= link_to "4U", "/products/4u"
-      %li= link_to "2U", "/products/2u"
       %li= link_to "d3 Designer", "products/d3-designer"
-
-  %li
-    %h5= link_to "d3 Consulting", "/d3-consulting"
-    %ul
-      %li= link_to "Feasibility", "#"
-      %li= link_to "Customisation", "#"
-      %li= link_to "Project Setup", "#"
-      %li= link_to "Delivery", "#"
-      %li= link_to "Technical", "#"
-      %li= link_to "On-site", "#"
-      %li= link_to "Consultancy", "#"
+      %li= link_to "2U", "/products/2u"
+      %li= link_to "4U", "/products/4u"
   %li
     %h5= link_to "Get d3", partner_categories_path
     %ul
@@ -41,26 +20,30 @@
       %li= link_to "Users", "get_d3/users/"
       %li= link_to "d3 Studios Global", "get_d3/d3-studios-global"
   %li
+    %h5= link_to "d3 Consulting", "/d3-consulting"
+  %li
+    %h5= link_to "Projects", projects_path
+    %ul
+      - for category in @project_categories do
+        %li= link_to category.name, "/projects/categories/#{category.slug}"
+  %li
     %h5= "Support"
     %ul
-      %li= link_to "Knowledge Base", "#"
-      %li= link_to "Training", "#"
-      %li= link_to "Downloads", "#"
-      %li= link_to "FAQs", "#"
-      %li= link_to "Contact", "#"
+      %li= link_to "User Guide", "/support/user-guide"
+      %li= link_to "FAQ", "/support/faq/most-popular"
+      %li= link_to "Tutorials", "/support/tutorials"
+      %li= link_to "Training", "/support/training"
+      %li= link_to "Announcements", "/news"
+      %li= link_to "Downloads", "/support/downloads"
+  %li
+    %h5= link_to "News", news_items_path
   %li
     %h5= "Company"
     %ul
-      %li= link_to "About Us", "/company"
-      %li= link_to "Enquiry Form", "/company/enquiry-form"
       %li= link_to "Jobs", "/company/jobs"
-      %li= link_to "News", "/news"
-  %li
-    %h5= "Legal"
-    %ul
+      %li= link_to "Enquiry Form", "/company/enquiry-form"
       %li= link_to "T&C", "/company/terms-and-conditions"
       %li= link_to "Privacy Policy", "/company/privacy-policy"
-
 #mailing-list-form
   %form.search{:action => "/search", :name => "searchform"}
     %input{:name => "query", :type => "text", :value =>"TODO Enter your email address to join the d3 mailing list"}
