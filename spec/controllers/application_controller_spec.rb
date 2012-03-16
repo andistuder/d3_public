@@ -69,6 +69,15 @@ describe ApplicationController do
       assigns(:news_items).should eq(@expected_range)
     end
 
+    it "assigns @project_categories" do
+      pending
+
+    end
+
+    it "assigns @consulting_areas" do
+      pending
+    end
+
     #it "assigns @tweets" do
     #
     #  #require "twitter"

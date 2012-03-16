@@ -24,7 +24,11 @@ class ApplicationController < ActionController::Base
 
   def get_footer_items
     @project_categories = ProjectCategory.find_in_order
-    @consulting_areas =  Page.find_by_slug('d3-consulting').content_areas.limit(6)
+      if Page.find_by_slug('d3-consulting').present?
+        @consulting_areas =  Page.find_by_slug('d3-consulting').content_areas.limit(6)
+      else
+        @consulting_areas = nil
+      end
   end
 
   def set_facebook_headers
@@ -36,6 +40,8 @@ class ApplicationController < ActionController::Base
     @og_admins = D3::Application::FB_ADMIN
     if Page.find_by_slug('company').present?
       @og_description = textilize(Page.find_by_slug('company').introduction).strip_tags
+    else
+      @og_description = ""
     end
   end
 
