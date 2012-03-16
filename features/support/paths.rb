@@ -43,6 +43,9 @@ module NavigationHelpers
     when /the downloads page/
       "/support/downloads"
 
+    when /the announcements page/
+      "/support/announcements"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

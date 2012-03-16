@@ -20,6 +20,9 @@ D3::Application.routes.draw do
 
     resources :downloads, :only => [:show], :path => "download-item"
 
+    match "announcements" => "news_items#announcements"
+    match "announcements/next/:page" => "news_items#next_announcements"
+    match "announcements/:id" => "news_items#show"
     scope "user-guide" do
       match "" => "knowledge_base#user_guide"
       match "chapters/:parent/:id" => "chapters#show", :as => "chapter"
@@ -35,6 +38,7 @@ D3::Application.routes.draw do
   end
 
   match "news/next/:page" => "news_items#next"
+
   match "support/downloads/:cat/next/:page" => "download_categories#next"
   match "support/downloads/next/:page" => "download_categories#next"
 

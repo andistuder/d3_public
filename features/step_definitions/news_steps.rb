@@ -3,6 +3,13 @@ Given /^the seeded 25 news items$/ do
   25.times do
     FactoryGirl.create :news_item, :categories => [@cat]
   end
+  end
+
+Given /^the seeded 25 announcement items$/ do
+  @cat = FactoryGirl.create :category, :name => 'Product updates'
+  25.times do
+    FactoryGirl.create :news_item, :categories => [@cat]
+  end
 end
 
 When /^I should see ten more items$/ do
@@ -19,9 +26,13 @@ Given /^the following news items:$/ do |n|
   @news = n.hashes
 end
 
-Given /the seeded the category 'General'/ do
-  FactoryGirl.create :category, :name => 'General'
+
+Given /the seeded the category (.+)$/ do |cat_name|
+  FactoryGirl.create :category, :name => cat_name
 end
+#Given /the seeded the category 'General'/ do
+#  FactoryGirl.create :category, :name => 'General'
+#end
 
 When /^I added those news items to the CMS$/ do
 

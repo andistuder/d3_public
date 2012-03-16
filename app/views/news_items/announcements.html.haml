@@ -1,0 +1,18 @@
+%section#breadcrumb
+  = render "breadcrumb"
+.container
+  %section#content
+    %header
+      %h1.underlined Latest News
+
+    = render @news_items, :locals => {:title => false}
+
+    .more_news
+
+    %p.read_more= link_to "SHOW 10 MORE", "/support/announcements/next/1", :remote => true, :class => "show_more"
+    %p#no_data_found= link_to "NO MORE ITEMS", ""
+
+%section#prev_next_bar
+  &nbsp;
+%section#related
+  = render "layouts/related"

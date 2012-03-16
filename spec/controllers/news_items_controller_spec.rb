@@ -13,6 +13,7 @@ describe NewsItemsController do
 
   describe "GET index" do
 
+    #moved to application controller test
     #before :each do
     #  @expected_range = @parents[0..1]
     #  NewsItem.should_receive(:find_latest).and_return(@expected_range)
@@ -28,6 +29,27 @@ describe NewsItemsController do
     #  get :index
     #  assigns(:news_items).should eq(@expected_range)
     #end
+  end
+
+  describe "GET announcements" do
+    before :each do
+      @category_p = FactoryGirl.build(:category, :name => "Product updates")
+      @parents = []
+      30.times do |i|
+        @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i), :categories => [@category_p])
+      end
+      @expected_range = @parents[0..9]
+      NewsItem.should_receive(:find_latest_product_updates).and_return(@expected_range)
+    end
+
+    it "should be successful" do
+      get :announcements
+      response.should be_success
+    end
+    it "assigns collection" do
+      get :announcements
+      assigns(:news_items).should eq(@expected_range)
+    end
   end
 
 
@@ -81,5 +103,9 @@ describe NewsItemsController do
       end
     end
 
+  end
+
+  describe "GET news/next/page" do
+    pending "necessary - or equal to GET news/next/page"
   end
 end
