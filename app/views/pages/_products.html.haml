@@ -22,6 +22,5 @@
       = render "product_item", :name => "4u", :can => "4u CAN ..."
     %section#compare_products_table
       - for comparison_table in @page.content_areas.where(:name => 'Compare d3 Products') do
-        %h2= sanitize(comparison_table.name)
         = textilize(comparison_table.content).html_safe
 
