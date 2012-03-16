@@ -8,8 +8,6 @@
           .category= link_to content_area.name, "##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
   %section#content.d3_consulting
     = render "layouts/slideshow", :object => @page, :full_width => false
-    #social_bookmarks
-      TODO: social bookmarks here
     = render :partial => "page_content_header"
     = render "alternating_content_areas", :image_size => :small
     -#.alt_wrapper

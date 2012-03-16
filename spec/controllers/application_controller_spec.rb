@@ -29,7 +29,7 @@ describe ApplicationController do
     it "assigns @og_url" do
       get 'index'
       assigns(:og_url).should_not be_nil
-      assigns(:og_url).should eq(D3::Application::SITE_URL)
+      assigns(:og_url).should eq("http://test.host/anonymous")
     end
 
     it "assigns @og_image" do
