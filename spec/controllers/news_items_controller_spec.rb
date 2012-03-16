@@ -3,10 +3,11 @@ require 'spec_helper'
 describe NewsItemsController do
 
   before :each do
+    @category = FactoryGirl.build(:category, :name => "General")
     @parents = []
 
     30.times do |i|
-      @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+      @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i), :categories => [@category])
     end
   end
 

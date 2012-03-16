@@ -18,7 +18,7 @@ else
     # config.audit_with :paper_trail, User
 
     #config.included_models = ["Asset", "FeatureCategory", "Feature", "Category", "ContentArea", "Page", "User", "NewsItem"]
-    config.excluded_models = [Category]
+    #config.excluded_models = [Category]
 
     config.models do
       list do
@@ -71,6 +71,12 @@ else
     #############
     config.model Feature do
       parent FeatureCategory
+    end
+
+    config.model NewsItem do
+      object_label_method do
+        :headline
+      end
     end
 
     #############

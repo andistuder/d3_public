@@ -9,6 +9,7 @@ Feature: News
   @javascript
   Scenario: Creating and viewing a News Item as an admin
     Given I am logged in as "admin@d3.com"
+    And the seeded the category 'General'
     And the following news items:
       | headline                 | content                                           |
       | Stop press, new D3 model | We could talk to you about it in great depth here |

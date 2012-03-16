@@ -9,16 +9,19 @@ describe NewsItem do
   it { should validate_presence_of(:content) }
 
   it { should have_and_belong_to_many(:assets) }
+  it { should have_and_belong_to_many(:categories) }
 
 
   describe "database finders" do
 
     describe "find_latest" do
       before :each do
+        @category = FactoryGirl.build(:category, :name => "General")
+
         @parents = []
 
         5.times do |i|
-          @parents << FactoryGirl.create(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+          @parents << FactoryGirl.create(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i), :categories => [@category])
         end
       end
       it "should load 10 records, newest first" do
@@ -29,10 +32,12 @@ describe NewsItem do
 
     describe "find_next" do
       before :each do
+        @category = FactoryGirl.build(:category, :name => "General")
+
         @parents = []
 
         30.times do |i|
-          @parents << FactoryGirl.create(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+          @parents << FactoryGirl.create(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i), :categories => [@category])
         end
       end
       it "should load 10 records, newest first, excluding the first 10" do

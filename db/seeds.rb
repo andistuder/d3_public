@@ -7,14 +7,19 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 
-PARTNERCATS = {
-  "users" => "Users",
-  "rental_partners" => "Rental Partners",
-  "distributors" => "Distributors",
-  "previs_studios" => "Previs Studios"
-}
+#PARTNERCATS = {
+#  "users" => "Users",
+#  "rental_partners" => "Rental Partners",
+#  "distributors" => "Distributors",
+#  "previs_studios" => "Previs Studios"
+#}
+#
+#PARTNERCATS.each do |slug, name|
+#  attributes = {:name => name, :slug => slug}
+#  PartnerCategory.create(attributes) unless PartnerCategory.exists?(attributes)
+#end
 
-PARTNERCATS.each do |slug, name|
-  attributes = {:name => name, :slug => slug}
-  PartnerCategory.create(attributes) unless PartnerCategory.exists?(attributes)
-end
+
+Category.create(:name => 'General') unless Category.find_by_name('general').present?
+Category.create(:name => 'Product updates') unless Category.find_by_name('Product updates').present?
+

@@ -1,6 +1,7 @@
 Given /^the seeded 25 news items$/ do
+  @cat = FactoryGirl.create :category, :name => 'General'
   25.times do
-    FactoryGirl.create :news_item
+    FactoryGirl.create :news_item, :categories => [@cat]
   end
 end
 
@@ -18,6 +19,10 @@ Given /^the following news items:$/ do |n|
   @news = n.hashes
 end
 
+Given /the seeded the category 'General'/ do
+  FactoryGirl.create :category, :name => 'General'
+end
+
 When /^I added those news items to the CMS$/ do
 
   create_placeholder_image
@@ -30,6 +35,9 @@ When /^I added those news items to the CMS$/ do
     #fill_in "news_item_summary", :with => @news[i][:summary]
     fill_in "news_item_content", :with => @news[i][:content]
     within("#news_item_asset_ids_field") do
+      click_link "Choose all"
+    end
+    within("#news_item_category_ids_field") do
       click_link "Choose all"
     end
     click_button "Save"

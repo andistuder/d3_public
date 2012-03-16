@@ -56,10 +56,11 @@ describe ApplicationController do
     end
 
     it "assigns @news_items" do
+      @category = FactoryGirl.build(:category, :name => "General")
       @parents = []
 
       30.times do |i|
-        @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i))
+        @parents << FactoryGirl.build(:news_item, :headline => "headline#{i}", :created_at => Time.now - (1000 * i), :categories => [@category])
       end
 
       @expected_range = @parents[0..1]

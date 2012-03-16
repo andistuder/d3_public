@@ -21,9 +21,10 @@
       %li= link_to "d3 Studios Global", "/get-d3/d3-studios-global"
   %li
     %h5= link_to "d3 Consulting", "/d3-consulting"
-    %ul
-      - for content_area in @consulting_areas do
-        %li= link_to content_area.name, "/#{content_area.page.slug}##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+    - if @consulting_areas.present?
+      %ul
+        - for content_area in @consulting_areas do
+          %li= link_to content_area.name, "/#{content_area.page.slug}##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
   %li
     %h5= link_to "Projects", projects_path
     %ul
