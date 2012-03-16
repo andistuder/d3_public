@@ -2,6 +2,7 @@
   = render "projects/breadcrumb"
 .container
   %section#content
+    = render "layouts/social_bookmarks"
     %h1= @project_category.name
     .introduction
       %p= @project_category.content

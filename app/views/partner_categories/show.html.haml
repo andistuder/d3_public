@@ -5,6 +5,7 @@
     -if @partner_category.name == "Distributors" && @partner_category.partners.present?
       = render "partners/partner_content", :partner => @partner_category.partners.first
     - else
+      = render "layouts/social_bookmarks"
       %h1= @partner_category.name
       .introduction
         %p= @partner_category.content

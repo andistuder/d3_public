@@ -2,6 +2,7 @@
   = render "breadcrumb"
 .container
   %section#content
+
     = render :partial => "news_item", :locals => {:title => true, :news_item => @news_item}
 
 %section#prev_next_bar

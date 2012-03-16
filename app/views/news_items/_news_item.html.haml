@@ -5,8 +5,8 @@
 -else
   - slug = news_item_path(news_item)
 
+= render "layouts/social_bookmarks"
 %h1= news_item.headline if title
-
 %article.news_item
   .wrapper
     %header
@@ -21,6 +21,3 @@
       - elsif(current_page?(:controller => 'news_items', :action => 'announcements') || current_page?(:controller => 'news_items', :action => 'next_announcement')) && news_item.summary.present?
       -else
         = sanitize(textilize(news_item.content))
-    -#-if news_item.assets.present?
-    -#  %section.image
-    -#    = link_to(image_tag(news_item.assets.first.asset.url(:small), :alt => news_item.assets.first.description), news_item)

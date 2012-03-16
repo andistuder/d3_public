@@ -3,8 +3,7 @@
 .container
   %section#content
     = render "layouts/slideshow", :object => @project, :full_width => true
-    #social_bookmarks
-      TODO: social bookmarks here
+    = render "layouts/social_bookmarks"
     %h1= @project.name
     .introduction
       = sanitize(textilize(@project.summary))

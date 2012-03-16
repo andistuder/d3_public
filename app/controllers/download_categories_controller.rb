@@ -3,13 +3,15 @@ class DownloadCategoriesController < ApplicationController
   def index
     @download_categories = DownloadCategory.all(:order => "sort_order ASC")
     @downloads = Download.find_latest
+    @og_title = "Downloads - #{@og_site_name}"
+
   end
 
   def show
     @download_category = DownloadCategory.find(params[:id])
     @download_categories = DownloadCategory.all(:order => "sort_order ASC")
-    #@downloads = @download_category.downloads.find_latest
-    #@downloads = DownloadCategory.find(params[:id]).downloads.find_latest
+    @og_title = "Downloads - #{@og_site_name}"
+
   end
 
   def next

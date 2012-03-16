@@ -4,6 +4,8 @@ class FaqController < ApplicationController
     @faq_category = FaqCategory.first if !@faq_category.present?
 
     redirect_to :action => "show", :id => @faq_category.friendly_id
+    @og_title = "FAQs - #{@og_site_name}"
+
   end
 
   def show
@@ -15,5 +17,7 @@ class FaqController < ApplicationController
       @faq_category = FaqCategory.find(params[:id])
       @faq_categories = FaqCategory.order("sort_order ASC")
     end
+    @og_title = "FAQ - #{@og_site_name}"
+
   end
 end

@@ -5,8 +5,7 @@
     = render "sidebar"
   %section#content.detail
     = render "layouts/slideshow", :object => @feature_category, :full_width => false
-    #social_bookmarks
-      TODO: social bookmarks here
+    = render "layouts/social_bookmarks"
     %h1= @feature_category.name
     .introduction
       = sanitize(textilize(@feature_category.content))

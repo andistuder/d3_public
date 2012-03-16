@@ -2,6 +2,7 @@
   = render "feature_categories/breadcrumb"
 .container
   %section#content
+    = render "layouts/social_bookmarks"
     - if @page.present?
       = render :partial => "pages/page_content_header"
     - for workflow_item in @workflow_items do

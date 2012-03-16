@@ -5,6 +5,7 @@
     = render :partial => "sidebar"
   %section#content
     %article#faqs.expander
+      = render "layouts/social_bookmarks"
 
       - if @faq_category
         %h1= @faq_category.name

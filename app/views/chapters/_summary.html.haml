@@ -1,6 +1,7 @@
 #viewport
   - if chapter_detail.present?
     #chapter_detail.page.expander.hidden
+      = render "layouts/social_bookmarks"
       %h1= chapter_detail.name
 
       =textilize(chapter_detail.content).html_safe
@@ -18,6 +19,7 @@
               =image_tag(asset.asset.url(), :style => "height: 400px")
 
   .page.intro.hidden
+    = render "layouts/social_bookmarks"
     %h1 User Guide
     - if @user_guide_intro
       .introduction= sanitize(textilize(@user_guide_intro.content))

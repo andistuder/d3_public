@@ -5,6 +5,7 @@
     = render "sidebar"
   %section#content
     %header
+      = render "layouts/social_bookmarks"
       %h1.underlined= "#{@download_category.name} downloads"
     = render "download_items", :downloads => @download_category.downloads.find_latest
     .more_news

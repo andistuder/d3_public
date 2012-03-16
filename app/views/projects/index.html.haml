@@ -2,6 +2,7 @@
   = render "breadcrumb"
 .container
   %section#content
+    = render "layouts/social_bookmarks"
     -if @page.present?
       = render :partial => "pages/page_content_header"
     = render "project_categories/quilt", :large_item => @featured_projects.first, :all_items => @featured_projects

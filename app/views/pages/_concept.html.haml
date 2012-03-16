@@ -2,9 +2,7 @@
   = render "feature_categories/breadcrumb"
 .container
   %section#content.the_concept
-    #social_bookmarks
-      TODO: social bookmarks here
-    = render :partial => "page_content_header"
+    = render "page_content_header"
     -#= render "alternating_content_areas", :image_size => :medium
     - for content_area in @page.content_areas do
       %section{:class => "alternating"}

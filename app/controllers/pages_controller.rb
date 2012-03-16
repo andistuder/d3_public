@@ -9,9 +9,7 @@ class PagesController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
-    @og_title = @page.name
-    @og_type = "Web page"
-    @og_url = request.url
+    @og_title = "#{@page.name} - #{@og_site_name}"
     if @page.assets.present?
       @og_image = @page.assets.first.asset.url(:original) if @page.assets.first.asset.present?
     end

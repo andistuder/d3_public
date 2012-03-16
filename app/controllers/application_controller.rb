@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   def set_facebook_headers
     @og_title = D3::Application::SITE_NAME
     @og_type = "website"
-    @og_url = D3::Application::SITE_URL
+    @og_url = request.url
     @og_image = D3::Application::SITE_LOGO
     @og_site_name = D3::Application::SITE_NAME
     @og_admins = D3::Application::FB_ADMIN

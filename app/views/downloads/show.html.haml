@@ -4,6 +4,7 @@
   %section#sidebar.nav
     = render "download_categories/sidebar"
   %section#content
+    = render "layouts/social_bookmarks"
     %h1= @download.name
     .left= sanitize(textilize(@download.content))
     = render "download_categories/download_link", :download => @download

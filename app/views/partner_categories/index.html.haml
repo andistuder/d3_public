@@ -3,8 +3,7 @@
 .container
   %section#content.background_image
     .bg_wrapper
-      #social_bookmarks
-        TODO: social bookmarks here?
+      = render "layouts/social_bookmarks"
       -if @page.present?
         = render :partial => "pages/page_content_header"
     .alt_wrapper
