@@ -222,12 +222,17 @@ body.bp
     ul
       +horizontal-list(false)
       li
-        +column(1)
+        width: 117px
+        margin-right: 20px
         white-space: normal
         line-height: 1.1em
-        padding-bottom: 4px
+        h5
+          padding-bottom: 4px
+        ul
+          li
+            padding-bottom: 8px
       li:last-child
-        +last
+        margin-right: 0px
     #mailing-list-form
       margin-top: 20px
       border: 1px solid $dark_grey_bg

@@ -21,6 +21,9 @@
       %li= link_to "d3 Studios Global", "/get-d3/d3-studios-global"
   %li
     %h5= link_to "d3 Consulting", "/d3-consulting"
+    %ul
+      - for content_area in @consulting_areas do
+        %li= link_to content_area.name, "/#{content_area.page.slug}##{content_area.name.strip.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
   %li
     %h5= link_to "Projects", projects_path
     %ul
@@ -36,10 +39,9 @@
       %li= link_to "Announcements", "/news"
       %li= link_to "Downloads", "/support/downloads"
   %li
-    %h5= link_to "News", news_items_path
-  %li
     %h5= "Company"
     %ul
+      %li= link_to "News", news_items_path
       %li= link_to "Jobs", "/company/jobs"
       %li= link_to "Enquiry Form", "/company/enquiry-form"
       %li= link_to "T&C", "/company/terms-and-conditions"

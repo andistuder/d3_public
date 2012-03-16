@@ -100,14 +100,19 @@ body.bp
       line-height: 18px
       white-space: normal
   #footer
-    h5
-      font-size: 12px
-      line-height: 22px
-      text-transform: uppercase
-      margin: 0
-      font-weight: 400
-      a
-        +link-colors(black)
+    ul
+      li
+        h5
+          font-size: 12px
+          line-height: 22px
+          text-transform: uppercase
+          margin: 0
+          font-weight: 400
+          a
+            +link-colors(black)
+        ul
+          li
+            font-size: 12px
     #mailing-list-form, #impressum
       font-size: 14px
     #impressum p.address

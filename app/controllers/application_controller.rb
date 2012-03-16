@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_latest_news
 
-  before_filter :get_project_categories
+  before_filter :get_footer_items
 
   private
 
@@ -22,8 +22,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def get_project_categories
+  def get_footer_items
     @project_categories = ProjectCategory.find_in_order
+    @consulting_areas =  Page.find_by_slug('d3-consulting').content_areas.limit(6)
   end
 
   def set_facebook_headers
