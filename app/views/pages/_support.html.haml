@@ -8,6 +8,7 @@
     #support_areas
       %ul
         %li.user_guide
+          -#= link_to image_tag('knowledgebase.png'), "/support/user-guide"
           %h3= link_to "User Guide", "/support/user-guide"
           %p
             = "Suspendisse vel magna id arcu mollis egestas - "
@@ -23,10 +24,10 @@
             = "Suspendisse vel magna id arcu mollis egestas - "
             = link_to "more", "/support/faq"
         %li.announcements
-          %h3= link_to "Announcements", "/news"
+          %h3= link_to "Announcements", "/support/announcements"
           %p
             = "Suspendisse vel magna id arcu mollis egestas - "
-            = link_to "more", "/news"
+            = link_to "more", "/support/announcements"
         %li.tutorials
           %h3= link_to "Tutorials", "/support/tutorials"
           %p
