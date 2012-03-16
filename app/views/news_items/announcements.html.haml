@@ -1,9 +1,9 @@
 %section#breadcrumb
-  = render "breadcrumb"
+  = render "knowledge_base/breadcrumb"
 .container
   %section#content
     %header
-      %h1.underlined Latest News
+      %h1.underlined Announcements
 
     = render @news_items, :locals => {:title => false}
 
