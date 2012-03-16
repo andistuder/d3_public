@@ -1,0 +1,11 @@
+.product_item
+  - for designer in @page.content_areas.where(:name => name) do
+    = sanitize(textilize(designer.content))
+    - if designer.asset.present?
+      %img{:src => designer.asset.asset.url(:small), :alt => designer.asset.description}
+    .link_wrapper
+      - if designer.see_more_label.present? && designer.see_more_url.present?
+        .read_more.left= link_to designer.see_more_label, designer.see_more_url
+      .read_more.right= link_to "Get d3", "/get-d3"
+  - for designer_can in @page.content_areas.where(:name => can) do
+    = sanitize(textilize(designer_can.content))
