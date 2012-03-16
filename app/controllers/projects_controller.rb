@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   def index
     @project_categories = ProjectCategory.find_in_order
     @page = Page.find_by_name('Projects')
+    @featured_projects = Project.limit(9)
   end
 
 end

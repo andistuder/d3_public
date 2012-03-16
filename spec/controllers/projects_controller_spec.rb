@@ -31,10 +31,13 @@ describe ProjectsController do
     before :each do
       @test_project_category = FactoryGirl.build :project_category
       @test_project_category1 = FactoryGirl.build :project_category
+      @test_project = FactoryGirl.build :project, :project_categories => [@test_project_category]
+
       @page = FactoryGirl.build :page
 
       ProjectCategory.should_receive(:find_in_order).twice.and_return([@test_project_category, @test_project_category1])
       Page.should_receive(:find_by_name).and_return(@page)
+      Project.should_receive(:limit).and_return([@test_project])
 
     end
 
@@ -52,6 +55,12 @@ describe ProjectsController do
       get 'index'
       assigns(:page).should eq(@page)
     end
+
+    it "assigns @featured_projects" do
+      get 'index'
+      assigns(:featured_projects).should eq([@test_project])
+    end
+
   end
 
 

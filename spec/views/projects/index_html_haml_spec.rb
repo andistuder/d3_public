@@ -8,6 +8,7 @@ describe "projects/index.html.haml" do
     @test_project_cat = FactoryGirl.build :project_category, :projects => [@test_project]
     assign(:project_categories, [@test_project_cat])
     assign(:related_boxes, [])
+    assign(:featured_projects, [@test_project])
 
     render
 

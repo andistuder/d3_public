@@ -5,23 +5,7 @@
     %h1= @project_category.name
     .introduction
       %p= @project_category.content
-    %ul#listed_projects
-      - if @project_category.projects.first.assets.present?
-        %li.large
-          %a{:href => project_path(@project_category.projects.first)}
-            - if @project_category.projects.first.assets.present?
-              %img{:src => @project_category.projects.first.assets.first.asset.url(:large), :width => "568", :height => "360", :alt => @project_category.projects.first.name}
-            .project_title_wrapper
-              .project_title= @project_category.projects.first.name
-      -for project in @project_category.projects do
-        %li.normal
-          %a{:href => project_path(project)}
-            - if project.assets.present?
-              %img{:src => project.assets.first.asset.url(:medium), :width => "279", :height => "174", :alt => project.name}
-            - else
-              = image_tag("placeholder_small.png")
-            .project_title_wrapper
-              .project_title= project.name
+    = render "quilt", :large_item => @project_category.projects.first, :all_items => @project_category.projects
 %section#prev_next_bar
   &nbsp;
 %section#related

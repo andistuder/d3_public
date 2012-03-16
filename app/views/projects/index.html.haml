@@ -4,6 +4,7 @@
   %section#content
     -if @page.present?
       = render :partial => "pages/page_content_header"
+    = render "project_categories/quilt", :large_item => @featured_projects.first, :all_items => @featured_projects
     - for project_category in @project_categories do
       - if project_category.projects.present?
         %section.project_cat.left_aligned

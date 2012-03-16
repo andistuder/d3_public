@@ -24,6 +24,7 @@ describe ProjectCategoriesController do
       get 'show', :id => 1
       assigns(:project_categories).should eq([@test_project_cat])
     end
+
   end
 
 

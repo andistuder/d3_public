@@ -1,0 +1,16 @@
+%ul#listed_projects
+  - if large_item.assets.present?
+    %li.large
+      %a{:href => project_path(large_item)}
+        %img{:src => large_item.assets.first.asset.url(:large), :width => "568", :height => "360", :alt => large_item.name}
+        .project_title_wrapper
+          .project_title= large_item.name
+  -for project in all_items do
+    %li.normal
+      %a{:href => project_path(project)}
+        - if project.assets.present?
+          %img{:src => project.assets.first.asset.url(:medium), :width => "279", :height => "174", :alt => project.name}
+        - else
+          = image_tag("placeholder_small.png")
+        .project_title_wrapper
+          .project_title= project.name
