@@ -259,22 +259,22 @@ $(document).ready(function(){
     $('#mailing-list-form form').bind('ajax:success', function(event, data, status, xhr) {
         if (xhr.status == 200) {
             var msg = 'Thanks for your interest in d3! We added you to the mailinglist.';
-            $(this).find('input[title]').val(msg)
-            $(this).find('input[title]').attr('title', msg)
-            $(this).find('input[title]').addClass('submitted')
+            $(this).find('input[title]').val(msg);
+            $(this).find('input[title]').attr('title', msg);
+            $(this).find('input[title]').addClass('submitted');
+            $(this).find('.wrapper').text('sent');
         }
 
     }).bind("ajax:error", function(evt, xhr, status, error){
         var msg = "Something went wrong. Please try again or contact us on info@d3technologies.com";
-        $(this).find('input[title]').val(msg)
-        $(this).find('input[title]').attr('title', msg)
-        $(this).find('input[title]').addClass('failed')
+        $(this).find('input[title]').val(msg);
+        $(this).find('input[title]').attr('title', msg);
+        $(this).find('input[title]').addClass('failed');
+            $(this).find('.wrapper').text('send failed');
     });
 
     $('#mailing-list-form button').click(function(){
-        $(this).siblings('form.search input[title]').val('sending ...')
-        $(this).siblings('form.search input[title]').attr('title', 'sending ...')
-        $(this).siblings('form.search input[title]').addClass('submitted')
+        $(this).find('.wrapper').text('sending ...');
     });
 
 

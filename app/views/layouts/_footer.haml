@@ -9,7 +9,7 @@
   %li
     %h5= link_to "Products", "/products"
     %ul
-      %li= link_to "d3 Designer", "products/d3-designer"
+      %li= link_to "d3 Designer", "/products/d3-designer"
       %li= link_to "2U", "/products/2u"
       %li= link_to "4U", "/products/4u"
   %li
@@ -51,7 +51,7 @@
   = form_tag("/send_subscription", :method => "put", :class => "search", :remote => true) do
     %input{:name => "email", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
     %button.button{:type => "submit"}
-      = "Add me to the list"
+      .wrapper= "Add me to the list"
       = image_tag("arrow_grey_right.png")
 .container
   #impressum
@@ -59,10 +59,3 @@
     %p.address Units B & D, 127-129 Great Suffolk Street, London SE1 1PP, United Kingdom
   #social-bookmarks
     %p TODO: social bookmark icons
-
-    -#.grid_debug
-    -#  %a.show_grid
-    -#    Show Grid
-    -#  |
-    -#  %a.hide_grid
-    -#    Hide Grid
