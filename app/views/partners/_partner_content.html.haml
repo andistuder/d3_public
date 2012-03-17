@@ -53,7 +53,10 @@
       %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
   - elsif partner.postcode.present? && partner.town.present?
     #google_map
-      - location = "#{partner.address_line_one} #{partner.address_line_two} #{partner.town} #{partner.postcode} #{partner.country}".gsub(/ /, '+')
+      - if partner.longitude.present? && partner.latitude.present?
+        - location = "#{partner.latitude},#{partner.longitude}"
+      - else
+        - location = "#{partner.address_line_one} #{partner.address_line_two} #{partner.town} #{partner.postcode} #{partner.country}".gsub(/ /, '+')
       %a{:href => "http://maps.google.co.uk/maps?q=#{location}"}
         %img{:alt => "map", :src => "http://maps.google.com/maps/api/staticmap?center=#{location}&zoom=15&size=520x325&sensor=false&markers=color:red|#{location}&style=saturation:-100"}
 

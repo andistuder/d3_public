@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316110454) do
+ActiveRecord::Schema.define(:version => 20120317103849) do
 
   create_table "assets", :force => true do |t|
     t.string   "name"
@@ -277,6 +277,8 @@ ActiveRecord::Schema.define(:version => 20120316110454) do
     t.datetime "updated_at",          :null => false
     t.integer  "logo_id"
     t.integer  "vimeo_id"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
   end
 
   create_table "project_categories", :force => true do |t|
