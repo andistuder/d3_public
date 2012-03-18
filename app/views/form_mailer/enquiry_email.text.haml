@@ -52,9 +52,10 @@ Dates for install: #{@form_content[:consultancy_install_date]}
 Dates for show: #{@form_content[:consultancy_show_date]}
 
 Requires:
-Feasibility study: #{@form_content[:feasibility]}
-d3 project setup: #{@form_content[:project_setup]}
-pre-production remote support: #{@form_content[:pre_production]}
-training: #{@form_content[:training]}
-on-site operation: #{@form_content[:operation]}
+= "Consultation" if @form_content[:consultation]
+= "d3 project development" if @form_content[:d3_project_development]
+= "Project support" if @form_content[:project_support]
+= "Technical management" if @form_content[:technical_management]
+= "Training" if @form_content[:training]
+= "System Provision" if @form_content[:system_provision]
 

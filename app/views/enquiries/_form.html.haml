@@ -21,6 +21,7 @@
   = text_field_tag :phone1, nil, :class => 'text_field required'
   %p= label_tag(:phone2, "Phone 2")
   = text_field_tag :phone2, nil, :class => 'text_field'
+  %p= "* required fields"
   .section
     %h3.read_more
       =link_to "Sales enquiries", "javascript:void(0)"
@@ -51,16 +52,6 @@
       .text_area= text_area_tag(:rental_project_description)
       %p= label_tag(:rental_comments, "Other comments")
       .text_area= text_area_tag(:rental_comments)
-      -#- for faq in @faqs do
-      -#  .section
-      -#    %h3.title
-      -#      %span.more
-      -#        %a.driver
-      -#          SHOW
-      -#      = link_to faq.question, "javascript:void(0)", :class => "driver"
-      -#    .body.hidden
-
-
   .section
     %h3.read_more
       =link_to "Consultancy services", "javascript:void(0)"
@@ -76,22 +67,21 @@
       %h3= "Services required"
       %table
         %tr
-          %td= check_box_tag 'feasibility'
-          %td= label_tag 'feasibility', 'feasibility study'
+          %td= check_box_tag 'consultation'
+          %td= label_tag 'consultation', 'Consultation'
         %tr
-          %td= check_box_tag 'project_setup'
-          %td= label_tag 'project_setup', "d3 project setup (this includes building up the d3 project based on the drawings and information provided, providing content templates, initial support etc)"
+          %td= check_box_tag 'd3_project_development'
+          %td= label_tag 'd3_project_development', "d3 project development"
         %tr
-          %td= check_box_tag 'pre_production'
-          %td= label_tag 'pre_production', "pre-production remote support (this includes helping you to start working with the d3 project after delivery and review and advice on your submitted d3 project)"
+          %td= check_box_tag 'project_support'
+          %td= label_tag 'project_support', "Project support"
+        %tr
+          %td= check_box_tag 'technical_management'
+          %td= label_tag ' technical_management', "Technical management"
         %tr
           %td= check_box_tag 'training'
-          %td= label_tag 'training', "training (this includes being trained by a certified d3 trainer in basic or advanced project development, sequencing or d3 operation, or training on project specific topics of concern)"
+          %td= label_tag 'training', "Training"
         %tr
-          %td= check_box_tag 'technical'
-          %td= label_tag 'technical', "technical and project management (this includes consultation on d3 hardware configuration, reviewing or creating equipment specification lists, video technology advice and best usage, creation of wiring and network diagrams, scheduling and process advice etc)"
-        %tr
-          %td= check_box_tag 'operation'
-          %td= label_tag 'operation', "on-site operation (this includes on-site d3 hardware installation and configuration, d3 outputs line-up, on-site sequencing, show operation)"
-  %p= "* required fields"
-  = submit_tag "Submit", :class => "submit_button"
+          %td= check_box_tag 'system_provision'
+          %td= label_tag 'system_provision', "System Provision"
+  %p= submit_tag "Submit", :class => "submit_button"
