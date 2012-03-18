@@ -22,7 +22,6 @@
     #company_right
       %h2 Jobs at d3
       %ul
-        - for child in @page.children do
-          -for job in child.content_areas do
-            %li
-              = link_to job.name, "/company/jobs##{job.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
+        - for job in @page.children.find_by_name('Jobs').content_areas do
+          %li
+            = link_to job.name, "/company/jobs##{job.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase}"
