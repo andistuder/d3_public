@@ -19,5 +19,6 @@
       - if(current_page?(:controller => 'news_items', :action => 'index') || current_page?(:controller => 'news_items', :action => 'next')) && news_item.summary.present?
         = sanitize(textilize(news_item.summary))
       - elsif(current_page?(:controller => 'news_items', :action => 'announcements') || current_page?(:controller => 'news_items', :action => 'next_announcement')) && news_item.summary.present?
+        = sanitize(textilize(news_item.summary))
       -else
         = sanitize(textilize(news_item.content))
