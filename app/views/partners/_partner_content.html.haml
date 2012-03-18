@@ -58,7 +58,7 @@
       - else
         - location = "#{partner.address_line_one} #{partner.address_line_two} #{partner.town} #{partner.postcode} #{partner.country}".gsub(/ /, '+')
       %a{:href => "http://maps.google.co.uk/maps?q=#{location}"}
-        %img{:alt => "map", :src => "http://maps.google.com/maps/api/staticmap?center=#{location}&zoom=15&size=520x325&sensor=false&markers=color:red|#{location}&style=saturation:-100"}
+        %img{:alt => "map", :src => "http://maps.google.com/maps/api/staticmap?center=#{location}&zoom=15&size=450x281&sensor=false&markers=color:red|#{location}&style=saturation:-100"}
 
 - for content_area in partner.partner_content_areas.ordered do
   %section.partner_show
