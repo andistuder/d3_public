@@ -1,2 +1,5 @@
-%ul
-  %li= link_to "Overview", request.fullpath
+- if request.fullpath.split('/')[1] == "support"
+  = render "knowledge_base/breadcrumb"
+- else
+  %ul
+    %li= link_to "Overview", request.fullpath
