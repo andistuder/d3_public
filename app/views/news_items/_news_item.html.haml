@@ -5,7 +5,7 @@
 -else
   - slug = news_item_path(news_item)
 
-= render "layouts/social_bookmarks"
+= render "layouts/social_bookmarks" if title
 %h1= news_item.headline if title
 %article.news_item
   .wrapper

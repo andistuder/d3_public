@@ -3,6 +3,7 @@
 .container
   %section#content
     %header
+      = render "layouts/social_bookmarks"
       %h1.underlined Latest News
 
     = render @news_items, :locals => {:title => false}
