@@ -6,7 +6,7 @@
       #slider.one-col.home
         - for asset in @page.assets do
           .slider_item
-            %img{:src => asset.asset.url(:xl), :width => "938px", :height => "586px", :alt => asset.description}
+            %img{:src => asset.asset.url(:xl), :width => "938", :height => "586", :alt => asset.description}
             .overlay_text
               = sanitize(textilize(asset.overlay_text))
     .display-none
