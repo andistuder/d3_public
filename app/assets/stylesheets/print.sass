@@ -1,9 +1,57 @@
-@import blueprint
-
-// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-// @include blueprint-print
-
-//Recommended Blueprint configuration with scoping and semantic layout:
 @media print
   body.bp
     +blueprint-print(true)
+    #container
+      width: 100%
+      margin: 0
+      left: 0
+      #header
+        #news-ticker.no-print, #search-form.no-print
+          display: none
+        #topnav ul
+          border: none
+          li
+            a
+              background-image: none
+              padding: 0 5px
+              border: none
+              color: black
+              size: 16px
+      #main
+        width: 100%
+        #breadcrumb
+          border: none
+        .container
+          border: none
+          #sidebar
+            //width: 20%
+            display: none
+          #content
+            width: auto
+            border: none
+            #slider, #prevBtn, #nextBtn, #slider_nav
+              display: none
+            #social_bookmarks
+              display: none
+            .introduction p
+              width: auto
+            .company_wrapper
+              .about_company
+                width: auto
+              img
+                display: none
+            #company_left
+              width: auto
+              border: none
+            #company_right
+              display: none
+          #content.home
+            .display-none
+              display: block
+        #related
+          display: none
+      #footer
+        ul, #mailing-list-form, #social-bookmarks
+          display: none
+  body.bp #header, body.bp #footer, body.bp #main
+    width: 100%

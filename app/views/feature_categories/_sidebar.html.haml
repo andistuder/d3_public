@@ -2,6 +2,6 @@
   - @feature_categories.each do |feature_category|
     %li
       .category= link_to feature_category.name, feature_category, :id => feature_category.slug
-      %ul.dispaly-none
+      %ul.display-none
         - for feature in feature_category.features.ordered do
           %li= link_to feature.name, "#{feature_category_path(feature_category)}##{feature.slug}"

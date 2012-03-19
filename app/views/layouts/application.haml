@@ -15,9 +15,9 @@
     #container
       %header#header
         = link_to image_tag("logo_80.png"), "/", :id => "d3-logo"
-        #search-form
+        #search-form.no-print
           = render "layouts/search"
-        #news-ticker
+        #news-ticker.no-print
           = render "layouts/ticker"
 
         %nav#topnav
