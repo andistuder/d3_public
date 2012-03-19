@@ -31,7 +31,10 @@
             -if partner.email.present?
               %li= link_to partner.email, "mailto:#{partner.email}"
             -if partner.website.present?
-              %li= link_to partner.website, partner.website
+              - if partner.website.split('://')[0] == "http"
+                %li= link_to partner.website, partner.website
+              - else
+                %li= link_to partner.website, "http://#{partner.website}"
 %section#prev_next_bar
   &nbsp;
 %section#related

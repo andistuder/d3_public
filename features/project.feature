@@ -21,20 +21,20 @@ Feature: Project
       |Addition Info   |additional information here  |
     And I add those projects to the CMS
     When I go to the projects page
-    Then I should see "TV Projects Summary"
-    And I click link "More"
-    And I should see "TV Projects"
+#    Then I should see "TV Projects Summary"
+    And I click link "TV Projects"
+    Then I should see "TV Projects"
     And I should see "With d3 you can do TV projects"
     And I should see "Take That Tour"
     And I should see "Jay-Z"
     When I click link "Jay-Z"
     Then I should see "Nec ante imperdiet rhoncus. Sed sed erat eros."
-    Then I should see "Jay-Z"
-    Then I should see "Jay-Z How Made"
-    Then I should see "Made with Jay-Z"
-    Then I should see "Concept"
-    Then I should see "concept of it"
-    Then I should see "Addition Info"
-    Then I should see "additional information here"
+    And I should see "Jay-Z"
+    And I should see "Jay-Z How Made"
+    And I should see "Made with Jay-Z"
+    And I should see "Concept"
+    And I should see "concept of it"
+    And I should see "Addition Info"
+    And I should see "additional information here"
 
 

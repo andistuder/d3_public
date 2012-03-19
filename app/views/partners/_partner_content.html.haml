@@ -45,7 +45,10 @@
     - if partner.website.present?
       %tr
         %td= "Website"
-        %td= link_to partner.website, partner.website
+        - if partner.website.split('://')[0] == "http"
+          %td= link_to partner.website, partner.website
+        - else
+          %td= link_to partner.website, "http://#{partner.website}"
 
 -if partner.partner_category.present?
   - if partner.partner_category.name == "Users" && partner.assets.present?
