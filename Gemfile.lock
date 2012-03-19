@@ -183,6 +183,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     multi_xml (0.4.1)
+    newrelic_rpm (3.3.2.1)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     pg (0.11.0)
@@ -304,6 +305,7 @@ DEPENDENCIES
   haml-rails
   heroku_plus
   jquery-rails
+  newrelic_rpm
   paperclip!
   pg
   rails (~> 3.2.0)

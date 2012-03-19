@@ -19,6 +19,7 @@ gem 'acts_as_tree'
 gem 'dalli'
 gem 'thin'
 gem 'pg'
+gem 'newrelic_rpm'
 gem "faker" #until go live
 #gem 'will_paginate'  use?
 
