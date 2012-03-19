@@ -92,7 +92,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  #@chapters.each do |chapter|
+  #@chapters.each do |chapter|     #TODO uncomment when userguide ready
   #  xml.url do
   #    xml.loc chapter_path(chapter, :only_path => false)
   #    xml.lastmod w3c_date(chapter.updated_at)
