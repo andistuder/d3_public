@@ -2,10 +2,24 @@ require 'spec_helper'
 
 describe "sitemap/sitemap.builder" do
   it "renders the default attributes" do
-    assign(:pages, [
+    assign(
+        :pages, [
         stub_model(Page, :name => "about", :slug => "about", :updated_at => Time.now),
         stub_model(Page, :name => "contact", :slug => "contact", :updated_at => Time.now)
     ])
+
+    #assign(:pages = Page.all
+    assign(:news_items, [])
+    assign(:announcements, [])
+    assign(:projects, [])
+    assign(:project_categories, [])
+    assign(:case_studies, [])
+    assign(:feature_categories, [])
+    assign(:downloads, [])
+    assign(:faq_categories, [])
+    assign(:partner_categories, [])
+    assign(:partners, [])
+    assign(:chapters, [])
     assign(:related_boxes, [])
 
     render :template => "sitemap/sitemap.builder"
