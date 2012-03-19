@@ -6,7 +6,7 @@
         %h3= tutorial.name
         = sanitize(textilize(truncate(tutorial.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
         %p= link_to "#{root_url.chop}/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}", "#{root_url.chop}/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}"
--if @chapters.present?
+-#-if @chapters.present?       #TODO uncomment when user guide ready
   %h2 User Guide
   %ul
     - for chapter in @chapters do
