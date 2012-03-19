@@ -12,7 +12,8 @@ describe "projects/index.html.haml" do
 
     render
 
-    rendered.should have_content(@test_project_cat.name)
-    rendered.should have_content(@test_project_cat.summary)
+    rendered.should have_content(@test_project.name)
+    #rendered.should_not have_content(@test_project_cat.name)
+    #rendered.should_not have_content(@test_project_cat.summary)
   end
 end
