@@ -35,7 +35,18 @@
       top: 0
       left: 50%
       margin-left: -470px
-    #header, #footer, #main
-      +span(8)
-
-
+      #header, #footer, #main
+        +span(8)
+  body.bp.android
+    #container
+      #main
+        .container
+          #content
+            section.alternating:nth-child(2n)
+              img
+                margin-left: 0
+                margin-right: 0
+              img.wrapped
+                margin-right: 40px
+              img, .wrapper
+                +float-left

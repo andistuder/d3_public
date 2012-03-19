@@ -298,6 +298,11 @@ $(document).ready(function(){
 //            });
 //    });
 
+
+    if( navigator.userAgent.match(/Android/i)){
+        $('body').addClass('android');
+    }
+
 });
 
 function calculateWindowHeight(){
