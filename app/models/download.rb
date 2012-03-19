@@ -10,6 +10,8 @@ class Download < ActiveRecord::Base
 
   acts_as_indexed :fields => [:name, :summary, :content]
 
+  default_scope :order => "created_at DESC"
+
   def self.find_latest
     Download.order("created_at DESC").limit(D3::Application::NEWS_INITIAL_LOAD)
   end
