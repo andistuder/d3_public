@@ -46,9 +46,9 @@
       %tr
         %td= "Website"
         - if partner.website.split('://')[0] == "http"
-          %td= link_to partner.website, partner.website
+          %td= link_to partner.website, partner.website, :target => "_blank"
         - else
-          %td= link_to partner.website, "http://#{partner.website}"
+          %td= link_to partner.website, "http://#{partner.website}", :target => "_blank"
 
 -if partner.partner_category.present?
   - if partner.partner_category.name == "Users" && partner.assets.present?

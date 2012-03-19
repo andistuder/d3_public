@@ -32,9 +32,9 @@
               %li= link_to partner.email, "mailto:#{partner.email}"
             -if partner.website.present?
               - if partner.website.split('://')[0] == "http"
-                %li= link_to partner.website, partner.website
+                %li= link_to partner.website, partner.website, :target => "_blank"
               - else
-                %li= link_to partner.website, "http://#{partner.website}"
+                %li= link_to partner.website, "http://#{partner.website}", :target => "_blank"
 %section#prev_next_bar
   &nbsp;
 %section#related
