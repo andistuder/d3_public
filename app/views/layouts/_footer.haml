@@ -51,7 +51,7 @@
   = form_tag("/send_subscription", :method => "put", :class => "search", :remote => true) do
     %input{:name => "email", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
     %button.button{:type => "submit"}
-      .wrapper= "Add me to the list"
+      %span.wrapper= "Add me to the list"
       = image_tag("arrow_grey_right.png")
 .container
   #impressum
