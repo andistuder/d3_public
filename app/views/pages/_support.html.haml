@@ -13,7 +13,7 @@
         %li.training
           %h3= link_to "Training", "/support/training"
           %p
-            = "Get the latest software and hardware updates - "
+            = "Get info about training sessions in your area  - "
             = link_to "more", "/support/training"
         %li.faqs
           %h3= link_to "FAQs", "/support/faq"
@@ -23,7 +23,7 @@
         %li.announcements
           %h3= link_to "Announcements", "/support/announcements"
           %p
-            = "Get info about training sessions in your area - "
+            = "Get the latest software and hardware updates - "
             = link_to "more", "/support/announcements"
         %li.tutorials
           %h3= link_to "Tutorials", "/support/tutorials"
@@ -33,7 +33,7 @@
         %li.downloads
           %h3= link_to "Downloads", "/support/downloads"
           %p
-            = "Keep up-to-date with our up-to-date downloads - "
+            = "Get the latest updates in our downloads centre - "
             = link_to "more", "/support/downloads"
     - for email_us in @page.content_areas.where(:name => 'Email Support') do
       .support_contact
