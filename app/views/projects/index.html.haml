@@ -2,11 +2,10 @@
   = render "breadcrumb"
 .container
   %section#content
-    = render "layouts/social_bookmarks"
     -if @page.present?
       = render :partial => "pages/page_content_header"
     = render "project_categories/quilt", :large_item => @featured_projects.first, :all_items => @featured_projects
-    - for project_category in @project_categories do
+    -#- for project_category in @project_categories do   #removed list as per request by Chris
       - if project_category.projects.present?
         %section.project_cat.left_aligned
           - if project_category.projects.first.assets.present?

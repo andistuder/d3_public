@@ -2,21 +2,22 @@
   = render "feature_categories/breadcrumb"
 .container
   %section#content
-    = render "layouts/social_bookmarks"
     - if @page.present?
       = render :partial => "pages/page_content_header"
     - for workflow_item in @workflow_items do
       %section.work_flow_item
         .left_column
-          .controls_open.blue_dot= link_to "x", "javascript:void(0)"
+          .controls_open.blue_dot &nbsp;
+          -#.controls_open.blue_dot= link_to "x", "javascript:void(0)"   #TODO uncomment for overlay active
           %h2.controls_open
-            =link_to workflow_item.list_title, "javascript:void(0)"
+            = workflow_item.list_title
+            -#=link_to workflow_item.list_title, "javascript:void(0)"  #TODO uncomment for overlay active
           = sanitize(textilize(workflow_item.list_area))
           .bottom_arrow
         .right_column
           %h2= workflow_item.title
           = sanitize(textilize(workflow_item.content_area))
-        .overlay
+        -#.overlay          #TODO uncomment for overlay active
           .controls_close
             = link_to "x", "javascript:void(0)"
           .wrapper

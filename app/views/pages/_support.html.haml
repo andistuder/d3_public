@@ -6,35 +6,34 @@
     #support_areas
       %ul
         %li.user_guide
-          -#= link_to image_tag('knowledgebase.png'), "/support/user-guide"
           %h3= link_to "User Guide", "/support/user-guide"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Learn d3 yourself from the online guide - "
             = link_to "more", "/support/user-guide"
         %li.training
           %h3= link_to "Training", "/support/training"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Get the latest software and hardware updates - "
             = link_to "more", "/support/training"
         %li.faqs
           %h3= link_to "FAQs", "/support/faq"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Get quick answers on common questions - "
             = link_to "more", "/support/faq"
         %li.announcements
           %h3= link_to "Announcements", "/support/announcements"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Get info about training sessions in your area - "
             = link_to "more", "/support/announcements"
         %li.tutorials
           %h3= link_to "Tutorials", "/support/tutorials"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Learn d3 from typical project examples - "
             = link_to "more", "/support/tutorials"
         %li.downloads
           %h3= link_to "Downloads", "/support/downloads"
           %p
-            = "Suspendisse vel magna id arcu mollis egestas - "
+            = "Keep up-to-date with our up-to-date downloads - "
             = link_to "more", "/support/downloads"
     - for email_us in @page.content_areas.where(:name => 'Email Support') do
       .support_contact
