@@ -19,7 +19,6 @@ gem 'acts_as_tree'
 gem 'dalli'
 gem 'thin'
 gem 'pg'
-gem 'newrelic_rpm'
 gem "faker" #until go live
 #gem 'will_paginate'  use?
 
@@ -62,6 +61,7 @@ group :test, cucumber do
 end
 
 group :production do
+  gem 'newrelic_rpm'
 end
 
 
