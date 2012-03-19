@@ -1,5 +1,10 @@
 %section#breadcrumb
-  = render "breadcrumb_company"
+  - if request.fullpath.split('/')[1] == "company"
+    = render "breadcrumb_company"
+  - elsif request.fullpath.split('/')[1] == "support"
+    = render "knowledge_base/breadcrumb"
+  - else
+    = render "breadcrumb"
 .container
   -#%section#sidebar.nav
   -#  = render "sidebar"
