@@ -1,5 +1,3 @@
--#= render :partial => "products_detail"
--#TODO enable rescue once dev over..
 - if @page.layout == "4u" || @page.layout == "2u"
   = render :partial => "d3_designer"
 - else
@@ -7,16 +5,5 @@
 
 %section#prev_next_bar
   &nbsp;
-  -#  TODO if prev-next needed?
-  -#  - if @partner.previous.present?
-  -#    .previous
-  -#      %p
-  -#        %span Previous
-  -#      %p= link_to @partner.previous.name, @partner.previous
-  -#  - if @partner.next.present?
-  -#    .next
-  -#      %p
-  -#        %span Next
-  -#      %p= link_to @partner.next.name, @partner.next
 %section#related
   = render "layouts/related"
