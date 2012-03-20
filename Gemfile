@@ -53,7 +53,6 @@ group :test, cucumber do
   gem 'database_cleaner'
   gem "execjs" #for CI on Heroku
   gem "therubyracer" #for CI on Heroku
-               #gem 'pg' #for CI on Heroku
   gem "fastercsv"
   gem 'factory_girl'
   gem 'factory_girl_rails'
