@@ -21,6 +21,7 @@ gem 'thin'
 gem 'pg'
 gem "faker" #until go live
 #gem 'will_paginate'  use?
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'compass-rails','~> 1.0.0.rc.2'
@@ -61,7 +62,6 @@ group :test, cucumber do
 end
 
 group :production do
-  gem 'newrelic_rpm'
 end
 
 
