@@ -13,4 +13,6 @@ class Partner < ActiveRecord::Base
   belongs_to :logo, :class_name => "Asset"
   has_many :partner_content_areas
 
+  default_scope :order => 'name ASC'
+
 end

@@ -19,7 +19,7 @@ FactoryGirl.define do
     slug "pac-slug"
     content Faker::Lorem.paragraph
     created_at Time.now
-    #association :partners
+    partners {|p| [p.association(:partner)]}
   end
 
   factory :partner_content_area, :class => PartnerContentArea do

@@ -25,6 +25,27 @@ describe PartnerCategory do
     end
   end
 
+  describe "d3_partners" do
+    before :each do
+      @test_partner = FactoryGirl.create(:partner)
+      @d3_partner = FactoryGirl.create(:partner, :name => "d3 Technologies")
+      @test_partner_cat = FactoryGirl.create(:partner_category, :slug => "distributors", :partners => [@test_partner, @d3_partner])
+    end
 
+    it "should load all partners with named d3 Technologies" do
+      @test_partner_cat.d3_partners.should eq([@d3_partner])
+    end
+  end
 
+  describe "foreign_partners" do
+    before :each do
+      @test_partner = FactoryGirl.create(:partner)
+      @d3_partner = FactoryGirl.create(:partner, :name => "d3 Technologies")
+      @test_partner_cat = FactoryGirl.create(:partner_category, :slug => "distributors", :partners => [@test_partner, @d3_partner])
+    end
+
+    it "should load all partners not named d3 Technologies" do
+      @test_partner_cat.foreign_partners.should eq([@test_partner])
+    end
+  end
 end

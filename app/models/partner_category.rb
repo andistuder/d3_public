@@ -12,4 +12,12 @@ class PartnerCategory < ActiveRecord::Base
     PartnerCategory.order("sort_order ASC")
   end
 
+  def foreign_partners
+    self.partners.reject{|p| p.name == "d3 Technologies"}
+  end
+
+  def d3_partners
+    self.partners.select{|p| p.name == "d3 Technologies"}
+  end
+
 end

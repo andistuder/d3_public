@@ -11,30 +11,10 @@
         %p= @partner_category.content
       %section
         -#TODO stage2: map here
-      - for partner in @partner_category.partners do
-        %section{:id => partner.slug, :class => "partner_index #{@partner_category.slug}"}
-          - if (@partner_category.name == "Rental Partners" || @partner_category.name == "d3 Studios Global") && partner.logo.present?
-            %img{:src => partner.logo.asset.url(:small), :alt => partner.logo.description, :class => "no-shadow"}
-          - elsif partner.assets.present?
-            %img{:src => partner.assets.first.asset.url(:small), :alt => partner.assets.first.description}
-          .wrapper
-            %h2= link_to partner.name, "#{partner_category_path(@partner_category)}/#{partner.slug}"
-            %p= partner.summary
-            -#%p.read_more= link_to "Find #{partner.name}", partner_category_partner_path(partner)
-          %ul.contact_details
-            - if partner.town.present? || partner.postcode.present?
-              %li= "#{partner.town} #{partner.postcode}"
-            - if partner.country.present?
-              %li= partner.country
-            -if partner.phone.present?
-              %li= partner.phone
-            -if partner.email.present?
-              %li= link_to partner.email, "mailto:#{partner.email}"
-            -if partner.website.present?
-              - if partner.website.split('://')[0] == "http"
-                %li= link_to partner.website, partner.website, :target => "_blank"
-              - else
-                %li= link_to partner.website, "http://#{partner.website}", :target => "_blank"
+      - for d3_partner in @partner_category.d3_partners do
+        = render "partner_summary", :partner => d3_partner
+      - for partner in @partner_category.foreign_partners do
+        = render "partner_summary", :partner => partner
 %section#prev_next_bar
   &nbsp;
 %section#related
