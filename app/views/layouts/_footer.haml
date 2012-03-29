@@ -48,11 +48,17 @@
       %li= link_to "T&C", "/company/terms-and-conditions"
       %li= link_to "Privacy Policy", "/company/privacy-policy"
 #mailing-list-form
-  = form_tag("/send_subscription", :method => "put", :class => "search", :remote => true) do
-    %input{:name => "email", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
+  -#= form_tag("/send_subscription", :method => "put", :class => "search", :remote => true) do
+  -#  %input{:name => "email", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
+  -#  %button.button{:type => "submit"}
+  -#    %span.wrapper= "Add me to the list"
+  -#    = image_tag("arrow_grey_right.png")
+  %form{:action => "http://ymlp.com/subscribe.php?id=gmsmmjhgmguu", :class => "search", :method => "post", :onsubmit => "window.open( 'http://ymlp.com/subscribe.php?id=gmsmmjhgmguu','signup_popup','scrollbars=yes,width=600,height=450'); return true;", :target => "signup_popup"}
+    %input{:name => "YMP0", :type => "text", :value =>"Enter your email address to join the d3 mailing list", :title => "Enter your email address to join the d3 mailing list"}
     %button.button{:type => "submit"}
       %span.wrapper= "Add me to the list"
       = image_tag("arrow_grey_right.png")
+
 .container
   #impressum
     %p &copy; 2012 d3 Technologies
