@@ -7,4 +7,7 @@ class Faq < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :question, :use => :slugged
+
+  default_scope :order => 'sort_order ASC'
+
 end
