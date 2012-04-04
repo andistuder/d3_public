@@ -13,11 +13,11 @@
           .wrapper
             %h2= partner_category.name
             %p= partner_category.content
-            %p.read_more
+            %p
               - if partner_category.see_more_label.present?
-                =link_to partner_category.see_more_label, partner_category
+                =link_to partner_category.see_more_label, partner_category, :class => "read_more"
               -else
-                = link_to "See More", partner_category
+                = link_to "See More", partner_category, :class => "read_more"
 
 %section#prev_next_bar
   &nbsp;
