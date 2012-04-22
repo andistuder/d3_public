@@ -18,8 +18,10 @@ When /^I add those partners to the CMS$/ do
   create_placeholder_image
 
   @partner_cas.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Get d3 content areas"
+    visit('/admin/partner_content_area')
+    #within(".sidebar-nav") do
+    #  click_link "Get d3 content areas"
+    #end
     click_link "Add new"
     fill_in "partner_content_area_title", :with => @partner_cas[i][:title]
     fill_in "partner_content_area_content", :with => @partner_cas[i][:content]
@@ -27,8 +29,10 @@ When /^I add those partners to the CMS$/ do
   end
 
   @partners.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Get d3 items"
+    visit('/admin/partner')
+    #within(".sidebar-nav") do
+    #   click_link "Get d3 items"
+    #end
     click_link "Add new"
     fill_in "partner_name", :with => @partners[i][:name]
     fill_in "partner_slug", :with => @partners[i][:slug]
@@ -46,8 +50,10 @@ When /^I add those partners to the CMS$/ do
   end
 
   @partner_cats.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Get d3 categories"
+    visit('/admin/partner_category')
+    #within(".sidebar-nav") do
+    #  click_link "Get d3 categories"
+    #end
     click_link "Add new"
     fill_in "partner_category_name", :with => @partner_cats[i][:name]
     fill_in "partner_category_slug", :with => @partner_cats[i][:slug]

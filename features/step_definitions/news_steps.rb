@@ -40,7 +40,9 @@ When /^I added those news items to the CMS$/ do
 
   @news.each_with_index do |n, i|
     visit('/admin')
-    click_link "News items"
+    within(".sidebar-nav") do
+      click_link "News items"
+    end
     click_link "Add new"
     fill_in "news_item_headline", :with => @news[i][:headline]
     #fill_in "news_item_summary", :with => @news[i][:summary]
@@ -59,8 +61,11 @@ end
 
 
 def create_placeholder_image
-  visit('/admin')
-  click_link "Assets"
+  visit('/admin/asset/new')
+  within(".sidebar-nav") do
+    click_link "Assets"
+  end
+
   click_link "Add new"
   fill_in "asset_name", :with => "Placeholder asset"
   fill_in "asset_description", :with => "Place holder asset desc"

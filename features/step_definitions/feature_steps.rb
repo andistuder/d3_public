@@ -14,8 +14,10 @@ When /^I add those features to the CMS$/ do
   create_placeholder_image
 
   @features.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Features"
+    visit('/admin/feature')
+    #within(".sidebar-nav") do
+    #  click_link "Features"
+    #end
     click_link "Add new"
     fill_in "feature_name", :with => @features[i][:name]
     fill_in "feature_slug", :with => @features[i][:slug]
@@ -29,7 +31,9 @@ When /^I add those features to the CMS$/ do
 
   @feature_cats.each_with_index do |n, i|
     visit('/admin')
-    click_link "Feature categories"
+    within(".sidebar-nav") do
+      click_link "Feature categories"
+    end
     click_link "Add new"
     fill_in "feature_category_name", :with => @feature_cats[i][:name]
     fill_in "feature_category_slug", :with => @feature_cats[i][:slug]

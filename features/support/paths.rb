@@ -22,6 +22,9 @@ module NavigationHelpers
     when /features/
       feature_categories_path
 
+    when /the faq page/
+      "/support/faq/most-popular"
+
     when /get d3 page/
       partner_categories_path
 

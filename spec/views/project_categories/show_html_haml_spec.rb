@@ -3,11 +3,10 @@ require 'spec_helper'
 describe "project_categories/show.html.haml" do
 
   it "renders" do
-    @test_project = FactoryGirl.build:project
-    @test_project2 = FactoryGirl.build :project
-    @test_project3 = FactoryGirl.build(:project, :name => "ProjectThree")
-
-    @test_project_cat = FactoryGirl.build(:project_category, :projects => [@test_project, @test_project2])
+    @test_project = FactoryGirl.create:project
+    @test_project2 = FactoryGirl.create :project
+    @test_project3 = FactoryGirl.create(:project, :name => "ProjectThree")
+    @test_project_cat = FactoryGirl.create(:project_category, :projects => [@test_project, @test_project2])
 
     assign(:project_category, @test_project_cat)
     assign(:project_categories, [@test_project_cat])

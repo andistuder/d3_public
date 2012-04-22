@@ -18,8 +18,10 @@ When /^I add those projects to the CMS$/ do
   create_placeholder_image
 
   @project_cas.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Project content areas"
+    visit('/admin/project_content_area')
+    #within(".sidebar-nav") do
+    #  click_link "Project content areas"
+    #end
     click_link "Add new"
     fill_in "project_content_area_title", :with => @project_cas[i][:title]
     fill_in "project_content_area_content", :with => @project_cas[i][:content]
@@ -27,8 +29,10 @@ When /^I add those projects to the CMS$/ do
   end
 
   @projects.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Projects"
+    visit('/admin/project')
+    #within(".sidebar-nav") do
+    #  click_link "Projects"
+    #end
     click_link "Add new"
     fill_in "project_name", :with => @projects[i][:name]
     fill_in "project_slug", :with => @projects[i][:slug]
@@ -50,8 +54,10 @@ When /^I add those projects to the CMS$/ do
   end
 
   @project_cats.each_with_index do |n, i|
-    visit('/admin')
-    click_link "Project categories"
+    visit('/admin/project_category')
+    #within(".sidebar-nav") do
+    #  click_link "Project categories"
+    #end
     click_link "Add new"
     fill_in "project_category_name", :with => @project_cats[i][:name]
     fill_in "project_category_slug", :with => @project_cats[i][:slug]

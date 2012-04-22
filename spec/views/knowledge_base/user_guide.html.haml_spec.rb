@@ -9,10 +9,10 @@ describe "knowledge_base/user_guide.html.haml" do
       @children = []
 
       2.times do |i|
-        parent = FactoryGirl.build(:chapter, :name => "parent_chapter#{i}", :created_at => Time.now - (1000 * i))
+        parent = FactoryGirl.create(:chapter, :name => "parent_chapter#{i}", :created_at => Time.now - (1000 * i))
 
         2.times do |j|
-          @children << FactoryGirl.build(:chapter, :name => "child_chapter#{i}-#{j}", :created_at => Time.now - (1000 * i))
+          @children << FactoryGirl.create(:chapter, :name => "child_chapter#{i}-#{j}", :created_at => Time.now - (1000 * i))
         end
 
         parent.should_receive(:children).at_least(1).times.and_return(@children)

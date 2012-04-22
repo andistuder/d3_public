@@ -7,6 +7,7 @@ FactoryGirl.define do
     how_made Faker::Lorem.paragraph
     how_made_title Faker::Lorem.words
     created_at Time.now
+    assets [Factory(:asset)]
   end
 
   factory :project_category, :class => ProjectCategory do

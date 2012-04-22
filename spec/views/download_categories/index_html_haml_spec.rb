@@ -4,10 +4,9 @@ describe "download_categories/index.html.haml" do
 
   it "renders" do
     @dlc = FactoryGirl.build :download_category
-    @dl = FactoryGirl.build :download
-    @dl1 = FactoryGirl.build :download
+    @dl = FactoryGirl.create :download
+    @dl1 = FactoryGirl.create :download
     @dlc1 = FactoryGirl.build :download_category
-
 
     assign(:downloads, [@dl, @dl1])
     assign(:download_categories, [@dlc, @dlc1])

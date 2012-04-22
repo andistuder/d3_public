@@ -4,7 +4,7 @@ describe "news_items/show.html.haml" do
 
   it "renders" do
 
-    @news_item = FactoryGirl.build :news_item
+    @news_item = FactoryGirl.create :news_item
 
     assign(:news_item, @news_item)
     assign(:related_boxes, [])

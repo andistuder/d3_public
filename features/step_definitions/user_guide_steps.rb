@@ -29,7 +29,7 @@ end
 When /^I added those chapters to the CMS$/ do
 
   @child_chapters.each_with_index do |n, i|
-    visit('/admin')
+    visit('/admin/chapter')
     fill_in_chapter(i, @child_chapters)
 
     within("#chapter_content_area_ids_field") do
@@ -40,7 +40,7 @@ When /^I added those chapters to the CMS$/ do
   end
 
   @parent_chapters.each_with_index do |n, i|
-    visit('/admin')
+    visit('/admin/chapter')
     fill_in_chapter(i, @parent_chapters)
     within("#chapter_child_ids_field") do
       click_link "Choose all"
@@ -78,7 +78,9 @@ Then /^I should see a the chapter detail$/ do
 end
 
 def fill_in_chapter(i, chapters)
-  click_link "User guide chapters"
+  #within(".sidebar-nav") do
+  #   click_link "User guide chapters"
+  #end
   click_link "Add new"
   fill_in "chapter_name", :with => chapters[i][:name]
   fill_in "chapter_summary", :with => chapters[i][:summary]

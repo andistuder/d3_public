@@ -4,7 +4,7 @@ describe "partner_categories/show.html.haml" do
   it "renders" do
     @test_partner = FactoryGirl.build(:partner)
     @d3_partner = FactoryGirl.build(:partner, :name => "d3 Technologies")
-    @test_partner_cat = FactoryGirl.build(:partner_category, :slug => "distributors", :partners => [@test_partner, @d3_partner])
+    @test_partner_cat = FactoryGirl.create(:partner_category, :slug => "distributors", :partners => [@test_partner, @d3_partner])
 
     assign(:partner_category, @test_partner_cat)
     #assign(:partners, [@test_partner])
