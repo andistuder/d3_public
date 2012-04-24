@@ -242,7 +242,7 @@ else
         end
 
         field :parent, :belongs_to_association
-        field :children, :has_many_association
+        #field :children, :has_many_association
         field :content_areas, :has_many_association
       end
 
