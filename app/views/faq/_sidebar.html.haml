@@ -1,4 +1,4 @@
-%ul.activated
+%ul.activated.two
   - for faq_category in @faq_categories do
     %li
       .category= link_to faq_category.name, faq_path(faq_category), :id => faq_category.slug

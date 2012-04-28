@@ -18,7 +18,7 @@ else
     # config.audit_with :paper_trail, User
 
     #config.included_models = ["Asset", "FeatureCategory", "Feature", "Category", "ContentArea", "Page", "User", "NewsItem"]
-    #config.excluded_models = [Category]
+    config.excluded_models = [ChapterContentArea]
 
     config.models do
       list do
@@ -228,7 +228,7 @@ else
         field :sort_order
         field :parent, :belongs_to_association
         field :children, :has_many_association
-        field :content_areas, :has_many_association
+        #field :content_areas, :has_many_association
       end
 
       edit do
@@ -243,17 +243,17 @@ else
 
         field :parent, :belongs_to_association
         #field :children, :has_many_association
-        field :content_areas, :has_many_association
+        #field :content_areas, :has_many_association
       end
 
     end
 
-    config.model ChapterContentArea do
-      parent Chapter
-      label 'UG chapter content areas'
-      label_plural 'UG chapter content areas'
-
-    end
+    #config.model ChapterContentArea do
+    #  parent Chapter
+    #  label 'UG chapter content areas'
+    #  label_plural 'UG chapter content areas'
+    #
+    #end
 
     #############
     # User

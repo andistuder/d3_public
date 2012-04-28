@@ -1,11 +1,14 @@
-%ul#chapters.treeview.hidden
-  %li#user_guide_home= link_to "USER GUIDE HOME", "javascript: void(0)"
-
-  - @chapters.each do |parent|
-    %li{:id => parent.slug}
-      %span.chapter
-        = parent.name
-      - if parent.children.length > 0
-        %ul
-          - parent.children.each do |child|
-            %li= link_to child.name, chapter_path(child, :parent => parent.slug)
+#TODO remove
+%h1 Chapters_tree
+%p Find me in app/views/chapters/_tree.html.haml
+-#%ul#chapters.treeview.hidden
+-#  %li#user_guide_home= link_to "USER GUIDE HOME", "javascript: void(0)"
+-#
+-#  - @chapters.each do |parent|
+-#    %li{:id => parent.slug}
+-#      %span.chapter
+-#        = parent.name
+-#      - if parent.children.length > 0
+-#        %ul
+-#          - parent.children.each do |child|
+-#            %li= link_to child.name, chapter_path(child, :parent => parent.slug)

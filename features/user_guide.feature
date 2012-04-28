@@ -25,18 +25,18 @@ Feature: User Guide
     When I go to the user guide page
     Then I should see those chapters
 
-  @javascript
-  Scenario: Viewing chapter summary
-    When I go to the user guide page
-    And I click span "add-video"
-    Then I should see a summary of it's chapters
+#  @javascript
+#  Scenario: Viewing chapter summary
+#    When I go to the user guide page
+#    And I click span "add-video"
+#    Then I should see a summary of it's chapters
 
   @javascript
-  Scenario: Viewing chapter detail
+  Scenario: Viewing full chapter
     When I go to the user guide page
-    And I click span "add-video"
-    And I wait for "Line up markers" to appear
-    And I click link "Line up markers"
+    And I click link "add-video"
+#    And I wait for "Line up markers" to appear
+#    And I click link "Line up markers"
     Then I should see a the chapter detail
 
 

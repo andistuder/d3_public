@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "case_studies/index.html.haml" do
 
   it "renders" do
-    @test_case_study_cat = FactoryGirl.build(:case_study)
-    @test_case_study_cat2 = FactoryGirl.build(:case_study)
+    @test_case_study_cat = build(:case_study)
+    @test_case_study_cat2 = build(:case_study)
     assign(:case_studies, [@test_case_study_cat, @test_case_study_cat2])
     assign(:related_boxes, [])
 

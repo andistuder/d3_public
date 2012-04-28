@@ -27,21 +27,21 @@ When /^I added those download items to the CMS$/ do
 
 
   @dlcs.each_with_index do |n, i|
-    visit('/admin')
-    within(".sidebar-nav") do
-      click_link "Download categories"
-    end
-    click_link "Add new"
+    visit('/admin/download_category/new')
+    #within(".sidebar-nav") do
+    #  click_link "Download categories"
+    #end
+    #click_link "Add new"
     fill_in "download_category_name", :with => @dlcs[i][:name]
     click_button "Save"
   end
 
   @dls.each_with_index do |n, i|
-    visit('/admin')
-    within(".sidebar-nav") do
-      click_link "Downloads"
-    end
-    click_link "Add new"
+    visit('/admin/download/new')
+    #within(".sidebar-nav") do
+    #  click_link "Downloads"
+    #end
+    #click_link "Add new"
     fill_in "download_name", :with => @dls[i][:name]
     fill_in "download_content", :with => @dls[i][:content]
     within("#download_category_ids_field") do

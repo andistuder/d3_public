@@ -3,7 +3,6 @@ require 'spec_helper'
 describe ChaptersController do
 
   before :each do
-
     @parents = []
 
     15.times do |i|
@@ -13,13 +12,10 @@ describe ChaptersController do
     @user_guide_intro = FactoryGirl.build(:user_guide)
     @user_guide_body = FactoryGirl.build(:user_guide)
 
-    @chapter = Factory.build(:chapter)
+    @chapter = @parents[1]
 
     Chapter.should_receive(:find_parents).and_return(@parents)
     Chapter.should_receive(:find).with("1").and_return(@chapter)
-    ContentArea.should_receive(:find_by_name).with("user_guide_intro").and_return(@user_guide_intro)
-    ContentArea.should_receive(:find_by_name).with("user_guide_body").and_return(@user_guide_body)
-
   end
 
   describe "GET 'show'" do
@@ -28,6 +24,7 @@ describe ChaptersController do
       response.should be_success
 
       assigns(:chapter).should eq(@chapter)
+
     end
   end
 
@@ -36,10 +33,9 @@ describe ChaptersController do
     assigns(:chapters).should eq(@parents)
   end
 
-  it "retrieves the user guide intro &body" do
+  it "assigns the chapter index" do
     get 'show', :id => "1"
-    assigns(:user_guide_intro).should eq(@user_guide_intro)
-    assigns(:user_guide_body).should eq(@user_guide_body)
+    assigns(:index).should eq(2)
   end
 
 end

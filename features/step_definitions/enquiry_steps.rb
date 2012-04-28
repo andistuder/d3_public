@@ -12,11 +12,11 @@ end
 When /^I add this page to the CMS$/ do
 
   @page_data.each_with_index do |n, i|
-    visit('/admin')
-    within(".sidebar-nav") do
-      click_link "Static pages"
-    end
-    click_link "Add new"
+    visit('/admin/page/new')
+    #within(".sidebar-nav") do
+    #  click_link "Static pages"
+    #end
+    #click_link "Add new"
     fill_in "page_name", :with => @page_data[i][:name]
     fill_in "page_slug", :with => @page_data[i][:slug]
     fill_in "page_introduction", :with => @page_data[i][:content]

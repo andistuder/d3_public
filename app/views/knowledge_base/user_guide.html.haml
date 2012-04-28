@@ -1,12 +1,16 @@
 %section#breadcrumb
   = render "breadcrumb"
 .container
-  %section#sidebar
-    =render :partial => "/chapters/tree"
+  %section#sidebar.nav
+    =render :partial => "/chapters/sidebar"
   %section#content
     %article#user_guide
-      =render :partial => "/chapters/summary", :locals => {:chapter_detail => nil}
-
+      = render "layouts/social_bookmarks"
+      %h1 User Guide
+      - if @user_guide_intro
+        .introduction= sanitize(textilize(@user_guide_intro.content))
+      - if @user_guide_body
+        %section.section= sanitize(textilize(@user_guide_body.content))
 %section#prev_next_bar
   &nbsp;
 %section#related

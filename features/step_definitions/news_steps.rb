@@ -39,11 +39,11 @@ When /^I added those news items to the CMS$/ do
   create_placeholder_image
 
   @news.each_with_index do |n, i|
-    visit('/admin')
-    within(".sidebar-nav") do
-      click_link "News items"
-    end
-    click_link "Add new"
+    visit('/admin/news_item/new')
+    #within(".sidebar-nav") do
+    #  click_link "News items"
+    #end
+    #click_link "Add new"
     fill_in "news_item_headline", :with => @news[i][:headline]
     #fill_in "news_item_summary", :with => @news[i][:summary]
     fill_in "news_item_content", :with => @news[i][:content]

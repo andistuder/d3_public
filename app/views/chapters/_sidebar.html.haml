@@ -1,0 +1,11 @@
+%ul.activated.three
+  - i = 1
+  - @chapters.each do |chapter|
+    %li
+      .category= link_to "#{i.to_s}. #{chapter.name}", chapter, :id => chapter.slug
+      %ul.display-none.children
+        - ii = 1
+        - for child in chapter.children do
+          %li= link_to "#{i}.#{ii}. #{child.name}", "#{chapter_path(chapter)}##{child.slug}"
+          - ii += 1
+      - i += 1
