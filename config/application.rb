@@ -59,6 +59,7 @@ module D3
     # http://stackoverflow.com/questions/7542994/rails-3-1-asset-pipeline-have-heroku-implications
     config.assets.initialize_on_precompile = false
 
+    config.action_view.sanitized_allowed_attributes = 'id', 'class', 'style'
 
     # CMS config
     # D3::Application::SITE_NAME
