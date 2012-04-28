@@ -9,12 +9,12 @@
       %h1= "#{@index}. #{@chapter.name}"
       .introduction
         = sanitize(textilize(@chapter.summary))
+      - iii = 1
       - @chapter.children.each do |child|
-        - ii = 1
         %section.section{:id => child.slug}
-          %h2= "#{@index}.#{ii} #{child.name}"
-          - ii += 1
+          %h2= "#{@index}.#{iii} #{child.name}"
           = sanitize(textilize(child.content))
+        - iii += 1
 %section#prev_next_bar
   &nbsp;
 %section#related
