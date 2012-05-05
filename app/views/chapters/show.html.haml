@@ -16,7 +16,16 @@
           = sanitize(textilize(child.content))
         - iii += 1
 %section#prev_next_bar
-  &nbsp;
+  - if @chapter.previous_chapter.present?
+    .previous
+      %p
+        %span Previous
+      %p= link_to @chapter.previous_chapter.name, @chapter.previous_chapter
+  - if @chapter.next_chapter.present?
+    .next
+      %p
+        %span Next
+      %p= link_to @chapter.next_chapter.name, @chapter.next_chapter
 %section#related
   = render "layouts/related"
 

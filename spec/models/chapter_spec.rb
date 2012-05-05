@@ -22,4 +22,14 @@ describe Chapter do
     @chapter.respond_to?(:friendly_id).should be_true
   end
 
+  it "should give the previous_chapter" do
+    @chapter = Chapter.new
+    @chapter.respond_to?(:previous_chapter).should be_true
+  end
+
+  it "should give the next_chapter" do
+    @chapter = Chapter.new
+    @chapter.respond_to?(:next_chapter).should be_true
+  end
+
 end
