@@ -12,7 +12,7 @@
   %p= label_tag(:website)
   = text_field_tag :website, nil, :class => 'text_field'
   %p= label_tag(:email, "Email *")
-  = text_field_tag :email, nil, :class => 'text_field required'
+  = email_field_tag :email, nil, :class => 'text_field required'
   %p= label_tag(:city, "City *")
   = text_field_tag :city, nil, :class => 'text_field required'
   %p= label_tag(:country)
