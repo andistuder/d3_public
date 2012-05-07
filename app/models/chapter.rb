@@ -1,5 +1,5 @@
 class Chapter < ActiveRecord::Base
-  validates_presence_of :name, :summary, :content, :slug
+  validates_presence_of :name, :content, :slug
 
   extend FriendlyId
   friendly_id :name, :use => :slugged
@@ -10,7 +10,7 @@ class Chapter < ActiveRecord::Base
 
   scope :find_parents, :order=>"sort_order ASC", :conditions => "parent_id IS NULL"
 
-  acts_as_indexed :fields => [:name, :summary, :content]
+  acts_as_indexed :fields => [:name, :content]
 
   def previous_chapter
     self.class.find_parents.first(:conditions => ["sort_order < ?", sort_order], :order => "sort_order desc")

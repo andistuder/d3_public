@@ -7,7 +7,7 @@ describe Chapter do
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:slug) }
-  it { should validate_presence_of(:summary) }
+  #it { should validate_presence_of(:summary) }
   it { should validate_presence_of(:content) }
 
   it { should have_many(:content_areas) }

@@ -6,13 +6,13 @@
         %h3= tutorial.name
         = sanitize(textilize(truncate(tutorial.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
         %p= link_to "#{root_url.chop}/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}", "#{root_url.chop}/support/tutorials##{tutorial.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, '-').downcase}"
--#-if @chapters.present?       #TODO uncomment when user guide ready
+-if @chapters.present?       #TODO uncomment when user guide ready
   %h2 User Guide
   %ul
     - for chapter in @chapters do
       %li
         %h3= chapter.name
-        = sanitize(textilize(truncate(chapter.summary, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+        = sanitize(textilize(truncate(chapter.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
         -if chapter.parent.present?
           %p= link_to "#{root_url.chop}#{chapter_path(chapter, :parent => chapter.parent.slug)}", "#{root_url.chop}#{chapter_path(chapter, :parent => chapter.parent.slug)}"
         -else

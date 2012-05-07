@@ -88,8 +88,10 @@ body.bp
           li
             .category
               border-top: 1px solid $dark_grey_bg
-              padding-right: 12px
-              padding-left: 18px
+              //padding-right: 12px
+              //padding-left: 18px
+              padding: 4px 12px 4px 18px
+              line-height: 1.4em
             .category.active
               +background-image(linear-gradient(#f8f8f8, #e5e5e5))
             ul
@@ -99,6 +101,9 @@ body.bp
               list-style-type: disc
               li
                 font-weight: 200
+                line-height: 1.3em
+                padding-top: 3px
+                padding-bottom: 3px
             ul.children
               list-style-type: none
               padding-left: 20px

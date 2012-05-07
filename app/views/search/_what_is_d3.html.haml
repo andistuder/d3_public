@@ -5,7 +5,9 @@
       %li
         %h3= feature.name
         = sanitize(textilize(truncate(feature.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
-        %p= link_to "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}", "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}"
+        -#%p= link_to "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}", "#{root_url.chop}#{feature_category_path(feature.feature_category)}##{feature.slug}"
+        -if feature.feature_category.present?
+          %p= link_to "#{feature_category_path(feature.feature_category, :only_path => false)}##{feature.slug}", "#{feature_category_path(feature.feature_category, :only_path => false)}##{feature.slug}"
 -if @case_studies.present?
   %h2 Case Studies
   %ul
