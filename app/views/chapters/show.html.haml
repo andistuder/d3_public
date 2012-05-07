@@ -8,7 +8,7 @@
       = render "layouts/social_bookmarks"
       %h1= "#{@index}. #{@chapter.name}"
       .introduction
-        = sanitize(textilize(@chapter.summary))
+        = sanitize(textilize(@chapter.content))
       - iii = 1
       - @chapter.children.each do |child|
         %section.section{:id => child.slug}

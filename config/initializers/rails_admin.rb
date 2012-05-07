@@ -234,9 +234,9 @@ else
       edit do
         field :name
         field :sort_order
-        field :summary do
-          help 'Summary is only used on child chapters when a parent is clicked to show an overview'
-        end
+        #field :summary do
+        #  help 'Summary is only used on child chapters when a parent is clicked to show an overview'
+        #end
         field :content do
           help 'Content is only used when viewing the chapter detail'
         end

@@ -11,12 +11,12 @@ Feature: User Guide
       | user_guide_intro | User guide page intro copy describing the user guide |
       | user_guide_body  | h1. Before you start reading the user guide \n read this section thoroughly |
     And the following parent chapters
-      | name      | sort_order | summary                        | content                                 | parent_id |
-      | Add Video | 1          | Summary about how to add video | lots of detail about adding video to D3 | nil       |
+      | name      | sort_order | content                                 | parent_id |
+      | Add Video | 1          | lots of detail about adding video to D3 | nil       |
     And the following child chapters
-      | name            | sort_order | summary                       | content                           | parent_id |
-      | Line up markers | 1          | Summary about line up markers | more detail about line up markers | 1         |
-      | Add video child | 2          | Summary about add video child | more detail about add video child | 1         |
+      | name            | sort_order | content                           | parent_id |
+      | Line up markers | 1          | more detail about line up markers | 1         |
+      | Add video child | 2          | more detail about add video child | 1         |
     And I added those chapters to the CMS
     And I added those content areas to the CMS
 

@@ -41,7 +41,7 @@ When /^I added those chapters to the CMS$/ do
   @child_chapters.each_with_index do |n, i|
     chapter = Chapter.new
     chapter.name = n[:name]
-    chapter.summary = n[:summary]
+    #chapter.summary = n[:summary]
     chapter.content = n[:content]
     chapter.sort_order = n[:sort_order]
     chapter.parent = Chapter.first
@@ -82,7 +82,7 @@ end
 Then /^I should see a the chapter detail$/ do
 
   page.has_content? @parent_chapters[0][:name]
-  page.has_content? @parent_chapters[0][:summary]
+  page.has_content? @parent_chapters[0][:content]
   page.has_content? @child_chapters[0][:content]
   page.has_content? @child_chapters[0][:content]
   page.has_content? @child_chapters[1][:content]
@@ -101,7 +101,7 @@ def fill_in_chapter(i, chapters)
   visit('/admin/chapter/new')
   #click_link "Add new"
   fill_in "chapter_name", :with => chapters[i][:name]
-  fill_in "chapter_summary", :with => chapters[i][:summary]
+  #fill_in "chapter_summary", :with => chapters[i][:summary]
   fill_in "chapter_content", :with => chapters[i][:content]
   fill_in "chapter_sort_order", :with => chapters[i][:sort_order]
 end
