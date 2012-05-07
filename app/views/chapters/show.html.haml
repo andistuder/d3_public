@@ -14,6 +14,8 @@
         %section.section{:id => child.slug}
           %h2= "#{@index}.#{iii} #{child.name}"
           = sanitize(textilize(child.content))
+          %p.scroll_up
+            = link_to "Back to top ↑", "#{chapter_path(@chapter)}#header"
         - iii += 1
 %section#prev_next_bar
   - if @chapter.previous_chapter.present?
