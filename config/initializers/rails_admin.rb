@@ -220,9 +220,9 @@ else
       label_plural 'User guide chapters' # Same, plural
 
       list do
-        filters [:parent]
-        sort_by :parent_id # Sort column (default is primary key)
-        sort_reverse true # Sort direction (default is true for primary key, last created first)
+        #filters [:parent]
+        #sort_by :parent_id # Sort column (default is primary key)
+        #sort_reverse true # Sort direction (default is true for primary key, last created first)
 
         field :name
         field :sort_order
