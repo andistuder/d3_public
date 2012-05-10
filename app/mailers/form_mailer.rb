@@ -1,5 +1,5 @@
 class FormMailer < ActionMailer::Base
-  default :from => "webmailer@cenatus.org"
+  # default :from => "webmailer@cenatus.org"
 
   def enquiry_email(form_content)
     @form_content = form_content
@@ -8,6 +8,6 @@ class FormMailer < ActionMailer::Base
 
   def mailer_email(form_content)
     @form_content = form_content
-    mail(:to => "mailinglist@d3technologies.com", :subject => "mailing list subscription")
+    mail(:to => "mailinglist@d3technologies.com", :from => "webmailer@cenatus.org", :subject => "mailing list subscription")
   end
 end
