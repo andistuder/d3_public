@@ -1,7 +1,6 @@
 -if full_width == true
   - if object.vimeo_id.present?
-    .display-none
-      %iframe{:frameborder => "0", :height => "586", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938", :id => "vimeo_player"}
+    %iframe{:frameborder => "0", :height => "586", :src => "http://player.vimeo.com/video/#{object.vimeo_id}", :width => "938", :id => "vimeo_player", :class => "display-none"}
   - if object.assets.present?
     - if object.assets.length > 1
       %span#prevBtn.one-col
