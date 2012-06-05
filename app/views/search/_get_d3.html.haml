@@ -5,5 +5,5 @@
       -if partner.partner_category.present?
         %li
           %h3= partner.name
-          = sanitize(textilize(truncate(partner.summary, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+          %p= strip_tags(textilize(truncate(partner.summary, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
           %p= link_to "#{root_url.chop}#{partner_category_path(partner.partner_category)}/#{partner.slug}", "#{root_url.chop}#{partner_category_path(partner.partner_category)}/#{partner.slug}"

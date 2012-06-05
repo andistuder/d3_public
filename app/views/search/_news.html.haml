@@ -4,5 +4,5 @@
     - for news_item in @news do
       %li
         %h3= news_item.headline
-        = sanitize(textilize(truncate(news_item.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
+        %p= strip_tags(textilize(truncate(news_item.content, :length => D3::Application::RESULT_TEXT_LENGHT, :separator => ' ')))
         %p= link_to news_item_path(news_item,  :only_path => false), news_item_path(news_item,  :only_path => false)
