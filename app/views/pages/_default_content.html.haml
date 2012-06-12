@@ -9,8 +9,10 @@
   -#%section#sidebar.nav
   -#  = render "sidebar"
   %section#content
-    - if @page.vimeo_id.present?
-      %iframe{:frameborder => "0", :height => "586", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
+    = render "layouts/slideshow", :object => @page, :full_width => true
+    -#
+    -#- if @page.vimeo_id.present?
+    -#  %iframe{:frameborder => "0", :height => "586", :src => "http://player.vimeo.com/video/#{@page.vimeo_id}", :width => "938"}
     = render :partial => "page_content_header"
     - for content_area in @page.content_areas do
       %section{:id => content_area.name.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "-").downcase, :class => "default_content"}
