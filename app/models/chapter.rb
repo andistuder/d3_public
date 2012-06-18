@@ -13,11 +13,11 @@ class Chapter < ActiveRecord::Base
   acts_as_indexed :fields => [:name, :content]
 
   def previous_chapter
-    self.class.find_parents.first(:conditions => ["sort_order < ?", sort_order], :order => "sort_order desc")
+    self.class.find_parents.last(:conditions => ["sort_order < ?", sort_order])
   end
 
   def next_chapter
-    self.class.find_parents.first(:conditions => ["sort_order > ?", sort_order], :order => "sort_order asc")
+    self.class.find_parents.first(:conditions => ["sort_order > ?", sort_order])
   end
 
 
