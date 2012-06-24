@@ -32,7 +32,7 @@ module NavigationHelpers
       projects_path
 
     when /the user guide/
-      "/preview/user-guide" #TODO sort paths here when user guide ready
+      "/support/user-guide"
 
     when /the case studies page/
       case_studies_path

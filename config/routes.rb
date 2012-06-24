@@ -24,8 +24,7 @@ D3::Application.routes.draw do
     match "announcements/next/:page" => "news_items#next_announcements"
     match "announcements/:id" => "news_items#show"
     scope "user-guide" do
-      match "" => "pages#dynamic", :slug => "user-guide"  #TODO remove when User guide ready
-      #match "" => "knowledge_base#user_guide"
+      match "" => "knowledge_base#user_guide"
       resources :chapters, :only => :show
     end
 
@@ -35,13 +34,6 @@ D3::Application.routes.draw do
 
     scope "tutorials" do
       match "" => "pages#dynamic", :slug => "tutorials"
-    end
-  end
-
-  scope "preview" do     #TODO remove when User guide ready
-    scope "user-guide" do
-      match "" => "knowledge_base#user_guide"
-      #resources :chapters, :only => :show
     end
   end
 
