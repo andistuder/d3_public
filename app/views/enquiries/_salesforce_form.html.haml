@@ -1,0 +1,48 @@
+%form#enquiryForm.expander{:action => "https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8", :method => "POST"}
+  %input{:name => "oid", :type => "hidden", :value => "00DE0000000a3XR"}
+  %input{:name => "retURL", :type => "hidden", :value => "http://www.d3technologies.com/thank-you-for-you-interest-in-d3"}
+  / ----------------------------------------------------------------------
+  / NOTE: These fields are optional debugging elements. Please uncomment
+  / these lines if you wish to test in debug mode.
+  -#%input{:name => "debug", :type => "hidden", :value => "1"}
+  -#%input{:name => "debugEmail", :type => "hidden", :value => "andi.studer@gmail.com"}
+  / value="judith.hornman@d3technologies.com">
+  / ----------------------------------------------------------------------
+  %p
+    %label{:for => "first_name"} First Name *
+  %input#first_name.text_field.required{:maxlength => "40", :name => "first_name", :size => "20", :type => "text"}/
+  %p
+    %label{:for => "last_name"} Last Name *
+  %input#last_name.text_field.required{:maxlength => "80", :name => "last_name", :size => "20", :type => "text"}/
+  %p
+    %label{:for => "email"} Email *
+  %input#email.text_field.required{:maxlength => "80", :name => "email", :size => "20", :type => "text"}/
+  %p
+    %label{:for => "company"} Company
+  %input#company.text_field{:maxlength => "40", :name => "company", :size => "20", :type => "text"}/
+  %p
+    %label{:for => "city"} City *
+  %input#city.text_field.required{:maxlength => "40", :name => "city", :size => "20", :type => "text"}/
+  %p
+    %label{:for => "street"} Address
+  %textarea{:name => "street"}
+  %p
+    %label{:for => "phone"} Phone *
+  %input#phone.text_field.required{:maxlength => "40", :name => "phone", :size => "20", :type => "text"}/
+  %p
+    Industries:
+  %select{:id=>"00NE0000001m71I", :multiple=>"multiple", :name=>"00NE0000001m71I", :title=>"Industries"}
+    %option{:value => "Live Music"} Live Music
+    %option{:value => "Corporate Events"} Corporate Events
+    %option{:value => "TV / Broadcast"} TV / Broadcast
+    %option{:value => "Theatre"} Theatre
+    %option{:value => "Film"} Film
+    %option{:value => "Architecture"} Architecture
+    %option{:value => "Art Installation"} Art Installation
+    %option{:value => "Theme Park"} Theme Park
+    %option{:value => "Education"} Education
+  %p
+    Where did you hear about us:
+  %input.text_field{:id=> "00NE0000001mMTn", :maxlength => "120", :name => "00NE0000001mMTn", :size => "20", :type => "text"}/
+  %p
+    %input.submit_button{:name => "submit", :type => "submit"}

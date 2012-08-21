@@ -26,7 +26,7 @@ end
 
 
 When /^I add those features to the enquiry form$/ do
-
+  pending #the enquiry form can now edited in CMS.. no longer is tested with cucumber.
   @form_data.each_with_index do |n, i|
     visit('/enquiry-form')
     fill_in "first_name", :with => @form_data[i][:first_name]

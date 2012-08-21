@@ -8,4 +8,6 @@
       .introduction
         = sanitize(textilize(@page.introduction))
     #enquiry_form
-      = render :partial => "enquiries/form"
+      = @page.content_areas.first.content.html_safe
+      -#= render :partial => "enquiries/salesforce_form" #alternative to having it in content area
+      -#= render :partial => "enquiries/form"  #old form - should still work if uncommented
