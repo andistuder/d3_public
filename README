@@ -1,1 +1,46 @@
-Readme content soon to follow!
+## d3technologies
+
+## Prerequisites ##
+
+1. You will need an RVM installedon your system
+2. You need the Ruby version as declared in .rvmrc installed.
+3. Choose this Ruby version as current and create an empty gemset of name as in .rvmrc
+4. You will need a postgres database server in your system
+
+
+## Installation ##
+
+1. Download this repository to your development environment
+2. Cd into the repository directory and accept the RVM file
+3. Run bundle so that the bundle has the gems which are relevant: $ bundle install (in VM or directly in project directory)
+4. Copy config/s3.example.yml to config/s3.yml, add keys as needed.
+5. Create the databases with by running 'bundle exec rake db:setup'
+6. Seed the database by running 'bundle exec rake db:setup'
+7. create an user either via rails console, or by setting the devise flag 'registerable' in models/user.rb
+
+
+## Data seeding ##
+
+db:seed is run during db:setup. You'll also want the following for populating the application with sample companies and their related data:
+
+   $ bundle exec rake ss3:sample_date:populate
+
+## application ##
+
+In development you can run your application with
+
+   $ bundle exec rails s
+
+Or open a rails console with
+
+   $ bundle exec rails c
+
+## Tests / Guard ##
+
+In development you can run the Rspec tests with Guard
+
+   $ bundle exec guard
+
+In development you can run the Cucumber tests with
+
+   $ bundle exec cucumber
