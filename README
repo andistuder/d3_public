@@ -14,9 +14,11 @@
 2. Cd into the repository directory and accept the RVM file
 3. Run bundle so that the bundle has the gems which are relevant: $ bundle install (in VM or directly in project directory)
 4. Copy config/s3.example.yml to config/s3.yml, add keys as needed.
-5. Create the databases with by running 'bundle exec rake db:setup'
-6. Seed the database by running 'bundle exec rake db:setup'
-7. create an user either via rails console, or by setting the devise flag 'registerable' in models/user.rb
+5. Copy config/initializers/devise.example.rb to config/initializers/devise.example.rb, add email address and password as needed
+6. Update YOUR_FROM_ADDRESS in config/initializers/devise.rb and app/mailers/form_mailer.rb
+7. Create the databases with by running 'bundle exec rake db:setup'
+8. Seed the database by running 'bundle exec rake db:setup'
+9. create an user either via rails console, or by setting the devise flag 'registerable' in models/user.rb
 
 
 ## Data seeding ##

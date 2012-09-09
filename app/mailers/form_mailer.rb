@@ -1,5 +1,5 @@
 class FormMailer < ActionMailer::Base
-  default :from => "webmailer@cenatus.org"
+  default :from => "YOUR_FROM_ADDRESS"
 
   def enquiry_email(form_content)
     @form_content = form_content
