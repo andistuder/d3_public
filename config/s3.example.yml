@@ -1,0 +1,12 @@
+development:
+  access_key_id: YOUR_KEYS_HERE
+  secret_access_key: YOUR_KEYS_HERE
+test:
+  access_key_id: YOUR_KEYS_HERE
+  secret_access_key: YOUR_KEYS_HERE
+production:
+  access_key_id: YOUR_KEYS_HERE
+  secret_access_key: YOUR_KEYS_HERE
+
+# heroku suggests an different strategy, you may want to change following these instructions:
+# https://devcenter.heroku.com/articles/config-vars
