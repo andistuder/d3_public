@@ -5,4 +5,5 @@ log/*.log
 tmp/
 public/system/
 config/s3.yml
+config/initializers/mailer.rb
 
